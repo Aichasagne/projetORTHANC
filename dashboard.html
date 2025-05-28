@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord - Projet Médical</title>
+    <script src="http://localhost:8042/stone-webviewer/stone-bundle.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 2rem 1.5rem;
+            height: 100vh;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .sidebar h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 2.5rem;
+            text-shadow: 0 0 10px #06b6d4;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sidebar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #06b6d4;
+            transition: width 0.3s ease;
+        }
+
+        .sidebar a:hover::after {
+            width: 100%;
+        }
+
+        .sidebar a:hover {
+            background: rgba(6, 182, 212, 0.2);
+            transform: translateX(5px);
+        }
+
+        .sidebar a i {
+            margin-right: 0.75rem;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .sidebar a:hover i {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 5px #06b6d4);
+        }
+
+        .main-content {
+            margin-left: 260px;
+            padding: 3rem;
+            width: calc(100% - 260px);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .patient-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .patient-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .patient-card h4 {
+            color: #06b6d4;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .patient-card p {
+            color: white;
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .patient-card .actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #06b6d4, #22d3ee);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: popIn 0.4s ease-out;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 1.75rem;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #06b6d4;
+            box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .input-field::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .input-label {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: transparent;
+        }
+
+        .input-field:focus+.input-label,
+        .input-field:not(:placeholder-shown)+.input-label,
+        select.input-field:valid+.input-label {
+            top: -10px;
+            left: 10px;
+            font-size: 0.75rem;
+            color: #06b6d4;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 0 6px;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0 0.5rem;
+            width: 100%;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-weight: 600;
+            color: #06b6d4;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        td {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        tr:hover td {
+            background: rgba(6, 182, 212, 0.1);
+            transform: scale(1.01);
+        }
+
+        .action-btn {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 5px #06b6d4);
+        }
+
+        .patient-section {
+            margin-bottom: 2rem;
+        }
+
+        .patient-section h3 {
+            color: #06b6d4;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .visible {
+            display: flex !important;
+            visibility: visible !important;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 220px;
+            }
+            .main-content {
+                margin-left: 220px;
+                width: calc(100% - 220px);
+                padding: 1.5rem;
+            }
+        }
+
+        #patients-content, #appointments-content {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        table {
+            min-width: 1000px;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            white-space: nowrap;
+        }
+
+        td.truncate {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .dicom-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .dicom-item:hover {
+            background: rgba(6, 182, 212, 0.1);
+            transform: scale(1.01);
+        }
+
+        td.w-12, th.w-12 {
+            width: 48px;
+        }
+
+        td.w-16, th.w-16 {
+            width: 64px;
+        }
+
+        td.w-32, th.w-32 {
+            width: 128px;
+        }
+
+        td.max-w-xs, th.max-w-xs {
+            max-width: 200px;
+        }
+
+        /* Styles pour la présentation des dossiers médicaux */
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 2rem;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #06b6d4, #22d3ee);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-icon {
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(6, 182, 212, 0.2);
+            border: 2px solid #06b6d4;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-icon i {
+            color: #06b6d4;
+            font-size: 1.5rem;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-left: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .timeline-content h4 {
+            color: #22d3ee;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .timeline-content .date {
+            color: #06b6d4;
+            font-weight: 600;
+        }
+
+        .timeline-content .description {
+            color: #d1d5db;
+        }
+
+        /* Styles pour les onglets du modal consultations */
+        .tab-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tab-button {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            background: #06b6d4;
+            color: white;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="sidebar">
+        <div>
+            <h1 class="flex items-center gap-2">
+                <i class="fas fa-clinic-medical text-cyan-400"></i> TABLEAU DE BORD MÉDECIN
+            </h1>
+            <a href="#" id="dashboard-link"><i class="fas fa-tachometer-alt text-cyan-400"></i> Tableau de bord</a>
+            <a href="#" id="inter-hospital-link"><i class="fas fa-hospital text-cyan-400"></i> Accès inter-hôpital</a>
+            <a href="#" id="dicom-link"><i class="fas fa-image text-cyan-400"></i> Gestion DICOM</a>
+            <a href="#" id="appointments-link"><i class="fas fa-calendar-alt text-cyan-400"></i> Mes rendez-vous</a>
+            <a href="#" id="patients-list-link"><i class="fas fa-users text-cyan-400"></i> Liste des Patients</a>
+        </div>
+        <a href="#" id="logout-link"><i class="fas fa-sign-out-alt text-cyan-400"></i> Se déconnecter</a>
+    </div>
+
+    <div class="main-content">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-extrabold text-white" id="dashboard-title"></h2>
+            <div class="flex items-center space-x-6">
+                <span class="text-gray-300">Connecté en tant que : <span class="font-semibold text-cyan-400" id="user-role"></span></span>
+                <div id="action-buttons"></div>
+            </div>
+        </div>
+        <div class="card" id="dashboard-content">
+            <!-- Contenu dynamique selon le rôle -->
+        </div>
+    </div>
+
+    <!-- Modal pour uploader un fichier DICOM -->
+    <div id="upload-dicom-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-2xl font-semibold mb-6 text-white">Uploader une image DICOM</h3>
+            <form id="upload-dicom-form" class="space-y-5">
+                <div class="input-group">
+                    <input type="file" id="upload-dicom-file" name="file" class="input-field" accept=".dcm" required>
+                    <label for="upload-dicom-file" class="input-label">Fichier DICOM</label>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" class="px-5 py-2.5 text-gray-300 hover:text-white transition-colors duration-200" onclick="closeUploadDicomModal()">Annuler</button>
+                    <button type="submit" class="btn-primary"><i class="fas fa-upload mr-2"></i> Uploader</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour uploader une image DICOM associée à un patient -->
+    <div id="upload-dicom-patient-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-2xl font-semibold mb-6 text-white">Uploader une image DICOM pour un patient</h3>
+            <form id="upload-dicom-patient-form" class="space-y-5">
+                <input type="hidden" id="upload-dicom-patient-id" name="patientId">
+                <div class="input-group">
+                    <input type="file" id="upload-dicom-patient-file" name="file" class="input-field" accept=".dcm" required>
+                    <label for="upload-dicom-patient-file" class="input-label">Fichier DICOM</label>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" class="px-5 py-2.5 text-gray-300 hover:text-white transition-colors duration-200" onclick="closeUploadDicomPatientModal()">Annuler</button>
+                    <button type="submit" class="btn-primary"><i class="fas fa-upload mr-2"></i> Uploader</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour demander un accès inter-hospitalier -->
+    <div id="inter-hospital-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-2xl font-semibold mb-6 text-white">Demander un accès inter-hospitalier</h3>
+            <form id="inter-hospital-form" class="space-y-5">
+                <div class="input-group">
+                    <input type="text" id="hospital-name" class="input-field" placeholder=" " required>
+                    <label for="hospital-name" class="input-label">Nom de l\'hôpital</label>
+                </div>
+                <div class="input-group">
+                    <textarea id="hospital-reason" class="input-field" placeholder=" " required></textarea>
+                    <label for="hospital-reason" class="input-label">Raison de la demande</label>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" class="px-5 py-2.5 text-gray-300 hover:text-white transition-colors duration-200" onclick="closeInterHospitalModal()">Annuler</button>
+                    <button type="submit" class="btn-primary"><i class="fas fa-hospital mr-2"></i> Envoyer demande</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour éditer les métadonnées DICOM -->
+    <div id="edit-dicom-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-2xl font-semibold mb-6 text-white">Éditer les métadonnées DICOM</h3>
+            <form id="edit-dicom-form" class="space-y-5">
+                <div class="input-group">
+                    <input type="text" id="edit-patient-id" name="patientId" class="input-field" placeholder=" " required>
+                    <label for="edit-patient-id" class="input-label">ID Patient</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="edit-patient-name" name="patientName" class="input-field" placeholder=" " required>
+                    <label for="edit-patient-name" class="input-label">Nom du patient</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="edit-study-date" name="studyDate" class="input-field" placeholder=" " required>
+                    <label for="edit-study-date" class="input-label">Date d\'étude (AAAA.MM.JJ)</label>
+                </div>
+                <input type="hidden" id="edit-instance-id" name="instanceId">
+                <div class="flex justify-end space-x-4">
+                    <button type="button" class="px-5 py-2.5 text-gray-300 hover:text-white transition-colors duration-200" onclick="closeEditDicomModal()">Annuler</button>
+                    <button type="submit" class="btn-primary"><i class="fas fa-save mr-2"></i> Sauvegarder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour éditer un patient -->
+    <div id="edit-patient-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-2xl font-semibold mb-6 text-white">Éditer un patient</h3>
+            <form id="edit-patient-form" class="space-y-5">
+                <input type="hidden" id="edit-patient-id" name="patientId">
+                <input type="hidden" id="edit-patient-actual-id" name="actualPatientId">
+                <div class="input-group">
+                    <input type="text" id="edit-patient-nom" name="nom" class="input-field" placeholder=" " required>
+                    <label for="edit-patient-nom" class="input-label">Nom</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="edit-patient-prenom" name="prenom" class="input-field" placeholder=" " required>
+                    <label for="edit-patient-prenom" class="input-label">Prénom</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="edit-patient-email" name="email" class="input-field" placeholder=" " required>
+                    <label for="edit-patient-email" class="input-label">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="date" id="edit-patient-date-naissance" name="dateNaissance" class="input-field" placeholder=" " required>
+                    <label for="edit-patient-date-naissance" class="input-label">Date de naissance</label>
+                </div>
+                <div class="input-group">
+                    <select id="edit-patient-sexe" name="sexe" class="input-field" required>
+                        <option value="" disabled selected></option>
+                        <option value="M">Masculin</option>
+                        <option value="F">Féminin</option>
+                    </select>
+                    <label for="edit-patient-sexe" class="input-label">Sexe</label>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="edit-patient-telephone" name="telephone" class="input-field" placeholder=" ">
+                    <label for="edit-patient-telephone" class="input-label">Téléphone</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="edit-patient-adresse" name="adresse" class="input-field" placeholder=" ">
+                    <label for="edit-patient-adresse" class="input-label">Adresse</label>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" class="px-5 py-2.5 text-gray-300 hover:text-white transition-colors duration-200" onclick="closeEditPatientModal()">Annuler</button>
+                    <button type="submit" class="btn-primary"><i class="fas fa-save mr-2"></i> Sauvegarder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour consulter le dossier médical -->
+    <div id="medical-record-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-2xl font-semibold mb-6 text-white">Dossier Médical</h3>
+            <input type="hidden" id="medical-record-patient-id">
+            <div id="medical-record-content" class="mb-6 overflow-y-auto max-h-96 timeline"></div>
+            <div class="flex justify-end space-x-4">
+                <button type="button" class="px-5 py-2.5 text-gray-300 hover:text-white transition-colors duration-200" onclick="closeMedicalRecordModal()">Fermer</button>
+                <button type="button" class="btn-primary" onclick="downloadMedicalRecord()"><i class="fas fa-download mr-2"></i> Télécharger</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour consulter les consultations -->
+    <div id="consultations-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-2xl font-semibold mb-6 text-white">Consultations</h3>
+            <input type="hidden" id="consultations-patient-id">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="notes">Notes</button>
+                <button class="tab-button" data-tab="fichiers">Fichiers DICOM</button>
+            </div>
+            <div id="notes-tab" class="tab-content active">
+                <div class="flex justify-end mb-4">
+                    <button class="btn-primary" onclick="openAddConsultationModal()"><i class="fas fa-plus mr-2"></i> Ajouter une note</button>
+                </div>
+                <div id="consultations-content" class="mb-6 overflow-y-auto max-h-96 timeline"></div>
+            </div>
+            <div id="fichiers-tab" class="tab-content">
+                <div id="dicom-content" class="mb-6 overflow-y-auto max-h-96"></div>
+            </div>
+            <div class="flex justify-end space-x-4">
+                <button type="button" class="px-5 py-2.5 text-gray-300 hover:text-white transition-colors duration-200" onclick="closeConsultationsModal()">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour ajouter une consultation -->
+    <div id="add-consultation-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-2xl font-semibold mb-6 text-white">Ajouter une consultation</h3>
+            <form id="add-consultation-form" class="space-y-5">
+                <input type="hidden" id="add-consultation-patient-id" name="patientId">
+                <div class="input-group">
+                    <input type="datetime-local" id="add-consultation-date" name="date" class="input-field" placeholder=" " required>
+                    <label for="add-consultation-date" class="input-label">Date de la consultation</label>
+                </div>
+                <div class="input-group">
+                    <textarea id="add-consultation-notes" name="notes" class="input-field" placeholder=" " required></textarea>
+                    <label for="add-consultation-notes" class="input-label">Notes</label>
+                </div>
+                <div class="input-group">
+                    <input type="file" id="add-consultation-file" name="file" class="input-field" accept=".dcm">
+                    <label for="add-consultation-file" class="input-label">Fichier DICOM (optionnel)</label>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" class="px-5 py-2.5 text-gray-300 hover:text-white transition-colors duration-200" onclick="closeAddConsultationModal()">Annuler</button>
+                    <button type="submit" class="btn-primary"><i class="fas fa-save mr-2"></i> Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let patients = [];
+        const token = localStorage.getItem('token');
+        const role = localStorage.getItem('role');
+        const ORTHANC_PROXY_URL = 'http://localhost/projet-medical/api/proxy-orthanc.php';
+
+        // Store mapping of patientId to studyInstanceUID
+        let dicomStudyMap = JSON.parse(localStorage.getItem('dicomStudyMap')) || {};
+
+        // Save dicomStudyMap to localStorage
+        function saveDicomStudyMap() {
+            localStorage.setItem('dicomStudyMap', JSON.stringify(dicomStudyMap));
+        }
+
+        // Modal control functions
+        function openModal(modalId) { 
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('visible');
+            } else {
+                console.error(`Modal avec ID ${modalId} non trouvé`);
+            }
+        }
+        function closeModal(modalId) { 
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('visible');
+            } else {
+                console.error(`Modal avec ID ${modalId} non trouvé`);
+            }
+        }
+
+        function closeUploadDicomModal() { closeModal('upload-dicom-modal'); }
+        function closeUploadDicomPatientModal() { closeModal('upload-dicom-patient-modal'); }
+        function closeInterHospitalModal() { closeModal('inter-hospital-modal'); }
+        function closeEditDicomModal() { closeModal('edit-dicom-modal'); }
+        function closeEditPatientModal() { closeModal('edit-patient-modal'); }
+        function closeMedicalRecordModal() { closeModal('medical-record-modal'); }
+        function closeConsultationsModal() { closeModal('consultations-modal'); }
+        function closeAddConsultationModal() { closeModal('add-consultation-modal'); }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('role');
+            window.location.href = 'login.html';
+        }
+
+        // Initial verification and logging
+        if (!token || !role) {
+            console.log('Token ou rôle manquant, redirection vers login.html');
+            window.location.href = 'login.html';
+        } else {
+            console.log('Token chargé:', token.substring(0, 10) + '...'); // Log only first 10 chars for brevity
+        }
+
+        document.getElementById('user-role').textContent = role;
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('dashboard-link').addEventListener('click', (e) => { e.preventDefault(); loadDashboard(); });
+            document.getElementById('inter-hospital-link').addEventListener('click', (e) => { e.preventDefault(); openInterHospitalModal(); });
+            document.getElementById('dicom-link').addEventListener('click', (e) => { e.preventDefault(); loadDicomImages(); });
+            document.getElementById('appointments-link').addEventListener('click', (e) => { e.preventDefault(); loadAppointments(); });
+            document.getElementById('patients-list-link').addEventListener('click', (e) => { e.preventDefault(); loadPatientsList(); });
+            document.getElementById('logout-link').addEventListener('click', (e) => { e.preventDefault(); logout(); });
+
+            // Upload DICOM
+            document.getElementById('upload-dicom-form')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const file = document.getElementById('upload-dicom-file').files[0];
+                if (!file) { alert('Veuillez sélectionner un fichier DICOM.'); return; }
+                const formData = new FormData(); formData.append('file', file);
+                try {
+                    const response = await fetch(`${ORTHANC_PROXY_URL}?path=instances`, { method: 'POST', body: formData });
+                    const text = await response.text();
+                    const result = JSON.parse(text);
+                    if (!response.ok) throw new Error(result.error || 'Erreur d\'upload');
+                    alert('Upload réussi ! StudyInstanceUID: ' + result.studyInstanceUID);
+                    closeUploadDicomModal(); loadDicomImages();
+                } catch (error) { console.error('Erreur d\'upload DICOM:', error); alert('Erreur: ' + error.message); }
+            });
+
+            // Upload DICOM for patient
+            document.getElementById('upload-dicom-patient-form')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const patientId = document.getElementById('upload-dicom-patient-id').value;
+                const file = document.getElementById('upload-dicom-patient-file').files[0];
+                const timestamp = new Date().toISOString().replace(/[-:T.]/g, '').slice(0, 14);
+                const instanceId = `PATIENT-${patientId}-${timestamp}`;
+                if (!file || !patientId) { alert('Fichier ou patient manquant.'); return; }
+                const formData = new FormData(); formData.append('file', file); formData.append('patient_id', patientId); formData.append('instance_id', instanceId);
+                try {
+                    const response = await fetch(`${ORTHANC_PROXY_URL}?path=instances`, { method: 'POST', body: formData });
+                    const text = await response.text();
+                    const result = JSON.parse(text);
+                    if (!response.ok) throw new Error(result.error || 'Erreur d\'upload');
+                    dicomStudyMap[patientId] = result.studyInstanceUID; saveDicomStudyMap();
+                    alert('Upload et association réussis !'); closeUploadDicomPatientModal(); loadPatientsList();
+                } catch (error) { console.error('Erreur d\'upload DICOM patient:', error); alert('Erreur: ' + error.message); }
+            });
+
+            // Inter-hospital request
+            document.getElementById('inter-hospital-form')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const hospitalName = document.getElementById('hospital-name').value;
+                const reason = document.getElementById('hospital-reason').value;
+                try {
+                    const response = await fetch('http://localhost/projet-medical/api/inter-hospital.php', {
+                        method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ hospital_name: hospitalName, raison: reason })
+                    });
+                    if (!response.ok) throw new Error((await response.json()).error);
+                    alert('Demande envoyée !'); closeInterHospitalModal();
+                } catch (error) { console.error('Erreur inter-hospital:', error); alert('Erreur: ' + error.message); }
+            });
+
+            // Edit DICOM metadata
+            document.getElementById('edit-dicom-form')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const instanceId = document.getElementById('edit-instance-id').value;
+                const patientId = document.getElementById('edit-patient-id').value;
+                const patientName = document.getElementById('edit-patient-name').value;
+                const studyDate = document.getElementById('edit-study-date').value;
+                try {
+                    const response = await fetch(`${ORTHANC_PROXY_URL}?path=instances/${instanceId}/modify`, {
+                        method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ PatientID: patientId, PatientName: patientName, StudyDate: studyDate })
+                    });
+                    if (!response.ok) throw new Error((await response.json()).error);
+                    alert('Métadonnées mises à jour !'); closeEditDicomModal(); loadDicomImages();
+                } catch (error) { console.error('Erreur d\'édition DICOM:', error); alert('Erreur: ' + error.message); }
+            });
+
+            // Edit patient
+            document.getElementById('edit-patient-form')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const patientId = document.getElementById('edit-patient-id').value; // user ID
+                const actualPatientId = document.getElementById('edit-patient-actual-id').value; // patient_id
+                const nom = document.getElementById('edit-patient-nom').value;
+                const prenom = document.getElementById('edit-patient-prenom').value;
+                const email = document.getElementById('edit-patient-email').value;
+                const dateNaissance = document.getElementById('edit-patient-date-naissance').value;
+                const sexe = document.getElementById('edit-patient-sexe').value;
+                const telephone = document.getElementById('edit-patient-telephone').value || null;
+                const adresse = document.getElementById('edit-patient-adresse').value || null;
+                try {
+                    const response = await fetch(`http://localhost/projet-medical/api/patients/${actualPatientId}`, {
+                        method: 'PUT',
+                        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ nom, prenom, email, date_naissance: dateNaissance, sexe, telephone, adresse })
+                    });
+                    const data = await response.json();
+                    if (!response.ok) throw new Error(data.error || 'Erreur de mise à jour');
+                    const index = patients.findIndex(p => p.id === parseInt(patientId));
+                    if (index !== -1) patients[index] = { ...patients[index], ...data };
+                    updatePatientCard(patientId, data);
+                    alert('Patient mis à jour !');
+                    closeEditPatientModal();
+                } catch (error) {
+                    console.error('Erreur d\'édition patient:', error);
+                    alert('Erreur: ' + error.message);
+                }
+            });
+
+            // Add consultation
+            document.getElementById('add-consultation-form')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const patientId = document.getElementById('add-consultation-patient-id').value;
+                const date = document.getElementById('add-consultation-date').value;
+                const notes = document.getElementById('add-consultation-notes').value;
+                const file = document.getElementById('add-consultation-file').files[0];
+
+                const formData = new FormData();
+                formData.append('patient_id', patientId);
+                formData.append('date_consultation', date);
+                formData.append('notes', notes);
+                if (file) formData.append('file', file);
+
+                try {
+                    const response = await fetch('http://localhost/projet-medical/api/consultations.php', {
+                        method: 'POST',
+                        headers: { 'Authorization': `Bearer ${token}` },
+                        body: formData
+                    });
+                    const text = await response.text();
+                    const result = JSON.parse(text);
+                    if (!response.ok) throw new Error(result.erreur || 'Erreur lors de l\'ajout');
+                    alert('Consultation ajoutée avec succès !');
+                    closeAddConsultationModal();
+                    // Refresh the consultations list
+                    const currentPatientId = document.getElementById('consultations-patient-id').value;
+                    await openConsultationsModal(currentPatientId);
+                } catch (error) {
+                    console.error('Erreur lors de l\'ajout de la consultation:', error);
+                    alert('Erreur: ' + error.message);
+                }
+            });
+
+            // Load default dashboard
+            loadDashboard();
+        });
+
+        // Load dashboard
+        async function loadDashboard() {
+            document.getElementById('dashboard-title').textContent = 'Tableau de bord';
+            document.getElementById('action-buttons').innerHTML = '';
+            document.getElementById('dashboard-content').innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="card">
+                        <h3 class="text-xl font-semibold text-white mb-4">Répartition par sexe</h3>
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold text-white mb-4">Rendez-vous par semaine</h3>
+                        <canvas id="appointmentsChart"></canvas>
+                    </div>
+                </div>
+            `;
+            try {
+                const [patientsData, appointmentsData] = await Promise.all([
+                    fetch('http://localhost/projet-medical/api/patients', { headers: { 'Authorization': `Bearer ${token}` } }).then(r => r.json()),
+                    fetch('http://localhost/projet-medical/api/rendezvous.php', { headers: { 'Authorization': `Bearer ${token}` } }).then(r => r.json())
+                ]);
+                const genderData = patientsData.reduce((acc, p) => { acc[p.sexe || 'N/A'] = (acc[p.sexe || 'N/A'] || 0) + 1; return acc; }, {});
+                new Chart(document.getElementById('genderChart'), {
+                    type: 'pie', data: { labels: Object.keys(genderData), datasets: [{ data: Object.values(genderData), backgroundColor: ['#06b6d4', '#22d3ee', '#64748b'] }] },
+                    options: { responsive: true, plugins: { legend: { position: 'top', labels: { color: 'white' } }, title: { display: true, text: 'Patients par sexe', color: 'white' } } }
+                });
+                const appointmentsByWeek = appointmentsData.reduce((acc, a) => { const week = new Date(a.date_rdv).toLocaleDateString('fr-FR', { week: 'numeric', year: 'numeric' }); acc[week] = (acc[week] || 0) + 1; return acc; }, {});
+                new Chart(document.getElementById('appointmentsChart'), {
+                    type: 'bar', data: { labels: Object.keys(appointmentsByWeek), datasets: [{ label: 'Rendez-vous', data: Object.values(appointmentsByWeek), backgroundColor: '#06b6d4' }] },
+                    options: { responsive: true, plugins: { legend: { labels: { color: 'white' } }, title: { display: true, text: 'Rendez-vous par semaine', color: 'white' } }, scales: { x: { ticks: { color: 'white' } }, y: { beginAtZero: true, ticks: { color: 'white' } } } }
+                });
+            } catch (error) { console.error('Erreur tableau de bord:', error); document.getElementById('dashboard-content').innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`; }
+        }
+
+        // Load appointments
+        async function loadAppointments() {
+            document.getElementById('dashboard-title').textContent = 'Mes rendez-vous';
+            document.getElementById('action-buttons').innerHTML = '<button class="btn-primary" onclick="openScheduleAppointmentModal()">Planifier un rendez-vous</button>';
+            document.getElementById('dashboard-content').innerHTML = '<div id="appointments-content"></div>';
+            try {
+                const response = await fetch('http://localhost/projet-medical/api/rendezvous.php', { headers: { 'Authorization': `Bearer ${token}` } });
+                const appointments = await response.json();
+                const content = document.getElementById('appointments-content');
+                if (appointments.length === 0) { content.innerHTML = '<p class="p-4 text-center text-gray-400">Aucun rendez-vous trouvé.</p>'; return; }
+                const table = document.createElement('table');
+                table.className = 'w-full text-left table-auto';
+                table.innerHTML = `<thead><tr><th class="p-4">ID</th><th class="p-4">Patient</th><th class="p-4">Date</th><th class="p-4">Motif</th><th class="p-4">Statut</th></tr></thead><tbody></tbody>`;
+                appointments.forEach(appt => {
+                    const fullName = `${appt.prenom} ${appt.nom}`;
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td class="p-4 w-12">${appt.id}</td><td class="p-4 truncate max-w-xs">${fullName}</td><td class="p-4 w-32">${new Date(appt.date_rdv).toLocaleString('fr-FR')}</td><td class="p-4 truncate max-w-xs">${appt.motif}</td><td class="p-4 w-16">${appt.statut}</td>`;
+                    table.querySelector('tbody').appendChild(row);
+                });
+                content.appendChild(table);
+            } catch (error) { console.error('Erreur rendez-vous:', error); document.getElementById('appointments-content').innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`; }
+        }
+
+        // Load patients list
+        async function loadPatientsList() {
+            document.getElementById('dashboard-title').textContent = 'Liste des Patients';
+            document.getElementById('action-buttons').innerHTML = '<button class="btn-primary" onclick="openAddPatientModal()">Ajouter un patient</button>';
+            document.getElementById('dashboard-content').innerHTML = '<div id="patients-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>';
+            try {
+                const response = await fetch('http://localhost/projet-medical/api/patients', {
+                    method: 'GET',
+                    headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json', 'Accept': 'application/json' }
+                });
+                if (!response.ok) throw new Error(`Erreur HTTP ${response.status}: ${await response.text()}`);
+                const data = await response.json();
+                console.log('Données reçues:', data);
+                patients = Array.isArray(data.patients) ? data.patients : [];
+                console.log('Patients:', patients);
+                const content = document.getElementById('patients-content');
+                if (patients.length === 0) { content.innerHTML = '<p class="p-4 text-center text-gray-400">Aucun patient trouvé.</p>'; return; }
+                content.innerHTML = patients.map(p => `
+                    <div class="patient-card" data-patient-id="${p.id}">
+                        <h4>${p.nom.toUpperCase()} ${p.prenom.toUpperCase()}</h4>
+                        <p><strong>Email:</strong> ${p.email}</p>
+                        <p><strong>Date de naissance:</strong> ${p.date_naissance || 'N/A'}</p>
+                        <p><strong>Sexe:</strong> ${p.sexe === 'M' ? 'Masculin' : p.sexe === 'F' ? 'Féminin' : 'N/A'}</p>
+                        <p><strong>Téléphone:</strong> ${p.telephone || 'Non spécifié'}</p>
+                        <p><strong>Adresse:</strong> ${p.adresse || 'Non spécifiée'}</p>
+                        <div class="actions">
+                            <button class="action-btn btn-primary" onclick="openUploadDicomPatientModal(${p.patient_id})"><i class="fas fa-upload"></i></button>
+                            <button class="action-btn btn-primary" onclick="openEditPatientModal(${p.id})"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn btn-primary" onclick="viewPatientDicom(${p.patient_id})"><i class="fas fa-eye"></i></button>
+                            <button class="action-btn btn-primary" onclick="openMedicalRecordModal(${p.patient_id})"><i class="fas fa-file-medical"></i> Consulter dossier médical</button>
+                            <button class="action-btn btn-primary" onclick="openConsultationsModal(${p.patient_id})"><i class="fas fa-notes-medical"></i> Voir consultations</button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Erreur liste patients:', error);
+                document.getElementById('patients-content').innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
+                if (error.message.includes('401')) { alert('Session expirée. Veuillez vous reconnecter.'); logout(); }
+            }
+        }
+
+        // Load DICOM images
+        async function loadDicomImages() {
+            document.getElementById('dashboard-title').textContent = 'Gestion DICOM';
+            document.getElementById('action-buttons').innerHTML = '<button class="btn-primary" onclick="openUploadDicomModal()">Uploader une image</button>';
+            document.getElementById('dashboard-content').innerHTML = '<div id="dicom-content"></div>';
+            try {
+                const response = await fetch(`${ORTHANC_PROXY_URL}?path=studies`, { headers: { 'Authorization': `Bearer ${token}` } });
+                const studies = await response.json();
+                const content = document.getElementById('dicom-content');
+                if (studies.length === 0) { content.innerHTML = '<p class="p-4 text-center text-gray-400">Aucune image DICOM trouvée.</p>'; return; }
+                content.innerHTML = studies.map(s => `
+                    <div class="patient-card">
+                        <h4>Study UID: ${s.StudyInstanceUID}</h4>
+                        <p><strong>Date:</strong> ${s.StudyDate || 'N/A'}</p>
+                        <p><strong>Patient:</strong> ${s.PatientName || 'N/A'}</p>
+                        <div class="actions">
+                            <button class="action-btn btn-primary" onclick="openEditDicomModal('${s.StudyInstanceUID}')"><i class="fas fa-edit"></i></button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) { console.error('Erreur DICOM:', error); document.getElementById('dicom-content').innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`; }
+        }
+
+        // Open modals with pre-filled data
+        function openUploadDicomPatientModal(patientId) {
+            document.getElementById('upload-dicom-patient-id').value = patientId;
+            openModal('upload-dicom-patient-modal');
+        }
+
+        function openEditPatientModal(userId) {
+            const patient = patients.find(p => p.id === userId);
+            if (patient) {
+                document.getElementById('edit-patient-id').value = patient.id; // user ID
+                document.getElementById('edit-patient-actual-id').value = patient.patient_id; // patient_id
+                document.getElementById('edit-patient-nom').value = patient.nom;
+                document.getElementById('edit-patient-prenom').value = patient.prenom;
+                document.getElementById('edit-patient-email').value = patient.email;
+                document.getElementById('edit-patient-date-naissance').value = patient.date_naissance || '';
+                document.getElementById('edit-patient-sexe').value = patient.sexe || '';
+                document.getElementById('edit-patient-telephone').value = patient.telephone || '';
+                document.getElementById('edit-patient-adresse').value = patient.adresse || '';
+                openModal('edit-patient-modal');
+            }
+        }
+
+        function openEditDicomModal(studyInstanceUID) {
+            document.getElementById('edit-instance-id').value = studyInstanceUID;
+            document.getElementById('edit-patient-id').value = '';
+            document.getElementById('edit-patient-name').value = '';
+            document.getElementById('edit-study-date').value = '';
+            openModal('edit-dicom-modal');
+        }
+
+        // Open add consultation modal
+        function openAddConsultationModal() {
+            const patientId = document.getElementById('consultations-patient-id').value;
+            document.getElementById('add-consultation-patient-id').value = patientId;
+            openModal('add-consultation-modal');
+        }
+
+        // Open medical record modal
+        async function openMedicalRecordModal(patientId) {
+            console.log(`Ouverture du dossier médical pour patientId: ${patientId}`);
+            const content = document.getElementById('medical-record-content');
+            if (!content) {
+                console.error('Élément de contenu du dossier médical non trouvé');
+                alert('Erreur: Élément de contenu du dossier médical non trouvé.');
+                return;
+            }
+
+            document.getElementById('medical-record-patient-id').value = patientId;
+            content.innerHTML = '<p class="text-gray-400">Chargement...</p>';
+
+            try {
+                const response = await fetch(`http://localhost/projet-medical/api/medical-records.php?patientId=${patientId}`, {
+                    method: 'GET',
+                    headers: { 
+                        'Authorization': `Bearer ${token}`, 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json' 
+                    }
+                });
+
+                console.log(`Statut de la réponse: ${response.status}`);
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error(`Erreur HTTP ${response.status}: ${errorText}`);
+                    if (response.status === 401) {
+                        alert('Session expirée. Veuillez vous reconnecter.');
+                        logout();
+                        return;
+                    }
+                    throw new Error(`Erreur HTTP ${response.status}: ${errorText}`);
+                }
+
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    const text = await response.text();
+                    console.error(`Réponse non-JSON: ${text}`);
+                    throw new Error(`Réponse non-JSON reçue: ${text.substring(0, 100)}...`);
+                }
+
+                const records = await response.json();
+                console.log('Dossiers médicaux:', records);
+
+                if (!Array.isArray(records) || records.length === 0) {
+                    content.innerHTML = '<p class="text-gray-400">Aucun dossier médical trouvé pour ce patient.</p>';
+                } else {
+                    content.innerHTML = records.map(record => `
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-${getIconForRecordType(record.type_enregistrement)}"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>${record.type_enregistrement || 'N/A'}</h4>
+                                <p class="date">${new Date(record.date_enregistrement).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+                                <p class="description">${record.description || 'N/A'}</p>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+                openModal('medical-record-modal');
+            } catch (error) {
+                console.error('Erreur dossier médical:', error);
+                content.innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
+                alert('Erreur lors de la récupération du dossier médical: ' + error.message);
+            }
+        }
+
+        // Open consultations modal (updated to handle both notes and DICOM files)
+        async function openConsultationsModal(patientId) {
+            console.log(`Ouverture des consultations pour patientId: ${patientId}`);
+            const notesContent = document.getElementById('consultations-content');
+            const dicomContent = document.getElementById('dicom-content');
+            if (!notesContent || !dicomContent) {
+                console.error('Élément de contenu des consultations ou DICOM non trouvé');
+                alert('Erreur: Élément de contenu non trouvé.');
+                return;
+            }
+
+            if (!token) {
+                console.error('Token manquant dans openConsultationsModal');
+                alert('Session expirée. Veuillez vous reconnecter.');
+                logout();
+                return;
+            }
+
+            document.getElementById('consultations-patient-id').value = patientId;
+            notesContent.innerHTML = '<p class="text-gray-400">Chargement...</p>';
+            dicomContent.innerHTML = '<p class="text-gray-400">Chargement...</p>';
+
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            };
+
+            try {
+                // Fetch consultations (Notes)
+                const consultationsResponse = await fetch(`http://localhost/projet-medical/api/consultations.php?patientId=${patientId}`, {
+                    method: 'GET',
+                    headers: headers
+                });
+
+                console.log(`Statut de la réponse (consultations): ${consultationsResponse.status}`);
+
+                if (!consultationsResponse.ok) {
+                    const errorText = await consultationsResponse.text();
+                    console.error(`Erreur HTTP ${consultationsResponse.status} (consultations): ${errorText}`);
+                    if (consultationsResponse.status === 401) {
+                        alert('Session expirée. Veuillez vous reconnecter.');
+                        logout();
+                        return;
+                    }
+                    throw new Error(`Erreur HTTP ${consultationsResponse.status}: ${errorText}`);
+                }
+
+                const consultationsContentType = consultationsResponse.headers.get('content-type');
+                if (!consultationsContentType || !consultationsContentType.includes('application/json')) {
+                    const text = await consultationsResponse.text();
+                    console.error(`Réponse non-JSON (consultations): ${text}`);
+                    throw new Error(`Réponse non-JSON reçue: ${text.substring(0, 100)}...`);
+                }
+
+                const consultations = await consultationsResponse.json();
+                console.log('Consultations:', consultations);
+
+                if (!Array.isArray(consultations) || consultations.length === 0) {
+                    notesContent.innerHTML = '<p class="text-gray-400">Aucune consultation trouvée pour ce patient.</p>';
+                } else {
+                    notesContent.innerHTML = consultations.map(consultation => `
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-notes-medical"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Consultation #${consultation.id}</h4>
+                                <p class="date">${new Date(consultation.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+                                <p class="description">${consultation.diagnosis || 'Aucun diagnostic'}</p>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+
+                // Fetch DICOM files
+                const dicomResponse = await fetch(`http://localhost/projet-medical/api/dicom-instances.php?patientId=${patientId}`, {
+                    method: 'GET',
+                    headers: headers
+                });
+
+                console.log(`Statut de la réponse (DICOM): ${dicomResponse.status}`);
+
+                if (!dicomResponse.ok) {
+                    const errorText = await dicomResponse.text();
+                    console.error(`Erreur HTTP ${dicomResponse.status} (DICOM): ${errorText}`);
+                    if (dicomResponse.status === 401) {
+                        alert('Session expirée. Veuillez vous reconnecter.');
+                        logout();
+                        return;
+                    }
+                    throw new Error(`Erreur HTTP ${dicomResponse.status}: ${errorText}`);
+                }
+
+                const dicomContentType = dicomResponse.headers.get('content-type');
+                if (!dicomContentType || !dicomContentType.includes('application/json')) {
+                    const text = await dicomResponse.text();
+                    console.error(`Réponse non-JSON (DICOM): ${text}`);
+                    throw new Error(`Réponse non-JSON reçue: ${text.substring(0, 100)}...`);
+                }
+
+                const dicomData = await dicomResponse.json();
+                console.log('Instances DICOM:', dicomData);
+
+                const dicomInstances = dicomData.dicom_instances || [];
+                if (!Array.isArray(dicomInstances) || dicomInstances.length === 0) {
+                    dicomContent.innerHTML = '<p class="text-gray-400">Aucun fichier DICOM trouvé pour ce patient.</p>';
+                } else {
+                    dicomContent.innerHTML = dicomInstances.map(instance => `
+                        <div class="dicom-item" onclick="viewPatientDicom(${patientId}, '${instance.orthanc_instance_id}')">
+                            <p><strong>ID Instance:</strong> ${instance.orthanc_instance_id}</p>
+                            <p><strong>Date d\'upload:</strong> ${new Date(instance.upload_date).toLocaleDateString('fr-FR')}</p>
+                            <p><strong>Description:</strong> ${instance.description || 'N/A'}</p>
+                        </div>
+                    `).join('');
+                }
+
+                openModal('consultations-modal');
+
+                // Tab switching logic
+                document.querySelectorAll('.tab-button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                        button.classList.add('active');
+                        document.getElementById(`${button.dataset.tab}-tab`).classList.add('active');
+                    });
+                });
+            } catch (error) {
+                console.error('Erreur lors de la récupération des consultations ou DICOM:', error);
+                notesContent.innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
+                dicomContent.innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
+                alert('Erreur lors de la récupération des données: ' + error.message);
+            }
+        }
+
+        // Fonction pour associer une icône au type d'enregistrement
+        function getIconForRecordType(type) {
+            switch (type.toLowerCase()) {
+                case 'consultation':
+                    return 'stethoscope';
+                case 'diagnostic':
+                    return 'file-medical-alt';
+                case 'traitement':
+                    return 'pills';
+                default:
+                    return 'file-medical';
+            }
+        }
+
+        // Update patient card after edit
+        function updatePatientCard(userId, updatedData) {
+            const card = document.querySelector(`[data-patient-id="${userId}"]`);
+            if (card) {
+                card.querySelector('h4').textContent = `${updatedData.nom.toUpperCase()} ${updatedData.prenom.toUpperCase()}`;
+                card.querySelector('p:nth-child(2)').innerHTML = `<strong>Email:</strong> ${updatedData.email}`;
+                card.querySelector('p:nth-child(3)').innerHTML = `<strong>Date de naissance:</strong> ${updatedData.date_naissance || 'N/A'}`;
+                card.querySelector('p:nth-child(4)').innerHTML = `<strong>Sexe:</strong> ${updatedData.sexe === 'M' ? 'Masculin' : updatedData.sexe === 'F' ? 'Féminin' : 'N/A'}`;
+                card.querySelector('p:nth-child(5)').innerHTML = `<strong>Téléphone:</strong> ${updatedData.telephone || 'Non spécifié'}`;
+                card.querySelector('p:nth-child(6)').innerHTML = `<strong>Adresse:</strong> ${updatedData.adresse || 'Non spécifiée'}`;
+            }
+        }
+
+        // Visualisation d'une image DICOM pour un patient via Stone Web Viewer
+        async function viewPatientDicom(patientId, orthancInstanceId) {
+            try {
+                console.log(`Récupération de l'instance DICOM pour patientId=${patientId}, orthancInstanceId=${orthancInstanceId}...`);
+
+                if (!orthancInstanceId) {
+                    console.error(`orthancInstanceId manquant pour patientId=${patientId}`);
+                    alert('Erreur: Instance DICOM non spécifiée.');
+                    return;
+                }
+
+                // Fetch the studyInstanceUID from the instance
+                const response = await fetch(`${ORTHANC_PROXY_URL}?path=instances/${orthancInstanceId}`, {
+                    method: 'GET',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error(`Erreur HTTP ${response.status} pour instance ${orthancInstanceId}:`, errorText);
+                    throw new Error(`Erreur HTTP ${response.status}: ${errorText}`);
+                }
+
+                const instanceData = await response.json();
+                const studyInstanceUID = instanceData.ParentStudy;
+
+                if (!studyInstanceUID) {
+                    console.error(`StudyInstanceUID non trouvé pour instance ${orthancInstanceId}`);
+                    alert('Erreur: StudyInstanceUID non trouvé.');
+                    return;
+                }
+
+                dicomStudyMap[patientId] = studyInstanceUID;
+                saveDicomStudyMap();
+
+                const viewerUrl = `http://localhost:8042/stone-webviewer/index.html?study=${encodeURIComponent(studyInstanceUID)}`;
+                console.log('Ouverture de Stone Web Viewer avec l\'URL:', viewerUrl);
+                const viewerWindow = window.open(viewerUrl, '_blank');
+                if (!viewerWindow || viewerWindow.closed || typeof viewerWindow.closed === 'undefined') {
+                    console.error('Échec de l\'ouverture de la fenêtre du visualiseur');
+                    alert('Erreur : Impossible d\'ouvrir le visualiseur. Veuillez vérifier votre bloqueur de pop-ups.');
+                }
+            } catch (error) {
+                console.error('Erreur lors de la visualisation DICOM:', error);
+                alert('Erreur lors de la visualisation DICOM : ' + error.message);
+            }
+        }
+
+        // Download medical record
+        function downloadMedicalRecord() {
+            const patientId = document.getElementById('medical-record-patient-id').value;
+            const content = document.getElementById('medical-record-content').innerHTML;
+            const blob = new Blob([content], { type: 'text/html' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `dossier_medical_patient_${patientId}.html`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

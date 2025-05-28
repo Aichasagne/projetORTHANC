@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediDICOM - Gestion des Données Médicales</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            /* Fond sombre pour un look futuriste */
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Canvas pour particules de fond */
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        /* Navbar avec glassmorphism */
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #06b6d4;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-bg {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e3a8a, #06b6d4);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(30, 58, 138, 0.2), rgba(6, 182, 212, 0.2));
+            animation: pulse 8s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .hero-text {
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Boutons CTA */
+        .cta-button {
+            background: linear-gradient(45deg, #06b6d4, #22d3ee);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.4);
+        }
+
+        /* Cartes de fonctionnalités */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.3);
+            border-color: #06b6d4;
+        }
+
+        .feature-icon {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(10deg);
+            filter: drop-shadow(0 0 10px #06b6d4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, #1e3a8a, #0f172a);
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .footer-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #22d3ee;
+            transition: width 0.3s ease;
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        /* Menu mobile slide-in */
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+            transform: translateX(100%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #mobile-menu:not(.hidden) {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Canvas pour particules de fond -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-10 w-10 transform hover:scale-110 transition-transform duration-300"
+                            src="https://pfst.cf2.poecdn.net/base/image/d5e883a1053310b3eedda829a3410866632126dcca158f8e387fab2e9003cb58?w=1024&h=768&pmaid=348459099"
+                            alt="MediDICOM Logo">
+                        <span class="ml-3 text-2xl font-extrabold text-white tracking-tight">MediDICOM</span>
+                    </div>
+                </div>
+                <!-- Menu -->
+                <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
+                    <a href="#"
+                        class="nav-link px-4 py-2 text-base font-medium text-white hover:text-cyan-300 rounded-md transition-all duration-200">Accueil</a>
+                    <a href="#"
+                        class="nav-link px-4 py-2 text-base font-medium text-white hover:text-cyan-300 rounded-md transition-all duration-200">À
+                        propos</a>
+                    <a href="#"
+                        class="nav-link px-4 py-2 text-base font-medium text-cyan-400 border border-cyan-400 rounded-md hover:bg-cyan-400 hover:text-gray-900 transition-all duration-200">Connexion</a>
+                </div>
+                <!-- Menu Mobile -->
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-cyan-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="sm:hidden hidden absolute top-16 right-0 w-3/4 shadow-2xl rounded-l-lg" id="mobile-menu">
+            <div class="pt-4 pb-6 space-y-2">
+                <a href="#"
+                    class="block px-4 py-3 text-base font-medium text-white hover:text-cyan-300 hover:bg-gray-800 rounded-md">Accueil</a>
+                <a href="#"
+                    class="block px-4 py-3 text-base font-medium text-white hover:text-cyan-300 hover:bg-gray-800 rounded-md">À
+                    propos</a>
+                <a href="login.html"
+                    class="block px-4 py-3 text-base font-medium text-cyan-400 hover:bg-cyan-800 hover:text-white rounded-md">Connexion</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative text-white overflow-hidden hero-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center relative z-10">
+            <h1 class="hero-text text-5xl md:text-7xl font-extrabold tracking-tight">Gestion Avancée des Données
+                Médicales</h1>
+            <p class="hero-text mt-6 text-xl md:text-2xl max-w-3xl mx-auto opacity-90">Une solution sécurisée et
+                intuitive pour gérer, visualiser et analyser les données médicales, conforme aux normes HIPAA et RGPD.
+            </p>
+            <div class="mt-10">
+                <a href="#"
+                    class="cta-button inline-block text-gray-900 font-semibold px-8 py-4 rounded-full shadow-2xl">Découvrir
+                    maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aperçu des fonctionnalités -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-white text-center tracking-tight">Nos Fonctionnalités</h2>
+            <div class="mt-16 grid gap-10 md:grid-cols-3">
+                <!-- Carte 1 -->
+                <a href="dashboard.html"
+                    class="feature-card block p-8 rounded-2xl text-center transition-all duration-300">
+                    <i class="feature-icon fas fa-user-md text-cyan-400 text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-semibold text-white">Gestion des Patients</h3>
+                    <p class="mt-3 text-gray-300">Centralisez et gérez les dossiers médicaux des patients en toute
+                        sécurité.</p>
+                </a>
+                <!-- Carte 2 -->
+                <a href="dicom.html" class="feature-card block p-8 rounded-2xl text-center transition-all duration-300">
+                    <i class="feature-icon fas fa-x-ray text-cyan-400 text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-semibold text-white">Visualisation DICOM</h3>
+                    <p class="mt-3 text-gray-300">Visualisez et annotez les images médicales avec une interface
+                        intuitive.</p>
+                </a>
+                <!-- Carte 3 -->
+                <a href="analyse.html" class="feature-card block p-8 rounded-2xl text-center transition-all duration-300">
+                    <i class="feature-icon fas fa-chart-line text-cyan-400 text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-semibold text-white">Analyse des Données</h3>
+                    <p class="mt-3 text-gray-300">Obtenez des insights grâce à des tableaux de bord et des rapports
+                    détaillés.</p>
+                </a>
+                <!-- <div class="feature-card p-8 rounded-2xl text-center transition-all duration-300">
+                    <i class="feature-icon fas fa-chart-line text-cyan-400 text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-semibold text-white">Analyse des Données</h3>
+                    <p class="mt-3 text-gray-300">Obtenez des insights grâce à des tableaux de bord et des rapports
+                        détaillés.</p>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid gap-10 md:grid-cols-3">
+                <div>
+                    <h3 class="text-xl font-semibold text-cyan-400 tracking-tight">MediDICOM</h3>
+                    <p class="mt-3 text-gray-300">Votre partenaire pour la gestion des données médicales.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-cyan-400 tracking-tight">Liens Utiles</h3>
+                    <ul class="mt-3 space-y-3">
+                        <li><a href="#" class="footer-link text-gray-300 hover:text-cyan-300">Accueil</a></li>
+                        <li><a href="#" class="footer-link text-gray-300 hover:text-cyan-300">À propos</a></li>
+                        <li><a href="#" class="footer-link text-gray-300 hover:text-cyan-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-cyan-400 tracking-tight">Contact</h3>
+                    <p class="mt-3 text-gray-300">Email : mglsi@projetmedical.com</p>
+                    <p class="mt-1 text-gray-300">Tel : +33 1 23 45 67 89</p>
+                </div>
+            </div>
+            <div class="mt-10 text-center text-gray-300">
+                <p>© 2025 MediDICOM. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script pour menu mobile et particules -->
+    <script>
+        // Menu mobile toggle
+        document.querySelector('button[aria-controls="mobile-menu"]').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Particules de fond
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 1,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5
+            });
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(6, 182, 212, 0.5)';
+                ctx.fill();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // Redimensionnement du canvas
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+
+</html>

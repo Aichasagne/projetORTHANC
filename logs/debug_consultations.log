@@ -1,0 +1,33 @@
+2025-05-08 05:49:56 - Début de la requête /consultations
+2025-05-08 05:49:56 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY2NzU0NDUsImV4cCI6MTc0Njc2MTg0NiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.PflhAwy0VN7k0hyZ3YNWl1VYZ4H7sbVSeGsoMS-qM9E
+2025-05-08 05:49:57 - Erreur: Token invalide - Signature verification failed
+2025-05-08 05:50:13 - Début de la requête /consultations
+2025-05-08 05:50:13 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY2NzYyMDgsImV4cCI6MTc0Njc2MjYwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.3eE2XBtmF0xDfH0sL6I6I8hZKlbm8qjI0i3zR0-dEDs
+2025-05-08 05:50:13 - Erreur: Token invalide - Signature verification failed
+2025-05-08 05:50:31 - Début de la requête /consultations
+2025-05-08 05:50:31 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY2NzYyMjQsImV4cCI6MTc0Njc2MjYyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.K1U17nRZSraX33emq2ij8dXqKJnG-2mrgpcltpzrFH4
+2025-05-08 05:50:31 - Erreur: Token invalide - Signature verification failed
+2025-05-08 05:55:40 - Début de la requête /consultations
+2025-05-08 05:55:40 - Version de consultations.php: 2025-05-08 avec corrections pour token
+2025-05-08 05:55:40 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY2NzY1MzMsImV4cCI6MTc0Njc2MjkzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.3uf-Fd0cyvhMyf72vixAAPFUdM83DORwGsU8Aj4OkqE
+2025-05-08 05:55:40 - Erreur: Token invalide - Signature verification failed
+2025-05-08 05:59:52 - Début de la requête /consultations
+2025-05-08 05:59:52 - Version de consultations.php: 2025-05-08 avec corrections pour token
+2025-05-08 05:59:52 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY2NzY2NzgsImV4cCI6MTc0Njc2MzA3OCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.dmMDj3Nd6EmIwqUoGdvZHNQRWjY80R9pUlDe2fbu4gA
+2025-05-08 05:59:52 - Erreur: Token invalide - Signature verification failed
+2025-05-08 06:00:10 - Début de la requête /consultations
+2025-05-08 06:00:10 - Version de consultations.php: 2025-05-08 avec corrections pour token
+2025-05-08 06:00:10 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY2NzY4MDAsImV4cCI6MTc0Njc2MzIwMCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.ZJVi752-ftV15SMp4xduUUCauYxK57Qz4Ux3DSaqSsU
+2025-05-08 06:00:10 - Erreur: Token invalide - Signature verification failed
+2025-05-08 06:01:34 - Début de la requête /consultations
+2025-05-08 06:01:34 - Version de consultations.php: 2025-05-08 avec corrections pour token
+2025-05-08 06:01:34 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY2NzY4ODksImV4cCI6MTc0Njc2MzI4OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ltm9EBA02hFaP_-srZHapBk0kDNrQQIR-PZGHUE3CsQ
+2025-05-08 06:01:34 - Erreur: Token invalide - Signature verification failed
+2025-05-08 13:37:59 - Début de la requête /consultations
+2025-05-08 13:37:59 - Version de consultations.php: 2025-05-08 avec corrections pour token
+2025-05-08 13:37:59 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY2NzY5MTQsImV4cCI6MTc0Njc2MzMxNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.PeyKi52PdTRr1UdWsz1p_8IgLUhrUuI_Q3BdgDVtJRI
+2025-05-08 13:37:59 - Erreur: Token invalide - Signature verification failed
+2025-05-08 13:38:21 - Début de la requête /consultations
+2025-05-08 13:38:21 - Version de consultations.php: 2025-05-08 avec corrections pour token
+2025-05-08 13:38:21 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY3MDQyOTUsImV4cCI6MTc0Njc5MDY5NSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fbOd_wdryTRJzMPe9mqOfJjXBPsHcVAQJ7bSwGelJi8
+2025-05-08 13:38:21 - Erreur: Token invalide - Signature verification failed

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Patient - Projet Médical</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1.5rem;
+            height: 100vh;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .sidebar h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 10px #06b6d4;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sidebar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #06b6d4;
+            transition: width 0.3s ease;
+        }
+
+        .sidebar a:hover::after {
+            width: 100%;
+        }
+
+        .sidebar a:hover {
+            background: rgba(6, 182, 212, 0.2);
+            transform: translateX(5px);
+        }
+
+        .sidebar a i {
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .sidebar a:hover i {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 5px #06b6d4);
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+            width: calc(100% - 250px);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #06b6d4, #22d3ee);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #06b6d4;
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .input-field::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .input-label {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: transparent;
+        }
+
+        .input-field:focus+.input-label,
+        .input-field:not(:placeholder-shown)+.input-label {
+            top: -8px;
+            left: 8px;
+            font-size: 12px;
+            color: #06b6d4;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 0 4px;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0 0.5rem;
+            width: 100%;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            font-weight: 600;
+            color: #06b6d4;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        td {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        tr:hover td {
+            background: rgba(6, 182, 212, 0.1);
+            transform: scale(1.01);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: popIn 0.4s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-content {
+                margin-left: 200px;
+                width: calc(100% - 200px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="sidebar">
+        <div>
+            <h1>Projet Médical</h1>
+            <a href="dashboard-patient.html"><i class="fas fa-user text-cyan-400"></i> Mon Profil</a>
+            <a href="examens.html"><i class="fas fa-stethoscope text-cyan-400"></i> Mes Examens</a>
+        </div>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt text-cyan-400"></i> Déconnexion</a>
+    </div>
+
+    <div class="main-content">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-semibold text-white">Bienvenue, <span id="patient-name"></span></h2>
+            <span class="text-gray-300">Connecté en tant que : <span
+                    class="font-semibold text-cyan-400">Patient</span></span>
+        </div>
+
+        <div class="card mb-6">
+            <h3 class="text-xl font-semibold text-white mb-4">Mon Profil</h3>
+            <div id="profile-content" class="space-y-4">
+                <div class="flex items-center">
+                    <span class="font-semibold text-gray-300 w-32">Nom :</span>
+                    <span id="profile-nom" class="text-white"></span>
+                </div>
+                <div class="flex items-center">
+                    <span class="font-semibold text-gray-300 w-32">Prénom :</span>
+                    <span id="profile-prenom" class="text-white"></span>
+                </div>
+                <div class="flex items-center">
+                    <span class="font-semibold text-gray-300 w-32">Email :</span>
+                    <span id="profile-email" class="text-white"></span>
+                </div>
+                <div class="flex items-center">
+                    <span class="font-semibold text-gray-300 w-32">Date de naissance :</span>
+                    <span id="profile-dob" class="text-white"></span>
+                </div>
+                <div class="flex items-center">
+                    <span class="font-semibold text-gray-300 w-32">Sexe :</span>
+                    <span id="profile-sexe" class="text-white"></span>
+                </div>
+                <div class="flex items-center">
+                    <span class="font-semibold text-gray-300 w-32">Téléphone :</span>
+                    <span id="profile-telephone" class="text-white"></span>
+                </div>
+                <button class="btn-primary" onclick="openEditProfileModal()"><i class="fas fa-edit mr-2"></i>Modifier le
+                    profil</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="text-xl font-semibold text-white mb-4">Examens Récents</h3>
+            <table class="w-full text-left">
+                <thead>
+                    vintage <tr class="text-gray-600">
+                        <th class="p-4">Type d'Examen</th>
+                        <th class="p-4">Date de l'Examen</th>
+                        <th class="p-4">Résultat</th>
+                    </tr>
+                </thead>
+                <tbody id="examens-table" class="text-gray-800"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="edit-profile-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-xl font-semibold mb-4 text-white">Modifier le Profil</h3>
+            <form id="edit-profile-form" class="space-y-4">
+                <div class="input-group">
+                    <input type="text" id="edit-nom" class="input-field" placeholder=" " required>
+                    <label for="edit-nom" class="input-label">Nom</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="edit-prenom" class="input-field" placeholder=" " required>
+                    <label for="edit-prenom" class="input-label">Prénom</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="edit-email" class="input-field" placeholder=" " required>
+                    <label for="edit-email" class="input-label">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="date" id="edit-dob" class="input-field" placeholder=" ">
+                    <label for="edit-dob" class="input-label">Date de naissance</label>
+                </div>
+                <div class="input-group">
+                    <select id="edit-sexe" class="input-field" required>
+                        <option value="" disabled>Sélectionner</option>
+                        <option value="M">Masculin</option>
+                        <option value="F">Féminin</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                    <label for="edit-sexe" class="input-label">Sexe</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="edit-telephone" class="input-field" placeholder=" " required>
+                    <label for="edit-telephone" class="input-label">Téléphone</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="edit-password" class="input-field" placeholder=" ">
+                    <label for="edit-password" class="input-label">Nouveau mot de passe (optionnel)</label>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" class="px-4 py-2 text-gray-300 hover:text-white"
+                        onclick="closeEditProfileModal()">Annuler</button>
+                    <button type="submit" class="btn-primary"><i class="fas fa-save mr-2"></i>Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const token = localStorage.getItem('token');
+        const role = localStorage.getItem('role');
+
+        if (!token || role !== 'patient') {
+            alert('Session invalide. Veuillez vous reconnecter.');
+            window.location.href = 'login.html';
+            throw new Error('No token or invalid role');
+        }
+
+        async function loadDashboard() {
+            try {
+                const response = await fetch('http://localhost/projet-medical/api/patient/me', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    if (response.status === 401) {
+                        throw new Error('Token invalide ou expiré. Veuillez vous reconnecter.');
+                    } else if (response.status === 403) {
+                        throw new Error('Accès non autorisé. Vous n\'êtes pas un patient.');
+                    } else {
+                        throw new Error(`Erreur HTTP: ${response.status} - ${response.statusText}`);
+                    }
+                }
+
+                const data = await response.json();
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                if (!data.patient) {
+                    throw new Error('Données du patient non trouvées dans la réponse.');
+                }
+
+                document.getElementById('patient-name').textContent = `${data.patient.nom} ${data.patient.prenom}`;
+                document.getElementById('profile-nom').textContent = data.patient.nom || 'Non spécifié';
+                document.getElementById('profile-prenom').textContent = data.patient.prenom || 'Non spécifié';
+                document.getElementById('profile-email').textContent = data.patient.email || 'Non spécifié';
+                document.getElementById('profile-dob').textContent = data.patient.date_naissance || 'Non spécifiée';
+                document.getElementById('profile-sexe').textContent = data.patient.sexe || 'Non spécifié';
+                document.getElementById('profile-telephone').textContent = data.patient.telephone || 'Non spécifié';
+                document.getElementById('edit-nom').value = data.patient.nom || '';
+                document.getElementById('edit-prenom').value = data.patient.prenom || '';
+                document.getElementById('edit-email').value = data.patient.email || '';
+                document.getElementById('edit-dob').value = data.patient.date_naissance || '';
+                document.getElementById('edit-sexe').value = data.patient.sexe || '';
+                document.getElementById('edit-telephone').value = data.patient.telephone || '';
+            } catch (error) {
+                console.error('Erreur lors du chargement du profil:', error.message);
+                alert(`Erreur lors du chargement du profil: ${error.message}`);
+                if (error.message.includes('Token invalide') || error.message.includes('Accès non autorisé')) {
+                    logout();
+                }
+            }
+            await loadRecentExamens();
+        }
+
+        async function loadRecentExamens() {
+            try {
+                const response = await fetch('http://localhost/projet-medical/api/examens', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Erreur HTTP: ${response.status} - ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                const tableBody = document.getElementById('examens-table');
+                tableBody.innerHTML = '';
+                (data.examens || []).slice(0, 5).forEach(examen => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="p-4">${examen.type_examen || 'Non spécifié'}</td>
+                        <td class="p-4">${examen.date_examen || 'Non spécifiée'}</td>
+                        <td class="p-4">${examen.resultat || 'Non disponible'}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Erreur lors du chargement des examens:', error.message);
+                alert(`Erreur lors du chargement des examens: ${error.message}`);
+            }
+        }
+
+        function openEditProfileModal() {
+            document.getElementById('edit-profile-modal').style.display = 'flex';
+        }
+
+        function closeEditProfileModal() {
+            document.getElementById('edit-profile-modal').style.display = 'none';
+        }
+
+        document.getElementById('edit-profile-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                nom: document.getElementById('edit-nom').value,
+                prenom: document.getElementById('edit-prenom').value,
+                email: document.getElementById('edit-email').value,
+                date_naissance: document.getElementById('edit-dob').value || null,
+                sexe: document.getElementById('edit-sexe').value || null,
+                telephone: document.getElementById('edit-telephone').value || null,
+                password: document.getElementById('edit-password').value || null
+            };
+            try {
+                const response = await fetch('http://localhost/projet-medical/api/patient/me', {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Erreur HTTP: ${response.status} - ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                if (result.error) {
+                    throw new Error(result.error);
+                }
+
+                alert('Profil mis à jour avec succès');
+                closeEditProfileModal();
+                loadDashboard();
+            } catch (error) {
+                console.error('Erreur lors de la mise à jour du profil:', error.message);
+                alert(`Erreur lors de la mise à jour du profil: ${error.message}`);
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('role');
+            window.location.href = 'login.html';
+        }
+
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 1,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5
+            });
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(6, 182, 212, 0.5)';
+                ctx.fill();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        loadDashboard();
+    </script>
+</body>
+
+</html>

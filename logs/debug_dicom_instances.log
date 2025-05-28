@@ -1,0 +1,138 @@
+[2025-05-06 00:17:43] Patient ID extracted: 1
+[2025-05-06 00:17:43] Autoload file loaded successfully
+[2025-05-06 00:17:43] Authorization header: 
+[2025-05-06 00:17:43] Missing or invalid Authorization header
+[2025-05-06 00:18:01] Patient ID extracted: 1
+[2025-05-06 00:18:01] Autoload file loaded successfully
+[2025-05-06 00:18:01] Authorization header: 
+[2025-05-06 00:18:01] Missing or invalid Authorization header
+[2025-05-06 00:18:28] Patient ID extracted: 1
+[2025-05-06 00:18:28] Autoload file loaded successfully
+[2025-05-06 00:18:28] Authorization header: 
+[2025-05-06 00:18:28] Missing or invalid Authorization header
+[2025-05-06 00:45:55] Invalid URL format: /projet-medical/api/dicom-instances.php?patientId=2
+[2025-05-06 03:24:23] Invalid URL format: /projet-medical/api/dicom-instances.php?patientId=2
+[2025-05-06 10:56:31] Invalid URL format: /projet-medical/api/dicom-instances.php?patientId=0000002019
+[2025-05-06 10:56:42] Invalid URL format: /projet-medical/api/dicom-instances.php?patientId=0000002019
+[2025-05-06 11:45:18] Invalid URL format: /projet-medical/api/dicom-instances.php?patientId=1
+[2025-05-06 12:15:20] Invalid URL format: /projet-medical/api/dicom-instances.php?patientId=1
+[2025-05-07 02:19:58] Invalid URL format: /projet-medical/api/dicom-instances.php?patientId=2
+[2025-05-07 03:05:37] Invalid URL format: /projet-medical/api/dicom-instances.php?patientId=2
+[2025-05-07 03:06:34] Invalid URL format: /projet-medical/api/dicom-instances.php?patientId=3
+[2025-05-07 03:10:18] Invalid URL format: /projet-medical/api/dicom-instances.php?patientId=1
+[2025-05-08 14:28:17] Patient ID extracted from query: 1
+[2025-05-08 14:28:17] Autoload file loaded successfully
+[2025-05-08 14:28:17] Authorization header: 
+[2025-05-08 14:28:17] Missing or invalid Authorization header
+[2025-05-08 14:35:06] Patient ID extracted from query: 1
+[2025-05-08 14:35:06] Autoload file loaded successfully
+[2025-05-08 14:35:06] Authorization header: 
+[2025-05-08 14:35:06] Missing or invalid Authorization header
+[2025-05-08 14:40:22] Patient ID extracted from query: 1
+[2025-05-08 14:40:22] Autoload file loaded successfully
+[2025-05-08 14:40:22] Database connection established
+[2025-05-08 14:40:22] DICOM instances fetched for patient 1: [{"dicom_instance_id":83,"orthanc_instance_id":"PATIENT-1-20250507192029","upload_date":"2025-05-07 21:20:49","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null},{"dicom_instance_id":84,"orthanc_instance_id":"PATIENT-1-20250507192049","upload_date":"2025-05-07 21:20:51","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null},{"dicom_instance_id":85,"orthanc_instance_id":"PATIENT-1-20250508121925","upload_date":"2025-05-08 14:19:38","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null}]
+[2025-05-08 14:43:05] Patient ID extracted from query: 1
+[2025-05-08 14:43:05] Autoload file loaded successfully
+[2025-05-08 14:43:05] Authorization header: 
+[2025-05-08 14:43:05] Missing or invalid Authorization header
+[2025-05-08 14:43:05] No session token found, authentication failed
+[2025-05-08 14:44:08] Patient ID extracted from query: 1
+[2025-05-08 14:44:08] Autoload file loaded successfully
+[2025-05-08 14:44:08] Authorization header: 
+[2025-05-08 14:44:08] Missing or invalid Authorization header
+[2025-05-08 14:44:59] Patient ID extracted from query: 1
+[2025-05-08 14:44:59] Autoload file loaded successfully
+[2025-05-08 14:44:59] Authorization header: 
+[2025-05-08 14:44:59] Missing or invalid Authorization header
+[2025-05-08 17:39:41] Patient ID extracted from query: 1
+[2025-05-08 17:39:42] Autoload file loaded successfully
+[2025-05-08 17:39:42] Authorization header: 
+[2025-05-08 17:39:42] Missing or invalid Authorization header
+[2025-05-08 18:27:58] Patient ID extracted from query: 1
+[2025-05-08 18:27:58] Autoload file loaded successfully
+[2025-05-08 18:27:58] Authorization header: 
+[2025-05-08 18:27:58] Missing or invalid Authorization header
+[2025-05-08 18:33:18] Patient ID extracted from query: 1
+[2025-05-08 18:33:18] PHP Session ID: mrdkdupj35igne4rlrtps47sfv
+[2025-05-08 18:33:18] Session data: []
+[2025-05-08 18:33:18] Autoload file loaded successfully
+[2025-05-08 18:33:18] Authorization header: 
+[2025-05-08 18:33:18] Missing or invalid Authorization header
+[2025-05-08 20:11:12] Patient ID extracted from query: 1
+[2025-05-08 20:11:13] Autoload file loaded successfully
+[2025-05-08 20:11:13] Authorization header: 
+[2025-05-08 20:11:13] Missing or invalid Authorization header
+[2025-05-08 20:14:53] Patient ID extracted from query: 1
+[2025-05-08 20:14:53] Autoload file loaded successfully
+[2025-05-08 20:14:53] Authorization header: 
+[2025-05-08 20:14:53] Missing or invalid Authorization header
+[2025-05-08 20:16:39] Patient ID extracted from query: 1
+[2025-05-08 20:16:39] Autoload file loaded successfully
+[2025-05-08 20:16:39] Authorization header: 
+[2025-05-08 20:16:39] Missing or invalid Authorization header
+[2025-05-08 20:29:25] Patient ID extracted from query: 1
+[2025-05-08 20:29:25] All request headers: {"Host":"localhost","Connection":"keep-alive","sec-ch-ua-platform":"\"Windows\"","Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY3Mjg5NDgsImV4cCI6MTc0NjgxNTM0OCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.FG41MUMf4aAlURE-4pNbNUnxiV75hbHd2E6EfaYqdqs","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/135.0.0.0 Safari\/537.36","Accept":"application\/json","sec-ch-ua":"\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"","Content-Type":"application\/json","sec-ch-ua-mobile":"?0","Sec-Fetch-Site":"same-origin","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost\/projet-medical\/dashboard.html","Accept-Encoding":"gzip, deflate, br, zstd","Accept-Language":"fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7","Cookie":"PHPSESSID=mrdkdupj35igne4rlrtps47sfv"}
+[2025-05-08 20:29:25] Autoload file loaded successfully
+[2025-05-08 20:29:25] Authorization header from $_SERVER: 
+[2025-05-08 20:29:25] Authorization header from getallheaders(): Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY3Mjg5NDgsImV4cCI6MTc0NjgxNTM0OCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.FG41MUMf4aAlURE-4pNbNUnxiV75hbHd2E6EfaYqdqs
+[2025-05-08 20:29:25] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY3Mjg5NDgsImV4cCI6MTc0NjgxNTM0OCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.FG41MUMf4aAlURE-4pNbNUnxiV75hbHd2E6EfaYqdqs
+[2025-05-08 20:29:25] Server time: 2025-05-08 20:29:25 (timestamp: 1746728965)
+[2025-05-08 20:29:26] JWT decoded successfully: {"iat":1746728948,"exp":1746815348,"data":{"id":1,"email":"aichasagne@esp.sn","role":"medecin"}}
+[2025-05-08 20:29:26] Token expiration: 2025-05-09 20:29:08 (timestamp: 1746815348)
+[2025-05-08 20:29:26] User ID: 1, Role: medecin
+[2025-05-08 20:29:26] Database connection established
+[2025-05-08 20:29:27] Database schema validated successfully
+[2025-05-08 20:29:28] DICOM instances fetched for patient 1: [{"orthanc_instance_id":"PATIENT-1-20250507192029","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250507192049","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250508121925","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null}]
+[2025-05-08 21:04:31] Patient ID extracted from query: 1
+[2025-05-08 21:04:31] All request headers: {"Host":"localhost","Connection":"keep-alive","sec-ch-ua-platform":"\"Windows\"","Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY3Mjg5NDgsImV4cCI6MTc0NjgxNTM0OCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.FG41MUMf4aAlURE-4pNbNUnxiV75hbHd2E6EfaYqdqs","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/135.0.0.0 Safari\/537.36","Accept":"application\/json","sec-ch-ua":"\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"","Content-Type":"application\/json","sec-ch-ua-mobile":"?0","Sec-Fetch-Site":"same-origin","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost\/projet-medical\/dashboard.html","Accept-Encoding":"gzip, deflate, br, zstd","Accept-Language":"fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7","Cookie":"PHPSESSID=mrdkdupj35igne4rlrtps47sfv"}
+[2025-05-08 21:04:31] Autoload file loaded successfully
+[2025-05-08 21:04:31] Authorization header from $_SERVER: 
+[2025-05-08 21:04:31] Authorization header from getallheaders(): Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY3Mjg5NDgsImV4cCI6MTc0NjgxNTM0OCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.FG41MUMf4aAlURE-4pNbNUnxiV75hbHd2E6EfaYqdqs
+[2025-05-08 21:04:31] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY3Mjg5NDgsImV4cCI6MTc0NjgxNTM0OCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.FG41MUMf4aAlURE-4pNbNUnxiV75hbHd2E6EfaYqdqs
+[2025-05-08 21:04:31] Server time: 2025-05-08 21:04:31 (timestamp: 1746731071)
+[2025-05-08 21:04:31] JWT decoded successfully: {"iat":1746728948,"exp":1746815348,"data":{"id":1,"email":"aichasagne@esp.sn","role":"medecin"}}
+[2025-05-08 21:04:31] Token expiration: 2025-05-09 20:29:08 (timestamp: 1746815348)
+[2025-05-08 21:04:31] User ID: 1, Role: medecin
+[2025-05-08 21:04:31] Database connection established
+[2025-05-08 21:04:31] Database schema validated successfully
+[2025-05-08 21:04:31] DICOM instances fetched for patient 1: [{"orthanc_instance_id":"PATIENT-1-20250507192029","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250507192049","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250508121925","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250508184759","description":"StudyInstanceUID: 1.3.12.2.1107.5.2.53.189501.30000021011309045077000000005","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250508184809","description":"StudyInstanceUID: 1.3.12.2.1107.5.2.53.189501.30000021011309045077000000005","study_date":null}]
+[2025-05-08 21:10:11] Patient ID extracted from query: 1
+[2025-05-08 21:10:11] All request headers: {"Host":"localhost","Connection":"keep-alive","sec-ch-ua-platform":"\"Windows\"","Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY3Mjg5NDgsImV4cCI6MTc0NjgxNTM0OCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.FG41MUMf4aAlURE-4pNbNUnxiV75hbHd2E6EfaYqdqs","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/135.0.0.0 Safari\/537.36","Accept":"application\/json","sec-ch-ua":"\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"","Content-Type":"application\/json","sec-ch-ua-mobile":"?0","Sec-Fetch-Site":"same-origin","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost\/projet-medical\/dashboard.html","Accept-Encoding":"gzip, deflate, br, zstd","Accept-Language":"fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7","Cookie":"PHPSESSID=mrdkdupj35igne4rlrtps47sfv"}
+[2025-05-08 21:10:11] Autoload file loaded successfully
+[2025-05-08 21:10:11] Authorization header from $_SERVER: 
+[2025-05-08 21:10:11] Authorization header from getallheaders(): Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY3Mjg5NDgsImV4cCI6MTc0NjgxNTM0OCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.FG41MUMf4aAlURE-4pNbNUnxiV75hbHd2E6EfaYqdqs
+[2025-05-08 21:10:11] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY3Mjg5NDgsImV4cCI6MTc0NjgxNTM0OCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.FG41MUMf4aAlURE-4pNbNUnxiV75hbHd2E6EfaYqdqs
+[2025-05-08 21:10:11] Server time: 2025-05-08 21:10:11 (timestamp: 1746731411)
+[2025-05-08 21:10:11] JWT decoded successfully: {"iat":1746728948,"exp":1746815348,"data":{"id":1,"email":"aichasagne@esp.sn","role":"medecin"}}
+[2025-05-08 21:10:11] Token expiration: 2025-05-09 20:29:08 (timestamp: 1746815348)
+[2025-05-08 21:10:11] User ID: 1, Role: medecin
+[2025-05-08 21:10:11] Database connection established
+[2025-05-08 21:10:11] Database schema validated successfully
+[2025-05-08 21:10:11] DICOM instances fetched for patient 1: [{"orthanc_instance_id":"PATIENT-1-20250507192029","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250507192049","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250508121925","description":"StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250508184759","description":"StudyInstanceUID: 1.3.12.2.1107.5.2.53.189501.30000021011309045077000000005","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250508184809","description":"StudyInstanceUID: 1.3.12.2.1107.5.2.53.189501.30000021011309045077000000005","study_date":null}]
+[2025-05-28 20:22:31] Patient ID extracted from query: 1
+[2025-05-28 20:22:31] All request headers: {"Host":"localhost","Connection":"keep-alive","sec-ch-ua-platform":"\"Windows\"","Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg0NTY1MzcsImV4cCI6MTc0ODU0MjkzNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19._PPQy9RAV1e26wGNY8NYABtgKPh7axQlpxac-hB4Qpc","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36","Accept":"application\/json","sec-ch-ua":"\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A\/Brand\";v=\"99\"","Content-Type":"application\/json","sec-ch-ua-mobile":"?0","Sec-Fetch-Site":"same-origin","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost\/projet-medical\/dashboard.html","Accept-Encoding":"gzip, deflate, br, zstd","Accept-Language":"fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7"}
+[2025-05-28 20:22:32] Autoload file loaded successfully
+[2025-05-28 20:22:32] Authorization header from $_SERVER: 
+[2025-05-28 20:22:32] Authorization header from getallheaders(): Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg0NTY1MzcsImV4cCI6MTc0ODU0MjkzNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19._PPQy9RAV1e26wGNY8NYABtgKPh7axQlpxac-hB4Qpc
+[2025-05-28 20:22:32] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg0NTY1MzcsImV4cCI6MTc0ODU0MjkzNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19._PPQy9RAV1e26wGNY8NYABtgKPh7axQlpxac-hB4Qpc
+[2025-05-28 20:22:32] Server time: 2025-05-28 20:22:32 (timestamp: 1748456552)
+[2025-05-28 20:22:32] JWT decoded successfully: {"iat":1748456537,"exp":1748542937,"data":{"id":1,"email":"aichasagne@esp.sn","role":"medecin"}}
+[2025-05-28 20:22:32] Token expiration: 2025-05-29 20:22:17 (timestamp: 1748542937)
+[2025-05-28 20:22:32] User ID: 1, Role: medecin
+[2025-05-28 20:22:32] Database connection established
+[2025-05-28 20:22:32] Database schema validated successfully
+[2025-05-28 20:22:32] DICOM instances fetched for patient 1: [{"orthanc_instance_id":"orthanc-ecg-001","description":"ECG - Tachycardie sinusale d?tect?e","study_date":"2024-06-16"},{"orthanc_instance_id":"orthanc-bilan-001","description":"Bilan sanguin - Cholest?rol ?lev?","study_date":"2024-07-02"},{"orthanc_instance_id":"orthanc-irm-001","description":"IRM c?r?brale - Normale","study_date":"2024-08-12"}]
+[2025-05-28 20:26:20] Patient ID extracted from query: 1
+[2025-05-28 20:26:20] All request headers: {"Host":"localhost","Connection":"keep-alive","sec-ch-ua-platform":"\"Windows\"","Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg0NTY1MzcsImV4cCI6MTc0ODU0MjkzNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19._PPQy9RAV1e26wGNY8NYABtgKPh7axQlpxac-hB4Qpc","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36","Accept":"application\/json","sec-ch-ua":"\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A\/Brand\";v=\"99\"","Content-Type":"application\/json","sec-ch-ua-mobile":"?0","Sec-Fetch-Site":"same-origin","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost\/projet-medical\/dashboard.html","Accept-Encoding":"gzip, deflate, br, zstd","Accept-Language":"fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7"}
+[2025-05-28 20:26:20] Autoload file loaded successfully
+[2025-05-28 20:26:20] Authorization header from $_SERVER: 
+[2025-05-28 20:26:20] Authorization header from getallheaders(): Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg0NTY1MzcsImV4cCI6MTc0ODU0MjkzNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19._PPQy9RAV1e26wGNY8NYABtgKPh7axQlpxac-hB4Qpc
+[2025-05-28 20:26:20] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg0NTY1MzcsImV4cCI6MTc0ODU0MjkzNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19._PPQy9RAV1e26wGNY8NYABtgKPh7axQlpxac-hB4Qpc
+[2025-05-28 20:26:20] Server time: 2025-05-28 20:26:20 (timestamp: 1748456780)
+[2025-05-28 20:26:20] JWT decoded successfully: {"iat":1748456537,"exp":1748542937,"data":{"id":1,"email":"aichasagne@esp.sn","role":"medecin"}}
+[2025-05-28 20:26:20] Token expiration: 2025-05-29 20:22:17 (timestamp: 1748542937)
+[2025-05-28 20:26:20] User ID: 1, Role: medecin
+[2025-05-28 20:26:20] Database connection established
+[2025-05-28 20:26:20] Database schema validated successfully
+[2025-05-28 20:26:20] DICOM instances fetched for patient 1: [{"orthanc_instance_id":"orthanc-ecg-001","description":"ECG - Tachycardie sinusale d?tect?e","study_date":"2024-06-16"},{"orthanc_instance_id":"orthanc-bilan-001","description":"Bilan sanguin - Cholest?rol ?lev?","study_date":"2024-07-02"},{"orthanc_instance_id":"orthanc-irm-001","description":"IRM c?r?brale - Normale","study_date":"2024-08-12"},{"orthanc_instance_id":"PATIENT-1-20250528182403","description":"StudyInstanceUID: 1.3.12.2.1107.5.2.53.189501.30000021011309045077000000005","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250528182403","description":"StudyInstanceUID: 1.3.12.2.1107.5.2.53.189501.30000021011309045077000000005","study_date":null},{"orthanc_instance_id":"PATIENT-1-20250528182540","description":"StudyInstanceUID: 1.3.12.2.1107.5.2.53.189501.30000021011309045077000000005","study_date":null}]

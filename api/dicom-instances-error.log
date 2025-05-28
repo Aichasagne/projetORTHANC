@@ -1,0 +1,10 @@
+[08-May-2025 18:19:07 Europe/Berlin] PHP Warning:  require(../../vendor/autoload.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\projet-medical\api\dicom-instances.php on line 17
+[08-May-2025 18:19:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\projet-medical\api\dicom-instances.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\projet-medical\api\dicom-instances.php on line 17
+[08-May-2025 18:20:02 Europe/Berlin] PHP Warning:  require(../../vendor/autoload.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\projet-medical\api\dicom-instances.php on line 17
+[08-May-2025 18:20:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\projet-medical\api\dicom-instances.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\projet-medical\api\dicom-instances.php on line 17

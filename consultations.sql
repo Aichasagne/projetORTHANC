@@ -1,0 +1,16 @@
+INSERT INTO consultations (patient_id, medecin_id, date_consultation, notes, fichier) VALUES
+(1, 1, '2025-04-25 10:00:00', 'Consultation initiale : légère fièvre et toux. Repos et hydratation conseillés.', NULL),
+(1, 1, '2025-05-01 14:30:00', 'Suivi : amélioration, plus de fièvre. Continuer lhydratation.', '2.25.123456789012345678901234567890'),
+(1, 2, '2025-05-08 09:00:00', 'Contrôle ORL : légère irritation pharyngée, traitement prescrit.', NULL),
+(2, 2, '2025-03-15 09:00:00', 'Consultation pour douleur abdominale. Antispasmodique prescrit, analyse demandée.', NULL),
+(2, 2, '2025-04-20 11:00:00', 'Résultats normaux, douleur réduite. Suivi dans un mois.', '2.25.987654321098765432109876543210'),
+(2, 1, '2025-04-30 14:00:00', 'Contrôle général : état stable, conseils dalimentation.', NULL),
+(3, 1, '2025-04-10 10:30:00', 'Consultation pour fatigue. Bilan sanguin recommandé.', NULL),
+(3, 2, '2025-04-25 15:00:00', 'Suivi fatigue : résultats en attente, repos conseillé.', '2.25.1111222233334444555566667777'),
+(3, 2, '2025-05-02 11:30:00', 'Contrôle ORL : audition normale, suivi prévu.', NULL),
+(4, 1, '2025-04-15 13:00:00', 'Consultation pour mal de tête. Analyse demandée.', NULL),
+(4, 2, '2025-04-28 16:00:00', 'Suivi : tension normale, traitement léger prescrit.', '2.25.4444555566667777888899990000'),
+(4, 2, '2025-05-05 10:00:00', 'Contrôle ORL : légère inflammation, antibiotique prescrit.', NULL),
+(5, 1, '2025-04-20 09:30:00', 'Consultation pour douleur dorsale. Radiographie demandée.', NULL),
+(5, 2, '2025-04-27 14:00:00', 'Suivi : radiographie normale, exercices recommandés.', '2.25.7777888899990000111122223333'),
+(5, 2, '2025-05-03 12:00:00', 'Contrôle ORL : aucun problème détecté.', NULL);

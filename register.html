@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Projet Médical</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        .register-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.5s ease-out;
+        }
+        .floating-label {
+            position: absolute;
+            left: 1rem;
+            top: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+            transition: all 0.2s ease-in-out;
+            font-size: 0.9rem;
+        }
+        .input-focused:not(:placeholder-shown)+.floating-label,
+        .input-focused:focus+.floating-label {
+            transform: translateY(-1.5rem);
+            font-size: 0.75rem;
+            color: #06b6d4;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 0 4px;
+        }
+        .input-focused {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .input-focused:focus {
+            outline: none;
+            border-color: #06b6d4;
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .input-focused::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        select:focus {
+            outline: none;
+            border-color: #06b6d4;
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        select option {
+            background: #0f172a;
+            color: white;
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #06b6d4, #22d3ee);
+            color: white;
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+        }
+        .toggle-password,
+        .toggle-confirm-password {
+            position: absolute;
+            right: 1rem;
+            top: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .toggle-password:hover,
+        .toggle-confirm-password:hover {
+            color: #06b6d4;
+            transform: scale(1.2);
+        }
+        .error-message {
+            display: none;
+            color: #f87171;
+            font-size: 0.875rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px #f87171;
+        }
+        .link {
+            color: #06b6d4;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #06b6d4;
+            transition: width 0.3s ease;
+        }
+        .link:hover::after {
+            width: 100%;
+        }
+        .link:hover {
+            color: #22d3ee;
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .role-specific {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+    <div class="register-container">
+        <div class="flex justify-center mb-4">
+            <h1 class="text-3xl font-bold text-white" style="text-shadow: 0 0 10px #06b6d4;">MediDICOM</h1>
+        </div>
+        <h2 class="text-2xl font-semibold text-center text-white mb-2">Inscription</h2>
+        <p class="text-center text-gray-300 mb-6">Créez votre compte sécurisé</p>
+        <div id="error-message" class="error-message"></div>
+        <form id="register-form" class="space-y-4">
+            <div class="relative">
+                <input type="text" id="nom" class="input-focused" placeholder=" " required>
+                <label for="nom" class="floating-label">Nom</label>
+            </div>
+            <div class="relative">
+                <input type="text" id="prenom" class="input-focused" placeholder=" " required>
+                <label for="prenom" class="floating-label">Prénom</label>
+            </div>
+            <div class="relative">
+                <input type="email" id="email" class="input-focused" required placeholder=" ">
+                <label for="email" class="floating-label">Adresse email</label>
+            </div>
+            <div class="relative">
+                <input type="password" id="password" class="input-focused" required placeholder=" ">
+                <label for="password" class="floating-label">Mot de passe</label>
+                <i class="fas fa-eye toggle-password"></i>
+            </div>
+            <div class="relative">
+                <input type="password" id="confirm-password" class="input-focused" required placeholder=" ">
+                <label for="confirm-password" class="floating-label">Confirmer le mot de passe</label>
+                <i class="fas fa-eye toggle-confirm-password"></i>
+            </div>
+            <div class="relative">
+                <select id="role" required>
+                    <option value="" disabled selected>Choisissez un rôle</option>
+                    <option value="medecin">Médecin</option>
+                    <option value="radiologue">Radiologue</option>
+                    <option value="patient">Patient</option>
+                    <option value="admin">Administrateur</option>
+                </select>
+            </div>
+            <!-- Patient-specific fields -->
+            <div id="patient-fields" class="role-specific space-y-4">
+                <div class="relative">
+                    <input type="date" id="date_naissance" class="input-focused" placeholder=" ">
+                    <label for="date_naissance" class="floating-label">Date de naissance</label>
+                </div>
+                <div class="relative">
+                    <select id="sexe">
+                        <option value="" disabled selected>Sélectionnez le sexe</option>
+                        <option value="M">Masculin</option>
+                        <option value="F">Féminin</option>
+                    </select>
+                </div>
+                <div class="relative">
+                    <input type="tel" id="telephone" class="input-focused" placeholder=" ">
+                    <label for="telephone" class="floating-label">Téléphone</label>
+                </div>
+                <div class="relative">
+                    <input type="text" id="adresse" class="input-focused" placeholder=" ">
+                    <label for="adresse" class="floating-label">Adresse</label>
+                </div>
+            </div>
+            <!-- Medecin-specific fields -->
+            <div id="medecin-fields" class="role-specific space-y-4">
+                <div class="relative">
+                    <input type="text" id="specialite" class="input-focused" placeholder=" ">
+                    <label for="specialite" class="floating-label">Spécialité</label>
+                </div>
+                <div class="relative">
+                    <input type="text" id="numero_licence" class="input-focused" placeholder=" ">
+                    <label for="numero_licence" class="floating-label">Numéro de licence</label>
+                </div>
+            </div>
+            <!-- Radiologue-specific fields -->
+            <div id="radiologue-fields" class="role-specific space-y-4">
+                <div class="relative">
+                    <input type="text" id="certification" class="input-focused" placeholder=" ">
+                    <label for="certification" class="floating-label">Certification</label>
+                </div>
+            </div>
+            <!-- Admin-specific fields -->
+            <div id="admin-fields" class="role-specific space-y-4">
+                <div class="relative">
+                    <select id="niveau_acces">
+                        <option value="" disabled selected>Sélectionnez le niveau d'accès</option>
+                        <option value="super_admin">Super Admin</option>
+                        <option value="gestionnaire">Gestionnaire</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn-primary">
+                <span id="btn-text">S'inscrire</span>
+                <i class="fas fa-spinner fa-spin hidden ml-2" id="btn-spinner"></i>
+            </button>
+        </form>
+        <p class="mt-4 text-center text-gray-300">Déjà un compte ? <a href="login.html" class="link">Se connecter</a></p>
+        <p class="mt-2 text-center text-gray-300">Retour à <a href="index.html" class="link">l'accueil</a></p>
+    </div>
+    <script>
+        // Gestion des particules de fond
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 1,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5
+            });
+        }
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(6, 182, 212, 0.5)';
+                ctx.fill();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Gestion des icônes œil pour les champs mot de passe
+        const togglePassword = document.querySelector('.toggle-password');
+        const toggleConfirmPassword = document.querySelector('.toggle-confirm-password');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+        toggleConfirmPassword.addEventListener('click', () => {
+            const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmPasswordInput.setAttribute('type', type);
+            toggleConfirmPassword.classList.toggle('fa-eye');
+            toggleConfirmPassword.classList.toggle('fa-eye-slash');
+        });
+
+        // Gestion des champs spécifiques au rôle
+        const roleSelect = document.getElementById('role');
+        const patientFields = document.getElementById('patient-fields');
+        const medecinFields = document.getElementById('medecin-fields');
+        const radiologueFields = document.getElementById('radiologue-fields');
+        const adminFields = document.getElementById('admin-fields');
+        roleSelect.addEventListener('change', () => {
+            patientFields.style.display = roleSelect.value === 'patient' ? 'block' : 'none';
+            medecinFields.style.display = roleSelect.value === 'medecin' ? 'block' : 'none';
+            radiologueFields.style.display = roleSelect.value === 'radiologue' ? 'block' : 'none';
+            adminFields.style.display = roleSelect.value === 'admin' ? 'block' : 'none';
+        });
+
+        // Gestion de la soumission du formulaire
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const nom = document.getElementById('nom').value;
+            const prenom = document.getElementById('prenom').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const role = document.getElementById('role').value;
+            const btnText = document.getElementById('btn-text');
+            const btnSpinner = document.getElementById('btn-spinner');
+            const errorMessage = document.getElementById('error-message');
+
+            // Validation des mots de passe
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Les mots de passe ne correspondent pas';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // Collect role-specific fields
+            const data = { nom, prenom, email, password, role };
+            if (role === 'patient') {
+                const date_naissance = document.getElementById('date_naissance').value;
+                const sexe = document.getElementById('sexe').value;
+                const telephone = document.getElementById('telephone').value;
+                const adresse = document.getElementById('adresse').value;
+                if (!date_naissance || !sexe || !telephone || !adresse) {
+                    errorMessage.textContent = 'Veuillez remplir tous les champs pour patient';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+                data.date_naissance = date_naissance;
+                data.sexe = sexe;
+                data.telephone = telephone;
+                data.adresse = adresse;
+            } else if (role === 'medecin') {
+                const specialite = document.getElementById('specialite').value;
+                const numero_licence = document.getElementById('numero_licence').value;
+                if (!specialite || !numero_licence) {
+                    errorMessage.textContent = 'Veuillez remplir tous les champs pour médecin';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+                data.specialite = specialite;
+                data.numero_licence = numero_licence;
+            } else if (role === 'radiologue') {
+                const certification = document.getElementById('certification').value;
+                if (!certification) {
+                    errorMessage.textContent = 'Veuillez remplir le champ certification';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+                data.certification = certification;
+            } else if (role === 'admin') {
+                const niveau_acces = document.getElementById('niveau_acces').value;
+                if (!niveau_acces) {
+                    errorMessage.textContent = 'Veuillez sélectionner le niveau d\'accès';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+                data.niveau_acces = niveau_acces;
+            }
+
+            btnText.textContent = 'Inscription...';
+            btnSpinner.classList.remove('hidden');
+            errorMessage.style.display = 'none';
+            try {
+                const response = await fetch('http://localhost/projet-medical/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                if (result.message) {
+                    alert('Inscription réussie !');
+                    window.location.href = 'login.html';
+                } else {
+                    errorMessage.textContent = result.error || "Erreur lors de l'inscription";
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                errorMessage.textContent = 'Erreur réseau. Veuillez réessayer.';
+                errorMessage.style.display = 'block';
+            } finally {
+                btnText.textContent = "S'inscrire";
+                btnSpinner.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

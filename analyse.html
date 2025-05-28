@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyses Médicales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+        .btn-secondary:hover {
+            background-color: #545b62;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .form-section {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-section.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Analyses Médicales</h1>
+
+        <!-- Boutons pour gérer les actions -->
+        <div>
+            <button class="btn btn-primary" onclick="toggleAddForm()">Ajouter une analyse</button>
+            <button class="btn btn-secondary" onclick="window.location.href='dashboard.html'">Retour au tableau de bord</button>
+        </div>
+
+        <!-- Formulaire pour ajouter une analyse -->
+        <div id="addAnalysisForm" class="form-section">
+            <h2>Ajouter une nouvelle analyse</h2>
+            <div class="form-group">
+                <label for="patient_id">Patient</label>
+                <select id="patient_id" name="patient_id" required>
+                    <option value="">Sélectionner un patient</option>
+                    <!-- Les patients seront chargés dynamiquement -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="medecin_id">Médecin</label>
+                <select id="medecin_id" name="medecin_id" required>
+                    <option value="">Sélectionner un médecin</option>
+                    <!-- Les médecins seront chargés dynamiquement -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="radiologue_id">Radiologue</label>
+                <select id="radiologue_id" name="radiologue_id" required>
+                    <option value="">Sélectionner un radiologue</option>
+                    <!-- Les radiologues seront chargés dynamiquement -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="type_examen">Type d'examen</label>
+                <select id="type_examen" name="type_examen" required>
+                    <option value="">Sélectionner un type</option>
+                    <option value="Radio">Radio</option>
+                    <option value="Scanner">Scanner</option>
+                    <option value="IRM">IRM</option>
+                    <option value="Analyse de sang">Analyse de sang</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date_examen">Date de l'examen</label>
+                <input type="date" id="date_examen" name="date_examen" required>
+            </div>
+            <div class="form-group">
+                <label for="resultats">Résultats</label>
+                <textarea id="resultats" name="resultats" rows="4" placeholder="Entrez les résultats de l'examen..."></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="addAnalysis()">Enregistrer</button>
+            <button class="btn btn-secondary" onclick="toggleAddForm()">Annuler</button>
+        </div>
+
+        <!-- Tableau pour afficher les analyses -->
+        <table id="analysesTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Patient</th>
+                    <th>Médecin</th>
+                    <th>Radiologue</th>
+                    <th>Type d'examen</th>
+                    <th>Date</th>
+                    <th>Résultats</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Vérifier si l'utilisateur est connecté
+            const token = localStorage.getItem('token');
+            const role = localStorage.getItem('role');
+            if (!token || !role) {
+                alert('Veuillez vous connecter.');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Charger les données au démarrage
+            fetchAnalyses();
+            fetchPatients();
+            fetchMedecins();
+            fetchRadiologues();
+        });
+
+        // Afficher/masquer le formulaire d'ajout
+        function toggleAddForm() {
+            const form = document.getElementById('addAnalysisForm');
+            form.classList.toggle('active');
+        }
+
+        // Charger la liste des analyses
+        async function fetchAnalyses() {
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch('http://localhost/projet-medical/api/examens', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    displayAnalyses(result.examens);
+                } else {
+                    throw new Error(result.error || 'Erreur lors du chargement des analyses');
+                }
+            } catch (error) {
+                alert(`Erreur: ${error.message}`);
+            }
+        }
+
+        // Afficher les analyses dans le tableau
+        function displayAnalyses(analyses) {
+            const tbody = document.querySelector('#analysesTable tbody');
+            tbody.innerHTML = '';
+
+            analyses.forEach(analyse => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${analyse.id}</td>
+                    <td>${analyse.patient_nom} ${analyse.patient_prenom}</td>
+                    <td>${analyse.medecin_nom} ${analyse.medecin_prenom}</td>
+                    <td>${analyse.radiologue_nom} ${analyse.radiologue_prenom}</td>
+                    <td>${analyse.type_examen}</td>
+                    <td>${analyse.date_examen}</td>
+                    <td>${analyse.resultats || 'Non disponible'}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Charger la liste des patients pour le formulaire
+        async function fetchPatients() {
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch('http://localhost/projet-medical/api/patients', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    const patientSelect = document.getElementById('patient_id');
+                    result.patients.forEach(patient => {
+                        const option = document.createElement('option');
+                        option.value = patient.id;
+                        option.textContent = `${patient.nom} ${patient.prenom} (${patient.email})`;
+                        patientSelect.appendChild(option);
+                    });
+                } else {
+                    throw new Error(result.error || 'Erreur lors du chargement des patients');
+                }
+            } catch (error) {
+                alert(`Erreur: ${error.message}`);
+            }
+        }
+
+        // Charger la liste des médecins pour le formulaire
+        async function fetchMedecins() {
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch('http://localhost/projet-medical/api/medecins', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    const medecinSelect = document.getElementById('medecin_id');
+                    result.medecins.forEach(medecin => {
+                        const option = document.createElement('option');
+                        option.value = medecin.id;
+                        option.textContent = `${medecin.nom} ${medecin.prenom}`;
+                        medecinSelect.appendChild(option);
+                    });
+                } else {
+                    throw new Error(result.error || 'Erreur lors du chargement des médecins');
+                }
+            } catch (error) {
+                alert(`Erreur: ${error.message}`);
+            }
+        }
+
+        // Charger la liste des radiologues pour le formulaire
+        async function fetchRadiologues() {
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch('http://localhost/projet-medical/api/radiologues', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    const radiologueSelect = document.getElementById('radiologue_id');
+                    result.radiologues.forEach(radiologue => {
+                        const option = document.createElement('option');
+                        option.value = radiologue.id;
+                        option.textContent = `${radiologue.nom} ${radiologue.prenom}`;
+                        radiologueSelect.appendChild(option);
+                    });
+                } else {
+                    throw new Error(result.error || 'Erreur lors du chargement des radiologues');
+                }
+            } catch (error) {
+                alert(`Erreur: ${error.message}`);
+            }
+        }
+
+        // Ajouter une nouvelle analyse
+        async function addAnalysis() {
+            const token = localStorage.getItem('token');
+            const formData = {
+                patient_id: document.getElementById('patient_id').value,
+                medecin_id: document.getElementById('medecin_id').value,
+                radiologue_id: document.getElementById('radiologue_id').value,
+                type_examen: document.getElementById('type_examen').value,
+                date_examen: document.getElementById('date_examen').value,
+                resultats: document.getElementById('resultats').value || null
+            };
+
+            try {
+                const response = await fetch('http://localhost/projet-medical/api/examens', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Analyse ajoutée avec succès !');
+                    toggleAddForm();
+                    fetchAnalyses(); // Rafraîchir la liste
+                } else {
+                    throw new Error(result.error || 'Erreur lors de l\'ajout de l\'analyse');
+                }
+            } catch (error) {
+                alert(`Erreur: ${error.message}`);
+            }
+        }
+    </script>
+</body>
+</html>
