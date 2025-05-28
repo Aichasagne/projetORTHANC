@@ -1,129 +1,106 @@
 <?php
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=UTF-8');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
-header('Access-Control-Allow-Headers: Authorization, Content-Type');
+header('Access-Control-Allow-Methods: GET');
+header('Access-Control-Allow-Headers: Authorization, Content-Type, Accept');
 
-// Inclusion de la classe Database
-require_once 'C:/xampp/htdocs/projet-medical/api/config/database.php';
+// Activer le débogage dans les logs, mais pas dans la réponse
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
+ini_set('log_errors', 1);
+ini_set('error_log', 'C:/xampp/htdocs/projet-medical/logs/php_errors.log');
 
-// Instanciation de la classe Database
-$database = new Database();
-$conn = $database->connect();
+function debugLog($message) {
+    $logFile = 'C:/xampp/htdocs/projet-medical/logs/debug_consultations.log';
+    $timestamp = date('Y-m-d H:i:s');
+    file_put_contents($logFile, "[$timestamp] $message\n", FILE_APPEND);
+}
 
-if ($conn === null) {
-    http_response_code(500);
-    echo json_encode(['erreur' => 'Connexion à la base de données échouée']);
+function sendResponse($status, $data) {
+    http_response_code($status);
+    echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     exit;
 }
 
-// Vérification du token (exemple simplifié ; améliorez selon votre système d'authentification)
-$headers = apache_request_headers();
-if (!isset($headers['Authorization'])) {
-    http_response_code(401);
-    echo json_encode(['erreur' => 'Aucun token fourni']);
-    exit;
-}
-
-$token = str_replace('Bearer ', '', $headers['Authorization']);
-// Ajoutez votre logique de validation du token ici (ex. décodage JWT ou vérification de session)
-
-// Déterminer la méthode de la requête
 $method = $_SERVER['REQUEST_METHOD'];
+debugLog('Request method: ' . $method);
 
-if ($method === 'POST') {
-    // Ajouter une nouvelle consultation
-    $patientId = isset($_POST['patient_id']) ? (int)$_POST['patient_id'] : 0;
-    $dateConsultation = isset($_POST['date_consultation']) ? $_POST['date_consultation'] : null;
-    $notes = isset($_POST['notes']) ? trim($_POST['notes']) : null;
-    $file = isset($_FILES['file']) ? $_FILES['file'] : null;
+if ($method !== 'GET') {
+    debugLog('Invalid request method: ' . $method);
+    sendResponse(405, ['error' => 'Method Not Allowed']);
+}
 
-    if ($patientId <= 0 || !$dateConsultation || !$notes) {
-        http_response_code(400);
-        echo json_encode(['erreur' => 'Données manquantes']);
-        exit;
+$patientId = isset($_GET['patientId']) ? (int)$_GET['patientId'] : null;
+debugLog('Patient ID extracted from query: ' . $patientId);
+if (!$patientId) {
+    debugLog('Missing patientId in query parameters');
+    sendResponse(400, ['error' => 'Missing patientId']);
+}
+
+$headers = getallheaders();
+$authHeader = isset($headers['Authorization']) ? $headers['Authorization'] : '';
+if (!$authHeader || !preg_match('/Bearer\s(\S+)/', $authHeader, $tokenMatches)) {
+    debugLog('Missing or invalid Authorization header');
+    sendResponse(401, ['error' => 'Token manquant']);
+}
+
+$token = $tokenMatches[1];
+require_once 'C:/xampp/htdocs/projet-medical/vendor/autoload.php';
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+$jwtSecret = 'your_jwt_secret_key'; // Remplacez par votre vraie clé secrète
+try {
+    $decoded = JWT::decode($token, new Key($jwtSecret, 'HS256'));
+    if ($decoded->exp < time()) {
+        debugLog('Token has expired');
+        sendResponse(401, ['error' => 'Session expirée']);
+    }
+} catch (Exception $e) {
+    debugLog('JWT validation failed: ' . $e->getMessage());
+    sendResponse(401, ['error' => 'Token invalide']);
+}
+
+try {
+    $pdo = new PDO('mysql:host=localhost;dbname=projet_medical', 'root', '', [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+    ]);
+} catch (PDOException $e) {
+    debugLog('Database connection failed: ' . $e->getMessage());
+    sendResponse(500, ['error' => 'Database connection failed']);
+}
+
+// Vérifier si le patient existe
+try {
+    $stmt = $pdo->prepare('SELECT id FROM patients WHERE id = ?');
+    $stmt->execute([$patientId]);
+    if (!$stmt->fetch()) {
+        debugLog('Patient not found: ' . $patientId);
+        sendResponse(404, ['error' => 'Patient not found']);
+    }
+} catch (PDOException $e) {
+    debugLog('Error checking patient existence: ' . $e->getMessage());
+    sendResponse(500, ['error' => 'Failed to verify patient']);
+}
+
+try {
+    // Requête corrigée : remplacer 'date' par 'date_consultation' et 'diagnosis' par 'notes'
+    $stmt = $pdo->prepare('SELECT id, date_consultation, notes FROM consultations WHERE patient_id = ?');
+    $stmt->execute([$patientId]);
+    $consultations = $stmt->fetchAll();
+    debugLog('Consultations fetched for patient ' . $patientId . ': ' . json_encode($consultations));
+
+    if (empty($consultations)) {
+        debugLog('No consultations found for patient ' . $patientId);
+        sendResponse(200, []);
     }
 
-    try {
-        // Récupérer l'ID du médecin à partir du token (simulé ici, remplacez par votre logique)
-        $medecinId = 1; // Remplacez par une récupération réelle (ex. via JWT)
-
-        // Gérer le fichier DICOM s'il est fourni
-        $fichier = null;
-        if ($file && $file['error'] === UPLOAD_ERR_OK) {
-            $formData = new FormData();
-            $formData->append('file', $file['tmp_name']);
-            $response = file_get_contents('http://localhost/projet-medical/api/proxy-orthanc.php?path=instances', false, stream_context_create([
-                'http' => [
-                    'method' => 'POST',
-                    'header' => "Content-Type: multipart/form-data\r\n",
-                    'content' => $formData->getContent()
-                ]
-            ]));
-            $result = json_decode($response, true);
-            if (!$result || !isset($result['studyInstanceUID'])) {
-                throw new Error('Erreur lors de l\'upload du fichier DICOM');
-            }
-            $fichier = $result['studyInstanceUID'];
-        }
-
-        // Insérer la consultation dans la base de données
-        $query = "
-            INSERT INTO consultations (patient_id, medecin_id, date_consultation, notes, fichier)
-            VALUES (:patientId, :medecinId, :dateConsultation, :notes, :fichier)
-        ";
-        $stmt = $conn->prepare($query);
-        $stmt->execute([
-            'patientId' => $patientId,
-            'medecinId' => $medecinId,
-            'dateConsultation' => $dateConsultation,
-            'notes' => $notes,
-            'fichier' => $fichier
-        ]);
-
-        http_response_code(201);
-        echo json_encode(['message' => 'Consultation ajoutée avec succès']);
-    } catch (Exception $e) {
-        http_response_code(500);
-        echo json_encode(['erreur' => 'Requête échouée : ' . $e->getMessage()]);
-    }
-} else {
-    // Récupérer les consultations (GET)
-    $patientId = isset($_GET['patientId']) ? (int)$_GET['patientId'] : 0;
-
-    if ($patientId <= 0) {
-        http_response_code(400);
-        echo json_encode(['erreur' => 'ID patient invalide']);
-        exit;
-    }
-
-    try {
-        $query = "
-            SELECT c.*, CONCAT(u.nom, ' ', u.prenom) AS nom_medecin
-            FROM consultations c
-            JOIN users u ON c.medecin_id = u.id
-            WHERE c.patient_id = :patientId
-            ORDER BY c.date_consultation DESC
-        ";
-        $stmt = $conn->prepare($query);
-        $stmt->execute(['patientId' => $patientId]);
-        $consultations = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        // Map the result to match the expected JSON structure in openConsultationsModal
-        $formattedConsultations = array_map(function($c) {
-            return [
-                'id' => $c['id'],
-                'date' => $c['date_consultation'],
-                'diagnosis' => $c['notes'] ?? 'Aucun diagnostic',
-                'treatment' => '',
-                'nom_medecin' => $c['nom_medecin']
-            ];
-        }, $consultations);
-
-        echo json_encode($formattedConsultations);
-    } catch (PDOException $e) {
-        http_response_code(500);
-        echo json_encode(['erreur' => 'Requête échouée : ' . $e->getMessage()]);
-    }
+    sendResponse(200, $consultations);
+} catch (PDOException $e) {
+    debugLog('Error fetching consultations: ' . $e->getMessage());
+    sendResponse(500, ['error' => 'Failed to fetch consultations']);
 }
 ?>

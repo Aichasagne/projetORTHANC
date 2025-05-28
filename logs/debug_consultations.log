@@ -31,3 +31,12 @@
 2025-05-08 13:38:21 - Version de consultations.php: 2025-05-08 avec corrections pour token
 2025-05-08 13:38:21 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDY3MDQyOTUsImV4cCI6MTc0Njc5MDY5NSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fbOd_wdryTRJzMPe9mqOfJjXBPsHcVAQJ7bSwGelJi8
 2025-05-08 13:38:21 - Erreur: Token invalide - Signature verification failed
+[2025-05-29 00:49:42] Request method: GET
+[2025-05-29 00:49:42] Patient ID extracted from query: 1
+[2025-05-29 00:49:44] Error fetching consultations: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'date' in 'field list'
+[2025-05-29 00:59:39] Request method: GET
+[2025-05-29 00:59:39] Patient ID extracted from query: 1
+[2025-05-29 00:59:39] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
+[2025-05-29 01:01:34] Request method: GET
+[2025-05-29 01:01:34] Patient ID extracted from query: 1
+[2025-05-29 01:01:34] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
