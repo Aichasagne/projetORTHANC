@@ -1,179 +1,176 @@
 <?php
-// Setting headers to ensure JSON response and prevent CORS issues
-header('Content-Type: application/json; charset=UTF-8');
+header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET');
-header('Access-Control-Allow-Headers: Authorization, Content-Type, Accept');
 
-// Enable error reporting for debugging, but prevent errors from being displayed in the response
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
-error_reporting(E_ALL);
-
-// Log errors to a file instead of displaying them
-ini_set('log_errors', 1);
-ini_set('error_log', 'C:/xampp/htdocs/projet-medical/logs/php_errors.log');
-
-// Custom logging function for debugging
-function debugLog($message) {
-    $logFile = 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log';
-    $timestamp = date('Y-m-d H:i:s');
-    file_put_contents($logFile, "[$timestamp] $message\n", FILE_APPEND);
-}
-
-// Function to send a JSON response and exit
-function sendResponse($status, $data) {
-    http_response_code($status);
-    echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type, Authorization');
+    http_response_code(204);
     exit;
 }
 
-// Check if the request method is GET
-if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-    debugLog('Invalid request method: ' . $_SERVER['REQUEST_METHOD']);
-    sendResponse(405, ['error' => 'Method Not Allowed']);
-}
-
-// Extract patient ID from query parameters
-$patientId = isset($_GET['patientId']) ? (int)$_GET['patientId'] : null;
-debugLog('Patient ID extracted from query: ' . $patientId);
-if (!$patientId) {
-    debugLog('Missing patientId in query parameters');
-    sendResponse(400, ['error' => 'Missing patientId']);
-}
-
-// Check log file writability
-$logFile = 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log';
-if (!is_writable(dirname($logFile))) {
-    error_log("Log directory is not writable: " . dirname($logFile));
-    sendResponse(500, ['error' => 'Server error: Log directory is not writable']);
-}
-
-// Log all headers for debugging
 $headers = getallheaders();
-debugLog('All request headers: ' . json_encode($headers));
+error_log("Headers reçus: " . json_encode($headers), 3, 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log');
+$authHeader = $headers['Authorization'] ?? '';
+error_log("Authorization header brut: " . $authHeader, 3, 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log');
+$token = str_replace('Bearer ', '', $authHeader);
+error_log("Token extrait: " . $token, 3, 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log');
 
-// Load dependencies
-$autoloadPath = 'C:/xampp/htdocs/projet-medical/vendor/autoload.php';
-if (!file_exists($autoloadPath)) {
-    debugLog('Autoload file not found at: ' . $autoloadPath);
-    sendResponse(500, ['error' => 'Server error: Autoload file not found']);
+if (empty($token)) {
+    http_response_code(401);
+    echo json_encode(['error' => 'Missing or invalid Authorization header']);
+    exit;
 }
 
-try {
-    require_once $autoloadPath;
-    debugLog('Autoload file loaded successfully');
-} catch (Exception $e) {
-    debugLog('Failed to load autoload.php: ' . $e->getMessage());
-    sendResponse(500, ['error' => 'Server error: Failed to load dependencies']);
-}
-
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
-
-// Validate JWT token (aligned with index.php)
-$authHeader = isset($_SERVER['HTTP_AUTHORIZATION']) ? $_SERVER['HTTP_AUTHORIZATION'] : '';
-debugLog('Authorization header from $_SERVER: ' . $authHeader);
-
-// Fallback to getallheaders() if $_SERVER['HTTP_AUTHORIZATION'] is empty
-if (empty($authHeader) && isset($headers['Authorization'])) {
-    $authHeader = $headers['Authorization'];
-    debugLog('Authorization header from getallheaders(): ' . $authHeader);
-}
-
-if (!$authHeader || !preg_match('/Bearer\s(\S+)/', $authHeader, $tokenMatches)) {
-    debugLog('Missing or invalid Authorization header');
-    sendResponse(401, ['error' => 'Token manquant']);
-}
-
-$token = $tokenMatches[1];
-debugLog('Token extracted: ' . $token);
-
-// Log server time for comparison
-$serverTime = time();
-$serverTimeFormatted = date('Y-m-d H:i:s', $serverTime);
-debugLog("Server time: $serverTimeFormatted (timestamp: $serverTime)");
-
-$jwtSecret = 'your_jwt_secret_key'; // Must match JWT_SECRET in index.php
-try {
-    $decoded = JWT::decode($token, new Key($jwtSecret, 'HS256'));
-    $exp = $decoded->exp;
-    $expFormatted = date('Y-m-d H:i:s', $exp);
-    debugLog("JWT decoded successfully: " . json_encode($decoded));
-    debugLog("Token expiration: $expFormatted (timestamp: $exp)");
-    
-    if ($exp < $serverTime) {
-        debugLog("Token has expired: Expiration $exp is less than server time $serverTime");
-        sendResponse(401, ['error' => 'Session expirée. Veuillez vous reconnecter.']);
+function decodeJWT($token) {
+    try {
+        $parts = explode('.', $token);
+        if (count($parts) !== 3) {
+            error_log("Invalid JWT structure: " . json_encode($parts), 3, 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log');
+            return false;
+        }
+        $payload = $parts[1];
+        $padding = strlen($payload) % 4;
+        if ($padding) $payload .= str_repeat('=', 4 - $padding);
+        $decodedPayload = base64_decode(str_replace(['-', '_'], ['+', '/'], $payload), true);
+        if ($decodedPayload === false) {
+            error_log("Base64 decoding failed for payload: " . $payload, 3, 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log');
+            return false;
+        }
+        $jsonPayload = json_decode($decodedPayload, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            error_log("JSON decoding failed: " . json_last_error_msg(), 3, 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log');
+            return false;
+        }
+        return $jsonPayload;
+    } catch (Exception $e) {
+        error_log("JWT decoding error: " . $e->getMessage(), 3, 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log');
+        return false;
     }
-
-    // Verify token structure (matching index.php expectations)
-    if (!isset($decoded->data->id) || !isset($decoded->data->role)) {
-        debugLog("Invalid token structure: Missing id or role in data");
-        sendResponse(401, ['error' => 'Token invalide: Données utilisateur manquantes']);
-    }
-
-    $user_id = $decoded->data->id;
-    $role = $decoded->data->role;
-    debugLog("User ID: $user_id, Role: $role");
-} catch (Exception $e) {
-    debugLog('JWT validation failed: ' . $e->getMessage());
-    sendResponse(401, ['error' => 'Token invalide: ' . $e->getMessage()]);
 }
 
-// Database connection
+$decoded = decodeJWT($token);
+if ($decoded === false || !isset($decoded['exp']) || $decoded['exp'] < time()) {
+    http_response_code(401);
+    echo json_encode(['error' => 'Invalid or expired token']);
+    exit;
+}
+
+$userId = $decoded['data']['id'] ?? null;
+$role = $decoded['data']['role'] ?? null;
+if (!$userId || $role !== 'medecin') {
+    http_response_code(401);
+    echo json_encode(['error' => 'Unauthorized user']);
+    exit;
+}
+error_log("Utilisateur authentifié: userId=$userId, role=$role", 3, 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log');
+
+$host = 'localhost';
+$dbname = 'projet_medical';
+$username = 'root';
+$password = '';
+
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=projet_medical', 'root', '', [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
-    ]);
-    debugLog('Database connection established');
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    error_log("Database connection established", 3, 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log');
 } catch (PDOException $e) {
-    debugLog('Database connection failed: ' . $e->getMessage());
-    sendResponse(500, ['error' => 'Database connection failed: ' . $e->getMessage()]);
+    error_log("Database connection failed: " . $e->getMessage(), 3, 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log');
+    http_response_code(500);
+    echo json_encode(['error' => 'Database connection failed']);
+    exit;
 }
 
-// Validate database schema
-try {
-    $stmt = $pdo->query("DESCRIBE dicom_instances");
-    $columns = $stmt->fetchAll();
-    $requiredColumns = ['orthanc_instance_id', 'description', 'study_date', 'patient_id'];
-    $missingColumns = array_diff($requiredColumns, array_column($columns, 'Field'));
-    if (!empty($missingColumns)) {
-        debugLog('Missing required columns in dicom_instances table: ' . implode(', ', $missingColumns));
-        sendResponse(500, ['error' => 'Database schema error: Missing columns - ' . implode(', ', $missingColumns)]);
+$method = $_SERVER['REQUEST_METHOD'];
+$patientId = isset($_GET['patientId']) ? $_GET['patientId'] : null;
+$consultationId = isset($_GET['consultationId']) ? $_GET['consultationId'] : null;
+
+if ($method === 'GET') {
+    if ($patientId || $consultationId) {
+        if ($patientId) {
+            $stmt = $pdo->prepare('SELECT COUNT(*) FROM patients WHERE id = ? AND medecin_id = ?');
+            $stmt->execute([$patientId, $userId]);
+            $hasAccess = $stmt->fetchColumn();
+            error_log("Accès patient: patientId=$patientId, userId=$userId, hasAccess=$hasAccess", 3, 'C:/xampp/htdocs/projet-medical/logs/debug_dicom_instances.log');
+
+            if (!$hasAccess) {
+                http_response_code(403);
+                echo json_encode(['error' => 'Access denied to this patient']);
+                exit;
+            }
+        }
+        if ($consultationId) {
+            $stmt = $pdo->prepare('SELECT COUNT(*) FROM consultations WHERE id = ? AND medecin_id = ?');
+            $stmt->execute([$consultationId, $userId]);
+            $hasAccess = $stmt->fetchColumn();
+            if (!$hasAccess) {
+                http_response_code(403);
+                echo json_encode(['error' => 'Access denied to this consultation']);
+                exit;
+            }
+        }
+
+        $query = 'SELECT * FROM dicom_instances WHERE 1=1';
+        $params = [];
+        if ($patientId) {
+            $query .= ' AND patient_id = ?';
+            $params[] = $patientId;
+        }
+        if ($consultationId) {
+            $query .= ' AND consultation_id = ?';
+            $params[] = $consultationId;
+        }
+
+        $stmt = $pdo->prepare($query);
+        $stmt->execute($params);
+        $dicomInstances = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Extract StudyInstanceUID from description
+        foreach ($dicomInstances as &$instance) {
+            if (preg_match('/StudyInstanceUID:\s*([^\s]+)/', $instance['description'], $matches)) {
+                $instance['study_instance_uid'] = $matches[1];
+            }
+        }
+
+        echo json_encode(['dicom_instances' => $dicomInstances]);
+    } else {
+        http_response_code(400);
+        echo json_encode(['error' => 'Missing patientId or consultationId']);
     }
-    debugLog('Database schema validated successfully');
-} catch (PDOException $e) {
-    debugLog('Failed to validate database schema: ' . $e->getMessage());
-    sendResponse(500, ['error' => 'Failed to validate database schema: ' . $e->getMessage()]);
-}
-
-// Fetch DICOM instances for the patient
-try {
-    $stmt = $pdo->prepare('SELECT orthanc_instance_id, description, study_date FROM dicom_instances WHERE patient_id = ?');
-    $stmt->execute([$patientId]);
-    $dicomInstances = $stmt->fetchAll();
-    debugLog('DICOM instances fetched for patient ' . $patientId . ': ' . json_encode($dicomInstances));
-
-    if (empty($dicomInstances)) {
-        debugLog('No DICOM instances found for patient ' . $patientId);
-        sendResponse(200, ['dicom_instances' => []]);
+} elseif ($method === 'POST') {
+    if (!isset($_FILES['file']) || !isset($_POST['patient_id']) || !isset($_POST['instance_id'])) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Missing file or patient_id/instance_id']);
+        exit;
     }
 
-    // Format the response to match frontend expectations
-    $formattedInstances = array_map(function($instance) {
-        return [
-            'orthanc_instance_id' => $instance['orthanc_instance_id'],
-            'upload_date' => $instance['study_date'],
-            'description' => $instance['description'] ?? 'N/A'
-        ];
-    }, $dicomInstances);
+    $file = $_FILES['file'];
+    $patientId = $_POST['patient_id'];
+    $instanceId = $_POST['instance_id'];
+    $consultationId = $_POST['consultation_id'] ?? null;
+    $uploadDate = date('Y-m-d H:i:s');
 
-    sendResponse(200, ['dicom_instances' => $formattedInstances]);
-} catch (PDOException $e) {
-    debugLog('Error fetching DICOM instances: ' . $e->getMessage());
-    sendResponse(500, ['error' => 'Failed to fetch DICOM instances: ' . $e->getMessage()]);
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        http_response_code(400);
+        echo json_encode(['error' => 'File upload error']);
+        exit;
+    }
+
+    $targetDir = 'C:/xampp/htdocs/projet-medical/uploads/';
+    $targetFile = $targetDir . basename($file['name']);
+    if (!move_uploaded_file($file['tmp_name'], $targetFile)) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Failed to move uploaded file']);
+        exit;
+    }
+
+    $stmt = $pdo->prepare('INSERT INTO dicom_instances (orthanc_instance_id, patient_id, consultation_id, file_path, upload_date, description) VALUES (?, ?, ?, ?, ?, ?)');
+    $stmt->execute([$instanceId, $patientId, $consultationId, $targetFile, $uploadDate, 'Uploaded DICOM file']);
+
+    $studyInstanceUID = 'TEMP_' . uniqid();
+    echo json_encode(['studyInstanceUID' => $studyInstanceUID, 'message' => 'DICOM instance uploaded successfully']);
+} else {
+    http_response_code(405);
+    echo json_encode(['error' => 'Method not allowed']);
 }
 ?>
