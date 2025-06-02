@@ -180,19 +180,19 @@
             box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+       .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Base z-index for consultations-modal */
+}
 
         .modal-content {
             background: rgba(255, 255, 255, 0.1);
@@ -540,8 +540,56 @@
             display: none;
         }
 
-        .modal.visible {
+       .modal.visible {
     display: flex !important;
+    visibility: visible !important;
+}
+
+/* Nested modal (consultation-details-modal) */
+#consultation-details-modal {
+    z-index: 1100; /* Higher z-index to overlay consultations-modal */
+}
+
+#consultation-details-modal .modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.4s ease-out;
+    transform: translateY(-10%); /* Slight offset for nesting effect */
+    transition: transform 0.3s ease;
+}
+
+#consultation-details-modal .modal-content:hover {
+    transform: translateY(-12%);
+}
+
+#consultation-details-modal .prescription-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#consultation-details-modal .prescription-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#consultation-details-modal .dicom-card {
+    background: #2d3748;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#consultation-details-modal .dicom-card:hover {
+    background-color: rgba(6, 182, 212, 0.1);
+    transform: translateX(5px);
 }
     </style>
 </head>
@@ -768,31 +816,32 @@
     </div>
 
     <!-- Modal for Consultation Details -->
-<div id="consultation-details-modal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden">
-    <div class="modal-content bg-gray-800 rounded-lg p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
-        <div class="flex justify-between items-center mb-4">
-            <h2 id="consultation-details-title" class="text-xl font-semibold text-white">Détails de la Consultation</h2>
-            <button onclick="closeModal('consultation-details-modal')" class="text-gray-400 hover:text-white">
-                <i class="fas fa-times"></i>
+<!-- Modal for Consultation Details -->
+<div id="consultation-details-modal" class="modal fixed inset-0 bg-transparent flex items-center justify-center hidden z-50">
+    <div class="modal-content bg-gray-800 rounded-xl p-6 w-full max-w-4xl max-h-[80vh] overflow-y-auto shadow-2xl transform transition-all duration-300 ease-in-out hover:shadow-blue-500/50">
+        <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+            <h2 id="consultation-details-title" class="text-2xl font-bold text-white">Détails de la Consultation</h2>
+            <button onclick="closeModal('consultation-details-modal')" class="text-gray-400 hover:text-red-400 transition-colors duration-200 p-2 rounded-full hover:bg-gray-700">
+                <i class="fas fa-times text-xl"></i>
             </button>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Consultation Info -->
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-2">Informations</h3>
-                <p id="consultation-details-date" class="text-gray-300"></p>
-                <p id="consultation-details-notes" class="text-gray-300 mt-2"></p>
+            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-cyan-400 mb-3">Informations</h3>
+                <p id="consultation-details-date" class="text-gray-300 mb-2"></p>
+                <p id="consultation-details-notes" class="text-gray-200 break-words"></p>
             </div>
             <!-- Prescription -->
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-2">Ordonnance</h3>
-                <div id="consultation-details-prescription" class="text-gray-300"></div>
+            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-cyan-400 mb-3">Ordonnance</h3>
+                <div id="consultation-details-prescription" class="text-gray-200 space-y-2"></div>
             </div>
         </div>
         <!-- DICOM Files -->
-        <div class="mt-4">
-            <h3 class="text-lg font-semibold text-white mb-2">Fichiers DICOM</h3>
-            <div id="consultation-details-dicom" class="space-y-2"></div>
+        <div class="mt-6">
+            <h3 class="text-lg font-semibold text-cyan-400 mb-3">Fichiers DICOM</h3>
+            <div id="consultation-details-dicom" class="space-y-3"></div>
         </div>
     </div>
 </div>
@@ -815,21 +864,29 @@
 
         // Modal control functions
         function openModal(modalId) { 
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.classList.add('visible');
-            } else {
-                console.error(`Modal avec ID ${modalId} non trouvé`);
-            }
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.add('visible');
+        // Prevent background scroll when nested modal is open
+        document.body.style.overflow = 'hidden';
+    } else {
+        console.error(`Modal avec ID ${modalId} non trouvé`);
+    }
+}
+
+function closeModal(modalId) { 
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('visible');
+        // Restore scroll if no other modal is open
+        const activeModals = document.querySelectorAll('.modal.visible');
+        if (activeModals.length === 0) {
+            document.body.style.overflow = 'auto';
         }
-        function closeModal(modalId) { 
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.classList.remove('visible');
-            } else {
-                console.error(`Modal avec ID ${modalId} non trouvé`);
-            }
-        }
+    } else {
+        console.error(`Modal avec ID ${modalId} non trouvé`);
+    }
+}
 
         function closeUploadDicomModal() { closeModal('upload-dicom-modal'); }
         function closeUploadDicomPatientModal() { closeModal('upload-dicom-patient-modal'); }
@@ -1245,7 +1302,7 @@
     
 
         // Open consultations modal
-    async function openConsultationsModal(patientId) {
+        async function openConsultationsModal(patientId) {
     console.log(`Ouverture des consultations pour patientId: ${patientId}`);
     const notesContent = document.getElementById('consultations-content');
     const dicomContent = document.getElementById('dicom-content');
@@ -1299,12 +1356,10 @@
             notesContent.innerHTML = '<p class="text-gray-400">Aucune consultation trouvée.</p>';
         } else {
             notesContent.innerHTML = consultations.map(c => `
-                <div class="timeline-item cursor-pointer" onclick="openConsultationDetails(${c.id}, '${c.date_consultation}', \`${c.notes}\`)">
+                <div class="timeline-item cursor-pointer" onclick="openConsultationDetails(${c.id}, '${c.date_consultation}', \`${c.diagnostic}\`)">
                     <div class="timeline-icon"><i class="fas fa-stethoscope"></i></div>
                     <div class="timeline-content">
-                        <h4>Consultation #${c.id}</h4>
-                        <p class="date">${new Date(c.date_consultation).toLocaleString('fr-FR')}</p>
-                        <p class="description">${c.notes}</p>
+                        <h4>Consultation du ${new Date(c.date_consultation).toLocaleString('fr-FR')}</h4>
                     </div>
                 </div>
             `).join('');
@@ -1356,7 +1411,7 @@
     }
 }
 
-async function openConsultationDetails(consultationId, dateConsultation, notes) {
+async function openConsultationDetails(consultationId, dateConsultation, diagnostic) {
     const modal = document.getElementById('consultation-details-modal');
     const title = document.getElementById('consultation-details-title');
     const dateEl = document.getElementById('consultation-details-date');
@@ -1379,9 +1434,9 @@ async function openConsultationDetails(consultationId, dateConsultation, notes) 
         return;
     }
 
-    title.textContent = `Détails de la Consultation #${consultationId}`;
+    title.textContent = 'Détails de la Consultation';
     dateEl.textContent = `Date: ${new Date(dateConsultation).toLocaleString('fr-FR')}`;
-    notesEl.textContent = `Notes: ${notes || 'Aucune note disponible.'}`;
+    notesEl.textContent = `Diagnostic: ${diagnostic || 'Aucun diagnostic disponible.'}`;
     prescriptionEl.innerHTML = '<p class="text-gray-400">Chargement...</p>';
     dicomEl.innerHTML = '<p class="text-gray-400">Chargement...</p>';
     openModal('consultation-details-modal');
@@ -1419,7 +1474,7 @@ async function openConsultationDetails(consultationId, dateConsultation, notes) 
             prescriptionEl.innerHTML = '<p class="text-gray-400">Aucune ordonnance trouvée.</p>';
         } else {
             prescriptionEl.innerHTML = prescriptions.map(p => `
-                <div class="prescription-card bg-gray-700 p-3 rounded">
+                <div class="prescription-card bg-gray-700 p-3 rounded-lg shadow-md mb-2">
                     <p class="text-white">${p.details}</p>
                     <p class="text-gray-400 text-sm">Créé le: ${new Date(p.created_at).toLocaleString('fr-FR')}</p>
                 </div>
@@ -1452,12 +1507,14 @@ async function openConsultationDetails(consultationId, dateConsultation, notes) 
             dicomEl.innerHTML = '<p class="text-gray-400">Aucun fichier DICOM trouvé.</p>';
         } else {
             dicomEl.innerHTML = dicomInstances.map(d => `
-                <div class="dicom-card flex justify-between items-center">
+                <div class="dicom-card flex justify-between items-center bg-gray-700 p-3 rounded-lg shadow-md mb-2">
                     <div>
                         <p class="text-white">${d.description || 'N/A'}</p>
                         <p class="text-gray-400 text-sm">Upload: ${new Date(d.upload_date).toLocaleString('fr-FR')}</p>
                     </div>
-                    <button onclick="viewDICOM('${d.study_instance_uid}')" class="text-blue-400 hover:underline">Ouvrir dans Stone Web Viewer</button>
+                    <button onclick="viewDICOM('${d.study_instance_uid}')" class="text-blue-400 hover:text-blue-300 transition-colors duration-200">
+                        <i class="fas fa-eye"></i>
+                    </button>
                 </div>
             `).join('');
         }

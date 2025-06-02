@@ -213,3 +213,147 @@
 [2025-05-31 23:44:54] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
 [2025-05-31 23:44:54] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
 [2025-05-31 23:44:54] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
+[2025-06-01 01:38:15] Request method: GET
+[2025-06-01 01:38:15] Patient ID extracted from query: 1
+[2025-06-01 01:38:15] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 01:38:15] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 01:38:16] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
+[2025-06-01 01:39:16] Request method: GET
+[2025-06-01 01:39:16] Patient ID extracted from query: 1
+[2025-06-01 01:39:16] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 01:39:16] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 01:39:16] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
+[2025-06-01 01:57:07] Request method: GET
+[2025-06-01 01:57:07] Patient ID extracted from query: 1
+[2025-06-01 01:57:07] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 01:57:07] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 01:57:07] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
+[2025-06-01 01:58:53] Request method: GET
+[2025-06-01 01:58:53] Patient ID extracted from query: 1
+[2025-06-01 01:58:53] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 01:58:53] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 01:58:53] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
+[2025-06-01 02:00:11] Request method: GET
+[2025-06-01 02:00:11] Patient ID extracted from query: 1
+[2025-06-01 02:00:11] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 02:00:11] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 02:00:11] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
+[2025-06-01 02:01:22] Request method: GET
+[2025-06-01 02:01:22] Patient ID extracted from query: 1
+[2025-06-01 02:01:22] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 02:01:22] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 02:01:22] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
+[2025-06-01 02:02:29] Request method: GET
+[2025-06-01 02:02:29] Patient ID extracted from query: 1
+[2025-06-01 02:02:29] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 02:02:29] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 02:02:29] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
+[2025-06-01 02:03:15] Request method: GET
+[2025-06-01 02:03:15] Patient ID extracted from query: 1
+[2025-06-01 02:03:15] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 02:03:15] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 02:03:16] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
+[2025-06-01 02:04:14] Request method: GET
+[2025-06-01 02:04:14] Patient ID extracted from query: 1
+[2025-06-01 02:04:14] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 02:04:14] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg2NTA5MzYsImV4cCI6MTc0ODczNzMzNiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.sRkXWMeeBRcuISGvFB7UyViwgjuLdzQTlz7q3DqQWO0
+[2025-06-01 02:04:14] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","notes":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","notes":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","notes":"Contr?le g?n?ral"}]
+[2025-06-01 02:08:02] Request method: POST
+[2025-06-01 02:08:02] Invalid request method: POST
+[2025-06-01 02:33:35] Request method: GET
+[2025-06-01 02:33:35] Patient ID extracted from query: 1
+[2025-06-01 02:33:35] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 02:33:35] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 02:33:36] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","diagnostic":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","diagnostic":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","diagnostic":"Contr?le g?n?ral"}]
+[2025-06-01 02:36:59] Request method: GET
+[2025-06-01 02:36:59] Patient ID extracted from query: 1
+[2025-06-01 02:36:59] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 02:36:59] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 02:36:59] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","diagnostic":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","diagnostic":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","diagnostic":"Contr?le g?n?ral"}]
+[2025-06-01 02:37:44] Request method: GET
+[2025-06-01 02:37:44] Patient ID extracted from query: 2
+[2025-06-01 02:37:44] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 02:37:44] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 02:37:44] Consultations fetched for patient 2: []
+[2025-06-01 02:37:44] No consultations found for patient 2
+[2025-06-01 02:37:46] Request method: GET
+[2025-06-01 02:37:46] Patient ID extracted from query: 3
+[2025-06-01 02:37:46] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 02:37:46] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 02:37:46] Consultations fetched for patient 3: []
+[2025-06-01 02:37:46] No consultations found for patient 3
+[2025-06-01 14:42:13] Request method: GET
+[2025-06-01 14:42:13] Patient ID extracted from query: 2
+[2025-06-01 14:42:13] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:42:13] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:42:14] Consultations fetched for patient 2: [{"id":4,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":5,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":6,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"},{"id":16,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":17,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":18,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"}]
+[2025-06-01 14:43:27] Request method: GET
+[2025-06-01 14:43:27] Patient ID extracted from query: 2
+[2025-06-01 14:43:27] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:43:27] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:43:27] Consultations fetched for patient 2: [{"id":4,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":5,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":6,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"},{"id":16,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":17,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":18,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"}]
+[2025-06-01 14:44:10] Request method: GET
+[2025-06-01 14:44:10] Patient ID extracted from query: 3
+[2025-06-01 14:44:10] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:44:10] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:44:10] Consultations fetched for patient 3: [{"id":7,"date_consultation":"2024-07-01 10:00:00","diagnostic":"C?phal?es fr?quentes"},{"id":8,"date_consultation":"2024-07-15 13:00:00","diagnostic":"Suivi neurologique recommand?"},{"id":9,"date_consultation":"2024-08-01 15:00:00","diagnostic":"Aucune anomalie nouvelle"},{"id":19,"date_consultation":"2024-07-01 10:00:00","diagnostic":"C?phal?es fr?quentes"},{"id":20,"date_consultation":"2024-07-15 13:00:00","diagnostic":"Suivi neurologique recommand?"},{"id":21,"date_consultation":"2024-08-01 15:00:00","diagnostic":"Aucune anomalie nouvelle"}]
+[2025-06-01 14:45:25] Request method: GET
+[2025-06-01 14:45:25] Patient ID extracted from query: 5
+[2025-06-01 14:45:25] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:45:25] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:45:25] Consultations fetched for patient 5: [{"id":13,"date_consultation":"2024-08-15 09:00:00","diagnostic":"Fatigue chronique"},{"id":14,"date_consultation":"2024-08-25 11:30:00","diagnostic":"Bilan sanguin recommand?"},{"id":15,"date_consultation":"2024-09-05 14:00:00","diagnostic":"R?sultats normaux"},{"id":25,"date_consultation":"2024-08-15 09:00:00","diagnostic":"Fatigue chronique"},{"id":26,"date_consultation":"2024-08-25 11:30:00","diagnostic":"Bilan sanguin recommand?"},{"id":27,"date_consultation":"2024-09-05 14:00:00","diagnostic":"R?sultats normaux"}]
+[2025-06-01 14:47:42] Request method: GET
+[2025-06-01 14:47:42] Patient ID extracted from query: 2
+[2025-06-01 14:47:42] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:47:42] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:47:42] Consultations fetched for patient 2: [{"id":4,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":5,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":6,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"},{"id":16,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":17,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":18,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"}]
+[2025-06-01 14:50:57] Request method: GET
+[2025-06-01 14:50:57] Patient ID extracted from query: 1
+[2025-06-01 14:50:57] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:50:57] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:50:57] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","diagnostic":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","diagnostic":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","diagnostic":"Contr?le g?n?ral"}]
+[2025-06-01 14:51:20] Request method: GET
+[2025-06-01 14:51:20] Patient ID extracted from query: 4
+[2025-06-01 14:51:20] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:51:20] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:51:20] Consultations fetched for patient 4: [{"id":10,"date_consultation":"2024-10-01 08:30:00","diagnostic":"Douleurs abdominales"},{"id":11,"date_consultation":"2024-10-10 10:00:00","diagnostic":"Suivi apr?s ?chographie"},{"id":12,"date_consultation":"2024-10-20 12:00:00","diagnostic":"Am?lioration notable"},{"id":22,"date_consultation":"2024-10-01 08:30:00","diagnostic":"Douleurs abdominales"},{"id":23,"date_consultation":"2024-10-10 10:00:00","diagnostic":"Suivi apr?s ?chographie"},{"id":24,"date_consultation":"2024-10-20 12:00:00","diagnostic":"Am?lioration notable"}]
+[2025-06-01 14:51:45] Request method: GET
+[2025-06-01 14:51:45] Patient ID extracted from query: 5
+[2025-06-01 14:51:45] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:51:45] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-01 14:51:45] Consultations fetched for patient 5: [{"id":13,"date_consultation":"2024-08-15 09:00:00","diagnostic":"Fatigue chronique"},{"id":14,"date_consultation":"2024-08-25 11:30:00","diagnostic":"Bilan sanguin recommand?"},{"id":15,"date_consultation":"2024-09-05 14:00:00","diagnostic":"R?sultats normaux"},{"id":25,"date_consultation":"2024-08-15 09:00:00","diagnostic":"Fatigue chronique"},{"id":26,"date_consultation":"2024-08-25 11:30:00","diagnostic":"Bilan sanguin recommand?"},{"id":27,"date_consultation":"2024-09-05 14:00:00","diagnostic":"R?sultats normaux"}]
+[2025-06-02 11:16:44] Request method: GET
+[2025-06-02 11:16:44] Patient ID extracted from query: 1
+[2025-06-02 11:16:44] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-02 11:16:44] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg3MzgwMDgsImV4cCI6MTc0ODgyNDQwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Ye7NtSF0rTle7QbnSqK2ikuFFUT_2G0DfBX5egLPvmw
+[2025-06-02 11:16:47] JWT validation failed: Expired token
+[2025-06-02 11:17:22] Request method: GET
+[2025-06-02 11:17:22] Patient ID extracted from query: 1
+[2025-06-02 11:17:22] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 11:17:22] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 11:17:22] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","diagnostic":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","diagnostic":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","diagnostic":"Contr?le g?n?ral"}]
+[2025-06-02 11:17:33] Request method: GET
+[2025-06-02 11:17:33] Patient ID extracted from query: 2
+[2025-06-02 11:17:33] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 11:17:33] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 11:17:33] Consultations fetched for patient 2: [{"id":4,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":5,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":6,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"},{"id":16,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":17,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":18,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"}]
+[2025-06-02 11:52:00] Request method: GET
+[2025-06-02 11:52:00] Patient ID extracted from query: 1
+[2025-06-02 11:52:00] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 11:52:00] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 11:52:00] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","diagnostic":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","diagnostic":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","diagnostic":"Contr?le g?n?ral"}]
+[2025-06-02 11:52:13] Request method: GET
+[2025-06-02 11:52:13] Patient ID extracted from query: 2
+[2025-06-02 11:52:13] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 11:52:13] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 11:52:13] Consultations fetched for patient 2: [{"id":4,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":5,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":6,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"},{"id":16,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":17,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":18,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"}]
+[2025-06-02 12:08:10] Request method: GET
+[2025-06-02 12:08:10] Patient ID extracted from query: 2
+[2025-06-02 12:08:10] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 12:08:10] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 12:08:10] Consultations fetched for patient 2: [{"id":4,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":5,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":6,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"},{"id":16,"date_consultation":"2024-09-01 14:00:00","diagnostic":"Pneumonie l?g?re d?tect?e"},{"id":17,"date_consultation":"2024-09-15 09:30:00","diagnostic":"Suivi apr?s traitement antibiotique"},{"id":18,"date_consultation":"2024-10-01 11:00:00","diagnostic":"Contr?le g?n?ral, ?tat stable"}]
+[2025-06-02 12:08:28] Request method: GET
+[2025-06-02 12:08:28] Patient ID extracted from query: 1
+[2025-06-02 12:08:28] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 12:08:28] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDg4NTU4MzIsImV4cCI6MTc0ODk0MjIzMiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XgW76QtunqSoFgXg9l9m1sVd8U4fkjAMiLPskE-AglI
+[2025-06-02 12:08:28] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","diagnostic":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","diagnostic":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","diagnostic":"Contr?le g?n?ral"}]

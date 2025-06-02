@@ -110,7 +110,7 @@ try {
 
 // Fetch consultations
 try {
-    $stmt = $pdo->prepare('SELECT id, date_consultation, notes FROM consultations WHERE patient_id = ?');
+    $stmt = $pdo->prepare('SELECT id, date_consultation, diagnostic FROM consultations WHERE patient_id = ?');
     $stmt->execute([$patientId]);
     $consultations = $stmt->fetchAll();
     debugLog('Consultations fetched for patient ' . $patientId . ': ' . json_encode($consultations));
