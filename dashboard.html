@@ -1427,50 +1427,52 @@ async function openConsultationDetails(consultationId, dateConsultation, diagnos
         'Accept': 'application/json'
     };
 
-    try {
-        const dicomResponse = await fetch(`http://localhost/projet-medical/api/dicom-instances.php?consultationId=${consultationId}`, {
-            method: 'GET',
-            headers: headers
-        });
+   try {
+    const dicomResponse = await fetch(`http://localhost/projet-medical/api/dicom-instances.php?consultationId=${consultationId}`, {
+        method: 'GET',
+        headers: headers
+    });
 
-        if (!dicomResponse.ok) {
-            const errorText = await dicomResponse.text();
-            console.error(`Erreur HTTP ${dicomResponse.status} (DICOM): ${errorText}`);
-            if (dicomResponse.status === 401) {
-                alert('Session expirée ou accès non autorisé. Veuillez vous reconnecter.');
-                logout();
-                return;
-            }
-            if (dicomResponse.status === 403) {
-                dicomEl.innerHTML = '<p class="text-red-400">Accès refusé : Vous n\'êtes pas autorisé à voir les fichiers DICOM.</p>';
-                return;
-            }
-            throw new Error(`Erreur HTTP ${dicomResponse.status}: ${errorText}`);
-        }
+    const responseText = await dicomResponse.text(); // Capturez la réponse brute
+    console.log('Réponse brute de dicom-instances.php:', responseText); // Affichez dans la console
 
-        const dicomData = await dicomResponse.json();
-        const dicomInstances = dicomData.dicom_instances || [];
-        if (dicomInstances.length === 0) {
-            dicomEl.innerHTML = '<p class="text-gray-400">Aucun fichier DICOM trouvé.</p>';
-        } else {
-           dicomEl.innerHTML = dicomInstances.map(d => `
-    <div class="dicom-card flex justify-between items-center bg-gray-700 p-3 rounded-lg shadow-md mb-2">
-        <div>
-            <p class="text-white">${d.description || 'N/A'}</p>
-            <p class="text-gray-400 text-sm">Upload: ${new Date(d.upload_date).toLocaleString('fr-FR')}</p>
-        </div>
-        <button ${d.study_instance_uid ? `onclick="viewDICOM('${d.study_instance_uid}')"` : 'disabled'} class="text-blue-400 hover:text-blue-300 transition-colors duration-200">
-    <i class="fas fa-eye"></i>
-</button>
-    </div>
-`).join('');
+    if (!dicomResponse.ok) {
+        console.error(`Erreur HTTP ${dicomResponse.status} (DICOM): ${responseText}`);
+        if (dicomResponse.status === 401) {
+            alert('Session expirée ou accès non autorisé. Veuillez vous reconnecter.');
+            logout();
+            return;
         }
-    } catch (error) {
-        console.error('Erreur lors de la récupération des détails de la consultation:', error);
-        prescriptionEl.innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
-        dicomEl.innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
-        alert('Erreur lors de la récupération des détails: ' + error.message);
+        if (dicomResponse.status === 403) {
+            dicomEl.innerHTML = '<p class="text-red-400">Accès refusé : Vous n\'êtes pas autorisé à voir les fichiers DICOM.</p>';
+            return;
+        }
+        throw new Error(`Erreur HTTP ${dicomResponse.status}: ${responseText}`);
     }
+
+    const dicomData = JSON.parse(responseText); // Parsez manuellement après avoir loggé
+    const dicomInstances = dicomData.dicom_instances || [];
+    if (dicomInstances.length === 0) {
+        dicomEl.innerHTML = '<p class="text-gray-400">Aucun fichier DICOM trouvé.</p>';
+    } else {
+        dicomEl.innerHTML = dicomInstances.map(d => `
+            <div class="dicom-card flex justify-between items-center bg-gray-700 p-3 rounded-lg shadow-md mb-2">
+                <div>
+                    <p class="text-white">${d.description || 'N/A'}</p>
+                    <p class="text-gray-400 text-sm">Upload: ${new Date(d.upload_date).toLocaleString('fr-FR')}</p>
+                </div>
+                <button ${d.study_instance_uid ? `onclick="viewDICOM('${d.study_instance_uid}')"` : 'disabled'} class="text-blue-400 hover:text-blue-300 transition-colors duration-200">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </div>
+        `).join('');
+    }
+} catch (error) {
+    console.error('Erreur lors de la récupération des détails de la consultation:', error);
+    prescriptionEl.innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
+    dicomEl.innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
+    alert('Erreur lors de la récupération des détails: ' + error.message);
+}
 }
 
 function viewDICOM(studyInstanceUID) {

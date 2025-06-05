@@ -55,7 +55,7 @@ require_once $autoloadPath;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-$jwtSecret = 'your_jwt_secret_key';
+$jwtSecret = 'your_jwt_secret_key'; // Remplacez par votre clé secrète réelle
 try {
     $decoded = JWT::decode($token, new Key($jwtSecret, 'HS256'));
     if ($decoded->exp < time()) {
@@ -66,6 +66,13 @@ try {
     debugLog('JWT validation failed: ' . $e->getMessage());
     sendResponse(401, ['error' => 'Token invalide']);
 }
+
+$userId = $decoded->data->id ?? null;
+if (!$userId) {
+    debugLog('User ID not found in token');
+    sendResponse(401, ['error' => 'Utilisateur non authentifié']);
+}
+debugLog("Utilisateur authentifié: userId=$userId");
 
 try {
     $pdo = new PDO('mysql:host=localhost;dbname=projet_medical', 'root', '', [
@@ -80,43 +87,64 @@ try {
 
 if ($method === 'GET') {
     $patientId = isset($_GET['patientId']) ? (int)$_GET['patientId'] : null;
-    if (!$patientId) {
-        debugLog('Missing patientId for GET request');
-        sendResponse(400, ['error' => 'Patient ID manquant']);
+    $consultationId = isset($_GET['consultationId']) ? (int)$_GET['consultationId'] : null;
+
+    if (!$patientId && !$consultationId) {
+        debugLog('Missing patientId or consultationId');
+        sendResponse(400, ['error' => 'Missing patientId or consultationId']);
     }
 
     try {
-        // Récupérer les consultations
-        $stmt = $pdo->prepare('
-            SELECT c.id, c.patient_id, c.medecin_id, c.date_consultation, c.diagnostic, 
-                   p.id AS prescription_id, p.details AS prescription_details, p.created_at AS prescription_date
-            FROM consultations c
-            LEFT JOIN prescriptions p ON c.id = p.consultation_id
-            WHERE c.patient_id = ?
-            ORDER BY c.date_consultation DESC
-        ');
-        $stmt->execute([$patientId]);
-        $consultations = $stmt->fetchAll();
+        if ($consultationId) {
+            // Récupérer les détails d'une consultation spécifique
+            $stmt = $pdo->prepare('
+                SELECT c.id, c.patient_id, c.medecin_id, c.date_consultation, c.diagnostic,
+                       p.details AS prescription, p.created_at AS prescription_date
+                FROM consultations c
+                LEFT JOIN prescriptions p ON c.id = p.consultation_id
+                WHERE c.id = ? AND c.medecin_id = ?
+            ');
+            $stmt->execute([$consultationId, $userId]);
+            $consultation = $stmt->fetch();
 
-        // Récupérer les fichiers DICOM associés
-        $stmt = $pdo->prepare('
-            SELECT di.dicom_instance_id AS id, di.consultation_id, di.orthanc_instance_id, di.upload_date, di.study_date, di.description
-            FROM dicom_instances di
-            JOIN consultations c ON di.consultation_id = c.id
-            WHERE c.patient_id = ?
-            ORDER BY di.upload_date DESC
-        ');
-        $stmt->execute([$patientId]);
-        $dicomFiles = $stmt->fetchAll();
+            if (!$consultation) {
+                debugLog('Consultation not found or access denied: consultationId=' . $consultationId);
+                sendResponse(404, ['error' => 'Consultation not found or access denied']);
+            }
 
-        // Structurer les données
-        $result = [
-            'consultations' => [],
-            'dicom_files' => $dicomFiles
-        ];
+            // Récupérer les fichiers DICOM associés
+            $stmt = $pdo->prepare('
+                SELECT di.dicom_instance_id AS id, di.orthanc_instance_id, di.upload_date, di.study_date, di.description
+                FROM dicom_instances di
+                WHERE di.consultation_id = ?
+            ');
+            $stmt->execute([$consultationId]);
+            $dicomFiles = $stmt->fetchAll();
 
-        // Regrouper les prescriptions par consultation
-        if (!empty($consultations)) {
+            $result = [
+                'id' => $consultation['id'],
+                'patient_id' => $consultation['patient_id'],
+                'medecin_id' => $consultation['medecin_id'],
+                'date_consultation' => $consultation['date_consultation'],
+                'diagnostic' => $consultation['diagnostic'],
+                'prescription' => $consultation['prescription'] ?: 'Aucune ordonnance disponible',
+                'prescription_date' => $consultation['prescription_date'],
+                'dicom_files' => $dicomFiles
+            ];
+        } else {
+            // Récupérer toutes les consultations pour un patient
+            $stmt = $pdo->prepare('
+                SELECT c.id, c.patient_id, c.medecin_id, c.date_consultation, c.diagnostic,
+                       p.details AS prescription_details, p.created_at AS prescription_date
+                FROM consultations c
+                LEFT JOIN prescriptions p ON c.id = p.consultation_id
+                WHERE c.patient_id = ? AND c.medecin_id = ?
+                ORDER BY c.date_consultation DESC
+            ');
+            $stmt->execute([$patientId, $userId]);
+            $consultations = $stmt->fetchAll();
+
+            $result = ['consultations' => []];
             foreach ($consultations as $consultation) {
                 $consultationId = $consultation['id'];
                 if (!isset($result['consultations'][$consultationId])) {
@@ -126,18 +154,23 @@ if ($method === 'GET') {
                         'medecin_id' => $consultation['medecin_id'],
                         'date_consultation' => $consultation['date_consultation'],
                         'diagnostic' => $consultation['diagnostic'],
-                        'prescriptions' => []
-                    ];
-                }
-                if ($consultation['prescription_id']) {
-                    $result['consultations'][$consultationId]['prescriptions'][] = [
-                        'id' => $consultation['prescription_id'],
-                        'details' => $consultation['prescription_details'],
-                        'created_at' => $consultation['prescription_date']
+                        'prescription' => $consultation['prescription_details'] ?: 'Aucune ordonnance disponible',
+                        'prescription_date' => $consultation['prescription_date']
                     ];
                 }
             }
             $result['consultations'] = array_values($result['consultations']);
+
+            // Récupérer les fichiers DICOM pour le patient
+            $stmt = $pdo->prepare('
+                SELECT di.dicom_instance_id AS id, di.consultation_id, di.orthanc_instance_id, di.upload_date, di.study_date, di.description
+                FROM dicom_instances di
+                JOIN consultations c ON di.consultation_id = c.id
+                WHERE c.patient_id = ?
+                ORDER BY di.upload_date DESC
+            ');
+            $stmt->execute([$patientId]);
+            $result['dicom_files'] = $stmt->fetchAll();
         }
 
         sendResponse(200, $result);
@@ -161,7 +194,7 @@ if ($method === 'GET') {
 
         // Insérer la consultation
         $stmt = $pdo->prepare('INSERT INTO consultations (patient_id, medecin_id, date_consultation, diagnostic) VALUES (?, ?, ?, ?)');
-        $stmt->execute([$patientId, 1, $dateConsultation, $diagnostic]);
+        $stmt->execute([$patientId, $userId, $dateConsultation, $diagnostic]);
         $consultationId = $pdo->lastInsertId();
         debugLog('Consultation ajoutée avec ID: ' . $consultationId);
 
@@ -173,56 +206,56 @@ if ($method === 'GET') {
         }
 
         // Gérer l'upload du fichier DICOM si présent
-      if (isset($_FILES['file'])) {
-    debugLog('$_FILES content: ' . json_encode($_FILES));
-    if ($_FILES['file']['error'] !== UPLOAD_ERR_OK) {
-        debugLog('Upload error code: ' . $_FILES['file']['error']);
-        throw new Exception('Erreur lors de l\'upload du fichier: ' . $_FILES['file']['error']);
-    }
-    $fileTmpPath = $_FILES['file']['tmp_name'];
-    $fileName = $_FILES['file']['name'];
-    $timestamp = date('YmdHis');
-    $instanceId = "PATIENT-{$patientId}-{$timestamp}";
+        if (isset($_FILES['file'])) {
+            debugLog('$_FILES content: ' . json_encode($_FILES));
+            if ($_FILES['file']['error'] !== UPLOAD_ERR_OK) {
+                debugLog('Upload error code: ' . $_FILES['file']['error']);
+                throw new Exception('Erreur lors de l\'upload du fichier: ' . $_FILES['file']['error']);
+            }
+            $fileTmpPath = $_FILES['file']['tmp_name'];
+            $fileName = $_FILES['file']['name'];
+            $timestamp = date('YmdHis');
+            $instanceId = "PATIENT-{$patientId}-{$timestamp}";
 
-    // Vérifier si le fichier est un DICOM valide (extension .dcm)
-    $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-    if ($fileExt !== 'dcm') {
-        throw new Exception('Type de fichier invalide. Seuls les fichiers .dcm sont acceptés.');
-    }
+            // Vérifier si le fichier est un DICOM valide (extension .dcm)
+            $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+            if ($fileExt !== 'dcm') {
+                throw new Exception('Type de fichier invalide. Seuls les fichiers .dcm sont acceptés.');
+            }
 
-    // Envoyer à proxy-orthanc.php avec CURLFile
-    $ch = curl_init('http://localhost/projet-medical/api/proxy-orthanc.php?path=instances');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Authorization: Bearer ' . $token
-    ]);
+            // Envoyer à proxy-orthanc.php avec CURLFile
+            $ch = curl_init('http://localhost/projet-medical/api/proxy-orthanc.php?path=instances');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Authorization: Bearer ' . $token
+            ]);
 
-    $cfile = new CURLFile($fileTmpPath, 'application/dicom', $fileName);
-    $postData = ['file' => $cfile, 'patient_id' => $patientId, 'instance_id' => $instanceId];
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+            $cfile = new CURLFile($fileTmpPath, 'application/dicom', $fileName);
+            $postData = ['file' => $cfile, 'patient_id' => $patientId, 'instance_id' => $instanceId];
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
 
-    $response = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $curlError = curl_error($ch);
-    curl_close($ch);
+            $response = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $curlError = curl_error($ch);
+            curl_close($ch);
 
-    debugLog('Réponse de proxy-orthanc.php: HTTP ' . $httpCode . ' - ' . $response);
-    if ($httpCode !== 200) {
-        throw new Exception('Erreur lors de l\'upload DICOM via proxy-orthanc.php: HTTP ' . $httpCode . ' - ' . ($curlError ?: $response));
-    }
+            debugLog('Réponse de proxy-orthanc.php: HTTP ' . $httpCode . ' - ' . $response);
+            if ($httpCode !== 200) {
+                throw new Exception('Erreur lors de l\'upload DICOM via proxy-orthanc.php: HTTP ' . $httpCode . ' - ' . ($curlError ?: $response));
+            }
 
-    $dicomResult = json_decode($response, true);
-    if (isset($dicomResult['ID']) && isset($dicomResult['studyInstanceUID'])) {
-        // Stocker le StudyInstanceUID dans la colonne description
-        $description = "StudyInstanceUID: {$dicomResult['studyInstanceUID']}";
-        $stmt = $pdo->prepare('INSERT INTO dicom_instances (consultation_id, orthanc_instance_id, patient_id, upload_date, description) VALUES (?, ?, ?, NOW(), ?)');
-        $stmt->execute([$consultationId, $dicomResult['ID'], $patientId, $description]);
-        debugLog('DICOM ajouté avec orthanc_instance_id: ' . $dicomResult['ID']);
-    } else {
-        throw new Exception('Réponse Orthanc invalide, ID ou StudyInstanceUID manquant: ' . $response);
-    }
-}
+            $dicomResult = json_decode($response, true);
+            if (isset($dicomResult['ID']) && isset($dicomResult['studyInstanceUID'])) {
+                // Stocker le StudyInstanceUID dans la colonne description
+                $description = "StudyInstanceUID: {$dicomResult['studyInstanceUID']}";
+                $stmt = $pdo->prepare('INSERT INTO dicom_instances (consultation_id, orthanc_instance_id, patient_id, upload_date, description) VALUES (?, ?, ?, NOW(), ?)');
+                $stmt->execute([$consultationId, $dicomResult['ID'], $patientId, $description]);
+                debugLog('DICOM ajouté avec orthanc_instance_id: ' . $dicomResult['ID']);
+            } else {
+                throw new Exception('Réponse Orthanc invalide, ID ou StudyInstanceUID manquant: ' . $response);
+            }
+        }
 
         $pdo->commit();
         sendResponse(200, ['id' => $consultationId, 'message' => 'Consultation ajoutée avec succès']);
