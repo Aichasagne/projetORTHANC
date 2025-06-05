@@ -16607,3 +16607,17 @@ ou externe, un programme ex�cutable ou un fichier de commandes.
 }
 2025-06-01 14:51:43 - Instance DICOM stockée avec patient_id=5, orthanc_instance_id=f594c062-9b40743f-9a18e6b4-b50b74c6-c147bee8
 2025-06-01 14:51:43 - Instance ID personnalisé appliqué: PATIENT-5-20250601125142
+2025-06-05 07:45:41 - Début de la requête proxy-orthanc
+2025-06-05 07:45:41 - URL Orthanc: http://localhost:8042/instances
+2025-06-05 07:45:41 - Méthode HTTP: POST
+2025-06-05 07:45:41 - $_FILES: []
+2025-06-05 07:45:41 - $_POST: []
+2025-06-05 07:45:41 - Erreur: Vérification $_FILES['file']: []
+2025-06-05 07:45:41 - Exception capturée: Aucun fichier DICOM valide fourni ou erreur d'upload: pas de fichier, Détails: {"error":"Aucun fichier DICOM valide fourni ou erreur d'upload: pas de fichier"}
+2025-06-05 09:07:53 - Début de la requête proxy-orthanc
+2025-06-05 09:07:53 - URL Orthanc: http://localhost:8042/instances
+2025-06-05 09:07:53 - Méthode HTTP: POST
+2025-06-05 09:07:53 - $_FILES: []
+2025-06-05 09:07:53 - $_POST: []
+2025-06-05 09:07:53 - Erreur: Vérification $_FILES['file']: []
+2025-06-05 09:07:53 - Exception capturée: Aucun fichier DICOM valide fourni ou erreur d'upload: pas de fichier, Détails: {"error":"Aucun fichier DICOM valide fourni ou erreur d'upload: pas de fichier"}

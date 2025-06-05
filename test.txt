@@ -1,4 +1,98 @@
-<!DOCTYPE html>
+je vais reprendre tout voici quelques tables 
+MariaDB [projet_medical]> select * from  consultations;
++----+------------+------------+---------------------+-------------------------------------+--------------------------------------------------------+
+| id | patient_id | medecin_id | date_consultation   | diagnostic                          | fichier                                                |
++----+------------+------------+---------------------+-------------------------------------+--------------------------------------------------------+
+|  1 |          1 |          1 | 2024-06-15 10:30:00 | Hypertension art?rielle             | NULL                                                   |
+|  2 |          1 |          1 | 2024-07-01 11:00:00 | Suivi post-traitement               | NULL                                                   |
+|  3 |          1 |          1 | 2024-08-10 09:45:00 | Contr?le g?n?ral                    | NULL                                                   |
+|  4 |          2 |          1 | 2024-09-01 14:00:00 | Pneumonie l?g?re d?tect?e           | NULL                                                   |
+|  5 |          2 |          1 | 2024-09-15 09:30:00 | Suivi apr?s traitement antibiotique | NULL                                                   |
+|  6 |          2 |          1 | 2024-10-01 11:00:00 | Contr?le g?n?ral, ?tat stable       | NULL                                                   |
+|  7 |          3 |          1 | 2024-07-01 10:00:00 | C?phal?es fr?quentes                | NULL                                                   |
+|  8 |          3 |          1 | 2024-07-15 13:00:00 | Suivi neurologique recommand?       | NULL                                                   |
+|  9 |          3 |          1 | 2024-08-01 15:00:00 | Aucune anomalie nouvelle            | NULL                                                   |
+| 10 |          4 |          1 | 2024-10-01 08:30:00 | Douleurs abdominales                | NULL                                                   |
+| 11 |          4 |          1 | 2024-10-10 10:00:00 | Suivi apr?s ?chographie             | NULL                                                   |
+| 12 |          4 |          1 | 2024-10-20 12:00:00 | Am?lioration notable                | NULL                                                   |
+| 13 |          5 |          1 | 2024-08-15 09:00:00 | Fatigue chronique                   | NULL                                                   |
+| 14 |          5 |          1 | 2024-08-25 11:30:00 | Bilan sanguin recommand?            | NULL                                                   |
+| 15 |          5 |          1 | 2024-09-05 14:00:00 | R?sultats normaux                   | NULL                                                   |
+| 28 |          1 |          1 | 2025-06-14 16:12:00 | maladive                            | C:/xampp/htdocs/projet-medical/uploads/image-00011.dcm |
+| 29 |          1 |          1 | 2025-06-22 14:36:00 | baisse de tension                   | C:/xampp/htdocs/projet-medical/uploads/image-00005.dcm |
+| 30 |          1 |          1 | 2025-06-07 14:59:00 | test                                | C:/xampp/htdocs/projet-medical/uploads/image-00005.dcm |
+| 31 |          5 |          1 | 2025-06-29 17:14:00 | test                                | C:/xampp/htdocs/projet-medical/uploads/image-00007.dcm |
++----+------------+------------+---------------------+-------------------------------------+--------------------------------------------------------+
+19 rows in set (0.001 sec)
+
+MariaDB [projet_medical]> select * from  prescriptions;
++----+-----------------+----------------------------------------------+---------------------+
+| id | consultation_id | details                                      | created_at          |
++----+-----------------+----------------------------------------------+---------------------+
+|  1 |               1 | Paracetamol 500mg, 3 times daily for 5 days. | 2025-05-31 01:22:00 |
+|  2 |               2 | Amoxicillin 500mg, twice daily for 7 days.   | 2025-05-31 01:22:00 |
+|  3 |               3 | Ibuprofen 400mg, as needed for pain.         | 2025-05-31 01:22:00 |
+|  4 |               4 | Augmentin 1g, twice daily for 7 days.        | 2025-06-01 11:40:00 |
+|  5 |               5 | Paracetamol 1g, as needed for fever.         | 2025-06-01 11:40:00 |
+|  6 |               6 | Hydration and rest recommended.              | 2025-06-01 11:40:00 |
+|  7 |               7 | Sumatriptan 50mg, for migraines.             | 2025-06-01 11:40:00 |
+|  8 |               8 | Referral to neurologist.                     | 2025-06-01 11:40:00 |
+|  9 |               9 | Continue monitoring.                         | 2025-06-01 11:40:00 |
+| 10 |              10 | Omeprazole 20mg, daily for 14 days.          | 2025-06-01 11:40:00 |
+| 11 |              11 | Follow-up in 1 month.                        | 2025-06-01 11:40:00 |
+| 12 |              12 | Probiotics recommended.                      | 2025-06-01 11:40:00 |
+| 13 |              13 | Iron supplements, 325mg daily.               | 2025-06-01 11:40:00 |
+| 14 |              14 | Vitamin D 1000IU daily.                      | 2025-06-01 11:40:00 |
+| 15 |              15 | Continue current regimen.                    | 2025-06-01 11:40:00 |
+| 16 |              29 | prendre perfusion                            | 2025-06-04 13:36:45 |
+| 17 |              30 | test                                         | 2025-06-04 13:59:05 |
+| 18 |              31 | test                                         | 2025-06-04 14:10:21 |
++----+-----------------+----------------------------------------------+---------------------+
+18 rows in set (0.000 sec)
+
+MariaDB [projet_medical]> select * from users;
++----+----------+-------------+--------------------------+--------------------------------------------------------------+------------+---------------------+
+| id | nom      | prenom      | email                    | password                                                     | role       | created_at          |
++----+----------+-------------+--------------------------+--------------------------------------------------------------+------------+---------------------+
+|  1 | Sagne    | Aicha       | aichasagne@esp.sn        | $2y$10$u.RVlacTYdapXj0tILvVd.l5t7Nd.BklYH6gFTghthFjEV./5zS5W | medecin    | 2025-04-24 13:50:58 |
+|  2 | ndiaye   | kabyraa     | kabyrndiaye@esp.sn       | $2y$10$PkK2QjbVkpdwmO50nb9prerCHhGZQfnyL3kqW6t9rJGbfFAAjq2b2 | patient    | 2025-04-24 13:53:45 |
+|  3 | dell     | modou       | modoudell@esp.sn         | $2y$10$Oe06YKgXhqHyD9oevOn78uYlpES2GfAL2zdLceOtO/Rw/mfv8x9qm | patient    | 2025-04-24 14:07:09 |
+|  4 | toure    | ndeye khary | ndeyekhary@esp.sn        | $2y$10$vwhdSYgxoTxBM4rCnE3sCO3fauMFHwz4Im5nWsNI1kAN0ptB4VFCy | medecin    | 2025-04-24 14:07:59 |
+|  5 | mouhamed | niass       | mouhamedniass@esp.sn     | $2y$10$2CO6fHqmMqaSOaCjCk.ra.wTy9SFNudya.UH/4NTnlGqG/nXw6DAi | radiologue | 2025-04-24 14:10:05 |
+|  6 | aminata  | khoule      | aminatakhoule@esp.sn     | $2y$10$PlZS9rMlGSQN3UHuNUGbi.IPZs.Irg1lq0zg6MT12bZXQLCbvDej6 | radiologue | 2025-04-24 14:10:54 |
+|  7 | aladji   | rafett      | aladjirafett@esp.sn      | $2y$10$lAWceEU93uggxAxPP7oY7.Cmi0LFfDR2YbND.6/P8ohHQCx83BiEa | admin      | 2025-04-24 14:11:56 |
+|  8 | ndeye    | niakh       | ndeyeniakh@esp.sn        | $2y$10$ocH2w4OCu3Z.nn315EFvPeo8bbYv/J9dLpyblafhUAP/kRuhURpES | admin      | 2025-04-24 14:13:21 |
+|  9 | ayshu    | queen       | aichasagne4@gmail.com    | $2y$10$I0BT327v2TTK2zEpB1r8H.O5qd2esGAAHUzIm7NTAWVLjc8B6p2hC | patient    | 2025-04-30 14:33:18 |
+| 10 | mbacke   | amsatou     | amsatoumbacke@esp.sn     | $2y$10$MB7xS048JxBqtIxNJNdCJeBpKVW9UTzMl1T7RFTBzce0eGGkCtjha | patient    | 2025-04-30 14:34:37 |
+| 11 | lam      | souleymane  | souleymanelam@patient.sn | $2y$10$M1wY4aURbbErYExXJsnSHOyKCc1mX4XiTG/0SNrJ9fd8xhpicl26W | patient    | 2025-04-30 14:36:22 |
++----+----------+-------------+--------------------------+--------------------------------------------------------------+------------+---------------------+
+11 rows in set (0.001 sec)
+
+MariaDB [projet_medical]> select * from patients;
++----+---------+----------------+------+-----------+------------+---------------------+----------+------------+
+| id | user_id | date_naissance | sexe | telephone | adresse    | created_at          | archived | medecin_id |
++----+---------+----------------+------+-----------+------------+---------------------+----------+------------+
+|  1 |       2 | 2002-04-17     | F    | 776543421 | guediawaye | 2025-04-24 13:53:45 |        0 |          1 |
+|  2 |       3 | 2023-10-13     | M    | 765432189 | dakar      | 2025-04-24 14:07:09 |        0 |          1 |
+|  3 |       9 | 2025-04-03     | F    | 774142626 | grand mbao | 2025-04-30 14:33:18 |        0 |          1 |
+|  4 |      10 | 2025-04-05     | F    | 776543213 | thies      | 2025-04-30 14:34:38 |        0 |          1 |
+|  5 |      11 | 2025-05-10     | M    | 709875643 | louga      | 2025-04-30 14:36:22 |        0 |          1 |
++----+---------+----------------+------+-----------+------------+---------------------+----------+------------+
+5 rows in set (0.000 sec)
+
+MariaDB [projet_medical]> select * from dicom_instances;
++-------------------+----------------------------------------------+------------+---------------------+------------+------------------------------------------------------------------------------------+---------------------+-----------------+
+| dicom_instance_id | orthanc_instance_id                          | patient_id | upload_date         | study_date | description                                                                        | orthanc_original_id | consultation_id |
++-------------------+----------------------------------------------+------------+---------------------+------------+------------------------------------------------------------------------------------+---------------------+-----------------+
+|                 8 | PATIENT-1-20250528182403                     |          1 | 2025-05-28 20:24:06 | NULL       | StudyInstanceUID: 1.3.12.2.1107.5.2.53.189501.30000021011309045077000000005        | NULL                |               1 |
+|                 9 | PATIENT-1-20250528182403                     |          1 | 2025-05-28 20:24:06 | NULL       | StudyInstanceUID: 1.3.12.2.1107.5.2.53.189501.30000021011309045077000000005        | NULL                |               1 |
+|                10 | PATIENT-1-20250528182540                     |          1 | 2025-05-28 20:25:41 | NULL       | StudyInstanceUID: 1.3.12.2.1107.5.2.53.189501.30000021011309045077000000005        | NULL                |               1 |
+|                11 | PATIENT-1-20250528230125                     |          1 | 2025-05-29 01:01:32 | NULL       | StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170 | NULL                |               2 |
+|                12 | PATIENT-1-20250529080851                     |          1 | 2025-05-29 10:08:56 | NULL       | StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170 | NULL                |               2 |
+|                13 | PATIENT-1-20250529081017                     |          1 | 2025-05-29 10:10:19 | NULL       | StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170 | NULL                |               2 |
+|                14 | PATIENT-1-20250529081901                     |          1 | 2025-05-29 10:19:02 | NULL       | StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170 | NULL                |            NULL |
+|                15 | PATIENT-2-20250601124126                     |          2 | 2025-06-01 14:41:53 | NULL       | StudyInstanceUID: 1.3.12.2.1107.5.2.53.189501.30000021011309045077000000005        | NULL                |               4 |
+|                16 | PATIENT-2-20250601124324                     |          2 | 2025-06-01 14:43:25 | NULL       | StudyInstanceUID: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170 | NULL                |               5 | voici dashboard.html <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -776,7 +870,7 @@
             </div>
             <div id="notes-tab" class="tab-content active">
                 <div class="flex justify-end mb-4">
-    <button class="btn-primary" onclick="openAddConsultationModal()"><i class="fas fa-plus mr-2"></i> Ajouter une consultation</button>
+                    <button class="btn-primary" onclick="openAddConsultationModal()"><i class="fas fa-plus mr-2"></i> Ajouter une note</button>
                 </div>
                 <div id="consultations-content" class="mb-6 overflow-y-auto max-h-96 timeline"></div>
             </div>
@@ -791,33 +885,29 @@
 
     <!-- Modal pour ajouter une consultation -->
     <div id="add-consultation-modal" class="modal">
-    <div class="modal-content">
-        <h3 class="text-2xl font-semibold mb-6 text-white">Ajouter une consultation</h3>
-        <form id="add-consultation-form" class="space-y-5">
-            <input type="hidden" id="add-consultation-patient-id" name="patientId">
-            <div class="input-group">
-                <input type="datetime-local" id="add-consultation-date" name="date_consultation" class="input-field" placeholder=" " required>
-                <label for="add-consultation-date" class="input-label">Date de la consultation</label>
-            </div>
-            <div class="input-group">
-                <textarea id="add-consultation-diagnostic" name="diagnostic" class="input-field" placeholder=" " required></textarea>
-                <label for="add-consultation-diagnostic" class="input-label">Diagnostic</label>
-            </div>
-            <div class="input-group">
-                <textarea id="add-consultation-prescription" name="prescription" class="input-field" placeholder=" "></textarea>
-                <label for="add-consultation-prescription" class="input-label">Ordonnance (optionnel)</label>
-            </div>
-            <div class="input-group">
-                <input type="file" id="add-consultation-file" name="file" class="input-field" accept=".dcm">
-                <label for="add-consultation-file" class="input-label">Fichier DICOM (optionnel)</label>
-            </div>
-            <div class="flex justify-end space-x-4">
-                <button type="button" class="px-5 py-2.5 text-gray-300 hover:text-white transition-colors duration-200" onclick="closeAddConsultationModal()">Annuler</button>
-                <button type="submit" class="btn-primary"><i class="fas fa-save mr-2"></i> Ajouter</button>
-            </div>
-        </form>
+        <div class="modal-content">
+            <h3 class="text-2xl font-semibold mb-6 text-white">Ajouter une consultation</h3>
+            <form id="add-consultation-form" class="space-y-5">
+                <input type="hidden" id="add-consultation-patient-id" name="patientId">
+                <div class="input-group">
+                    <input type="datetime-local" id="add-consultation-date" name="date" class="input-field" placeholder=" " required>
+                    <label for="add-consultation-date" class="input-label">Date de la consultation</label>
+                </div>
+                <div class="input-group">
+                    <textarea id="add-consultation-notes" name="notes" class="input-field" placeholder=" " required></textarea>
+                    <label for="add-consultation-notes" class="input-label">Notes</label>
+                </div>
+                <div class="input-group">
+                    <input type="file" id="add-consultation-file" name="file" class="input-field" accept=".dcm">
+                    <label for="add-consultation-file" class="input-label">Fichier DICOM (optionnel)</label>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" class="px-5 py-2.5 text-gray-300 hover:text-white transition-colors duration-200" onclick="closeAddConsultationModal()">Annuler</button>
+                    <button type="submit" class="btn-primary"><i class="fas fa-save mr-2"></i> Ajouter</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
     <!-- Modal for Consultation Details -->
 <!-- Modal for Consultation Details -->
@@ -1043,38 +1133,37 @@ function closeModal(modalId) {
             });
 
             // Add consultation
-        document.getElementById('add-consultation-form')?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const patientId = document.getElementById('add-consultation-patient-id').value;
-    const dateConsultation = document.getElementById('add-consultation-date').value;
-    const diagnostic = document.getElementById('add-consultation-diagnostic').value;
-    const prescription = document.getElementById('add-consultation-prescription').value;
-    const file = document.getElementById('add-consultation-file').files[0];
+            document.getElementById('add-consultation-form')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const patientId = document.getElementById('add-consultation-patient-id').value;
+                const date = document.getElementById('add-consultation-date').value;
+                const notes = document.getElementById('add-consultation-notes').value;
+                const file = document.getElementById('add-consultation-file').files[0];
 
-    const formData = new FormData();
-    formData.append('patient_id', patientId);
-    formData.append('date_consultation', dateConsultation);
-    formData.append('diagnostic', diagnostic);
-    if (prescription) formData.append('prescription', prescription);
-    if (file) formData.append('file', file);
+                const formData = new FormData();
+                formData.append('patient_id', patientId);
+                formData.append('date_consultation', date);
+                formData.append('notes', notes);
+                if (file) formData.append('file', file);
 
-    try {
-        const response = await fetch('http://localhost/projet-medical/api/consultations.php', {
-            method: 'POST',
-            headers: { 'Authorization': `Bearer ${token}` },
-            body: formData
-        });
-        const text = await response.text();
-        const result = JSON.parse(text);
-        if (!response.ok) throw new Error(result.error || 'Erreur lors de l\'ajout');
-        alert('Consultation ajoutée avec succès !');
-        closeAddConsultationModal();
-        await openConsultationsModal(patientId);
-    } catch (error) {
-        console.error('Erreur lors de l\'ajout de la consultation:', error);
-        alert('Erreur: ' + error.message);
-    }
-});
+                try {
+                    const response = await fetch('http://localhost/projet-medical/api/consultations.php', {
+                        method: 'POST',
+                        headers: { 'Authorization': `Bearer ${token}` },
+                        body: formData
+                    });
+                    const text = await response.text();
+                    const result = JSON.parse(text);
+                    if (!response.ok) throw new Error(result.erreur || 'Erreur lors de l\'ajout');
+                    alert('Consultation ajoutée avec succès !');
+                    closeAddConsultationModal();
+                    const currentPatientId = document.getElementById('consultations-patient-id').value;
+                    await openConsultationsModal(currentPatientId);
+                } catch (error) {
+                    console.error('Erreur lors de l\'ajout de la consultation:', error);
+                    alert('Erreur: ' + error.message);
+                }
+            });
 
             // Load default dashboard
             loadDashboard();
@@ -1233,14 +1322,10 @@ function closeModal(modalId) {
 
         // Open add consultation modal
         function openAddConsultationModal() {
-    const patientId = document.getElementById('consultations-patient-id').value;
-    document.getElementById('add-consultation-patient-id').value = patientId;
-    document.getElementById('add-consultation-date').value = new Date().toISOString().slice(0, 16); // Pré-remplir avec la date actuelle
-    document.getElementById('add-consultation-diagnostic').value = '';
-    document.getElementById('add-consultation-prescription').value = '';
-    document.getElementById('add-consultation-file').value = ''; // Réinitialiser le champ fichier
-    openModal('add-consultation-modal');
-}
+            const patientId = document.getElementById('consultations-patient-id').value;
+            document.getElementById('add-consultation-patient-id').value = patientId;
+            openModal('add-consultation-modal');
+        }
 
         // Open medical record modal
         async function openMedicalRecordModal(patientId) {
@@ -1311,7 +1396,7 @@ function closeModal(modalId) {
     
 
         // Open consultations modal
-      async function openConsultationsModal(patientId) {
+        async function openConsultationsModal(patientId) {
     console.log(`Ouverture des consultations pour patientId: ${patientId}`);
     const notesContent = document.getElementById('consultations-content');
     const dicomContent = document.getElementById('dicom-content');
@@ -1358,11 +1443,8 @@ function closeModal(modalId) {
             throw new Error(`Erreur HTTP ${consultationsResponse.status}: ${errorText}`);
         }
 
-        const data = await consultationsResponse.json();
-        console.log('Données récupérées:', data);
-
-        const consultations = data.consultations || [];
-        const dicomFiles = data.dicom_files || [];
+        const consultations = await consultationsResponse.json();
+        console.log('Consultations récupérées:', consultations);
 
         if (consultations.length === 0) {
             notesContent.innerHTML = '<p class="text-gray-400">Aucune consultation trouvée.</p>';
@@ -1377,10 +1459,34 @@ function closeModal(modalId) {
             `).join('');
         }
 
-        if (dicomFiles.length === 0) {
+        const dicomResponse = await fetch(`http://localhost/projet-medical/api/dicom-instances.php?patientId=${patientId}`, {
+            method: 'GET',
+            headers: headers
+        });
+
+        if (!dicomResponse.ok) {
+            const errorText = await dicomResponse.text();
+            console.error(`Erreur HTTP ${dicomResponse.status} (DICOM): ${errorText}`);
+            if (dicomResponse.status === 401) {
+                alert('Session expirée ou accès non autorisé. Veuillez vous reconnecter.');
+                logout();
+                return;
+            }
+            if (dicomResponse.status === 403) {
+                dicomContent.innerHTML = '<p class="text-red-400">Accès refusé : Vous n\'êtes pas autorisé à voir les fichiers DICOM de ce patient.</p>';
+                return;
+            }
+            throw new Error(`Erreur HTTP ${dicomResponse.status}: ${errorText}`);
+        }
+
+        const dicomData = await dicomResponse.json();
+        const dicomInstances = dicomData.dicom_instances || [];
+        console.log('DICOM instances récupérées:', dicomInstances);
+
+        if (dicomInstances.length === 0) {
             dicomContent.innerHTML = '<p class="text-gray-400">Aucun fichier DICOM trouvé.</p>';
         } else {
-            dicomContent.innerHTML = dicomFiles.map(d => `
+            dicomContent.innerHTML = dicomInstances.map(d => `
                 <div class="dicom-card">
                     <i class="fas fa-file-medical mr-3"></i>
                     <div>
@@ -1407,6 +1513,15 @@ async function openConsultationDetails(consultationId, dateConsultation, diagnos
     const prescriptionEl = document.getElementById('consultation-details-prescription');
     const dicomEl = document.getElementById('consultation-details-dicom');
 
+    console.log({
+        modal: !!modal,
+        title: !!title,
+        dateEl: !!dateEl,
+        notesEl: !!notesEl,
+        prescriptionEl: !!prescriptionEl,
+        dicomEl: !!dicomEl
+    });
+
     if (!modal || !title || !dateEl || !notesEl || !prescriptionEl || !dicomEl) {
         console.error('Éléments du modal de détails de consultation non trouvés');
         alert('Erreur: Éléments du modal non trouvés.');
@@ -1427,6 +1542,39 @@ async function openConsultationDetails(consultationId, dateConsultation, diagnos
     };
 
     try {
+        const prescriptionResponse = await fetch(`http://localhost/projet-medical/api/prescriptions.php?consultationId=${consultationId}`, {
+            method: 'GET',
+            headers: headers
+        });
+
+        if (!prescriptionResponse.ok) {
+            const errorText = await prescriptionResponse.text();
+            console.error(`Erreur HTTP ${prescriptionResponse.status} (prescriptions): ${errorText}`);
+            if (prescriptionResponse.status === 401) {
+                alert('Session expirée ou accès non autorisé. Veuillez vous reconnecter.');
+                logout();
+                return;
+            }
+            if (prescriptionResponse.status === 403) {
+                prescriptionEl.innerHTML = '<p class="text-red-400">Accès refusé : Vous n\'êtes pas autorisé à voir l\'ordonnance.</p>';
+                return;
+            }
+            throw new Error(`Erreur HTTP ${prescriptionResponse.status}: ${errorText}`);
+        }
+
+        const prescriptionData = await prescriptionResponse.json();
+        const prescriptions = prescriptionData.prescriptions || [];
+        if (prescriptions.length === 0) {
+            prescriptionEl.innerHTML = '<p class="text-gray-400">Aucune ordonnance trouvée.</p>';
+        } else {
+            prescriptionEl.innerHTML = prescriptions.map(p => `
+                <div class="prescription-card bg-gray-700 p-3 rounded-lg shadow-md mb-2">
+                    <p class="text-white">${p.details}</p>
+                    <p class="text-gray-400 text-sm">Créé le: ${new Date(p.created_at).toLocaleString('fr-FR')}</p>
+                </div>
+            `).join('');
+        }
+
         const dicomResponse = await fetch(`http://localhost/projet-medical/api/dicom-instances.php?consultationId=${consultationId}`, {
             method: 'GET',
             headers: headers
@@ -1610,4 +1758,469 @@ function viewDICOM(studyInstanceUID) {
         
     </script>
 </body>
-</html>
+</html> voici proxy-orthanc.php qui gere les upload d'image dicom <?php
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
+
+// Fonction pour logger les messages
+function logMessage($message) {
+    file_put_contents('debug_orthanc.log', date('Y-m-d H:i:s') . ' - ' . $message . PHP_EOL, FILE_APPEND);
+}
+
+logMessage('Début de la requête proxy-orthanc');
+
+// Gestion des requêtes OPTIONS pour CORS
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
+// Vérifier si exec est disponible
+if (!function_exists('exec')) {
+    logMessage('Erreur: La fonction exec est désactivée sur ce serveur');
+    http_response_code(500);
+    echo json_encode(['error' => 'La fonction exec est désactivée, nécessaire pour dcmdump']);
+    exit;
+}
+
+// Connexion à la base de données
+try {
+    $pdo = new PDO('mysql:host=localhost;dbname=projet_medical', 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    logMessage('Erreur de connexion à la base de données: ' . $e->getMessage());
+    http_response_code(500);
+    echo json_encode(['error' => 'Erreur de connexion à la base de données : ' . $e->getMessage()]);
+    exit;
+}
+
+// Configuration Orthanc
+$orthancUrl = 'http://localhost:8042';
+
+// Chemin complet vers dcmdump.exe (modifie selon ton installation)
+$dcmdumpPath = 'C:\dcmtk-3.6.9-win64-dynamic\bin\dcmdump.exe';
+
+// Fonction pour générer un UID synthétique (solution de secours ultime)
+function generateSyntheticUID() {
+    return '1.2.3.4.5.' . time() . '.' . rand(1000, 9999);
+}
+
+// Récupérer le chemin de la requête
+$path = isset($_GET['path']) ? trim($_GET['path'], '/') : '';
+if (empty($path)) {
+    logMessage('Erreur: Aucun chemin spécifié');
+    http_response_code(400);
+    echo json_encode(['error' => 'Aucun chemin spécifié']);
+    exit;
+}
+
+// Construire l'URL complète pour Orthanc
+$fullUrl = rtrim($orthancUrl, '/') . '/' . $path;
+logMessage('URL Orthanc: ' . $fullUrl);
+
+// Initialiser cURL
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $fullUrl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+// Gérer les différentes méthodes HTTP
+$method = $_SERVER['REQUEST_METHOD'];
+logMessage('Méthode HTTP: ' . $method);
+
+switch ($method) {
+    case 'GET':
+        curl_setopt($ch, CURLOPT_HTTPGET, true);
+        break;
+
+    case 'POST':
+        if ($path === 'instances') {
+            try {
+                // Log des données reçues
+                logMessage('$_FILES: ' . json_encode($_FILES));
+                logMessage('$_POST: ' . json_encode($_POST));
+
+                // Gestion de l'upload de fichier DICOM
+                if (!isset($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
+                    logMessage('Erreur: Vérification $_FILES[\'file\']: ' . json_encode($_FILES));
+                    throw new Exception('Aucun fichier DICOM valide fourni ou erreur d\'upload: ' . ($_FILES['file']['error'] ?? 'pas de fichier'));
+                }
+
+                $filePath = $_FILES['file']['tmp_name'];
+                $patientId = isset($_POST['patient_id']) ? $_POST['patient_id'] : null;
+                $customInstanceId = isset($_POST['instance_id']) ? $_POST['instance_id'] : null;
+                logMessage('Patient ID: ' . ($patientId ?? 'null') . ', Instance ID personnalisé: ' . ($customInstanceId ?? 'null') . ', Fichier temporaire: ' . $filePath);
+
+                // Vérifier si le fichier temporaire existe et est lisible
+                if (!file_exists($filePath) || !is_readable($filePath)) {
+                    logMessage('Erreur: Fichier temporaire introuvable ou non lisible: ' . $filePath);
+                    throw new Exception('Fichier temporaire introuvable ou non lisible');
+                }
+
+                // Vérifier l'existence du patient_id si fourni
+                if ($patientId !== null) {
+                    try {
+                        $stmt = $pdo->prepare("SELECT COUNT(*) FROM patients WHERE id = ?");
+                        $stmt->execute([$patientId]);
+                        if ($stmt->fetchColumn() == 0) {
+                            logMessage('Erreur: patient_id ' . $patientId . ' n\'existe pas');
+                            throw new Exception('Le patient_id spécifié (' . $patientId . ') n\'existe pas');
+                        }
+                    } catch (PDOException $e) {
+                        logMessage('Erreur lors de la vérification du patient_id: ' . $e->getMessage());
+                        throw new Exception('Erreur lors de la vérification du patient_id : ' . $e->getMessage());
+                    }
+                }
+
+                // Lire le contenu du fichier
+                $fileContent = file_get_contents($filePath);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContent);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/dicom']);
+
+                // Exécuter l'upload
+                $response = curl_exec($ch);
+                $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                $curlError = curl_error($ch);
+
+                if ($response === false || !empty($curlError) || $httpCode >= 400) {
+                    logMessage('Erreur initiale d\'upload: HTTP Code=' . $httpCode . ', Erreur cURL=' . $curlError . ', Réponse=' . substr($response, 0, 500));
+                    throw new Exception('Erreur lors de l\'upload initial vers Orthanc: ' . ($curlError ?: json_decode($response, true)['error'] ?? $response));
+                }
+
+                $result = json_decode($response, true);
+                if (json_last_error() !== JSON_ERROR_NONE || !isset($result['ID'])) {
+                    logMessage('Erreur: Réponse Orthanc invalide ou ID manquant: ' . $response);
+                    throw new Exception('Réponse Orthanc invalide ou ID manquant');
+                }
+
+                $orthancId = $result['ID'];
+                logMessage('ID Orthanc attribué: ' . $orthancId);
+
+                // Récupérer les métadonnées via /instances/{id}
+                $metadataUrl = "$orthancUrl/instances/$orthancId";
+                logMessage('Requête des métadonnées via URL: ' . $metadataUrl);
+                $ch = curl_init($metadataUrl);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $metadataResponse = curl_exec($ch);
+                $metadataHttpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                $metadataError = curl_error($ch);
+                curl_close($ch);
+
+                logMessage('Réponse brute des métadonnées: ' . $metadataResponse);
+
+                if ($metadataResponse === false || $metadataHttpCode >= 400) {
+                    logMessage('Erreur lors de la requête des métadonnées: Code=' . $metadataHttpCode . ', Erreur=' . $metadataError);
+                    throw new Exception('Erreur lors de la récupération des métadonnées DICOM');
+                }
+
+                $metadataData = json_decode($metadataResponse, true);
+                if (json_last_error() !== JSON_ERROR_NONE) {
+                    logMessage('Erreur: Métadonnées non-JSON: ' . $metadataResponse);
+                    throw new Exception('Métadonnées DICOM non-JSON');
+                }
+
+                $studyInstanceUID = null;
+                // Vérifier dans MainDicomTags
+                if (isset($metadataData['MainDicomTags']['StudyInstanceUID'])) {
+                    $studyInstanceUID = $metadataData['MainDicomTags']['StudyInstanceUID'];
+                    logMessage('StudyInstanceUID récupéré via MainDicomTags: ' . $studyInstanceUID);
+                } else {
+                    logMessage('StudyInstanceUID non trouvé dans MainDicomTags, vérification via /studies...');
+                    // Récupérer StudyInstanceUID via /studies/{id}
+                    if (isset($metadataData['ParentStudy'])) {
+                        $studyUrl = "$orthancUrl/studies/{$metadataData['ParentStudy']}";
+                        logMessage('Requête StudyInstanceUID via URL: ' . $studyUrl);
+                        $ch = curl_init($studyUrl);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        $studyResponse = curl_exec($ch);
+                        $studyHttpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                        $studyError = curl_error($ch);
+                        curl_close($ch);
+
+                        logMessage('Réponse brute de /studies: ' . $studyResponse);
+
+                        if ($studyResponse === false || $studyHttpCode >= 400) {
+                            logMessage('Erreur lors de la requête /studies: Code=' . $studyHttpCode . ', Erreur=' . $studyError);
+                        } else {
+                            $studyData = json_decode($studyResponse, true);
+                            if (isset($studyData['MainDicomTags']['StudyInstanceUID'])) {
+                                $studyInstanceUID = $studyData['MainDicomTags']['StudyInstanceUID'];
+                                logMessage('StudyInstanceUID récupéré via /studies: ' . $studyInstanceUID);
+                            } else {
+                                logMessage('StudyInstanceUID non trouvé dans /studies, structure: ' . json_encode($studyData));
+                            }
+                        }
+                    }
+                }
+
+                // Solution de secours avec dcmdump si nécessaire
+                if (!$studyInstanceUID) {
+                    $output = [];
+                    $returnCode = 0;
+                    // Utiliser le chemin complet de dcmdump et gérer les chemins Windows
+                    $dcmdumpCommand = '"' . $dcmdumpPath . '" -q +P 0020,000D ' . escapeshellarg($filePath) . ' 2>&1';
+                    logMessage('Commande dcmdump exécutée: ' . $dcmdumpCommand);
+                    exec($dcmdumpCommand, $output, $returnCode);
+                    logMessage('Sortie de dcmdump: ' . json_encode($output));
+                    logMessage('Code de retour de dcmdump: ' . $returnCode);
+                    if ($returnCode === 0 && !empty($output)) {
+                        foreach ($output as $line) {
+                            if (preg_match('/\[(.*?)\]/', $line, $matches)) {
+                                $studyInstanceUID = trim($matches[1]);
+                                logMessage('StudyInstanceUID récupéré via dcmdump: ' . $studyInstanceUID);
+                                break;
+                            }
+                        }
+                    } else {
+                        logMessage('Échec de dcmdump, code de retour: ' . $returnCode . ', sortie: ' . implode(', ', $output));
+                    }
+                }
+
+                // Solution de secours ultime : UID synthétique
+                if (!$studyInstanceUID) {
+                    $studyInstanceUID = generateSyntheticUID();
+                    logMessage('Échec de récupération du StudyInstanceUID via métadonnées et dcmdump, UID synthétique généré: ' . $studyInstanceUID);
+                }
+
+                // Récupérer les métadonnées pour Study Date
+                $instanceData = $metadataData;
+                logMessage('Détails de l\'instance: ' . json_encode($instanceData, JSON_PRETTY_PRINT));
+
+                $studyDate = $instanceData['MainDicomTags']['StudyDate'] ?? null;
+                if ($studyDate) {
+                    try {
+                        $studyDate = DateTime::createFromFormat('Ymd', $studyDate)->format('Y-m-d');
+                    } catch (Exception $e) {
+                        logMessage('Erreur lors du formatage de StudyDate: ' . $e->getMessage());
+                        $studyDate = null;
+                    }
+                }
+
+                // Stocker l'instance dans la base de données
+                try {
+                    $uploadDate = date('Y-m-d H:i:s');
+                    $description = 'StudyInstanceUID: ' . $studyInstanceUID;
+
+                    if ($patientId !== null) {
+                        $stmt = $pdo->prepare("INSERT INTO dicom_instances (orthanc_instance_id, patient_id, upload_date, study_date, description) VALUES (?, ?, ?, ?, ?)");
+                        $stmt->execute([$orthancId, $patientId, $uploadDate, $studyDate, $description]);
+                        logMessage("Instance DICOM stockée avec patient_id=$patientId, orthanc_instance_id=$orthancId");
+                    } else {
+                        $stmt = $pdo->prepare("INSERT INTO dicom_instances (orthanc_instance_id, upload_date, study_date, description) VALUES (?, ?, ?, ?)");
+                        $stmt->execute([$orthancId, $uploadDate, $studyDate, $description]);
+                        logMessage("Instance DICOM stockée sans patient_id, orthanc_instance_id=$orthancId");
+                    }
+
+                    if ($customInstanceId) {
+                        $stmt = $pdo->prepare("UPDATE dicom_instances SET orthanc_instance_id = ? WHERE orthanc_instance_id = ? AND upload_date = ?");
+                        $stmt->execute([$customInstanceId, $orthancId, $uploadDate]);
+                        logMessage("Instance ID personnalisé appliqué: $customInstanceId");
+                    }
+                } catch (PDOException $e) {
+                    logMessage('Erreur lors de l\'insertion dans la base de données: ' . $e->getMessage());
+                    throw new Exception('Erreur lors de l\'enregistrement de l\'instance: ' . $e->getMessage());
+                }
+
+                // Retourner la réponse avec le StudyInstanceUID extrait
+                $result['studyInstanceUID'] = $studyInstanceUID;
+                $result['patientId'] = $patientId;
+                $result['customInstanceId'] = $customInstanceId;
+                echo json_encode($result);
+            } catch (Exception $e) {
+                $errorData = ['error' => $e->getMessage()];
+                logMessage('Exception capturée: ' . $e->getMessage() . ', Détails: ' . json_encode($errorData));
+                http_response_code(400);
+                echo json_encode($errorData);
+            }
+        } else {
+            // Autres requêtes POST (par exemple, modification)
+            $inputData = file_get_contents('php://input');
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $inputData);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        }
+        break;
+
+    case 'DELETE':
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        break;
+
+    case 'PUT':
+        $inputData = file_get_contents('php://input');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $inputData);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        break;
+
+    default:
+        logMessage('Méthode HTTP non supportée: ' . $method);
+        http_response_code(405);
+        echo json_encode(['error' => 'Méthode HTTP non supportée']);
+        exit;
+}
+
+// Exécuter la requête cURL pour les autres cas
+if ($method !== 'POST' || $path !== 'instances') {
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+    $curlError = curl_error($ch);
+    curl_close($ch);
+
+    logMessage('Requête Orthanc: HTTP Code=' . $httpCode . ', Réponse=' . substr($response, 0, 500) . ', Erreur cURL=' . $curlError);
+
+    if ($response === false || !empty($curlError)) {
+        logMessage('Erreur cURL: ' . $curlError);
+        http_response_code(500);
+        echo json_encode(['error' => 'Erreur lors de la communication avec Orthanc: ' . $curlError]);
+        exit;
+    }
+
+    if ($httpCode >= 400) {
+        $errorMessage = ($contentType && strpos($contentType, 'application/json') !== false)
+            ? (json_decode($response, true)['error'] ?? $response)
+            : $response;
+        logMessage('Erreur Orthanc: Code=' . $httpCode . ', Message=' . $errorMessage);
+        http_response_code($httpCode);
+        echo json_encode(['error' => $errorMessage]);
+        exit;
+    }
+
+    // Pour les autres requêtes, retourner la réponse telle quelle
+    if ($contentType && strpos($contentType, 'application/json') !== false) {
+        echo $response;
+    } else {
+        echo json_encode(['data' => $response]);
+    }
+}
+?> voici consultation.php <?php
+// Setting headers to ensure JSON response and prevent CORS issues
+header('Content-Type: application/json; charset=UTF-8');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET');
+header('Access-Control-Allow-Headers: Authorization, Content-Type, Accept');
+
+// Enable error reporting for debugging, but prevent errors from being displayed in the response
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
+ini_set('log_errors', 1);
+ini_set('error_log', 'C:/xampp/htdocs/projet-medical/logs/php_errors.log');
+
+// Custom logging function for debugging
+function debugLog($message) {
+    $logFile = 'C:/xampp/htdocs/projet-medical/logs/debug_consultations.log';
+    $timestamp = date('Y-m-d H:i:s');
+    file_put_contents($logFile, "[$timestamp] $message\n", FILE_APPEND);
+}
+
+// Function to send a JSON response and exit
+function sendResponse($status, $data) {
+    http_response_code($status);
+    echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+// Check request method
+$method = $_SERVER['REQUEST_METHOD'];
+debugLog('Request method: ' . $method);
+
+if ($method !== 'GET') {
+    debugLog('Invalid request method: ' . $method);
+    sendResponse(405, ['error' => 'Method Not Allowed']);
+}
+
+$patientId = isset($_GET['patientId']) ? (int)$_GET['patientId'] : null;
+debugLog('Patient ID extracted from query: ' . $patientId);
+if (!$patientId) {
+    debugLog('Missing patientId in query parameters');
+    sendResponse(400, ['error' => 'Missing patientId']);
+}
+
+// Validate JWT token with fallback for Authorization header
+$headers = getallheaders();
+$authHeader = isset($headers['Authorization']) ? $headers['Authorization'] : 
+              (isset($_SERVER['HTTP_AUTHORIZATION']) ? $_SERVER['HTTP_AUTHORIZATION'] : '');
+debugLog('Authorization header: ' . $authHeader);
+
+if (!$authHeader || !preg_match('/Bearer\s(\S+)/', $authHeader, $tokenMatches)) {
+    debugLog('Missing or invalid Authorization header');
+    sendResponse(401, ['error' => 'Token manquant']);
+}
+
+$token = $tokenMatches[1];
+debugLog('Token extracted: ' . $token);
+
+// Load dependencies
+$autoloadPath = 'C:/xampp/htdocs/projet-medical/vendor/autoload.php';
+if (!file_exists($autoloadPath)) {
+    debugLog('Autoload file not found at: ' . $autoloadPath);
+    sendResponse(500, ['error' => 'Server error: Autoload file not found']);
+}
+
+require_once $autoloadPath;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+$jwtSecret = 'your_jwt_secret_key'; // Replace with your actual secret key
+try {
+    $decoded = JWT::decode($token, new Key($jwtSecret, 'HS256'));
+    if ($decoded->exp < time()) {
+        debugLog('Token has expired');
+        sendResponse(401, ['error' => 'Session expirée']);
+    }
+    if (!isset($decoded->data->id) || !isset($decoded->data->role)) {
+        debugLog('Invalid token structure: Missing id or role');
+        sendResponse(401, ['error' => 'Token invalide: Données utilisateur manquantes']);
+    }
+} catch (Exception $e) {
+    debugLog('JWT validation failed: ' . $e->getMessage());
+    sendResponse(401, ['error' => 'Token invalide']);
+}
+
+// Database connection
+try {
+    $pdo = new PDO('mysql:host=localhost;dbname=projet_medical', 'root', '', [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+    ]);
+} catch (PDOException $e) {
+    debugLog('Database connection failed: ' . $e->getMessage());
+    sendResponse(500, ['error' => 'Database connection failed']);
+}
+
+// Verify patient existence
+try {
+    $stmt = $pdo->prepare('SELECT id FROM patients WHERE id = ?');
+    $stmt->execute([$patientId]);
+    if (!$stmt->fetch()) {
+        debugLog('Patient not found: ' . $patientId);
+        sendResponse(404, ['error' => 'Patient not found']);
+    }
+} catch (PDOException $e) {
+    debugLog('Error checking patient existence: ' . $e->getMessage());
+    sendResponse(500, ['error' => 'Failed to verify patient']);
+}
+
+// Fetch consultations
+try {
+    $stmt = $pdo->prepare('SELECT id, date_consultation, diagnostic FROM consultations WHERE patient_id = ?');
+    $stmt->execute([$patientId]);
+    $consultations = $stmt->fetchAll();
+    debugLog('Consultations fetched for patient ' . $patientId . ': ' . json_encode($consultations));
+
+    if (empty($consultations)) {
+        debugLog('No consultations found for patient ' . $patientId);
+        sendResponse(200, []);
+    }
+
+    sendResponse(200, $consultations);
+} catch (PDOException $e) {
+    debugLog('Error fetching consultations: ' . $e->getMessage());
+    sendResponse(500, ['error' => 'Failed to fetch consultations']);
+}
+?> je veux que lorsque je clique sur ajouter note que je veux renommer en ajouter consulation qu'il yait un formulaire a remplir pour ajouter la consulation le formulaire doit etre composant des differentes parties de details consultations et jaimerais qussi que lorsque la consultation est ajouter qu'elle aparaisse directement dans la liste de consultation du patient pour l'upload des fichiers dicom il doit etre gere par proxy-orthanc.php et je veux que si des donnes sont ajouter que les changement ou les ajouts soit visible au niveau de la base de donnee apres l'upload du fichier dicom c'est le StudyInstanceUID qui doit etre stocke pour ensuite etre visualiser la nouvelle consultation ajouter doit enfaite se comportait comme les ancienne consultations existant deja dans la base de donne 

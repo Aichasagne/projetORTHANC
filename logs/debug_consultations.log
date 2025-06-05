@@ -407,3 +407,43 @@
 [2025-06-04 14:06:04] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwMzc0MDgsImV4cCI6MTc0OTEyMzgwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.MzAtfgQxDRGAF-Ygp4AdSH3me3LtIsE8H5-Ll1boNYM
 [2025-06-04 14:06:04] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwMzc0MDgsImV4cCI6MTc0OTEyMzgwOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.MzAtfgQxDRGAF-Ygp4AdSH3me3LtIsE8H5-Ll1boNYM
 [2025-06-04 14:06:04] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","diagnostic":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","diagnostic":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","diagnostic":"Contr?le g?n?ral"}]
+[2025-06-05 00:51:33] Request method: GET
+[2025-06-05 00:51:33] Patient ID extracted from query: 1
+[2025-06-05 00:51:33] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 00:51:33] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 00:51:33] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","diagnostic":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","diagnostic":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","diagnostic":"Contr?le g?n?ral"},{"id":28,"date_consultation":"2025-06-14 16:12:00","diagnostic":"maladive"},{"id":29,"date_consultation":"2025-06-22 14:36:00","diagnostic":"baisse de tension"},{"id":30,"date_consultation":"2025-06-07 14:59:00","diagnostic":"test"}]
+[2025-06-05 01:07:31] Request method: GET
+[2025-06-05 01:07:31] Patient ID extracted from query: 1
+[2025-06-05 01:07:31] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 01:07:31] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 01:07:31] Consultations fetched for patient 1: [{"id":1,"date_consultation":"2024-06-15 10:30:00","diagnostic":"Hypertension art?rielle"},{"id":2,"date_consultation":"2024-07-01 11:00:00","diagnostic":"Suivi post-traitement"},{"id":3,"date_consultation":"2024-08-10 09:45:00","diagnostic":"Contr?le g?n?ral"},{"id":28,"date_consultation":"2025-06-14 16:12:00","diagnostic":"maladive"},{"id":29,"date_consultation":"2025-06-22 14:36:00","diagnostic":"baisse de tension"},{"id":30,"date_consultation":"2025-06-07 14:59:00","diagnostic":"test"}]
+[2025-06-05 02:24:36] Request method: GET
+[2025-06-05 02:24:36] Invalid request method: GET
+[2025-06-05 02:47:17] Request method: GET
+[2025-06-05 02:47:17] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 02:47:17] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 02:47:17] Error fetching consultations: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'di.id' in 'field list'
+[2025-06-05 02:54:41] Request method: GET
+[2025-06-05 02:54:41] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 02:54:41] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 07:44:23] Request method: GET
+[2025-06-05 07:44:23] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 07:44:23] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 07:45:41] Request method: POST
+[2025-06-05 07:45:41] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 07:45:41] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 07:45:41] Consultation ajoutée avec ID: 32
+[2025-06-05 07:45:41] Prescription ajoutée pour consultation ID: 32
+[2025-06-05 07:45:41] Error uploading DICOM: Erreur lors de l'upload DICOM: HTTP 400 - {"error":"Aucun fichier DICOM valide fourni ou erreur d'upload: pas de fichier"}
+[2025-06-05 09:06:45] Request method: GET
+[2025-06-05 09:06:45] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 09:06:45] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 09:07:19] Request method: GET
+[2025-06-05 09:07:19] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 09:07:20] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 09:07:53] Request method: POST
+[2025-06-05 09:07:53] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 09:07:53] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkwNjk2OTksImV4cCI6MTc0OTE1NjA5OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.J9hcW62b-1G_g97MGgTrtAb8U7B6V3QlzTx18zg_mtk
+[2025-06-05 09:07:53] Consultation ajoutée avec ID: 33
+[2025-06-05 09:07:53] Prescription ajoutée pour consultation ID: 33
+[2025-06-05 09:07:54] Error uploading DICOM: Erreur lors de l'upload DICOM: HTTP 400 - {"error":"Aucun fichier DICOM valide fourni ou erreur d'upload: pas de fichier"}

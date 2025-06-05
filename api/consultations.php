@@ -1,51 +1,40 @@
 <?php
-// Setting headers to ensure JSON response and prevent CORS issues
 header('Content-Type: application/json; charset=UTF-8');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Authorization, Content-Type, Accept');
 
-// Enable error reporting for debugging, but prevent errors from being displayed in the response
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
 ini_set('log_errors', 1);
 ini_set('error_log', 'C:/xampp/htdocs/projet-medical/logs/php_errors.log');
 
-// Custom logging function for debugging
 function debugLog($message) {
     $logFile = 'C:/xampp/htdocs/projet-medical/logs/debug_consultations.log';
     $timestamp = date('Y-m-d H:i:s');
     file_put_contents($logFile, "[$timestamp] $message\n", FILE_APPEND);
 }
 
-// Function to send a JSON response and exit
 function sendResponse($status, $data) {
     http_response_code($status);
     echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     exit;
 }
 
-// Check request method
+// Gestion des requêtes OPTIONS pour CORS
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    debugLog('Requête OPTIONS reçue, réponse 204');
+    http_response_code(204);
+    exit;
+}
+
 $method = $_SERVER['REQUEST_METHOD'];
 debugLog('Request method: ' . $method);
 
-if ($method !== 'GET') {
-    debugLog('Invalid request method: ' . $method);
-    sendResponse(405, ['error' => 'Method Not Allowed']);
-}
-
-$patientId = isset($_GET['patientId']) ? (int)$_GET['patientId'] : null;
-debugLog('Patient ID extracted from query: ' . $patientId);
-if (!$patientId) {
-    debugLog('Missing patientId in query parameters');
-    sendResponse(400, ['error' => 'Missing patientId']);
-}
-
-// Validate JWT token with fallback for Authorization header
+// Vérifier les headers d'autorisation pour toutes les méthodes sauf OPTIONS
 $headers = getallheaders();
-$authHeader = isset($headers['Authorization']) ? $headers['Authorization'] : 
-              (isset($_SERVER['HTTP_AUTHORIZATION']) ? $_SERVER['HTTP_AUTHORIZATION'] : '');
+$authHeader = isset($headers['Authorization']) ? $headers['Authorization'] : (isset($_SERVER['HTTP_AUTHORIZATION']) ? $_SERVER['HTTP_AUTHORIZATION'] : '');
 debugLog('Authorization header: ' . $authHeader);
 
 if (!$authHeader || !preg_match('/Bearer\s(\S+)/', $authHeader, $tokenMatches)) {
@@ -56,7 +45,6 @@ if (!$authHeader || !preg_match('/Bearer\s(\S+)/', $authHeader, $tokenMatches)) 
 $token = $tokenMatches[1];
 debugLog('Token extracted: ' . $token);
 
-// Load dependencies
 $autoloadPath = 'C:/xampp/htdocs/projet-medical/vendor/autoload.php';
 if (!file_exists($autoloadPath)) {
     debugLog('Autoload file not found at: ' . $autoloadPath);
@@ -67,23 +55,18 @@ require_once $autoloadPath;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-$jwtSecret = 'your_jwt_secret_key'; // Replace with your actual secret key
+$jwtSecret = 'your_jwt_secret_key';
 try {
     $decoded = JWT::decode($token, new Key($jwtSecret, 'HS256'));
     if ($decoded->exp < time()) {
         debugLog('Token has expired');
         sendResponse(401, ['error' => 'Session expirée']);
     }
-    if (!isset($decoded->data->id) || !isset($decoded->data->role)) {
-        debugLog('Invalid token structure: Missing id or role');
-        sendResponse(401, ['error' => 'Token invalide: Données utilisateur manquantes']);
-    }
 } catch (Exception $e) {
     debugLog('JWT validation failed: ' . $e->getMessage());
     sendResponse(401, ['error' => 'Token invalide']);
 }
 
-// Database connection
 try {
     $pdo = new PDO('mysql:host=localhost;dbname=projet_medical', 'root', '', [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -95,34 +78,161 @@ try {
     sendResponse(500, ['error' => 'Database connection failed']);
 }
 
-// Verify patient existence
-try {
-    $stmt = $pdo->prepare('SELECT id FROM patients WHERE id = ?');
-    $stmt->execute([$patientId]);
-    if (!$stmt->fetch()) {
-        debugLog('Patient not found: ' . $patientId);
-        sendResponse(404, ['error' => 'Patient not found']);
-    }
-} catch (PDOException $e) {
-    debugLog('Error checking patient existence: ' . $e->getMessage());
-    sendResponse(500, ['error' => 'Failed to verify patient']);
-}
-
-// Fetch consultations
-try {
-    $stmt = $pdo->prepare('SELECT id, date_consultation, diagnostic FROM consultations WHERE patient_id = ?');
-    $stmt->execute([$patientId]);
-    $consultations = $stmt->fetchAll();
-    debugLog('Consultations fetched for patient ' . $patientId . ': ' . json_encode($consultations));
-
-    if (empty($consultations)) {
-        debugLog('No consultations found for patient ' . $patientId);
-        sendResponse(200, []);
+if ($method === 'GET') {
+    $patientId = isset($_GET['patientId']) ? (int)$_GET['patientId'] : null;
+    if (!$patientId) {
+        debugLog('Missing patientId for GET request');
+        sendResponse(400, ['error' => 'Patient ID manquant']);
     }
 
-    sendResponse(200, $consultations);
-} catch (PDOException $e) {
-    debugLog('Error fetching consultations: ' . $e->getMessage());
-    sendResponse(500, ['error' => 'Failed to fetch consultations']);
+    try {
+        // Récupérer les consultations
+        $stmt = $pdo->prepare('
+            SELECT c.id, c.patient_id, c.medecin_id, c.date_consultation, c.diagnostic, 
+                   p.id AS prescription_id, p.details AS prescription_details, p.created_at AS prescription_date
+            FROM consultations c
+            LEFT JOIN prescriptions p ON c.id = p.consultation_id
+            WHERE c.patient_id = ?
+            ORDER BY c.date_consultation DESC
+        ');
+        $stmt->execute([$patientId]);
+        $consultations = $stmt->fetchAll();
+
+        // Récupérer les fichiers DICOM associés
+        $stmt = $pdo->prepare('
+            SELECT di.dicom_instance_id AS id, di.consultation_id, di.orthanc_instance_id, di.upload_date, di.study_date, di.description
+            FROM dicom_instances di
+            JOIN consultations c ON di.consultation_id = c.id
+            WHERE c.patient_id = ?
+            ORDER BY di.upload_date DESC
+        ');
+        $stmt->execute([$patientId]);
+        $dicomFiles = $stmt->fetchAll();
+
+        // Structurer les données
+        $result = [
+            'consultations' => [],
+            'dicom_files' => $dicomFiles
+        ];
+
+        // Regrouper les prescriptions par consultation
+        if (!empty($consultations)) {
+            foreach ($consultations as $consultation) {
+                $consultationId = $consultation['id'];
+                if (!isset($result['consultations'][$consultationId])) {
+                    $result['consultations'][$consultationId] = [
+                        'id' => $consultation['id'],
+                        'patient_id' => $consultation['patient_id'],
+                        'medecin_id' => $consultation['medecin_id'],
+                        'date_consultation' => $consultation['date_consultation'],
+                        'diagnostic' => $consultation['diagnostic'],
+                        'prescriptions' => []
+                    ];
+                }
+                if ($consultation['prescription_id']) {
+                    $result['consultations'][$consultationId]['prescriptions'][] = [
+                        'id' => $consultation['prescription_id'],
+                        'details' => $consultation['prescription_details'],
+                        'created_at' => $consultation['prescription_date']
+                    ];
+                }
+            }
+            $result['consultations'] = array_values($result['consultations']);
+        }
+
+        sendResponse(200, $result);
+    } catch (PDOException $e) {
+        debugLog('Error fetching consultations: ' . $e->getMessage());
+        sendResponse(500, ['error' => 'Failed to fetch consultations: ' . $e->getMessage()]);
+    }
+} elseif ($method === 'POST') {
+    $patientId = isset($_POST['patient_id']) ? (int)$_POST['patient_id'] : null;
+    $dateConsultation = isset($_POST['date_consultation']) ? $_POST['date_consultation'] : null;
+    $diagnostic = isset($_POST['diagnostic']) ? $_POST['diagnostic'] : null;
+    $prescription = isset($_POST['prescription']) ? $_POST['prescription'] : null;
+
+    if (!$patientId || !$dateConsultation || !$diagnostic) {
+        debugLog('Missing required fields: patient_id=' . $patientId . ', date_consultation=' . $dateConsultation . ', diagnostic=' . $diagnostic);
+        sendResponse(400, ['error' => 'Missing required fields']);
+    }
+
+    try {
+        $pdo->beginTransaction();
+
+        // Insérer la consultation
+        $stmt = $pdo->prepare('INSERT INTO consultations (patient_id, medecin_id, date_consultation, diagnostic) VALUES (?, ?, ?, ?)');
+        $stmt->execute([$patientId, 1, $dateConsultation, $diagnostic]);
+        $consultationId = $pdo->lastInsertId();
+        debugLog('Consultation ajoutée avec ID: ' . $consultationId);
+
+        // Insérer la prescription si fournie
+        if ($prescription) {
+            $stmt = $pdo->prepare('INSERT INTO prescriptions (consultation_id, details, created_at) VALUES (?, ?, NOW())');
+            $stmt->execute([$consultationId, $prescription]);
+            debugLog('Prescription ajoutée pour consultation ID: ' . $consultationId);
+        }
+
+        // Gérer l'upload du fichier DICOM si présent
+        if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
+            $fileTmpPath = $_FILES['file']['tmp_name'];
+            $fileName = $_FILES['file']['name'];
+            $timestamp = date('YmdHis');
+            $instanceId = "PATIENT-{$patientId}-{$timestamp}";
+
+            // Vérifier si le fichier est un DICOM valide (extension .dcm)
+            $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+            if ($fileExt !== 'dcm') {
+                throw new Exception('Type de fichier invalide. Seuls les fichiers .dcm sont acceptés.');
+            }
+
+            // Envoyer à proxy-orthanc.php
+            $orthancUrl = 'http://localhost/projet-medical/api/proxy-orthanc.php?path=instances';
+            $ch = curl_init($orthancUrl);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Authorization: Bearer ' . $token,
+                'Content-Type: application/dicom'
+            ]);
+
+            $fileContent = file_get_contents($fileTmpPath);
+            if ($fileContent === false) {
+                throw new Exception('Impossible de lire le fichier temporaire.');
+            }
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContent);
+
+            $response = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $curlError = curl_error($ch);
+            curl_close($ch);
+
+            if ($httpCode !== 200) {
+                throw new Exception('Erreur lors de l\'upload DICOM: HTTP ' . $httpCode . ' - ' . ($curlError ?: $response));
+            }
+
+            $dicomResult = json_decode($response, true);
+            if (isset($dicomResult['ID']) && isset($dicomResult['studyInstanceUID'])) {
+                $stmt = $pdo->prepare('INSERT INTO dicom_instances (consultation_id, orthanc_instance_id, patient_id, upload_date, description, study_instance_uid) VALUES (?, ?, ?, NOW(), ?, ?)');
+                $stmt->execute([$consultationId, $dicomResult['ID'], $patientId, $fileName, $dicomResult['studyInstanceUID']]);
+                debugLog('Fichier DICOM ajouté avec orthanc_instance_id: ' . $dicomResult['ID'] . ', study_instance_uid: ' . $dicomResult['studyInstanceUID']);
+            } else {
+                throw new Exception('Réponse Orthanc invalide, ID ou StudyInstanceUID manquant: ' . $response);
+            }
+        }
+
+        $pdo->commit();
+        sendResponse(200, ['id' => $consultationId, 'message' => 'Consultation ajoutée avec succès']);
+    } catch (PDOException $e) {
+        $pdo->rollBack();
+        debugLog('Error inserting consultation: ' . $e->getMessage());
+        sendResponse(500, ['error' => 'Failed to add consultation: ' . $e->getMessage()]);
+    } catch (Exception $e) {
+        $pdo->rollBack();
+        debugLog('Error uploading DICOM: ' . $e->getMessage());
+        sendResponse(500, ['error' => 'Failed to add consultation: ' . $e->getMessage()]);
+    }
+} else {
+    debugLog('Invalid request method: ' . $method);
+    sendResponse(405, ['error' => 'Method Not Allowed']);
 }
 ?>
