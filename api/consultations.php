@@ -173,52 +173,56 @@ if ($method === 'GET') {
         }
 
         // Gérer l'upload du fichier DICOM si présent
-        if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
-            $fileTmpPath = $_FILES['file']['tmp_name'];
-            $fileName = $_FILES['file']['name'];
-            $timestamp = date('YmdHis');
-            $instanceId = "PATIENT-{$patientId}-{$timestamp}";
+      if (isset($_FILES['file'])) {
+    debugLog('$_FILES content: ' . json_encode($_FILES));
+    if ($_FILES['file']['error'] !== UPLOAD_ERR_OK) {
+        debugLog('Upload error code: ' . $_FILES['file']['error']);
+        throw new Exception('Erreur lors de l\'upload du fichier: ' . $_FILES['file']['error']);
+    }
+    $fileTmpPath = $_FILES['file']['tmp_name'];
+    $fileName = $_FILES['file']['name'];
+    $timestamp = date('YmdHis');
+    $instanceId = "PATIENT-{$patientId}-{$timestamp}";
 
-            // Vérifier si le fichier est un DICOM valide (extension .dcm)
-            $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-            if ($fileExt !== 'dcm') {
-                throw new Exception('Type de fichier invalide. Seuls les fichiers .dcm sont acceptés.');
-            }
+    // Vérifier si le fichier est un DICOM valide (extension .dcm)
+    $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+    if ($fileExt !== 'dcm') {
+        throw new Exception('Type de fichier invalide. Seuls les fichiers .dcm sont acceptés.');
+    }
 
-            // Envoyer à proxy-orthanc.php
-            $orthancUrl = 'http://localhost/projet-medical/api/proxy-orthanc.php?path=instances';
-            $ch = curl_init($orthancUrl);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                'Authorization: Bearer ' . $token,
-                'Content-Type: application/dicom'
-            ]);
+    // Envoyer à proxy-orthanc.php avec CURLFile
+    $ch = curl_init('http://localhost/projet-medical/api/proxy-orthanc.php?path=instances');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $token
+    ]);
 
-            $fileContent = file_get_contents($fileTmpPath);
-            if ($fileContent === false) {
-                throw new Exception('Impossible de lire le fichier temporaire.');
-            }
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContent);
+    $cfile = new CURLFile($fileTmpPath, 'application/dicom', $fileName);
+    $postData = ['file' => $cfile, 'patient_id' => $patientId, 'instance_id' => $instanceId];
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
 
-            $response = curl_exec($ch);
-            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            $curlError = curl_error($ch);
-            curl_close($ch);
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curlError = curl_error($ch);
+    curl_close($ch);
 
-            if ($httpCode !== 200) {
-                throw new Exception('Erreur lors de l\'upload DICOM: HTTP ' . $httpCode . ' - ' . ($curlError ?: $response));
-            }
+    debugLog('Réponse de proxy-orthanc.php: HTTP ' . $httpCode . ' - ' . $response);
+    if ($httpCode !== 200) {
+        throw new Exception('Erreur lors de l\'upload DICOM via proxy-orthanc.php: HTTP ' . $httpCode . ' - ' . ($curlError ?: $response));
+    }
 
-            $dicomResult = json_decode($response, true);
-            if (isset($dicomResult['ID']) && isset($dicomResult['studyInstanceUID'])) {
-                $stmt = $pdo->prepare('INSERT INTO dicom_instances (consultation_id, orthanc_instance_id, patient_id, upload_date, description, study_instance_uid) VALUES (?, ?, ?, NOW(), ?, ?)');
-                $stmt->execute([$consultationId, $dicomResult['ID'], $patientId, $fileName, $dicomResult['studyInstanceUID']]);
-                debugLog('Fichier DICOM ajouté avec orthanc_instance_id: ' . $dicomResult['ID'] . ', study_instance_uid: ' . $dicomResult['studyInstanceUID']);
-            } else {
-                throw new Exception('Réponse Orthanc invalide, ID ou StudyInstanceUID manquant: ' . $response);
-            }
-        }
+    $dicomResult = json_decode($response, true);
+    if (isset($dicomResult['ID']) && isset($dicomResult['studyInstanceUID'])) {
+        // Stocker le StudyInstanceUID dans la colonne description
+        $description = "StudyInstanceUID: {$dicomResult['studyInstanceUID']}";
+        $stmt = $pdo->prepare('INSERT INTO dicom_instances (consultation_id, orthanc_instance_id, patient_id, upload_date, description) VALUES (?, ?, ?, NOW(), ?)');
+        $stmt->execute([$consultationId, $dicomResult['ID'], $patientId, $description]);
+        debugLog('DICOM ajouté avec orthanc_instance_id: ' . $dicomResult['ID']);
+    } else {
+        throw new Exception('Réponse Orthanc invalide, ID ou StudyInstanceUID manquant: ' . $response);
+    }
+}
 
         $pdo->commit();
         sendResponse(200, ['id' => $consultationId, 'message' => 'Consultation ajoutée avec succès']);

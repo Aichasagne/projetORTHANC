@@ -121,18 +121,21 @@ if ($method === 'GET') {
             $params[] = $consultationId;
         }
 
-        $stmt = $pdo->prepare($query);
-        $stmt->execute($params);
-        $dicomInstances = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       // Dans la méthode GET
+$stmt = $pdo->prepare($query);
+$stmt->execute($params);
+$dicomInstances = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Extract StudyInstanceUID from description
-        foreach ($dicomInstances as &$instance) {
-            if (preg_match('/StudyInstanceUID:\s*([^\s]+)/', $instance['description'], $matches)) {
-                $instance['study_instance_uid'] = $matches[1];
-            }
-        }
+// Extraire StudyInstanceUID de description
+foreach ($dicomInstances as &$instance) {
+    if (preg_match('/StudyInstanceUID:\s*([^\s]+)/', $instance['description'], $matches)) {
+        $instance['study_instance_uid'] = $matches[1];
+    } else {
+        $instance['study_instance_uid'] = null; // En cas d'absence
+    }
+}
 
-        echo json_encode(['dicom_instances' => $dicomInstances]);
+sendResponse(200, ['dicom_instances' => $dicomInstances]);
     } else {
         http_response_code(400);
         echo json_encode(['error' => 'Missing patientId or consultationId']);

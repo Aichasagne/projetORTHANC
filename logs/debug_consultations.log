@@ -447,3 +447,46 @@
 [2025-06-05 09:07:53] Consultation ajoutée avec ID: 33
 [2025-06-05 09:07:53] Prescription ajoutée pour consultation ID: 33
 [2025-06-05 09:07:54] Error uploading DICOM: Erreur lors de l'upload DICOM: HTTP 400 - {"error":"Aucun fichier DICOM valide fourni ou erreur d'upload: pas de fichier"}
+[2025-06-05 17:25:30] Request method: GET
+[2025-06-05 17:25:31] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 17:25:31] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 17:26:34] Request method: POST
+[2025-06-05 17:26:34] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 17:26:34] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 17:26:35] Consultation ajoutée avec ID: 34
+[2025-06-05 17:26:35] Prescription ajoutée pour consultation ID: 34
+[2025-06-05 17:26:37] Error uploading DICOM: Erreur lors de l'upload DICOM: HTTP 400 - {"error":"Aucun fichier DICOM valide fourni ou erreur d'upload: pas de fichier"}
+[2025-06-05 17:50:45] Request method: GET
+[2025-06-05 17:50:45] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 17:50:45] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 17:51:36] Request method: POST
+[2025-06-05 17:51:36] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 17:51:36] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 17:51:36] Consultation ajoutée avec ID: 35
+[2025-06-05 17:51:36] Prescription ajoutée pour consultation ID: 35
+[2025-06-05 17:51:36] Error uploading DICOM: Erreur lors de l'upload DICOM: HTTP 400 - {"error":"Aucun fichier DICOM valide fourni ou erreur d'upload: pas de fichier"}
+[2025-06-05 18:09:03] Request method: GET
+[2025-06-05 18:09:03] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 18:09:03] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 18:09:22] Request method: POST
+[2025-06-05 18:09:22] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 18:09:22] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 18:09:22] Consultation ajoutée avec ID: 36
+[2025-06-05 18:09:22] Prescription ajoutée pour consultation ID: 36
+[2025-06-05 18:09:22] $_FILES content: {"file":{"name":"image-00008.dcm","full_path":"image-00008.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\php491C.tmp","error":0,"size":91754}}
+[2025-06-05 18:09:33] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"6be8f9b5-0a47915b-56fd8a11-4d94300c-9bfb83c4","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/6be8f9b5-0a47915b-56fd8a11-4d94300c-9bfb83c4","Status":"AlreadyStored","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"1","customInstanceId":"PATIENT-1-20250605180922"}
+[2025-06-05 18:09:33] Error inserting consultation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'study_instance_uid' in 'field list'
+[2025-06-05 18:47:26] Request method: GET
+[2025-06-05 18:47:26] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 18:47:26] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 18:47:39] Request method: POST
+[2025-06-05 18:47:39] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 18:47:39] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 18:47:39] Consultation ajoutée avec ID: 37
+[2025-06-05 18:47:39] Prescription ajoutée pour consultation ID: 37
+[2025-06-05 18:47:39] $_FILES content: {"file":{"name":"image-00007.dcm","full_path":"image-00007.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\php551B.tmp","error":0,"size":91688}}
+[2025-06-05 18:47:40] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3","Status":"AlreadyStored","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"1","customInstanceId":"PATIENT-1-20250605184739"}
+[2025-06-05 18:47:40] DICOM ajouté avec orthanc_instance_id: ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3
+[2025-06-05 18:48:08] Request method: GET
+[2025-06-05 18:48:08] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-05 18:48:08] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8

@@ -1065,6 +1065,7 @@ function closeModal(modalId) {
             body: formData
         });
         const text = await response.text();
+        console.log('Réponse brute:', text);
         const result = JSON.parse(text);
         if (!response.ok) throw new Error(result.error || 'Erreur lors de l\'ajout');
         alert('Consultation ajoutée avec succès !');
@@ -1452,17 +1453,17 @@ async function openConsultationDetails(consultationId, dateConsultation, diagnos
         if (dicomInstances.length === 0) {
             dicomEl.innerHTML = '<p class="text-gray-400">Aucun fichier DICOM trouvé.</p>';
         } else {
-            dicomEl.innerHTML = dicomInstances.map(d => `
-                <div class="dicom-card flex justify-between items-center bg-gray-700 p-3 rounded-lg shadow-md mb-2">
-                    <div>
-                        <p class="text-white">${d.description || 'N/A'}</p>
-                        <p class="text-gray-400 text-sm">Upload: ${new Date(d.upload_date).toLocaleString('fr-FR')}</p>
-                    </div>
-                    <button onclick="viewDICOM('${d.study_instance_uid}')" class="text-blue-400 hover:text-blue-300 transition-colors duration-200">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-            `).join('');
+           dicomEl.innerHTML = dicomInstances.map(d => `
+    <div class="dicom-card flex justify-between items-center bg-gray-700 p-3 rounded-lg shadow-md mb-2">
+        <div>
+            <p class="text-white">${d.description || 'N/A'}</p>
+            <p class="text-gray-400 text-sm">Upload: ${new Date(d.upload_date).toLocaleString('fr-FR')}</p>
+        </div>
+        <button ${d.study_instance_uid ? `onclick="viewDICOM('${d.study_instance_uid}')"` : 'disabled'} class="text-blue-400 hover:text-blue-300 transition-colors duration-200">
+    <i class="fas fa-eye"></i>
+</button>
+    </div>
+`).join('');
         }
     } catch (error) {
         console.error('Erreur lors de la récupération des détails de la consultation:', error);
