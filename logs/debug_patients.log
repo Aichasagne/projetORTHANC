@@ -2,3 +2,11 @@
 2025-05-05 16:59:11 - Token reçu: eyJ0eXAiOi...
 2025-05-05 16:59:11 - Utilisateur authentifié: user_id=, role=
 2025-05-05 16:59:11 - Erreur: Accès interdit, rôle=
+2025-06-06 01:30:01 - Début de la requête /patients
+2025-06-06 01:30:01 - Version de patients.php: 2025-06-05 avec mise à jour pour ajout sans mot de passe
+2025-06-06 01:30:01 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+2025-06-06 01:30:01 - Erreur: Token invalide - Signature verification failed
+2025-06-06 12:54:14 - Début de la requête /patients
+2025-06-06 12:54:14 - Version de patients.php: 2025-05-07 avec corrections pour la méthode PUT
+2025-06-06 12:54:14 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+2025-06-06 12:54:14 - Erreur: Token invalide - Signature verification failed

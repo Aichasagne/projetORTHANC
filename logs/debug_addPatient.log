@@ -1,0 +1,19 @@
+2025-06-06 13:37:30 - Erreur serveur: Signature verification failed
+[2025-06-06 13:52:26] Request method: POST
+[2025-06-06 13:52:26] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-06 13:52:26] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-06 13:52:26] Utilisateur authentifié: userId=1
+[2025-06-06 13:52:26] Rôle de l'utilisateur: role=medecin
+[2025-06-06 13:52:26] Médecin identifié: medecin_id=1
+[2025-06-06 13:52:26] Utilisateur créé: userId=12
+[2025-06-06 13:52:26] Patient créé: patientId=6
+[2025-06-06 13:52:27] Error adding patient: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'projet_medical.medecin_patient' doesn't exist
+[2025-06-06 14:14:53] Request method: POST
+[2025-06-06 14:14:53] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDkxMzcxMjQsImV4cCI6MTc0OTIyMzUyNCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.KIkqTgWzQ930Ifr7CKG2Pm2RFGQY9jOzTFiNLxCIQb8
+[2025-06-06 14:14:53] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-06 14:14:53] Utilisateur authentifié: userId=1
+[2025-06-06 14:14:53] Rôle de l'utilisateur: role=medecin
+[2025-06-06 14:14:53] Médecin identifié: medecin_id=1
+[2025-06-06 14:14:53] Utilisateur créé: userId=13
+[2025-06-06 14:14:53] Patient créé: patientId=7, medecin_id=1
+[2025-06-06 14:14:53] Transaction validée
