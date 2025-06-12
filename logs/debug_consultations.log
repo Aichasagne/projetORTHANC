@@ -632,3 +632,336 @@
 [2025-06-11 21:20:10] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NTUyNjksImV4cCI6MTc0OTc0MTY2OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XME_VFr8WpJO9AgZ1z9A3xQ5gGsLyMJhk7pOlXqmi34
 [2025-06-11 21:20:10] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NTUyNjksImV4cCI6MTc0OTc0MTY2OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.XME_VFr8WpJO9AgZ1z9A3xQ5gGsLyMJhk7pOlXqmi34
 [2025-06-11 21:20:10] Utilisateur authentifié: userId=1
+[2025-06-11 22:11:26] Request method: GET
+[2025-06-11 22:11:26] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:11:26] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:11:26] Utilisateur authentifié: userId=1
+[2025-06-11 22:11:51] Request method: GET
+[2025-06-11 22:11:51] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:11:51] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:11:51] Utilisateur authentifié: userId=1
+[2025-06-11 22:12:08] Request method: POST
+[2025-06-11 22:12:08] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:12:08] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:12:08] Utilisateur authentifié: userId=1
+[2025-06-11 22:12:08] Consultation ajoutée avec ID: 42
+[2025-06-11 22:12:08] Prescription ajoutée pour consultation ID: 42
+[2025-06-11 22:12:08] $_FILES content: {"file":{"name":"image-00009.dcm","full_path":"image-00009.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\phpFA38.tmp","error":0,"size":91658}}
+[2025-06-11 22:12:09] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd","Status":"AlreadyStored","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"2","customInstanceId":"PATIENT-2-20250611221208"}
+[2025-06-11 22:12:09] DICOM ajouté avec orthanc_instance_id: 9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd
+[2025-06-11 22:12:11] Request method: GET
+[2025-06-11 22:12:11] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:12:11] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:12:11] Utilisateur authentifié: userId=1
+[2025-06-11 22:12:17] Request method: GET
+[2025-06-11 22:12:17] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:12:17] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:12:17] Utilisateur authentifié: userId=1
+[2025-06-11 22:12:21] Request method: GET
+[2025-06-11 22:12:21] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:12:21] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:12:21] Utilisateur authentifié: userId=1
+[2025-06-11 22:13:27] Request method: GET
+[2025-06-11 22:13:27] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:13:27] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:13:27] Utilisateur authentifié: userId=1
+[2025-06-11 22:13:43] Request method: POST
+[2025-06-11 22:13:43] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:13:43] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:13:43] Utilisateur authentifié: userId=1
+[2025-06-11 22:13:43] Error inserting consultation: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`projet_medical`.`consultations`, CONSTRAINT `consultations_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`))
+[2025-06-11 22:15:50] Request method: GET
+[2025-06-11 22:15:50] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:15:50] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:15:50] Utilisateur authentifié: userId=1
+[2025-06-11 22:15:52] Request method: GET
+[2025-06-11 22:15:52] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:15:52] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:15:52] Utilisateur authentifié: userId=1
+[2025-06-11 22:16:06] Request method: POST
+[2025-06-11 22:16:06] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:16:06] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:16:06] Utilisateur authentifié: userId=1
+[2025-06-11 22:16:06] Consultation ajoutée avec ID: 44
+[2025-06-11 22:16:06] Prescription ajoutée pour consultation ID: 44
+[2025-06-11 22:16:06] $_FILES content: {"file":{"name":"image-00008.dcm","full_path":"image-00008.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\php9D91.tmp","error":0,"size":91754}}
+[2025-06-11 22:16:07] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"6be8f9b5-0a47915b-56fd8a11-4d94300c-9bfb83c4","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/6be8f9b5-0a47915b-56fd8a11-4d94300c-9bfb83c4","Status":"AlreadyStored","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"3","customInstanceId":"PATIENT-3-20250611221606"}
+[2025-06-11 22:16:07] DICOM ajouté avec orthanc_instance_id: 6be8f9b5-0a47915b-56fd8a11-4d94300c-9bfb83c4
+[2025-06-11 22:16:09] Request method: GET
+[2025-06-11 22:16:09] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:16:09] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:16:09] Utilisateur authentifié: userId=1
+[2025-06-11 22:16:10] Request method: GET
+[2025-06-11 22:16:10] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:16:10] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:16:10] Utilisateur authentifié: userId=1
+[2025-06-11 22:16:37] Request method: GET
+[2025-06-11 22:16:37] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:16:37] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:16:37] Utilisateur authentifié: userId=1
+[2025-06-11 22:16:51] Request method: POST
+[2025-06-11 22:16:51] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:16:51] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:16:51] Utilisateur authentifié: userId=1
+[2025-06-11 22:16:52] Error inserting consultation: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`projet_medical`.`consultations`, CONSTRAINT `consultations_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`))
+[2025-06-11 22:30:46] Request method: GET
+[2025-06-11 22:30:46] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-11 22:30:46] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-11 22:30:46] Utilisateur authentifié: userId=1
+[2025-06-11 22:31:11] Request method: POST
+[2025-06-11 22:31:11] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-11 22:31:11] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-11 22:31:11] Utilisateur authentifié: userId=1
+[2025-06-11 22:31:11] Error inserting consultation: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`projet_medical`.`consultations`, CONSTRAINT `consultations_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`))
+[2025-06-11 22:53:37] Request method: GET
+[2025-06-11 22:53:37] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-11 22:53:37] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-11 22:53:37] Utilisateur authentifié: userId=1
+[2025-06-11 22:53:50] Request method: POST
+[2025-06-11 22:53:50] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-11 22:53:50] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-11 22:53:50] Utilisateur authentifié: userId=1
+[2025-06-11 22:53:50] Error inserting consultation: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`projet_medical`.`consultations`, CONSTRAINT `consultations_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`))
+[2025-06-12 13:45:36] Request method: GET
+[2025-06-12 13:45:37] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 13:45:37] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 13:45:37] Utilisateur authentifié: userId=1
+[2025-06-12 13:46:00] Request method: POST
+[2025-06-12 13:46:00] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 13:46:00] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 13:46:00] Utilisateur authentifié: userId=1
+[2025-06-12 13:46:01] Error inserting consultation: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`projet_medical`.`consultations`, CONSTRAINT `consultations_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`))
+[2025-06-12 14:19:47] Request method: GET
+[2025-06-12 14:19:47] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:19:47] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:19:47] Utilisateur authentifié: userId=1
+[2025-06-12 14:21:01] Request method: POST
+[2025-06-12 14:21:01] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:21:01] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:21:01] Utilisateur authentifié: userId=1
+[2025-06-12 14:21:01] POST data received: patient_id=14, date_consultation=2025-06-12T12:19, diagnostic=test
+[2025-06-12 14:21:02] Invalid patient_id: 14 not found in patients table
+[2025-06-12 14:25:48] Request method: GET
+[2025-06-12 14:25:48] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:25:48] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:25:48] Utilisateur authentifié: userId=1
+[2025-06-12 14:26:02] Request method: POST
+[2025-06-12 14:26:02] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:26:02] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:26:02] Utilisateur authentifié: userId=1
+[2025-06-12 14:26:02] POST data received: patient_id=2, date_consultation=2025-06-12T12:25, diagnostic=test
+[2025-06-12 14:26:03] Consultation ajoutée avec ID: 49
+[2025-06-12 14:26:03] $_FILES content: {"file":{"name":"image-00010.dcm","full_path":"image-00010.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\php9B66.tmp","error":0,"size":91554}}
+[2025-06-12 14:26:13] Request method: POST
+[2025-06-12 14:26:13] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:26:13] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:26:13] Utilisateur authentifié: userId=1
+[2025-06-12 14:26:13] POST data received: patient_id=2, date_consultation=2025-06-12T12:25, diagnostic=test
+[2025-06-12 14:26:13] Consultation ajoutée avec ID: 50
+[2025-06-12 14:26:13] $_FILES content: {"file":{"name":"image-00010.dcm","full_path":"image-00010.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\phpC249.tmp","error":0,"size":91554}}
+[2025-06-12 14:26:18] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf","Status":"AlreadyStored","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"2","customInstanceId":"PATIENT-2-20250612142603"}
+[2025-06-12 14:26:18] DICOM ajouté avec orthanc_instance_id: d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf
+[2025-06-12 14:26:18] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf","Status":"AlreadyStored","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"2","customInstanceId":"PATIENT-2-20250612142613"}
+[2025-06-12 14:26:18] DICOM ajouté avec orthanc_instance_id: d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf
+[2025-06-12 14:26:20] Request method: GET
+[2025-06-12 14:26:20] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:26:20] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:26:20] Utilisateur authentifié: userId=1
+[2025-06-12 14:26:22] Request method: GET
+[2025-06-12 14:26:22] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:26:22] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:26:22] Utilisateur authentifié: userId=1
+[2025-06-12 14:26:27] Request method: GET
+[2025-06-12 14:26:27] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:26:27] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzM3NDksImV4cCI6MTc0OTc2MDE0OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4L4Q-IbXxvRlcxreBg_lrs2985ZxEUDdDyOCDW_oCfU
+[2025-06-12 14:26:27] Utilisateur authentifié: userId=1
+[2025-06-12 14:48:53] Request method: GET
+[2025-06-12 14:48:53] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 14:48:53] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 14:48:53] Utilisateur authentifié: userId=1
+[2025-06-12 14:49:05] Request method: POST
+[2025-06-12 14:49:05] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 14:49:05] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 14:49:05] Utilisateur authentifié: userId=1
+[2025-06-12 14:49:05] POST data received: patient_id=14, date_consultation=2025-06-12T12:48, diagnostic=test
+[2025-06-12 14:49:05] Invalid patient_id: 14 not found in patients table
+[2025-06-12 14:50:20] Request method: GET
+[2025-06-12 14:50:20] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 14:50:20] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 14:50:20] Utilisateur authentifié: userId=1
+[2025-06-12 14:51:24] Request method: POST
+[2025-06-12 14:51:24] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 14:51:24] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 14:51:24] Utilisateur authentifié: userId=1
+[2025-06-12 14:51:24] POST data received: patient_id=15, date_consultation=2025-06-12T12:50, diagnostic=testons
+[2025-06-12 14:51:24] Invalid patient_id: 15 not found in patients table
+[2025-06-12 14:52:29] Request method: POST
+[2025-06-12 14:52:29] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 14:52:29] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 14:52:29] Utilisateur authentifié: userId=1
+[2025-06-12 14:52:29] POST data received: patient_id=15, date_consultation=2025-06-12T12:50, diagnostic=testons
+[2025-06-12 14:52:29] Invalid patient_id: 15 not found in patients table
+[2025-06-12 15:16:17] Request method: GET
+[2025-06-12 15:16:17] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:16:17] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:16:17] Utilisateur authentifié: userId=1
+[2025-06-12 15:16:32] Request method: POST
+[2025-06-12 15:16:32] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:16:32] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:16:32] Utilisateur authentifié: userId=1
+[2025-06-12 15:16:32] POST data received: patient_id=15, date_consultation=2025-06-12T13:16, diagnostic=testons
+[2025-06-12 15:16:32] Invalid patient_id: 15 not found in patients table
+[2025-06-12 15:17:30] Request method: POST
+[2025-06-12 15:17:30] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:17:30] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:17:30] Utilisateur authentifié: userId=1
+[2025-06-12 15:17:30] POST data received: patient_id=10, date_consultation=2025-06-12T13:17, diagnostic=test
+[2025-06-12 15:17:30] Consultation ajoutée avec ID: 51
+[2025-06-12 15:17:30] $_FILES content: {"file":{"name":"image-00009.dcm","full_path":"image-00009.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\phpB9A0.tmp","error":0,"size":91658}}
+[2025-06-12 15:17:32] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd","Status":"AlreadyStored","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"10","customInstanceId":"PATIENT-10-20250612151730"}
+[2025-06-12 15:17:32] DICOM ajouté avec orthanc_instance_id: 9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd
+[2025-06-12 15:17:38] Request method: GET
+[2025-06-12 15:17:38] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:17:38] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:17:38] Utilisateur authentifié: userId=1
+[2025-06-12 15:17:39] Request method: GET
+[2025-06-12 15:17:39] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:17:39] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:17:39] Utilisateur authentifié: userId=1
+[2025-06-12 15:17:47] Request method: GET
+[2025-06-12 15:17:47] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:17:47] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:17:47] Utilisateur authentifié: userId=1
+[2025-06-12 15:18:01] Request method: POST
+[2025-06-12 15:18:01] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:18:01] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:18:01] Utilisateur authentifié: userId=1
+[2025-06-12 15:18:01] POST data received: patient_id=16, date_consultation=2025-06-12T13:17, diagnostic=test
+[2025-06-12 15:18:01] Invalid patient_id: 16 not found in patients table
+[2025-06-12 15:59:06] Request method: GET
+[2025-06-12 15:59:06] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:59:06] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:59:06] Utilisateur authentifié: userId=1
+[2025-06-12 15:59:42] Request method: GET
+[2025-06-12 15:59:42] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:59:42] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:59:42] Utilisateur authentifié: userId=1
+[2025-06-12 16:00:06] Request method: GET
+[2025-06-12 16:00:06] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 16:00:06] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 16:00:07] Utilisateur authentifié: userId=1
+[2025-06-12 17:05:07] Request method: GET
+[2025-06-12 17:05:07] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 17:05:07] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 17:05:07] Utilisateur authentifié: userId=1
+[2025-06-12 20:21:26] Request method: GET
+[2025-06-12 20:21:26] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 20:21:26] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 20:21:26] Utilisateur authentifié: userId=1
+[2025-06-12 20:21:46] Request method: GET
+[2025-06-12 20:21:46] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 20:21:46] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 20:21:47] Utilisateur authentifié: userId=1
+[2025-06-12 20:22:36] Request method: GET
+[2025-06-12 20:22:36] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 20:22:36] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 20:22:36] Utilisateur authentifié: userId=1
+[2025-06-12 22:24:57] Request method: GET
+[2025-06-12 22:24:57] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:24:57] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:24:57] Utilisateur authentifié: userId=1
+[2025-06-12 22:25:00] Request method: GET
+[2025-06-12 22:25:00] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:25:00] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:25:00] Utilisateur authentifié: userId=1
+[2025-06-12 22:25:51] Request method: GET
+[2025-06-12 22:25:51] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:25:51] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:25:51] Utilisateur authentifié: userId=1
+[2025-06-12 22:32:41] Request method: GET
+[2025-06-12 22:32:41] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:32:41] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:32:42] Utilisateur authentifié: userId=1
+[2025-06-12 22:34:14] Request method: POST
+[2025-06-12 22:34:14] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:34:14] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:34:14] Utilisateur authentifié: userId=1
+[2025-06-12 22:34:14] POST data received: patient_id=10, date_consultation=2025-06-12T20:32, diagnostic=test
+[2025-06-12 22:34:15] Consultation ajoutée avec ID: 52
+[2025-06-12 22:34:15] $_FILES content: {"file":{"name":"image-00007.dcm","full_path":"image-00007.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\php9076.tmp","error":0,"size":91688}}
+[2025-06-12 22:34:29] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3","Status":"AlreadyStored","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"10","customInstanceId":"PATIENT-10-20250612223415"}
+[2025-06-12 22:34:29] DICOM ajouté avec orthanc_instance_id: ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3
+[2025-06-12 22:34:32] Request method: GET
+[2025-06-12 22:34:32] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:34:32] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:34:32] Utilisateur authentifié: userId=1
+[2025-06-12 22:34:35] Request method: GET
+[2025-06-12 22:34:35] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:34:35] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:34:35] Utilisateur authentifié: userId=1
+[2025-06-12 22:35:41] Request method: GET
+[2025-06-12 22:35:41] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:35:41] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:35:41] Utilisateur authentifié: userId=1
+[2025-06-12 22:36:14] Request method: POST
+[2025-06-12 22:36:14] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:14] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:14] Utilisateur authentifié: userId=1
+[2025-06-12 22:36:14] POST data received: patient_id=11, date_consultation=2025-06-12T20:35, diagnostic=douleur musculaire
+[2025-06-12 22:36:14] Consultation ajoutée avec ID: 53
+[2025-06-12 22:36:14] $_FILES content: {"file":{"name":"image-00007.dcm","full_path":"image-00007.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\php6383.tmp","error":0,"size":91688}}
+[2025-06-12 22:36:16] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3","Status":"AlreadyStored","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"11","customInstanceId":"PATIENT-11-20250612223614"}
+[2025-06-12 22:36:16] DICOM ajouté avec orthanc_instance_id: ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3
+[2025-06-12 22:36:18] Request method: GET
+[2025-06-12 22:36:18] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:18] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:18] Utilisateur authentifié: userId=1
+[2025-06-12 22:36:19] Request method: GET
+[2025-06-12 22:36:19] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:19] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:19] Utilisateur authentifié: userId=1
+[2025-06-12 22:36:32] Request method: GET
+[2025-06-12 22:36:32] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:32] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:32] Utilisateur authentifié: userId=1
+[2025-06-12 22:36:33] Request method: GET
+[2025-06-12 22:36:33] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:33] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:33] Utilisateur authentifié: userId=1
+[2025-06-12 22:36:43] Request method: GET
+[2025-06-12 22:36:43] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:43] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:43] Utilisateur authentifié: userId=1
+[2025-06-12 22:36:45] Request method: GET
+[2025-06-12 22:36:45] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:45] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:36:45] Utilisateur authentifié: userId=1
+[2025-06-12 22:41:48] Request method: GET
+[2025-06-12 22:41:48] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:41:48] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:41:48] Utilisateur authentifié: userId=1
+[2025-06-12 22:41:49] Request method: GET
+[2025-06-12 22:41:49] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:41:49] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:41:49] Utilisateur authentifié: userId=1
+[2025-06-12 22:41:57] Request method: GET
+[2025-06-12 22:41:57] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:41:57] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:41:57] Utilisateur authentifié: userId=1
+[2025-06-12 22:43:04] Request method: POST
+[2025-06-12 22:43:04] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:43:04] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:43:04] Utilisateur authentifié: userId=1
+[2025-06-12 22:43:04] POST data received: patient_id=9, date_consultation=2025-06-12T20:42, diagnostic=test
+[2025-06-12 22:43:04] Consultation ajoutée avec ID: 54
+[2025-06-12 22:43:04] $_FILES content: {"file":{"name":"image-00067.dcm","full_path":"image-00067.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\phpA62E.tmp","error":0,"size":89128}}
+[2025-06-12 22:43:06] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"28a34bb1-a3155c09-16b5cc3c-cafd32ac-4a756068","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/28a34bb1-a3155c09-16b5cc3c-cafd32ac-4a756068","Status":"Success","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"9","customInstanceId":"PATIENT-9-20250612224304"}
+[2025-06-12 22:43:06] DICOM ajouté avec orthanc_instance_id: 28a34bb1-a3155c09-16b5cc3c-cafd32ac-4a756068
+[2025-06-12 22:43:09] Request method: GET
+[2025-06-12 22:43:09] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:43:09] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:43:09] Utilisateur authentifié: userId=1
+[2025-06-12 22:43:10] Request method: GET
+[2025-06-12 22:43:10] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:43:10] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:43:10] Utilisateur authentifié: userId=1

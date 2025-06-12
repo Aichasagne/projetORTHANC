@@ -203,18 +203,18 @@ if ($method === 'POST') {
         $pdo->commit();
         debugLog('Transaction validée');
 
-        sendResponse(201, [
-            'id' => (int)$newPatient['id'],
-            'patient_id' => (int)$newPatient['patient_id'],
-            'nom' => $newPatient['nom'],
-            'prenom' => $newPatient['prenom'],
-            'email' => $newPatient['email'],
-            'date_naissance' => $newPatient['date_naissance'],
-            'sexe' => $newPatient['sexe'],
-            'telephone' => $newPatient['telephone'],
-            'adresse' => $newPatient['adresse'],
-            'message' => 'Patient ajouté avec succès'
-        ]);
+      sendResponse(201, [
+    'user_id' => (int)$newPatient['id'], // ID de la table users
+    'patient_id' => (int)$newPatient['patient_id'], // ID de la table patients
+    'nom' => $newPatient['nom'],
+    'prenom' => $newPatient['prenom'],
+    'email' => $newPatient['email'],
+    'date_naissance' => $newPatient['date_naissance'],
+    'sexe' => $newPatient['sexe'],
+    'telephone' => $newPatient['telephone'],
+    'adresse' => $newPatient['adresse'],
+    'message' => 'Patient ajouté avec succès'
+]);
     } catch (PDOException $e) {
         $pdo->rollBack();
         debugLog('Error adding patient: ' . $e->getMessage());

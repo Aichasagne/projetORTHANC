@@ -17,3 +17,46 @@
 [2025-06-06 14:14:53] Utilisateur créé: userId=13
 [2025-06-06 14:14:53] Patient créé: patientId=7, medecin_id=1
 [2025-06-06 14:14:53] Transaction validée
+[2025-06-11 22:13:15] Request method: POST
+[2025-06-11 22:13:15] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk2NzI2NjcsImV4cCI6MTc0OTc1OTA2NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.Z_ZkFig79-F8fdy3o-TqOPZRUEDbhPbArQBBt7d9MMc
+[2025-06-11 22:13:15] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-11 22:13:15] Utilisateur authentifié: userId=1
+[2025-06-11 22:13:15] Rôle de l'utilisateur: role=medecin
+[2025-06-11 22:13:15] Médecin identifié: medecin_id=1
+[2025-06-11 22:13:15] Utilisateur créé: userId=14
+[2025-06-11 22:13:15] Patient créé: patientId=8, medecin_id=1
+[2025-06-11 22:13:15] Transaction validée
+[2025-06-12 14:50:09] Request method: POST
+[2025-06-12 14:50:09] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 14:50:09] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-12 14:50:09] Utilisateur authentifié: userId=1
+[2025-06-12 14:50:09] Rôle de l'utilisateur: role=medecin
+[2025-06-12 14:50:09] Médecin identifié: medecin_id=1
+[2025-06-12 14:50:09] Utilisateur créé: userId=15
+[2025-06-12 14:50:09] Patient créé: patientId=9, medecin_id=1
+[2025-06-12 14:50:09] Transaction validée
+[2025-06-12 15:17:04] Request method: POST
+[2025-06-12 15:17:04] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:17:04] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-12 15:17:04] Utilisateur authentifié: userId=1
+[2025-06-12 15:17:04] Rôle de l'utilisateur: role=medecin
+[2025-06-12 15:17:04] Médecin identifié: medecin_id=1
+[2025-06-12 15:17:04] Email déjà utilisé: test@esp.sn
+[2025-06-12 15:17:16] Request method: POST
+[2025-06-12 15:17:16] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 15:17:16] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-12 15:17:16] Utilisateur authentifié: userId=1
+[2025-06-12 15:17:16] Rôle de l'utilisateur: role=medecin
+[2025-06-12 15:17:16] Médecin identifié: medecin_id=1
+[2025-06-12 15:17:16] Utilisateur créé: userId=16
+[2025-06-12 15:17:16] Patient créé: patientId=10, medecin_id=1
+[2025-06-12 15:17:16] Transaction validée
+[2025-06-12 22:35:28] Request method: POST
+[2025-06-12 22:35:28] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
+[2025-06-12 22:35:28] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-12 22:35:28] Utilisateur authentifié: userId=1
+[2025-06-12 22:35:28] Rôle de l'utilisateur: role=medecin
+[2025-06-12 22:35:28] Médecin identifié: medecin_id=1
+[2025-06-12 22:35:29] Utilisateur créé: userId=17
+[2025-06-12 22:35:29] Patient créé: patientId=11, medecin_id=1
+[2025-06-12 22:35:29] Transaction validée

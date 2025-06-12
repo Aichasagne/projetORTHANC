@@ -178,15 +178,25 @@ if ($method === 'GET') {
         debugLog('Error fetching consultations: ' . $e->getMessage());
         sendResponse(500, ['error' => 'Failed to fetch consultations: ' . $e->getMessage()]);
     }
-} elseif ($method === 'POST') {
+} if ($method === 'POST') {
     $patientId = isset($_POST['patient_id']) ? (int)$_POST['patient_id'] : null;
     $dateConsultation = isset($_POST['date_consultation']) ? $_POST['date_consultation'] : null;
     $diagnostic = isset($_POST['diagnostic']) ? $_POST['diagnostic'] : null;
     $prescription = isset($_POST['prescription']) ? $_POST['prescription'] : null;
 
+    debugLog('POST data received: patient_id=' . $patientId . ', date_consultation=' . $dateConsultation . ', diagnostic=' . $diagnostic);
+
     if (!$patientId || !$dateConsultation || !$diagnostic) {
         debugLog('Missing required fields: patient_id=' . $patientId . ', date_consultation=' . $dateConsultation . ', diagnostic=' . $diagnostic);
         sendResponse(400, ['error' => 'Missing required fields']);
+    }
+
+    // Vérifier si le patient_id existe dans la table patients
+    $stmt = $pdo->prepare('SELECT id FROM patients WHERE id = ?');
+    $stmt->execute([$patientId]);
+    if (!$stmt->fetch()) {
+        debugLog('Invalid patient_id: ' . $patientId . ' not found in patients table');
+        sendResponse(400, ['error' => 'Patient ID does not exist']);
     }
 
     try {
@@ -197,13 +207,6 @@ if ($method === 'GET') {
         $stmt->execute([$patientId, $userId, $dateConsultation, $diagnostic]);
         $consultationId = $pdo->lastInsertId();
         debugLog('Consultation ajoutée avec ID: ' . $consultationId);
-
-        // Insérer la prescription si fournie
-        if ($prescription) {
-            $stmt = $pdo->prepare('INSERT INTO prescriptions (consultation_id, details, created_at) VALUES (?, ?, NOW())');
-            $stmt->execute([$consultationId, $prescription]);
-            debugLog('Prescription ajoutée pour consultation ID: ' . $consultationId);
-        }
 
         // Gérer l'upload du fichier DICOM si présent
         if (isset($_FILES['file'])) {

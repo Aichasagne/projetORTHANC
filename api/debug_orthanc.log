@@ -16947,3 +16947,417 @@ ou externe, un programme ex�cutable ou un fichier de commandes.
 }
 2025-06-11 21:19:59 - Instance DICOM stockée avec patient_id=1, orthanc_instance_id=9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd
 2025-06-11 21:19:59 - Instance ID personnalisé appliqué: PATIENT-1-20250611211957
+2025-06-11 22:12:08 - Début de la requête proxy-orthanc
+2025-06-11 22:12:08 - URL Orthanc: http://localhost:8042/instances
+2025-06-11 22:12:08 - Méthode HTTP: POST
+2025-06-11 22:12:08 - $_FILES: {"file":{"name":"image-00009.dcm","full_path":"image-00009.dcm","type":"application\/dicom","tmp_name":"C:\\xampp\\tmp\\phpFA68.tmp","error":0,"size":91658}}
+2025-06-11 22:12:08 - $_POST: {"patient_id":"2","instance_id":"PATIENT-2-20250611221208"}
+2025-06-11 22:12:08 - Patient ID: 2, Instance ID personnalisé: PATIENT-2-20250611221208, Fichier temporaire: C:\xampp\tmp\phpFA68.tmp
+2025-06-11 22:12:08 - ID Orthanc attribué: 9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd
+2025-06-11 22:12:08 - Requête des métadonnées via URL: http://localhost:8042/instances/9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd
+2025-06-11 22:12:08 - Réponse brute des métadonnées: {
+   "FileSize" : 91658,
+   "FileUuid" : "629ffd2b-273d-46b9-9dc0-23ddcea2d046",
+   "ID" : "9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd",
+   "IndexInSeries" : 10,
+   "Labels" : [],
+   "MainDicomTags" : 
+   {
+      "ImageComments" : "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+      "ImageOrientationPatient" : "1\\0\\0\\0\\1\\0",
+      "ImagePositionPatient" : "-151.493508\\-36.6564417\\1290.5",
+      "InstanceCreationDate" : "20061012",
+      "InstanceCreationTime" : "091607.000000",
+      "InstanceNumber" : "10",
+      "SOPInstanceUID" : "1.2.826.0.1.3680043.8.1055.1.20111102150759419.98760783.75639221"
+   },
+   "ParentSeries" : "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+   "Type" : "Instance"
+}
+2025-06-11 22:12:08 - StudyInstanceUID non trouvé dans MainDicomTags, vérification via /studies...
+2025-06-11 22:12:08 - Commande dcmdump exécutée: "C:\dcmtk-3.6.9-win64-dynamic\bin\dcmdump.exe" -q +P 0020,000D "C:\xampp\tmp\phpFA68.tmp" 2>&1
+2025-06-11 22:12:08 - Sortie de dcmdump: ["(0020,000d) UI [1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170] #  64, 1 StudyInstanceUID"]
+2025-06-11 22:12:08 - Code de retour de dcmdump: 0
+2025-06-11 22:12:08 - StudyInstanceUID récupéré via dcmdump: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170
+2025-06-11 22:12:08 - Détails de l'instance: {
+    "FileSize": 91658,
+    "FileUuid": "629ffd2b-273d-46b9-9dc0-23ddcea2d046",
+    "ID": "9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd",
+    "IndexInSeries": 10,
+    "Labels": [],
+    "MainDicomTags": {
+        "ImageComments": "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+        "ImageOrientationPatient": "1\\0\\0\\0\\1\\0",
+        "ImagePositionPatient": "-151.493508\\-36.6564417\\1290.5",
+        "InstanceCreationDate": "20061012",
+        "InstanceCreationTime": "091607.000000",
+        "InstanceNumber": "10",
+        "SOPInstanceUID": "1.2.826.0.1.3680043.8.1055.1.20111102150759419.98760783.75639221"
+    },
+    "ParentSeries": "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+    "Type": "Instance"
+}
+2025-06-11 22:12:08 - Instance DICOM stockée avec patient_id=2, orthanc_instance_id=9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd
+2025-06-11 22:12:09 - Instance ID personnalisé appliqué: PATIENT-2-20250611221208
+2025-06-11 22:16:06 - Début de la requête proxy-orthanc
+2025-06-11 22:16:06 - URL Orthanc: http://localhost:8042/instances
+2025-06-11 22:16:06 - Méthode HTTP: POST
+2025-06-11 22:16:06 - $_FILES: {"file":{"name":"image-00008.dcm","full_path":"image-00008.dcm","type":"application\/dicom","tmp_name":"C:\\xampp\\tmp\\php9DB1.tmp","error":0,"size":91754}}
+2025-06-11 22:16:06 - $_POST: {"patient_id":"3","instance_id":"PATIENT-3-20250611221606"}
+2025-06-11 22:16:06 - Patient ID: 3, Instance ID personnalisé: PATIENT-3-20250611221606, Fichier temporaire: C:\xampp\tmp\php9DB1.tmp
+2025-06-11 22:16:06 - ID Orthanc attribué: 6be8f9b5-0a47915b-56fd8a11-4d94300c-9bfb83c4
+2025-06-11 22:16:06 - Requête des métadonnées via URL: http://localhost:8042/instances/6be8f9b5-0a47915b-56fd8a11-4d94300c-9bfb83c4
+2025-06-11 22:16:07 - Réponse brute des métadonnées: {
+   "FileSize" : 91754,
+   "FileUuid" : "f8915ebb-7254-4620-b681-5bb840022e52",
+   "ID" : "6be8f9b5-0a47915b-56fd8a11-4d94300c-9bfb83c4",
+   "IndexInSeries" : 9,
+   "Labels" : [],
+   "MainDicomTags" : 
+   {
+      "ImageComments" : "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+      "ImageOrientationPatient" : "1\\0\\0\\0\\1\\0",
+      "ImagePositionPatient" : "-151.493508\\-36.6564417\\1291",
+      "InstanceCreationDate" : "20061012",
+      "InstanceCreationTime" : "091607.000000",
+      "InstanceNumber" : "9",
+      "SOPInstanceUID" : "1.2.826.0.1.3680043.8.1055.1.20111102150759341.28598532.00746135"
+   },
+   "ParentSeries" : "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+   "Type" : "Instance"
+}
+2025-06-11 22:16:07 - StudyInstanceUID non trouvé dans MainDicomTags, vérification via /studies...
+2025-06-11 22:16:07 - Commande dcmdump exécutée: "C:\dcmtk-3.6.9-win64-dynamic\bin\dcmdump.exe" -q +P 0020,000D "C:\xampp\tmp\php9DB1.tmp" 2>&1
+2025-06-11 22:16:07 - Sortie de dcmdump: ["(0020,000d) UI [1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170] #  64, 1 StudyInstanceUID"]
+2025-06-11 22:16:07 - Code de retour de dcmdump: 0
+2025-06-11 22:16:07 - StudyInstanceUID récupéré via dcmdump: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170
+2025-06-11 22:16:07 - Détails de l'instance: {
+    "FileSize": 91754,
+    "FileUuid": "f8915ebb-7254-4620-b681-5bb840022e52",
+    "ID": "6be8f9b5-0a47915b-56fd8a11-4d94300c-9bfb83c4",
+    "IndexInSeries": 9,
+    "Labels": [],
+    "MainDicomTags": {
+        "ImageComments": "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+        "ImageOrientationPatient": "1\\0\\0\\0\\1\\0",
+        "ImagePositionPatient": "-151.493508\\-36.6564417\\1291",
+        "InstanceCreationDate": "20061012",
+        "InstanceCreationTime": "091607.000000",
+        "InstanceNumber": "9",
+        "SOPInstanceUID": "1.2.826.0.1.3680043.8.1055.1.20111102150759341.28598532.00746135"
+    },
+    "ParentSeries": "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+    "Type": "Instance"
+}
+2025-06-11 22:16:07 - Instance DICOM stockée avec patient_id=3, orthanc_instance_id=6be8f9b5-0a47915b-56fd8a11-4d94300c-9bfb83c4
+2025-06-11 22:16:07 - Instance ID personnalisé appliqué: PATIENT-3-20250611221606
+2025-06-12 14:26:03 - Début de la requête proxy-orthanc
+2025-06-12 14:26:03 - URL Orthanc: http://localhost:8042/instances
+2025-06-12 14:26:03 - Méthode HTTP: POST
+2025-06-12 14:26:03 - $_FILES: {"file":{"name":"image-00010.dcm","full_path":"image-00010.dcm","type":"application\/dicom","tmp_name":"C:\\xampp\\tmp\\php9CEE.tmp","error":0,"size":91554}}
+2025-06-12 14:26:03 - $_POST: {"patient_id":"2","instance_id":"PATIENT-2-20250612142603"}
+2025-06-12 14:26:03 - Patient ID: 2, Instance ID personnalisé: PATIENT-2-20250612142603, Fichier temporaire: C:\xampp\tmp\php9CEE.tmp
+2025-06-12 14:26:05 - ID Orthanc attribué: d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf
+2025-06-12 14:26:05 - Requête des métadonnées via URL: http://localhost:8042/instances/d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf
+2025-06-12 14:26:06 - Réponse brute des métadonnées: {
+   "FileSize" : 91554,
+   "FileUuid" : "b52cc1b7-f7be-4c2b-8d08-b7b5d96ddf35",
+   "ID" : "d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf",
+   "IndexInSeries" : 11,
+   "Labels" : [],
+   "MainDicomTags" : 
+   {
+      "ImageComments" : "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+      "ImageOrientationPatient" : "1\\0\\0\\0\\1\\0",
+      "ImagePositionPatient" : "-151.493508\\-36.6564417\\1290",
+      "InstanceCreationDate" : "20061012",
+      "InstanceCreationTime" : "091608.000000",
+      "InstanceNumber" : "11",
+      "SOPInstanceUID" : "1.2.826.0.1.3680043.8.1055.1.20111102150759544.43941061.73779335"
+   },
+   "ParentSeries" : "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+   "Type" : "Instance"
+}
+2025-06-12 14:26:06 - StudyInstanceUID non trouvé dans MainDicomTags, vérification via /studies...
+2025-06-12 14:26:06 - Commande dcmdump exécutée: "C:\dcmtk-3.6.9-win64-dynamic\bin\dcmdump.exe" -q +P 0020,000D "C:\xampp\tmp\php9CEE.tmp" 2>&1
+2025-06-12 14:26:13 - Début de la requête proxy-orthanc
+2025-06-12 14:26:13 - URL Orthanc: http://localhost:8042/instances
+2025-06-12 14:26:13 - Méthode HTTP: POST
+2025-06-12 14:26:13 - $_FILES: {"file":{"name":"image-00010.dcm","full_path":"image-00010.dcm","type":"application\/dicom","tmp_name":"C:\\xampp\\tmp\\phpC392.tmp","error":0,"size":91554}}
+2025-06-12 14:26:13 - $_POST: {"patient_id":"2","instance_id":"PATIENT-2-20250612142613"}
+2025-06-12 14:26:13 - Patient ID: 2, Instance ID personnalisé: PATIENT-2-20250612142613, Fichier temporaire: C:\xampp\tmp\phpC392.tmp
+2025-06-12 14:26:13 - ID Orthanc attribué: d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf
+2025-06-12 14:26:13 - Requête des métadonnées via URL: http://localhost:8042/instances/d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf
+2025-06-12 14:26:14 - Réponse brute des métadonnées: {
+   "FileSize" : 91554,
+   "FileUuid" : "b52cc1b7-f7be-4c2b-8d08-b7b5d96ddf35",
+   "ID" : "d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf",
+   "IndexInSeries" : 11,
+   "Labels" : [],
+   "MainDicomTags" : 
+   {
+      "ImageComments" : "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+      "ImageOrientationPatient" : "1\\0\\0\\0\\1\\0",
+      "ImagePositionPatient" : "-151.493508\\-36.6564417\\1290",
+      "InstanceCreationDate" : "20061012",
+      "InstanceCreationTime" : "091608.000000",
+      "InstanceNumber" : "11",
+      "SOPInstanceUID" : "1.2.826.0.1.3680043.8.1055.1.20111102150759544.43941061.73779335"
+   },
+   "ParentSeries" : "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+   "Type" : "Instance"
+}
+2025-06-12 14:26:14 - StudyInstanceUID non trouvé dans MainDicomTags, vérification via /studies...
+2025-06-12 14:26:14 - Commande dcmdump exécutée: "C:\dcmtk-3.6.9-win64-dynamic\bin\dcmdump.exe" -q +P 0020,000D "C:\xampp\tmp\phpC392.tmp" 2>&1
+2025-06-12 14:26:17 - Sortie de dcmdump: ["(0020,000d) UI [1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170] #  64, 1 StudyInstanceUID"]
+2025-06-12 14:26:17 - Sortie de dcmdump: ["(0020,000d) UI [1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170] #  64, 1 StudyInstanceUID"]
+2025-06-12 14:26:17 - Code de retour de dcmdump: 0
+2025-06-12 14:26:17 - StudyInstanceUID récupéré via dcmdump: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170
+2025-06-12 14:26:17 - Détails de l'instance: {
+    "FileSize": 91554,
+    "FileUuid": "b52cc1b7-f7be-4c2b-8d08-b7b5d96ddf35",
+    "ID": "d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf",
+    "IndexInSeries": 11,
+    "Labels": [],
+    "MainDicomTags": {
+        "ImageComments": "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+        "ImageOrientationPatient": "1\\0\\0\\0\\1\\0",
+        "ImagePositionPatient": "-151.493508\\-36.6564417\\1290",
+        "InstanceCreationDate": "20061012",
+        "InstanceCreationTime": "091608.000000",
+        "InstanceNumber": "11",
+        "SOPInstanceUID": "1.2.826.0.1.3680043.8.1055.1.20111102150759544.43941061.73779335"
+    },
+    "ParentSeries": "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+    "Type": "Instance"
+}
+2025-06-12 14:26:17 - Détails de l'instance: {
+    "FileSize": 91554,
+    "FileUuid": "b52cc1b7-f7be-4c2b-8d08-b7b5d96ddf35",
+    "ID": "d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf",
+    "IndexInSeries": 11,
+    "Labels": [],
+    "MainDicomTags": {
+        "ImageComments": "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+        "ImageOrientationPatient": "1\\0\\0\\0\\1\\0",
+        "ImagePositionPatient": "-151.493508\\-36.6564417\\1290",
+        "InstanceCreationDate": "20061012",
+        "InstanceCreationTime": "091608.000000",
+        "InstanceNumber": "11",
+        "SOPInstanceUID": "1.2.826.0.1.3680043.8.1055.1.20111102150759544.43941061.73779335"
+    },
+    "ParentSeries": "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+    "Type": "Instance"
+}
+2025-06-12 14:26:18 - Instance DICOM stockée avec patient_id=2, orthanc_instance_id=d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf
+2025-06-12 14:26:18 - Instance DICOM stockée avec patient_id=2, orthanc_instance_id=d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf
+2025-06-12 14:26:18 - Instance ID personnalisé appliqué: PATIENT-2-20250612142603
+2025-06-12 14:26:18 - Instance ID personnalisé appliqué: PATIENT-2-20250612142613
+2025-06-12 15:17:30 - Début de la requête proxy-orthanc
+2025-06-12 15:17:30 - URL Orthanc: http://localhost:8042/instances
+2025-06-12 15:17:30 - Méthode HTTP: POST
+2025-06-12 15:17:30 - $_FILES: {"file":{"name":"image-00009.dcm","full_path":"image-00009.dcm","type":"application\/dicom","tmp_name":"C:\\xampp\\tmp\\phpB9DF.tmp","error":0,"size":91658}}
+2025-06-12 15:17:30 - $_POST: {"patient_id":"10","instance_id":"PATIENT-10-20250612151730"}
+2025-06-12 15:17:30 - Patient ID: 10, Instance ID personnalisé: PATIENT-10-20250612151730, Fichier temporaire: C:\xampp\tmp\phpB9DF.tmp
+2025-06-12 15:17:31 - ID Orthanc attribué: 9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd
+2025-06-12 15:17:31 - Requête des métadonnées via URL: http://localhost:8042/instances/9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd
+2025-06-12 15:17:31 - Réponse brute des métadonnées: {
+   "FileSize" : 91658,
+   "FileUuid" : "629ffd2b-273d-46b9-9dc0-23ddcea2d046",
+   "ID" : "9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd",
+   "IndexInSeries" : 10,
+   "Labels" : [],
+   "MainDicomTags" : 
+   {
+      "ImageComments" : "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+      "ImageOrientationPatient" : "1\\0\\0\\0\\1\\0",
+      "ImagePositionPatient" : "-151.493508\\-36.6564417\\1290.5",
+      "InstanceCreationDate" : "20061012",
+      "InstanceCreationTime" : "091607.000000",
+      "InstanceNumber" : "10",
+      "SOPInstanceUID" : "1.2.826.0.1.3680043.8.1055.1.20111102150759419.98760783.75639221"
+   },
+   "ParentSeries" : "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+   "Type" : "Instance"
+}
+2025-06-12 15:17:31 - StudyInstanceUID non trouvé dans MainDicomTags, vérification via /studies...
+2025-06-12 15:17:31 - Commande dcmdump exécutée: "C:\dcmtk-3.6.9-win64-dynamic\bin\dcmdump.exe" -q +P 0020,000D "C:\xampp\tmp\phpB9DF.tmp" 2>&1
+2025-06-12 15:17:32 - Sortie de dcmdump: ["(0020,000d) UI [1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170] #  64, 1 StudyInstanceUID"]
+2025-06-12 15:17:32 - Code de retour de dcmdump: 0
+2025-06-12 15:17:32 - StudyInstanceUID récupéré via dcmdump: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170
+2025-06-12 15:17:32 - Détails de l'instance: {
+    "FileSize": 91658,
+    "FileUuid": "629ffd2b-273d-46b9-9dc0-23ddcea2d046",
+    "ID": "9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd",
+    "IndexInSeries": 10,
+    "Labels": [],
+    "MainDicomTags": {
+        "ImageComments": "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+        "ImageOrientationPatient": "1\\0\\0\\0\\1\\0",
+        "ImagePositionPatient": "-151.493508\\-36.6564417\\1290.5",
+        "InstanceCreationDate": "20061012",
+        "InstanceCreationTime": "091607.000000",
+        "InstanceNumber": "10",
+        "SOPInstanceUID": "1.2.826.0.1.3680043.8.1055.1.20111102150759419.98760783.75639221"
+    },
+    "ParentSeries": "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+    "Type": "Instance"
+}
+2025-06-12 15:17:32 - Instance DICOM stockée avec patient_id=10, orthanc_instance_id=9ec8fbb6-b5b6bf94-16950f4b-184a8d6e-21c21abd
+2025-06-12 15:17:32 - Instance ID personnalisé appliqué: PATIENT-10-20250612151730
+2025-06-12 22:34:15 - Début de la requête proxy-orthanc
+2025-06-12 22:34:15 - URL Orthanc: http://localhost:8042/instances
+2025-06-12 22:34:15 - Méthode HTTP: POST
+2025-06-12 22:34:15 - $_FILES: {"file":{"name":"image-00007.dcm","full_path":"image-00007.dcm","type":"application\/dicom","tmp_name":"C:\\xampp\\tmp\\php9450.tmp","error":0,"size":91688}}
+2025-06-12 22:34:15 - $_POST: {"patient_id":"10","instance_id":"PATIENT-10-20250612223415"}
+2025-06-12 22:34:15 - Patient ID: 10, Instance ID personnalisé: PATIENT-10-20250612223415, Fichier temporaire: C:\xampp\tmp\php9450.tmp
+2025-06-12 22:34:19 - ID Orthanc attribué: ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3
+2025-06-12 22:34:19 - Requête des métadonnées via URL: http://localhost:8042/instances/ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3
+2025-06-12 22:34:21 - Réponse brute des métadonnées: {
+   "FileSize" : 91688,
+   "FileUuid" : "e3584987-392b-46e3-bd31-99d09d0c04e6",
+   "ID" : "ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3",
+   "IndexInSeries" : 8,
+   "Labels" : [],
+   "MainDicomTags" : 
+   {
+      "ImageComments" : "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+      "ImageOrientationPatient" : "1\\0\\0\\0\\1\\0",
+      "ImagePositionPatient" : "-151.493508\\-36.6564417\\1291.5",
+      "InstanceCreationDate" : "20061012",
+      "InstanceCreationTime" : "091607.000000",
+      "InstanceNumber" : "8",
+      "SOPInstanceUID" : "1.2.826.0.1.3680043.8.1055.1.20111102150759278.17477298.74845291"
+   },
+   "ParentSeries" : "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+   "Type" : "Instance"
+}
+2025-06-12 22:34:21 - StudyInstanceUID non trouvé dans MainDicomTags, vérification via /studies...
+2025-06-12 22:34:21 - Commande dcmdump exécutée: "C:\dcmtk-3.6.9-win64-dynamic\bin\dcmdump.exe" -q +P 0020,000D "C:\xampp\tmp\php9450.tmp" 2>&1
+2025-06-12 22:34:28 - Sortie de dcmdump: ["(0020,000d) UI [1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170] #  64, 1 StudyInstanceUID"]
+2025-06-12 22:34:28 - Code de retour de dcmdump: 0
+2025-06-12 22:34:28 - StudyInstanceUID récupéré via dcmdump: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170
+2025-06-12 22:34:28 - Détails de l'instance: {
+    "FileSize": 91688,
+    "FileUuid": "e3584987-392b-46e3-bd31-99d09d0c04e6",
+    "ID": "ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3",
+    "IndexInSeries": 8,
+    "Labels": [],
+    "MainDicomTags": {
+        "ImageComments": "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+        "ImageOrientationPatient": "1\\0\\0\\0\\1\\0",
+        "ImagePositionPatient": "-151.493508\\-36.6564417\\1291.5",
+        "InstanceCreationDate": "20061012",
+        "InstanceCreationTime": "091607.000000",
+        "InstanceNumber": "8",
+        "SOPInstanceUID": "1.2.826.0.1.3680043.8.1055.1.20111102150759278.17477298.74845291"
+    },
+    "ParentSeries": "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+    "Type": "Instance"
+}
+2025-06-12 22:34:29 - Instance DICOM stockée avec patient_id=10, orthanc_instance_id=ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3
+2025-06-12 22:34:29 - Instance ID personnalisé appliqué: PATIENT-10-20250612223415
+2025-06-12 22:36:14 - Début de la requête proxy-orthanc
+2025-06-12 22:36:14 - URL Orthanc: http://localhost:8042/instances
+2025-06-12 22:36:14 - Méthode HTTP: POST
+2025-06-12 22:36:14 - $_FILES: {"file":{"name":"image-00007.dcm","full_path":"image-00007.dcm","type":"application\/dicom","tmp_name":"C:\\xampp\\tmp\\php63D2.tmp","error":0,"size":91688}}
+2025-06-12 22:36:14 - $_POST: {"patient_id":"11","instance_id":"PATIENT-11-20250612223614"}
+2025-06-12 22:36:14 - Patient ID: 11, Instance ID personnalisé: PATIENT-11-20250612223614, Fichier temporaire: C:\xampp\tmp\php63D2.tmp
+2025-06-12 22:36:14 - ID Orthanc attribué: ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3
+2025-06-12 22:36:14 - Requête des métadonnées via URL: http://localhost:8042/instances/ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3
+2025-06-12 22:36:15 - Réponse brute des métadonnées: {
+   "FileSize" : 91688,
+   "FileUuid" : "e3584987-392b-46e3-bd31-99d09d0c04e6",
+   "ID" : "ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3",
+   "IndexInSeries" : 8,
+   "Labels" : [],
+   "MainDicomTags" : 
+   {
+      "ImageComments" : "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+      "ImageOrientationPatient" : "1\\0\\0\\0\\1\\0",
+      "ImagePositionPatient" : "-151.493508\\-36.6564417\\1291.5",
+      "InstanceCreationDate" : "20061012",
+      "InstanceCreationTime" : "091607.000000",
+      "InstanceNumber" : "8",
+      "SOPInstanceUID" : "1.2.826.0.1.3680043.8.1055.1.20111102150759278.17477298.74845291"
+   },
+   "ParentSeries" : "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+   "Type" : "Instance"
+}
+2025-06-12 22:36:15 - StudyInstanceUID non trouvé dans MainDicomTags, vérification via /studies...
+2025-06-12 22:36:15 - Commande dcmdump exécutée: "C:\dcmtk-3.6.9-win64-dynamic\bin\dcmdump.exe" -q +P 0020,000D "C:\xampp\tmp\php63D2.tmp" 2>&1
+2025-06-12 22:36:16 - Sortie de dcmdump: ["(0020,000d) UI [1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170] #  64, 1 StudyInstanceUID"]
+2025-06-12 22:36:16 - Code de retour de dcmdump: 0
+2025-06-12 22:36:16 - StudyInstanceUID récupéré via dcmdump: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170
+2025-06-12 22:36:16 - Détails de l'instance: {
+    "FileSize": 91688,
+    "FileUuid": "e3584987-392b-46e3-bd31-99d09d0c04e6",
+    "ID": "ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3",
+    "IndexInSeries": 8,
+    "Labels": [],
+    "MainDicomTags": {
+        "ImageComments": "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+        "ImageOrientationPatient": "1\\0\\0\\0\\1\\0",
+        "ImagePositionPatient": "-151.493508\\-36.6564417\\1291.5",
+        "InstanceCreationDate": "20061012",
+        "InstanceCreationTime": "091607.000000",
+        "InstanceNumber": "8",
+        "SOPInstanceUID": "1.2.826.0.1.3680043.8.1055.1.20111102150759278.17477298.74845291"
+    },
+    "ParentSeries": "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+    "Type": "Instance"
+}
+2025-06-12 22:36:16 - Instance DICOM stockée avec patient_id=11, orthanc_instance_id=ca185649-59f5c5ef-ebbff62a-dcd31eec-5232abf3
+2025-06-12 22:36:16 - Instance ID personnalisé appliqué: PATIENT-11-20250612223614
+2025-06-12 22:43:04 - Début de la requête proxy-orthanc
+2025-06-12 22:43:04 - URL Orthanc: http://localhost:8042/instances
+2025-06-12 22:43:04 - Méthode HTTP: POST
+2025-06-12 22:43:04 - $_FILES: {"file":{"name":"image-00067.dcm","full_path":"image-00067.dcm","type":"application\/dicom","tmp_name":"C:\\xampp\\tmp\\phpA6DB.tmp","error":0,"size":89128}}
+2025-06-12 22:43:04 - $_POST: {"patient_id":"9","instance_id":"PATIENT-9-20250612224304"}
+2025-06-12 22:43:04 - Patient ID: 9, Instance ID personnalisé: PATIENT-9-20250612224304, Fichier temporaire: C:\xampp\tmp\phpA6DB.tmp
+2025-06-12 22:43:05 - ID Orthanc attribué: 28a34bb1-a3155c09-16b5cc3c-cafd32ac-4a756068
+2025-06-12 22:43:05 - Requête des métadonnées via URL: http://localhost:8042/instances/28a34bb1-a3155c09-16b5cc3c-cafd32ac-4a756068
+2025-06-12 22:43:05 - Réponse brute des métadonnées: {
+   "FileSize" : 89128,
+   "FileUuid" : "76e2f0ef-a16a-4bbf-bc7e-bd6128e6a3cd",
+   "ID" : "28a34bb1-a3155c09-16b5cc3c-cafd32ac-4a756068",
+   "IndexInSeries" : 68,
+   "Labels" : [],
+   "MainDicomTags" : 
+   {
+      "ImageComments" : "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+      "ImageOrientationPatient" : "1\\0\\0\\0\\1\\0",
+      "ImagePositionPatient" : "-151.493508\\-36.6564417\\1261.5",
+      "InstanceCreationDate" : "20061012",
+      "InstanceCreationTime" : "091623.000000",
+      "InstanceNumber" : "68",
+      "SOPInstanceUID" : "1.2.826.0.1.3680043.8.1055.1.20111102150805231.17173640.02912242"
+   },
+   "ParentSeries" : "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+   "Type" : "Instance"
+}
+2025-06-12 22:43:05 - StudyInstanceUID non trouvé dans MainDicomTags, vérification via /studies...
+2025-06-12 22:43:05 - Commande dcmdump exécutée: "C:\dcmtk-3.6.9-win64-dynamic\bin\dcmdump.exe" -q +P 0020,000D "C:\xampp\tmp\phpA6DB.tmp" 2>&1
+2025-06-12 22:43:06 - Sortie de dcmdump: ["(0020,000d) UI [1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170] #  64, 1 StudyInstanceUID"]
+2025-06-12 22:43:06 - Code de retour de dcmdump: 0
+2025-06-12 22:43:06 - StudyInstanceUID récupéré via dcmdump: 1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170
+2025-06-12 22:43:06 - Détails de l'instance: {
+    "FileSize": 89128,
+    "FileUuid": "76e2f0ef-a16a-4bbf-bc7e-bd6128e6a3cd",
+    "ID": "28a34bb1-a3155c09-16b5cc3c-cafd32ac-4a756068",
+    "IndexInSeries": 68,
+    "Labels": [],
+    "MainDicomTags": {
+        "ImageComments": "JPEG 2000 lossless - Version 4.0.2 (c) Image Devices GmbH",
+        "ImageOrientationPatient": "1\\0\\0\\0\\1\\0",
+        "ImagePositionPatient": "-151.493508\\-36.6564417\\1261.5",
+        "InstanceCreationDate": "20061012",
+        "InstanceCreationTime": "091623.000000",
+        "InstanceNumber": "68",
+        "SOPInstanceUID": "1.2.826.0.1.3680043.8.1055.1.20111102150805231.17173640.02912242"
+    },
+    "ParentSeries": "98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2",
+    "Type": "Instance"
+}
+2025-06-12 22:43:06 - Instance DICOM stockée avec patient_id=9, orthanc_instance_id=28a34bb1-a3155c09-16b5cc3c-cafd32ac-4a756068
+2025-06-12 22:43:06 - Instance ID personnalisé appliqué: PATIENT-9-20250612224304
