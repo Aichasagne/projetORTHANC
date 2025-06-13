@@ -1141,66 +1141,69 @@
                 alert('Erreur: ' + error.message);
             }
         });
-
-       document.getElementById('add-consultation-form')?.addEventListener('submit', async (e) => {
+document.getElementById('add-consultation-form')?.addEventListener('submit', async (e) => {
     e.preventDefault();
     let patientId = document.getElementById('add-consultation-patient-id').value;
-    console.log('Patient ID envoyé dans POST:', patientId); // Ajouter ce log
+    console.log('Patient ID envoyé dans POST:', patientId); // Log existant
+
     const dateConsultation = document.getElementById('add-consultation-date').value;
     const diagnostic = document.getElementById('add-consultation-diagnostic').value;
     const prescription = document.getElementById('add-consultation-prescription').value;
     const file = document.getElementById('add-consultation-file').files[0];
 
-            // Vérifier ou récupérer le patient_id valide
-            let patient = patients.find(p => p.id === parseInt(patientId));
-            if (!patient) {
-                try {
-                    const response = await fetch(`http://localhost/projet-medical/api/patients/${patientId}`, {
-                        method: 'GET',
-                        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }
-                    });
-                    if (!response.ok) throw new Error(`Patient non trouvé: ${await response.text()}`);
-                    const data = await response.json();
-                    if (data.id) {
-                        patient = data;
-                        patients.push(patient);
-                        localStorage.setItem('patients', JSON.stringify(patients));
-                        patientId = data.id; // Utiliser l'ID retourné par l'API
-                    } else {
-                        throw new Error('Patient non trouvé dans la base de données');
-                    }
-                } catch (error) {
-                    console.error('Erreur lors de la vérification du patient:', error);
-                    alert('Erreur: Le patient n\'existe pas ou ne peut pas être récupéré.');
-                    return;
-                }
-            }
+    // Vérification des données soumises
+    console.log('Données soumises:', { patientId, dateConsultation, diagnostic, prescription, file });
 
-            const formData = new FormData();
-            formData.append('patient_id', patientId);
-            formData.append('date_consultation', dateConsultation);
-            formData.append('diagnostic', diagnostic);
-            if (prescription) formData.append('prescription', prescription);
-            if (file) formData.append('file', file);
-
-            try {
-                const response = await fetch('http://localhost/projet-medical/api/consultations.php', {
-                    method: 'POST',
-                    headers: { 'Authorization': `Bearer ${token}` },
-                    body: formData
-                });
-                const text = await response.text();
-                console.log('Réponse brute:', text);
-                const result = JSON.parse(text);
-                if (!response.ok) throw new Error(result.error || 'Erreur lors de l\'ajout');
-                alert('Consultation ajoutée avec succès !');
-                closeAddConsultationModal();
-                await openConsultationsModal(patientId);
-            } catch (error) {
-                console.error('Erreur lors de l\'ajout de la consultation:', error);
-                alert('Erreur: ' + error.message);
+    // Vérifier ou récupérer le patient_id valide
+    let patient = patients.find(p => p.id === parseInt(patientId) || p.patient_id === parseInt(patientId));
+    if (!patient) {
+        try {
+            const response = await fetch(`http://localhost/projet-medical/api/patients/${patientId}`, {
+                method: 'GET',
+                headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }
+            });
+            if (!response.ok) throw new Error(`Patient non trouvé: ${await response.text()}`);
+            const data = await response.json();
+            if (data.id || data.patient_id) {
+                patient = data;
+                patients.push(patient);
+                localStorage.setItem('patients', JSON.stringify(patients));
+                patientId = data.patient_id || data.id; // Utiliser l'ID correct (patient_id prioritaire)
+            } else {
+                throw new Error('Patient non trouvé dans la base de données');
             }
+        } catch (error) {
+            console.error('Erreur lors de la vérification du patient:', error);
+            alert('Erreur: Le patient n\'existe pas ou ne peut pas être récupéré.');
+            return;
+        }
+    }
+
+    const formData = new FormData();
+    formData.append('patient_id', patientId);
+    formData.append('date_consultation', dateConsultation);
+    formData.append('diagnostic', diagnostic);
+    if (prescription) formData.append('prescription', prescription); // Assurer l'ajout de la prescription
+    if (file) formData.append('file', file);
+
+    try {
+        const response = await fetch('http://localhost/projet-medical/api/consultations.php', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}` },
+            body: formData
         });
+        const text = await response.text();
+        console.log('Réponse brute:', text);
+        const result = JSON.parse(text);
+        if (!response.ok) throw new Error(result.error || 'Erreur lors de l\'ajout');
+        alert('Consultation ajoutée avec succès !');
+        closeAddConsultationModal();
+        await openConsultationsModal(patientId);
+    } catch (error) {
+        console.error('Erreur lors de l\'ajout de la consultation:', error);
+        alert('Erreur: ' + error.message);
+    }
+});
 
         loadDashboard();
     });
@@ -1484,9 +1487,9 @@ archivedContent.innerHTML = archivedPatients.length === 0
     }
 
 function openAddConsultationModal(patientId) {
-    if (!patientId) {
-        console.error('Aucun patientId valide');
-        alert('Aucun patient sélectionné. Veuillez sélectionner un patient.');
+    if (!patientId || isNaN(parseInt(patientId))) {
+        console.error('Aucun patientId valide:', patientId);
+        alert('Aucun patient sélectionné ou ID invalide. Veuillez sélectionner un patient.');
         return;
     }
 
@@ -1655,65 +1658,61 @@ function openAddConsultationModal(patientId) {
         }
     }
 
-    async function openConsultationDetails(consultationId, dateConsultation, diagnostic) {
-        const modal = document.getElementById('consultation-details-modal');
-        const title = document.getElementById('consultation-details-title');
-        const dateEl = document.getElementById('consultation-details-date');
-        const notesEl = document.getElementById('consultation-details-notes');
-        const prescriptionEl = document.getElementById('consultation-details-prescription');
-        const dicomEl = document.getElementById('consultation-details-dicom');
+ async function openConsultationDetails(consultationId, dateConsultation, diagnostic) {
+    const modal = document.getElementById('consultation-details-modal');
+    const title = document.getElementById('consultation-details-title');
+    const dateEl = document.getElementById('consultation-details-date');
+    const notesEl = document.getElementById('consultation-details-notes');
+    const prescriptionEl = document.getElementById('consultation-details-prescription');
+    const dicomEl = document.getElementById('consultation-details-dicom');
 
-        if (!modal || !title || !dateEl || !notesEl || !prescriptionEl || !dicomEl) {
-            console.error('Éléments du modal de détails de consultation non trouvés');
-            alert('Erreur: Éléments du modal non trouvés.');
-            return;
+    if (!modal || !title || !dateEl || !notesEl || !prescriptionEl || !dicomEl) {
+        console.error('Éléments du modal de détails de consultation non trouvés');
+        alert('Erreur: Éléments du modal non trouvés.');
+        return;
+    }
+
+    title.textContent = 'Détails de la Consultation';
+    dateEl.textContent = `Date: ${new Date(dateConsultation).toLocaleString('fr-FR')}`;
+    notesEl.textContent = `Diagnostic: ${diagnostic || 'Aucun diagnostic disponible.'}`;
+    prescriptionEl.innerHTML = '<p class="text-gray-400">Chargement...</p>';
+    dicomEl.innerHTML = '<p class="text-gray-400">Chargement...</p>';
+    openModal('consultation-details-modal');
+
+    const headers = {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    };
+
+    try {
+        const consultationResponse = await fetch(`http://localhost/projet-medical/api/consultations.php?consultationId=${consultationId}`, {
+            method: 'GET',
+            headers: headers
+        });
+
+        const consultationText = await consultationResponse.text();
+        console.log('Réponse brute de consultations.php:', consultationText);
+
+        if (!consultationResponse.ok) {
+            console.error(`Erreur HTTP ${consultationResponse.status} (Consultation): ${consultationText}`);
+            if (consultationResponse.status === 401) {
+                alert('Session expirée ou accès non autorisé. Veuillez vous reconnecter.');
+                logout();
+                return;
+            }
+            throw new Error(`Erreur HTTP ${consultationResponse.status}: ${consultationText}`);
         }
 
-        title.textContent = 'Détails de la Consultation';
-        dateEl.textContent = `Date: ${new Date(dateConsultation).toLocaleString('fr-FR')}`;
-        notesEl.textContent = `Diagnostic: ${diagnostic || 'Aucun diagnostic disponible.'}`;
-        prescriptionEl.innerHTML = '<p class="text-gray-400">Chargement...</p>';
-        dicomEl.innerHTML = '<p class="text-gray-400">Chargement...</p>';
-        openModal('consultation-details-modal');
+        const consultationData = JSON.parse(consultationText);
+        const prescription = consultationData.prescription || 'Aucune ordonnance disponible';
+        prescriptionEl.innerHTML = `<p class="text-white">${prescription}</p>`;
 
-        const headers = {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        };
-
-        try {
-            const consultationResponse = await fetch(`http://localhost/projet-medical/api/consultations.php?consultationId=${consultationId}`, {
-                method: 'GET',
-                headers: headers
-            });
-
-            const consultationText = await consultationResponse.text();
-            console.log('Réponse brute de consultations.php:', consultationText);
-
-            if (!consultationResponse.ok) {
-                console.error(`Erreur HTTP ${consultationResponse.status} (Consultation): ${consultationText}`);
-                if (consultationResponse.status === 401) {
-                    alert('Session expirée ou accès non autorisé. Veuillez vous reconnecter.');
-                    logout();
-                    return;
-                }
-                if (consultationResponse.status === 403) {
-                    prescriptionEl.innerHTML = '<p class="text-red-400">Accès refusé : Vous n\'êtes pas autorisé à voir cette consultation.</p>';
-                    dicomEl.innerHTML = '<p class="text-red-400">Accès refusé : Vous n\'êtes pas autorisé à voir cette consultation.</p>';
-                    return;
-                }
-                throw new Error(`Erreur HTTP ${consultationResponse.status}: ${consultationText}`);
-            }
-
-            const consultationData = JSON.parse(consultationText);
-            const prescription = consultationData.prescription || 'Aucune ordonnance disponible';
-            prescriptionEl.innerHTML = `<p class="text-white">${prescription}</p>`;
-
-            const dicomResponse = await fetch(`http://localhost/projet-medical/api/dicom-instances.php?consultationId=${consultationId}`, {
-                method: 'GET',
-                headers: headers
-            });
+        // Reste du code pour dicomResponse inchangé
+        const dicomResponse = await fetch(`http://localhost/projet-medical/api/dicom-instances.php?consultationId=${consultationId}`, {
+            method: 'GET',
+            headers: headers
+        });
 
             const dicomText = await dicomResponse.text();
             console.log('Réponse brute de dicom-instances.php:', dicomText);

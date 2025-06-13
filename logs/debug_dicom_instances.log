@@ -574,3 +574,39 @@ Headers reçus: {"Host":"localhost","Connection":"keep-alive","Pragma":"no-cache
 [2025-06-12 22:43:10] Token extrait: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3MzE1OTMsImV4cCI6MTc0OTgxNzk5MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.1n6lr8AHSkkQTwYOJ3hjLc35WFloXNJrv-42B9kMBiU
 [2025-06-12 22:43:10] Utilisateur authentifié: userId=1, role=medecin
 [2025-06-12 22:43:10] Database connection established
+[2025-06-12 23:04:54] Authorization header brut: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-12 23:04:54] Token extrait: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-12 23:04:54] Utilisateur authentifié: userId=1, role=medecin
+[2025-06-12 23:04:54] Database connection established
+[2025-06-12 23:29:18] Authorization header brut: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-12 23:29:18] Token extrait: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-12 23:29:18] Utilisateur authentifié: userId=1, role=medecin
+[2025-06-12 23:29:18] Database connection established
+[2025-06-12 23:29:26] Authorization header brut: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-12 23:29:26] Token extrait: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-12 23:29:26] Utilisateur authentifié: userId=1, role=medecin
+[2025-06-12 23:29:26] Database connection established
+[2025-06-12 23:30:05] Authorization header brut: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-12 23:30:05] Token extrait: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-12 23:30:05] Utilisateur authentifié: userId=1, role=medecin
+[2025-06-12 23:30:05] Database connection established
+[2025-06-12 23:37:36] Authorization header brut: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-12 23:37:36] Token extrait: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-12 23:37:36] Utilisateur authentifié: userId=1, role=medecin
+[2025-06-12 23:37:36] Database connection established
+[2025-06-13 02:20:01] Authorization header brut: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-13 02:20:01] Token extrait: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-13 02:20:01] Utilisateur authentifié: userId=1, role=medecin
+[2025-06-13 02:20:01] Database connection established
+[2025-06-13 02:32:04] Authorization header brut: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-13 02:32:04] Token extrait: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-13 02:32:04] Utilisateur authentifié: userId=1, role=medecin
+[2025-06-13 02:32:04] Database connection established
+[2025-06-13 02:56:57] Authorization header brut: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-13 02:56:57] Token extrait: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-13 02:56:57] Utilisateur authentifié: userId=1, role=medecin
+[2025-06-13 02:56:57] Database connection established
+[2025-06-13 02:57:53] Authorization header brut: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-13 02:57:53] Token extrait: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk3NjEzMjcsImV4cCI6MTc0OTg0NzcyNywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.fvVI8tNgobwwPw4_BLXxfJtMaZ_ce8vII2lg1c5LzLU
+[2025-06-13 02:57:53] Utilisateur authentifié: userId=1, role=medecin
+[2025-06-13 02:57:53] Database connection established

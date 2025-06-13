@@ -98,7 +98,7 @@ if ($method === 'GET') {
         if ($consultationId) {
             // Récupérer les détails d'une consultation spécifique
             $stmt = $pdo->prepare('
-                SELECT c.id, c.patient_id, c.medecin_id, c.date_consultation, c.diagnostic,
+                SELECT c.id, c.patient_id, c.medecin_id, c.date_consultation, c.diagnostic, c.fichier,
                        p.details AS prescription, p.created_at AS prescription_date
                 FROM consultations c
                 LEFT JOIN prescriptions p ON c.id = p.consultation_id
@@ -134,8 +134,8 @@ if ($method === 'GET') {
         } else {
             // Récupérer toutes les consultations pour un patient
             $stmt = $pdo->prepare('
-                SELECT c.id, c.patient_id, c.medecin_id, c.date_consultation, c.diagnostic,
-                       p.details AS prescription_details, p.created_at AS prescription_date
+                SELECT c.id, c.patient_id, c.medecin_id, c.date_consultation, c.diagnostic, c.fichier,
+                       p.details AS prescription, p.created_at AS prescription_date
                 FROM consultations c
                 LEFT JOIN prescriptions p ON c.id = p.consultation_id
                 WHERE c.patient_id = ? AND c.medecin_id = ?
@@ -154,7 +154,7 @@ if ($method === 'GET') {
                         'medecin_id' => $consultation['medecin_id'],
                         'date_consultation' => $consultation['date_consultation'],
                         'diagnostic' => $consultation['diagnostic'],
-                        'prescription' => $consultation['prescription_details'] ?: 'Aucune ordonnance disponible',
+                        'prescription' => $consultation['prescription'] ?: 'Aucune ordonnance disponible',
                         'prescription_date' => $consultation['prescription_date']
                     ];
                 }
@@ -178,13 +178,13 @@ if ($method === 'GET') {
         debugLog('Error fetching consultations: ' . $e->getMessage());
         sendResponse(500, ['error' => 'Failed to fetch consultations: ' . $e->getMessage()]);
     }
-} if ($method === 'POST') {
+} elseif ($method === 'POST') {
     $patientId = isset($_POST['patient_id']) ? (int)$_POST['patient_id'] : null;
     $dateConsultation = isset($_POST['date_consultation']) ? $_POST['date_consultation'] : null;
     $diagnostic = isset($_POST['diagnostic']) ? $_POST['diagnostic'] : null;
     $prescription = isset($_POST['prescription']) ? $_POST['prescription'] : null;
 
-    debugLog('POST data received: patient_id=' . $patientId . ', date_consultation=' . $dateConsultation . ', diagnostic=' . $diagnostic);
+    debugLog('POST data received: patient_id=' . $patientId . ', date_consultation=' . $dateConsultation . ', diagnostic=' . $diagnostic . ', prescription=' . $prescription);
 
     if (!$patientId || !$dateConsultation || !$diagnostic) {
         debugLog('Missing required fields: patient_id=' . $patientId . ', date_consultation=' . $dateConsultation . ', diagnostic=' . $diagnostic);
@@ -203,10 +203,17 @@ if ($method === 'GET') {
         $pdo->beginTransaction();
 
         // Insérer la consultation
-        $stmt = $pdo->prepare('INSERT INTO consultations (patient_id, medecin_id, date_consultation, diagnostic) VALUES (?, ?, ?, ?)');
-        $stmt->execute([$patientId, $userId, $dateConsultation, $diagnostic]);
+        $stmt = $pdo->prepare('INSERT INTO consultations (patient_id, medecin_id, date_consultation, diagnostic, fichier) VALUES (?, ?, ?, ?, ?)');
+        $stmt->execute([$patientId, $userId, $dateConsultation, $diagnostic, null]);
         $consultationId = $pdo->lastInsertId();
         debugLog('Consultation ajoutée avec ID: ' . $consultationId);
+
+        // Insérer la prescription si elle existe
+        if ($prescription) {
+            $stmt = $pdo->prepare('INSERT INTO prescriptions (consultation_id, details, created_at) VALUES (?, ?, NOW())');
+            $stmt->execute([$consultationId, $prescription]);
+            debugLog('Prescription ajoutée avec consultation_id: ' . $consultationId . ', details: ' . $prescription);
+        }
 
         // Gérer l'upload du fichier DICOM si présent
         if (isset($_FILES['file'])) {
