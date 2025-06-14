@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier Médical Partagé</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: #0f172a; color: white; font-family: 'Arial', sans-serif; }
+        .container { max-width: 800px; margin: 2rem auto; padding: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-2xl font-bold mb-4">Dossier Médical Partagé</h1>
+        <div id="shared-content" class="bg-gray-800 p-4 rounded-lg shadow-inner"></div>
+        <p class="mt-4 text-gray-400">Ce dossier est protégé. Veuillez vous connecter pour voir les détails complets.</p>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const patientId = urlParams.get('patientId');
+        const token = urlParams.get('token');
+
+        if (patientId && token) {
+            fetch(`http://localhost/projet-medical/api/medical-records.php?patientId=${patientId}`, {
+                method: 'GET',
+                headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.erreur) throw new Error(data.erreur);
+                document.getElementById('shared-content').innerHTML = `
+                    <h2 class="text-xl font-semibold mb-2">Patient ID: ${patientId}</h2>
+                    <p><strong>Historique:</strong> ${data.descriptions || 'Aucun'}</p>
+                    <p><strong>État de Santé:</strong> ${data.etat_sante || 'Non spécifié'}</p>
+                    <p><strong>Allergies:</strong> ${data.allergies || 'Aucune connue'}</p>
+                    <p><strong>Antécédents:</strong> ${data.antecedents_familiaux || 'Aucun connu'}</p>
+                    <p><strong>Groupe Sanguin:</strong> ${data.groupe_sanguin || 'Non défini'}</p>
+                    <p><strong>Dernière Mise à Jour:</strong> ${data.last_updated ? new Date(data.last_updated).toLocaleString('fr-FR') : 'Non défini'}</p>
+                `;
+            })
+            .catch(error => {
+                document.getElementById('shared-content').innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
+            });
+        } else {
+            document.getElementById('shared-content').innerHTML = '<p class="text-red-400">Paramètres manquants.</p>';
+        }
+    </script>
+</body>
+</html>

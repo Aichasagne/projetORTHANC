@@ -96,6 +96,14 @@ CREATE TABLE dossier (
     FOREIGN KEY (patient_id) REFERENCES patients(id) ON DELETE CASCADE
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+ALTER TABLE dossier
+ADD COLUMN etat_sante VARCHAR(255) NULL,
+ADD COLUMN allergies TEXT NULL,
+ADD COLUMN antecedents_familiaux TEXT NULL,
+ADD COLUMN last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+
+ALTER TABLE dossier
+ADD COLUMN groupe_sanguin VARCHAR(5) NULL;
 -- Create table: examens
 CREATE TABLE examens (
     id INT(11) NOT NULL AUTO_INCREMENT,
@@ -257,3 +265,49 @@ INSERT INTO rendezvous (id, patient_id, medecin_id, date_rdv, motif, statut, cre
 (6, 4, 1, '2024-09-01 13:00:00', 'Consultation de routine', 'termine', '2025-05-28 18:18:34'),
 (7, 5, 1, '2024-09-10 09:00:00', 'Analyse scanner', 'termine', '2025-05-28 18:18:34');
 
+UPDATE dossier
+SET etat_sante = CASE 
+    WHEN id = 1 THEN 'À surveiller'
+    WHEN id = 2 THEN 'Stable'
+    WHEN id = 3 THEN 'À surveiller'
+    WHEN id = 4 THEN 'Stable'
+    WHEN id = 5 THEN 'Stable'
+    WHEN id = 6 THEN 'À surveiller'
+END,
+allergies = CASE 
+    WHEN id = 1 THEN 'Pénicilline'
+    WHEN id = 2 THEN 'Aucune connue'
+    WHEN id = 3 THEN 'Aucun connu'
+    WHEN id = 4 THEN 'Aucune connue'
+    WHEN id = 5 THEN 'Pollen'
+    WHEN id = 6 THEN 'Aucune connue'
+END,
+antecedents_familiaux = CASE 
+    WHEN id = 1 THEN 'Hypertension (père)'
+    WHEN id = 2 THEN 'Diabète (mère)'
+    WHEN id = 3 THEN 'Aucun connu'
+    WHEN id = 4 THEN 'Aucun connu'
+    WHEN id = 5 THEN 'Cancer (grand-parent)'
+    WHEN id = 6 THEN 'Maladies cardiaques (père)'
+END,
+groupe_sanguin = CASE 
+    WHEN id = 1 THEN 'A+'
+    WHEN id = 2 THEN 'O-'
+    WHEN id = 3 THEN 'B+'
+    WHEN id = 4 THEN 'AB-'
+    WHEN id = 5 THEN 'O+'
+    WHEN id = 6 THEN 'A-'
+END;
+
+-----------
+CREATE OR REPLACE VIEW vue_dossier_patient AS
+SELECT 
+    patient_id,
+    GROUP_CONCAT(description SEPARATOR '\n') AS descriptions,
+    MAX(etat_sante) AS etat_sante,
+    MAX(allergies) AS allergies,
+    MAX(antecedents_familiaux) AS antecedents_familiaux,
+    MAX(last_updated) AS last_updated,
+    MAX(groupe_sanguin) AS groupe_sanguin
+FROM dossier
+GROUP BY patient_id;
