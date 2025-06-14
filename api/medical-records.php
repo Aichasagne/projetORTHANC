@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json; charset=UTF-8');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, OPTIONS');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Authorization, Content-Type, Accept');
 
 ini_set('display_errors', 0);
@@ -81,40 +81,139 @@ try {
     sendResponse(500, ['error' => 'Database connection failed']);
 }
 
-$patientId = isset($_GET['patientId']) ? (int)$_GET['patientId'] : 0;
+// Récupération de patientId depuis GET ou POST
+$patientIdFromQuery = isset($_GET['patientId']) ? (int)$_GET['patientId'] : null;
+$patientIdFromBody = null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $input = json_decode(file_get_contents('php://input'), true);
+    debugLog('Received JSON data: ' . print_r($input, true));
+    $patientIdFromBody = $input['patientId'] ?? null;
+}
+$patientId = $patientIdFromQuery ?: $patientIdFromBody;
 
-if ($patientId <= 0) {
-    debugLog('Invalid patientId: ' . $patientId);
+if ($patientId === null || $patientId <= 0) {
+    debugLog('Invalid patientId: ' . ($patientId ?? 'null'));
     sendResponse(400, ['error' => 'ID patient invalide']);
 }
 
-try {
-    $query = "
-        SELECT 
-            vdp.descriptions,
-            vdp.etat_sante,
-            vdp.allergies,
-            vdp.antecedents_familiaux,
-            vdp.last_updated,
-            vdp.groupe_sanguin,
-            CONCAT(u.nom, ' ', u.prenom) AS nom_medecin
-        FROM vue_dossier_patient vdp
-        LEFT JOIN users u ON u.id = (SELECT medecin_id FROM medical_records WHERE patient_id = :patientId LIMIT 1)
-        WHERE vdp.patient_id = :patientId
-    ";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute(['patientId' => $patientId]);
-    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Vérification des droits d'accès
+$queryCheck = "SELECT COUNT(*) FROM dossier WHERE patient_id = :patientId";
+$stmtCheck = $pdo->prepare($queryCheck);
+$stmtCheck->execute(['patientId' => $patientId]);
+if ($stmtCheck->fetchColumn() == 0) {
+    debugLog('No records found or user does not have access to patientId: ' . $patientId);
+    sendResponse(403, ['error' => 'Accès non autorisé à ce patient']);
+}
 
-    if (empty($records)) {
-        debugLog('No records found for patientId: ' . $patientId);
-        sendResponse(404, ['error' => 'Aucun dossier trouvé pour ce patient']);
-    } else {
-        debugLog('Records found for patientId: ' . $patientId);
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    try {
+        $query = "
+            SELECT 
+                description AS descriptions,
+                etat_sante,
+                allergies,
+                antecedents_familiaux,
+                last_updated,
+                groupe_sanguin,
+                NULL AS nom_medecin
+            FROM dossier
+            WHERE patient_id = :patientId
+            AND (description IS NOT NULL AND description != '' 
+                 OR etat_sante IS NOT NULL AND etat_sante != '' 
+                 OR allergies IS NOT NULL AND allergies != '' 
+                 OR antecedents_familiaux IS NOT NULL AND antecedents_familiaux != '' 
+                 OR groupe_sanguin IS NOT NULL AND groupe_sanguin != '')
+            ORDER BY last_updated DESC
+            LIMIT 1
+        ";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(['patientId' => $patientId]);
+        $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (empty($records)) {
+            // Si aucune entrée avec données n'est trouvée, prendre la dernière entrée
+            $fallbackQuery = "
+                SELECT 
+                    description AS descriptions,
+                    etat_sante,
+                    allergies,
+                    antecedents_familiaux,
+                    last_updated,
+                    groupe_sanguin,
+                    NULL AS nom_medecin
+                FROM dossier
+                WHERE patient_id = :patientId
+                ORDER BY last_updated DESC
+                LIMIT 1
+            ";
+            $stmtFallback = $pdo->prepare($fallbackQuery);
+            $stmtFallback->execute(['patientId' => $patientId]);
+            $records = $stmtFallback->fetchAll(PDO::FETCH_ASSOC);
+
+            if (empty($records)) {
+                debugLog('No records found for patientId: ' . $patientId);
+                sendResponse(404, ['error' => 'Aucun dossier trouvé pour ce patient']);
+            }
+        }
+
+        debugLog('Records found for patientId: ' . $patientId . ' - Data: ' . print_r($records[0], true));
         sendResponse(200, $records[0]);
+    } catch (PDOException $e) {
+        debugLog('Query failed: ' . $e->getMessage() . ' - Query: ' . $query);
+        sendResponse(500, ['error' => 'Requête échouée : ' . $e->getMessage()]);
     }
-} catch (PDOException $e) {
-    debugLog('Query failed: ' . $e->getMessage());
-    sendResponse(500, ['error' => 'Requête échouée : ' . $e->getMessage()]);
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    try {
+        $input = json_decode(file_get_contents('php://input'), true);
+        debugLog('Received JSON data: ' . print_r($input, true));
+
+        if (!$input || !isset($input['patientId']) || $input['patientId'] != $patientId) {
+            debugLog('Invalid or mismatched patientId in POST data: ' . ($input['patientId'] ?? 'null'));
+            sendResponse(400, ['error' => 'ID patient invalide']);
+        }
+
+        $descriptions = $input['descriptions'] ?? '';
+        $etat_sante = $input['etat_sante'] ?? '';
+        $allergies = $input['allergies'] ?? '';
+        $antecedents_familiaux = $input['antecedents_familiaux'] ?? '';
+        $groupe_sanguin = $input['groupe_sanguin'] ?? '';
+
+        $query = "
+            INSERT INTO dossier (patient_id, description, etat_sante, allergies, antecedents_familiaux, groupe_sanguin, last_updated)
+            VALUES (:patientId, :descriptions, :etat_sante, :allergies, :antecedents_familiaux, :groupe_sanguin, NOW())
+            ON DUPLICATE KEY UPDATE 
+                description = VALUES(description),
+                etat_sante = VALUES(etat_sante),
+                allergies = VALUES(allergies),
+                antecedents_familiaux = VALUES(antecedents_familiaux),
+                groupe_sanguin = VALUES(groupe_sanguin),
+                last_updated = VALUES(last_updated)
+        ";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([
+            'patientId' => $patientId,
+            'descriptions' => $descriptions,
+            'etat_sante' => $etat_sante,
+            'allergies' => $allergies,
+            'antecedents_familiaux' => $antecedents_familiaux,
+            'groupe_sanguin' => $groupe_sanguin
+        ]);
+
+        debugLog('Update/Insert successful for patientId: ' . $patientId . ' - Data: ' . print_r($input, true));
+        sendResponse(200, [
+            'success' => true,
+            'descriptions' => $descriptions,
+            'etat_sante' => $etat_sante,
+            'allergies' => $allergies,
+            'antecedents_familiaux' => $antecedents_familiaux,
+            'groupe_sanguin' => $groupe_sanguin
+        ]);
+    } catch (PDOException $e) {
+        debugLog('Query failed: ' . $e->getMessage() . ' - Query: ' . $query);
+        sendResponse(500, ['error' => 'Requête échouée : ' . $e->getMessage()]);
+    } catch (Exception $e) {
+        debugLog('General error: ' . $e->getMessage());
+        sendResponse(400, ['error' => 'Données invalides : ' . $e->getMessage()]);
+    }
 }
 ?>

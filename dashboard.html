@@ -1079,9 +1079,7 @@
 <!-- Updated JavaScript section -->
 <script>
     let currentPatientId = null;
-    
     window.patients = JSON.parse(localStorage.getItem('patients')) || [];
-
     const token = localStorage.getItem('token');
     const role = localStorage.getItem('role');
     const ORTHANC_PROXY_URL = 'http://localhost/projet-medical/api/proxy-orthanc.php';
@@ -1514,7 +1512,7 @@
             }
         });
 
-        renderPatients(); // Appeler renderPatients au chargement initial
+        renderPatients();
     }
 
     async function loadDicomImages() {
@@ -1926,23 +1924,7 @@
         }
     }
 
-  function downloadMedicalRecord() {
-    const patientId = document.getElementById('medical-record-patient-id').value;
-    const content = document.getElementById('medical-record-content').innerHTML;
-    if (content.includes('Chargement')) {
-        alert('Veuillez attendre que les données soient chargées avant de télécharger.');
-        return;
-    }
-    const blob = new Blob([content], { type: 'text/html' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `dossier_medical_patient_${patientId}.html`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
-}
+ 
 
     function openAddPatientModal() {
         const form = document.getElementById('add-patient-form');
@@ -2028,174 +2010,321 @@
 
     let isEditingMedicalRecord = false;
 
-    function toggleEditMedicalRecord() {
-    const form = document.getElementById('edit-medical-record-form');
-    const patientId = document.getElementById('medical-record-patient-id').value;
-    if (!form) {
-        console.error('Formulaire d\'édition non trouvé');
-        alert('Erreur: Formulaire de modification non chargé.');
-        return;
-    }
+    async function openMedicalRecordModal(patientId) {
+        console.log(`Ouverture du dossier médical pour patientId: ${patientId}`);
+        const modal = document.getElementById('medical-record-modal');
+        if (!modal) {
+            console.error('Modal non trouvé');
+            alert('Erreur: Modal non trouvé.');
+            return;
+        }
 
-    if (!isEditingMedicalRecord) {
-        fetch(`http://localhost/projet-medical/api/medical-records.php?patientId=${patientId}`, {
-            method: 'GET',
-            headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }
-        })
-        .then(response => {
-            if (!response.ok) throw new Error(`Erreur HTTP ${response.status}`);
-            return response.json();
-        })
-        .then(data => {
-            if (data.error) throw new Error(data.error);
-            document.getElementById('edit-descriptions').value = data.descriptions || '';
-            document.getElementById('edit-etat-sante').value = data.etat_sante || '';
-            document.getElementById('edit-allergies').value = data.allergies || '';
-            document.getElementById('edit-antecedents').value = data.antecedents_familiaux || '';
-            document.getElementById('edit-groupe-sanguin').value = data.groupe_sanguin || '';
-            form.classList.remove('hidden');
-            isEditingMedicalRecord = true;
-        })
-        .catch(error => {
-            console.error('Erreur lors du chargement:', error);
-            alert('Erreur: ' + error.message);
-        });
-    } else {
-        form.classList.add('hidden');
-        isEditingMedicalRecord = false;
-    }
-}
+        if (!token || !token.trim()) {
+            console.error('Token manquant ou vide dans openMedicalRecordModal');
+            alert('Session expirée. Veuillez vous reconnecter.');
+            logout();
+            return;
+        }
 
-    function cancelEditMedicalRecord() {
-        document.getElementById('edit-medical-record-form').classList.add('hidden');
-        isEditingMedicalRecord = false;
-    }
-
-    document.getElementById('edit-medical-record-form')?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const patientId = document.getElementById('medical-record-patient-id').value;
-        const descriptions = document.getElementById('edit-descriptions').value;
-        const etatSante = document.getElementById('edit-etat-sante').value;
-        const allergies = document.getElementById('edit-allergies').value;
-        const antecedents = document.getElementById('edit-antecedents').value;
-        const groupeSanguin = document.getElementById('edit-groupe-sanguin').value;
+        console.log('Token utilisé:', token.substring(0, 20) + '...');
+        const headers = {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        };
 
         try {
             const response = await fetch(`http://localhost/projet-medical/api/medical-records.php?patientId=${patientId}`, {
-                method: 'PUT',
-                headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    descriptions,
-                    etat_sante: etatSante,
-                    allergies,
-                    antecedents_familiaux: antecedents,
-                    groupe_sanguin: groupeSanguin
-                })
+                method: 'GET',
+                headers: headers
             });
-            if (!response.ok) throw new Error((await response.json()).erreur || 'Erreur de mise à jour');
-            alert('Dossier mis à jour avec succès !');
-            cancelEditMedicalRecord();
-            openMedicalRecordModal(patientId);
+            console.log('Requête vers:', response.url);
+            console.log('Réponse reçue, statut:', response.status);
+
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log('Données reçues après parsing:', data);
+
+            const modalContent = modal.querySelector('.modal-content') || modal;
+            modalContent.innerHTML = `
+                <button onclick="closeMedicalRecordModal()" class="text-white absolute top-2 right-2">X</button>
+                <h2 class="text-2xl text-cyan-400 mb-4">Dossier Médical - Patient ID: ${patientId}</h2>
+                <input type="hidden" id="medical-record-patient-id" value="${patientId}">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-semibold text-cyan-400 mb-2">État de Santé</h4>
+                        <p class="text-gray-300">${data.etat_sante || 'Non disponible'}</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-semibold text-cyan-400 mb-2">Allergies</h4>
+                        <p class="text-gray-300">${data.allergies || 'Aucune'}</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-semibold text-cyan-400 mb-2">Groupe Sanguin</h4>
+                        <p class="text-gray-300">${data.groupe_sanguin || 'Non défini'}</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-semibold text-cyan-400 mb-2">Antécédents Familiaux</h4>
+                        <p class="text-gray-300">${data.antecedents_familiaux || 'Aucun'}</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-semibold text-cyan-400 mb-2">Dernière Mise à Jour</h4>
+                        <p class="text-gray-300">${data.last_updated ? new Date(data.last_updated).toLocaleString('fr-FR') : new Date().toLocaleString('fr-FR')}</p>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-between">
+                    <div>
+                        <button onclick="toggleEditMedicalRecord(${patientId})" class="btn-primary mr-2"><i class="fas fa-edit mr-2"></i> Modifier</button>
+                        <button onclick="shareMedicalRecord(${patientId})" class="btn-primary"><i class="fas fa-share mr-2"></i> Partager</button>
+                    </div>
+                    <button type="button" class="btn-primary" onclick="downloadMedicalRecord()"><i class="fas fa-download mr-2"></i> Télécharger</button>
+                </div>
+            `;
+
+            openModal('medical-record-modal');
         } catch (error) {
-            console.error('Erreur lors de la mise à jour:', error);
+            console.error('Erreur lors de l\'ouverture du dossier médical:', error);
             alert('Erreur: ' + error.message);
         }
-    });
+    }
+    
 
-async function openMedicalRecordModal(patientId) {
-    console.log(`Ouverture du dossier médical pour patientId: ${patientId}`);
+   
+function toggleEditMedicalRecord(patientId) {
     const modal = document.getElementById('medical-record-modal');
-    if (!modal) {
-        console.error('Modal non trouvé');
+    const modalContent = modal.querySelector('.modal-content');
+    const storedPatientId = document.getElementById('medical-record-patient-id')?.value;
+
+    patientId = patientId || storedPatientId;
+    if (!patientId || !token) {
+        console.error('patientId or token is missing', { patientId, token });
+        return;
+    }
+
+    const parsedPatientId = parseInt(patientId);
+    if (isNaN(parsedPatientId)) {
+        alert('ID patient invalide.');
+        return;
+    }
+
+    console.log('Récupération des données pour patientId:', parsedPatientId);
+    fetch(`http://localhost/projet-medical/api/medical-records.php?patientId=${parsedPatientId}`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }
+    })
+    .then(response => {
+        console.log('Réponse GET:', response.status, response.statusText);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return response.json();
+    })
+    .then(data => {
+        console.log('Données reçues:', data);
+        if (data.error) throw new Error(data.error);
+
+        modalContent.innerHTML = `
+            <button onclick="closeMedicalRecordModal()" class="text-white absolute top-2 right-2">X</button>
+            <h2 class="text-2xl text-cyan-400 mb-4">Modifier le Dossier Médical</h2>
+            <form id="editMedicalRecordForm" class="space-y-6">
+                <div class="input-group">
+                    <input type="text" name="descriptions" class="input-field" value="${data.descriptions || ''}" required>
+                    <label class="input-label">Descriptions</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="etat_sante" class="input-field" value="${data.etat_sante || ''}" required>
+                    <label class="input-label">État de Santé</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="allergies" class="input-field" value="${data.allergies || ''}">
+                    <label class="input-label">Allergies</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="antecedents_familiaux" class="input-field" value="${data.antecedents_familiaux || ''}">
+                    <label class="input-label">Antécédents Familiaux</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="groupe_sanguin" class="input-field" value="${data.groupe_sanguin || ''}">
+                    <label class="input-label">Groupe Sanguin</label>
+                </div>
+                <div class="mt-6 flex justify-end gap-4">
+                    <button type="button" onclick="closeMedicalRecordModal()" class="btn-primary">Annuler</button>
+                    <button type="submit" class="btn-primary">Sauvegarder</button>
+                </div>
+            </form>
+        `;
+
+        document.getElementById('editMedicalRecordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const dataToSend = {
+                patientId: parsedPatientId,
+                descriptions: formData.get('descriptions').trim(),
+                etat_sante: formData.get('etat_sante').trim(),
+                allergies: formData.get('allergies').trim(),
+                antecedents_familiaux: formData.get('antecedents_familiaux').trim(),
+                groupe_sanguin: formData.get('groupe_sanguin').trim()
+            };
+
+            console.log('Données à envoyer:', dataToSend);
+
+            fetch('http://localhost/projet-medical/api/medical-records.php', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    console.error('Réponse POST:', response.status, response.statusText);
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Réponse de sauvegarde:', data);
+                toggleEditMedicalRecord(parsedPatientId); // Recharger le modal
+                alert('Modifications sauvegardées avec succès!');
+            })
+            .catch(error => {
+                console.error('Erreur lors de la sauvegarde:', error);
+                alert('Erreur lors de la sauvegarde: ' + error.message);
+            });
+        });
+
+        modal.classList.add('visible');
+    })
+    .catch(error => {
+        console.error('Erreur lors du chargement:', error);
+        modalContent.innerHTML = `
+            <button onclick="closeMedicalRecordModal()" class="text-white absolute top-2 right-2">X</button>
+            <h2 class="text-2xl text-cyan-400 mb-4">Dossier Médical - Patient ID: ${parsedPatientId}</h2>
+            <p class="text-red-400">Erreur: Impossible de charger les données. ${error.message}</p>
+        `;
+        modal.classList.add('visible');
+    });
+}
+function shareMedicalRecord(patientId) {
+    // Récupérer le token JWT existant
+    const token = localStorage.getItem('token');
+    console.log('Token récupéré:', token);
+    if (!token) {
+        alert('Erreur: Aucun token d\'authentification trouvé. Veuillez vous reconnecter.');
+        return;
+    }
+
+    // Sauvegarder les données actuelles avant de partager
+    const modalContent = document.querySelector('#medical-record-modal .modal-content');
+    if (!modalContent) {
         alert('Erreur: Modal non trouvé.');
         return;
     }
 
-    if (!token || !token.trim()) {
-        console.error('Token manquant ou vide dans openMedicalRecordModal');
-        alert('Session expirée. Veuillez vous reconnecter.');
-        logout();
-        return;
-    }
-
-    console.log('Token utilisé:', token.substring(0, 20) + '...');
-    const headers = {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+    const dataToSave = {
+        patientId: patientId,
+        descriptions: modalContent.querySelector('input[name="descriptions"]')?.value || '',
+        etat_sante: modalContent.querySelector('input[name="etat_sante"]')?.value || '',
+        allergies: modalContent.querySelector('input[name="allergies"]')?.value || '',
+        antecedents_familiaux: modalContent.querySelector('input[name="antecedents_familiaux"]')?.value || '',
+        groupe_sanguin: modalContent.querySelector('input[name="groupe_sanguin"]')?.value || ''
     };
+    console.log('Données à sauvegarder:', dataToSave);
 
-    try {
-        const response = await fetch(`http://localhost/projet-medical/api/medical-records.php?patientId=${patientId}`, {
-            method: 'GET',
-            headers: headers
-        });
-        console.log('Requête vers:', response.url);
-        console.log('Réponse reçue, statut:', response.status);
-
+    // Sauvegarde des données via l'API
+    fetch('http://localhost/projet-medical/api/medical-records.php', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(dataToSave)
+    })
+    .then(response => {
         if (!response.ok) {
-            throw new Error(`Erreur HTTP: ${response.status}`);
+            console.error('Réponse POST:', response.status, response.statusText);
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-
-        const data = await response.json();
-        console.log('Données reçues après parsing:', data);
-
-        // Vérifier et remplir les éléments DOM
-        const patientNameEl = document.getElementById('medical-record-patient-name');
-        const descriptionsEl = document.getElementById('medical-record-descriptions');
-        const etatSanteEl = document.getElementById('medical-record-etat-sante');
-        const allergiesEl = document.getElementById('medical-record-allergies');
-        const antecedentsEl = document.getElementById('medical-record-antecedents');
-        const groupeSanguinEl = document.getElementById('medical-record-groupe-sanguin');
-        const lastUpdatedEl = document.getElementById('medical-record-last-updated');
-        const medecinEl = document.getElementById('medical-record-medecin');
-
-        const elements = {
-            patientNameEl,
-            descriptionsEl,
-            etatSanteEl,
-            allergiesEl,
-            antecedentsEl,
-            groupeSanguinEl,
-            lastUpdatedEl,
-            medecinEl
-        };
-        console.log('Vérification des éléments:', elements);
-
-        // Vérifier si des éléments sont manquants
-        if (Object.values(elements).some(el => el === null)) {
-            console.error('Un ou plusieurs éléments sont manquants dans le DOM');
-            alert('Erreur: Certains éléments du dossier médical sont manquants.');
+        return response.json();
+    })
+    .then(() => {
+        // Demander un mot de passe dynamique
+        const password = prompt('Entrez un mot de passe pour protéger le dossier :');
+        if (!password) {
+            alert('Aucun mot de passe fourni. Partage annulé.');
             return;
         }
 
-        // Remplir les éléments
-        patientNameEl.textContent = `Patient ID: ${patientId}`; // Ajustez selon vos besoins
-        descriptionsEl.textContent = data.descriptions || 'Non disponible';
-        etatSanteEl.textContent = data.etat_sante || 'Non disponible';
-        allergiesEl.textContent = data.allergies || 'Aucune';
-        antecedentsEl.textContent = data.antecedents_familiaux || 'Aucun';
-        groupeSanguinEl.textContent = data.groupe_sanguin || 'Non défini';
-        lastUpdatedEl.textContent = data.last_updated || 'Non défini';
-        medecinEl.textContent = data.nom_medecin || 'Non défini';
+        // Stocker les informations de partage
+        localStorage.setItem(`share_${patientId}_token`, token);
+        localStorage.setItem(`share_${patientId}_password`, password);
 
-        openModal('medical-record-modal');
-    } catch (error) {
-        console.error('Erreur lors de l\'ouverture du dossier médical:', error);
-        alert('Erreur: ' + error.message);
-    }
-}
-
-    function shareMedicalRecord() {
-        const patientId = document.getElementById('medical-record-patient-id').value;
+        // Générer le lien de partage
         const shareUrl = `${window.location.origin}/projet-medical/share-medical-record.html?patientId=${patientId}&token=${token}`;
         navigator.clipboard.writeText(shareUrl).then(() => {
-            alert('Lien copié dans le presse-papiers ! Vous pouvez le partager.');
+            alert(`Lien copié dans le presse-papiers ! Utilisez le mot de passe "${password}" pour accéder au contenu.`);
         }).catch(err => {
             console.error('Erreur lors de la copie:', err);
             alert('Erreur: Impossible de copier le lien. Veuillez le sélectionner manuellement : ' + shareUrl);
         });
+    })
+    .catch(error => {
+        console.error('Erreur lors de la sauvegarde:', error);
+        alert('Erreur: Impossible de sauvegarder avant le partage. ' + error.message);
+    });
+}
+
+function downloadMedicalRecord() {
+    const patientId = document.getElementById('medical-record-patient-id')?.value;
+    const modalContent = document.querySelector('#medical-record-modal .modal-content');
+    if (!patientId || !modalContent || modalContent.innerHTML.includes('Chargement')) {
+        alert('Veuillez attendre que les données soient chargées avant de télécharger.');
+        return;
     }
+
+    // Extraire uniquement le contenu pertinent
+    const contentDivs = modalContent.querySelectorAll('.bg-gray-800');
+    let htmlContent = `
+        <!DOCTYPE html>
+        <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Dossier Médical - Patient ID: ${patientId}</title>
+            <style>
+                body { font-family: Arial, sans-serif; background-color: #f9fafb; color: #1f2937; padding: 1rem; }
+                .card { background-color: #e5e7eb; padding: 1rem; margin-bottom: 1rem; border-radius: 0.5rem; }
+                h4 { font-size: 1.125rem; font-weight: 600; color: #1e40af; margin-bottom: 0.5rem; }
+                p { margin: 0; }
+            </style>
+        </head>
+        <body>
+            <h2>Dossier Médical - Patient ID: ${patientId}</h2>
+    `;
+
+    contentDivs.forEach(div => {
+        const h4 = div.querySelector('h4').textContent;
+        const p = div.querySelector('p').textContent;
+        htmlContent += `
+            <div class="card">
+                <h4>${h4}</h4>
+                <p>${p}</p>
+            </div>
+        `;
+    });
+
+    htmlContent += `
+        <p><strong>Dernière Mise à Jour:</strong> ${new Date().toLocaleString('fr-FR')}</p>
+        </body>
+        </html>
+    `;
+
+    const blob = new Blob([htmlContent], { type: 'text/html' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `dossier_medical_patient_${patientId}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
 </script>
 </body>
 </html>
