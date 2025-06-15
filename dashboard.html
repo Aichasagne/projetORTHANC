@@ -2010,86 +2010,8 @@
 
     let isEditingMedicalRecord = false;
 
-    async function openMedicalRecordModal(patientId) {
-        console.log(`Ouverture du dossier médical pour patientId: ${patientId}`);
-        const modal = document.getElementById('medical-record-modal');
-        if (!modal) {
-            console.error('Modal non trouvé');
-            alert('Erreur: Modal non trouvé.');
-            return;
-        }
+   async function openMedicalRecordModal(patientId) {
 
-        if (!token || !token.trim()) {
-            console.error('Token manquant ou vide dans openMedicalRecordModal');
-            alert('Session expirée. Veuillez vous reconnecter.');
-            logout();
-            return;
-        }
-
-        console.log('Token utilisé:', token.substring(0, 20) + '...');
-        const headers = {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        };
-
-        try {
-            const response = await fetch(`http://localhost/projet-medical/api/medical-records.php?patientId=${patientId}`, {
-                method: 'GET',
-                headers: headers
-            });
-            console.log('Requête vers:', response.url);
-            console.log('Réponse reçue, statut:', response.status);
-
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP: ${response.status}`);
-            }
-
-            const data = await response.json();
-            console.log('Données reçues après parsing:', data);
-
-            const modalContent = modal.querySelector('.modal-content') || modal;
-            modalContent.innerHTML = `
-                <button onclick="closeMedicalRecordModal()" class="text-white absolute top-2 right-2">X</button>
-                <h2 class="text-2xl text-cyan-400 mb-4">Dossier Médical - Patient ID: ${patientId}</h2>
-                <input type="hidden" id="medical-record-patient-id" value="${patientId}">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
-                        <h4 class="text-lg font-semibold text-cyan-400 mb-2">État de Santé</h4>
-                        <p class="text-gray-300">${data.etat_sante || 'Non disponible'}</p>
-                    </div>
-                    <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
-                        <h4 class="text-lg font-semibold text-cyan-400 mb-2">Allergies</h4>
-                        <p class="text-gray-300">${data.allergies || 'Aucune'}</p>
-                    </div>
-                    <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
-                        <h4 class="text-lg font-semibold text-cyan-400 mb-2">Groupe Sanguin</h4>
-                        <p class="text-gray-300">${data.groupe_sanguin || 'Non défini'}</p>
-                    </div>
-                    <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
-                        <h4 class="text-lg font-semibold text-cyan-400 mb-2">Antécédents Familiaux</h4>
-                        <p class="text-gray-300">${data.antecedents_familiaux || 'Aucun'}</p>
-                    </div>
-                    <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
-                        <h4 class="text-lg font-semibold text-cyan-400 mb-2">Dernière Mise à Jour</h4>
-                        <p class="text-gray-300">${data.last_updated ? new Date(data.last_updated).toLocaleString('fr-FR') : new Date().toLocaleString('fr-FR')}</p>
-                    </div>
-                </div>
-                <div class="mt-6 flex justify-between">
-                    <div>
-                        <button onclick="toggleEditMedicalRecord(${patientId})" class="btn-primary mr-2"><i class="fas fa-edit mr-2"></i> Modifier</button>
-                        <button onclick="shareMedicalRecord(${patientId})" class="btn-primary"><i class="fas fa-share mr-2"></i> Partager</button>
-                    </div>
-                    <button type="button" class="btn-primary" onclick="downloadMedicalRecord()"><i class="fas fa-download mr-2"></i> Télécharger</button>
-                </div>
-            `;
-
-            openModal('medical-record-modal');
-        } catch (error) {
-            console.error('Erreur lors de l\'ouverture du dossier médical:', error);
-            alert('Erreur: ' + error.message);
-        }
-    }
     
 
    
@@ -2125,7 +2047,7 @@ function toggleEditMedicalRecord(patientId) {
         if (data.error) throw new Error(data.error);
 
         modalContent.innerHTML = `
-            <button onclick="closeMedicalRecordModal()" class="text-white absolute top-2 right-2">X</button>
+            <button onclick="openMedicalRecordModal(${parsedPatientId})" class="text-white absolute top-2 right-2">X</button>
             <h2 class="text-2xl text-cyan-400 mb-4">Modifier le Dossier Médical</h2>
             <form id="editMedicalRecordForm" class="space-y-6">
                 <div class="input-group">
@@ -2149,7 +2071,7 @@ function toggleEditMedicalRecord(patientId) {
                     <label class="input-label">Groupe Sanguin</label>
                 </div>
                 <div class="mt-6 flex justify-end gap-4">
-                    <button type="button" onclick="closeMedicalRecordModal()" class="btn-primary">Annuler</button>
+                    <button type="button" onclick="openMedicalRecordModal(${parsedPatientId})" class="btn-primary">Annuler</button>
                     <button type="submit" class="btn-primary">Sauvegarder</button>
                 </div>
             </form>

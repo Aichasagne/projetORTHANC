@@ -1972,3 +1972,663 @@ Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 jui
     [nom_medecin] => 
 )
 
+[2025-06-15 00:49:55] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:49:55] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:49:55] Utilisateur authentifié: userId=1
+[2025-06-15 00:49:56] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:50:37] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:50:37] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:50:37] Utilisateur authentifié: userId=1
+[2025-06-15 00:50:37] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:50:43] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:50:43] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:50:43] Utilisateur authentifié: userId=1
+[2025-06-15 00:50:43] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:50:48] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:50:48] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:50:48] Utilisateur authentifié: userId=1
+[2025-06-15 00:50:48] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:51:22] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:51:22] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:51:22] Utilisateur authentifié: userId=1
+[2025-06-15 00:51:22] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:51:23] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:51:23] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:51:23] Utilisateur authentifié: userId=1
+[2025-06-15 00:51:23] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:51:26] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:51:26] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:51:26] Utilisateur authentifié: userId=1
+[2025-06-15 00:51:26] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:51:28] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:51:28] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:51:28] Utilisateur authentifié: userId=1
+[2025-06-15 00:51:28] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:51:40] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:51:40] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:51:40] Utilisateur authentifié: userId=1
+[2025-06-15 00:51:40] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:51:44] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:51:44] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:51:44] Utilisateur authentifié: userId=1
+[2025-06-15 00:51:44] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:52:11] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:52:11] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:52:11] Utilisateur authentifié: userId=1
+[2025-06-15 00:52:11] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:52:14] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:52:14] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:52:14] Utilisateur authentifié: userId=1
+[2025-06-15 00:52:14] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:53:18] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:53:18] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:53:18] Utilisateur authentifié: userId=1
+[2025-06-15 00:53:18] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:53:39] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:53:39] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:53:40] Utilisateur authentifié: userId=1
+[2025-06-15 00:53:40] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:54:30] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:54:30] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:54:30] Utilisateur authentifié: userId=1
+[2025-06-15 00:54:30] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:54:41] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:54:41] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:54:41] Utilisateur authentifié: userId=1
+[2025-06-15 00:54:41] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 16:54:54
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:54:49] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:54:49] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:54:49] Utilisateur authentifié: userId=1
+[2025-06-15 00:54:49] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 00:54:49] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 00:54:49] Update/Insert successful for patientId: 1 - Data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 00:54:49] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:54:49] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:54:49] Utilisateur authentifié: userId=1
+[2025-06-15 00:54:49] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 22:54:49
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:55:04] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:55:04] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:55:04] Utilisateur authentifié: userId=1
+[2025-06-15 00:55:04] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 22:54:49
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:55:07] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:55:07] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:55:07] Utilisateur authentifié: userId=1
+[2025-06-15 00:55:07] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 22:54:49
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:55:14] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:55:14] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:55:14] Utilisateur authentifié: userId=1
+[2025-06-15 00:55:14] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 00:55:14] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 00:55:14] Update/Insert successful for patientId: 1 - Data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 00:55:14] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:55:14] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:55:14] Utilisateur authentifié: userId=1
+[2025-06-15 00:55:14] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 22:55:14
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 00:55:20] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 00:55:20] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 00:55:20] Utilisateur authentifié: userId=1
+[2025-06-15 00:55:20] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 22:55:14
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:15:38] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:15:38] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:15:38] Utilisateur authentifié: userId=1
+[2025-06-15 01:15:38] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 22:55:14
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:15:48] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:15:48] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:15:48] Utilisateur authentifié: userId=1
+[2025-06-15 01:15:48] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 22:55:14
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:15:58] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:15:58] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:15:58] Utilisateur authentifié: userId=1
+[2025-06-15 01:15:58] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 01:15:58] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 01:15:58] Update/Insert successful for patientId: 1 - Data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 01:15:58] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:15:58] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:15:58] Utilisateur authentifié: userId=1
+[2025-06-15 01:15:58] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 23:15:58
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:16:01] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:16:01] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:16:01] Utilisateur authentifié: userId=1
+[2025-06-15 01:16:01] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 23:15:58
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:16:10] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:16:10] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:16:10] Utilisateur authentifié: userId=1
+[2025-06-15 01:16:10] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension (p?re)
+    [last_updated] => 2025-06-14 23:15:58
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:16:22] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:16:26] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:16:26] Utilisateur authentifié: userId=1
+[2025-06-15 01:16:26] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 01:16:26] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 01:16:26] Update/Insert successful for patientId: 1 - Data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 01:16:26] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:16:26] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:16:26] Utilisateur authentifié: userId=1
+[2025-06-15 01:16:26] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension
+    [last_updated] => 2025-06-14 23:16:26
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:16:30] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:16:30] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:16:30] Utilisateur authentifié: userId=1
+[2025-06-15 01:16:30] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension
+    [last_updated] => 2025-06-14 23:16:26
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:16:59] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:16:59] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:16:59] Utilisateur authentifié: userId=1
+[2025-06-15 01:16:59] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => 
+    [etat_sante] => 
+    [allergies] => 
+    [antecedents_familiaux] => 
+    [groupe_sanguin] => 
+)
+
+[2025-06-15 01:16:59] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => 
+    [etat_sante] => 
+    [allergies] => 
+    [antecedents_familiaux] => 
+    [groupe_sanguin] => 
+)
+
+[2025-06-15 01:17:00] Update/Insert successful for patientId: 1 - Data: Array
+(
+    [patientId] => 1
+    [descriptions] => 
+    [etat_sante] => 
+    [allergies] => 
+    [antecedents_familiaux] => 
+    [groupe_sanguin] => 
+)
+
+[2025-06-15 01:17:32] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:17:32] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:17:32] Utilisateur authentifié: userId=1
+[2025-06-15 01:17:32] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension
+    [last_updated] => 2025-06-14 23:16:26
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:23:02] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:23:02] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:23:02] Utilisateur authentifié: userId=1
+[2025-06-15 01:23:02] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension
+    [last_updated] => 2025-06-14 23:16:26
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:23:08] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:23:08] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:23:08] Utilisateur authentifié: userId=1
+[2025-06-15 01:23:08] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicilline
+    [antecedents_familiaux] => Hypertension
+    [last_updated] => 2025-06-14 23:16:26
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:23:14] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:23:14] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:23:14] Utilisateur authentifié: userId=1
+[2025-06-15 01:23:14] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 01:23:14] Received JSON data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 01:23:15] Update/Insert successful for patientId: 1 - Data: Array
+(
+    [patientId] => 1
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension
+    [groupe_sanguin] => A+
+)
+
+[2025-06-15 01:23:15] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:23:15] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:23:15] Utilisateur authentifié: userId=1
+[2025-06-15 01:23:15] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension
+    [last_updated] => 2025-06-14 23:23:14
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
+[2025-06-15 01:23:18] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 01:23:18] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 01:23:18] Utilisateur authentifié: userId=1
+[2025-06-15 01:23:18] Records found for patientId: 1 - Data: Array
+(
+    [descriptions] => Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 juillet
+    [etat_sante] => Stablite
+    [allergies] => P?nicillineeee
+    [antecedents_familiaux] => Hypertension
+    [last_updated] => 2025-06-14 23:23:14
+    [groupe_sanguin] => A+
+    [nom_medecin] => 
+)
+
