@@ -311,3 +311,41 @@ SELECT
     MAX(groupe_sanguin) AS groupe_sanguin
 FROM dossier
 GROUP BY patient_id;
+
+--------------------------------------------------------------------------
+ALTER TABLE rendezvous
+ADD COLUMN lieu VARCHAR(100) DEFAULT NULL AFTER statut,
+ADD COLUMN duree INT(11) DEFAULT 30 AFTER lieu,
+ADD COLUMN notes TEXT DEFAULT NULL AFTER duree,
+ADD COLUMN type_rdv ENUM('consultation', 'suivi', 'urgence') DEFAULT 'consultation' AFTER notes;
+
+UPDATE rendezvous
+SET lieu = CASE
+    WHEN id = 1 THEN 'Salle 1'
+    WHEN id = 2 THEN 'Salle 2'
+    WHEN id = 3 THEN 'Salle 1'
+    WHEN id = 4 THEN 'Salle 3'
+    WHEN id = 5 THEN 'Salle 4'
+    WHEN id = 6 THEN 'Salle 1'
+    WHEN id = 7 THEN 'Salle 2'
+END,
+duree = CASE
+    WHEN id = 1 THEN 45
+    WHEN id = 2 THEN 30
+    WHEN id = 3 THEN 60
+    WHEN id = 4 THEN 45
+    WHEN id = 5 THEN 90
+    WHEN id = 6 THEN 30
+    WHEN id = 7 THEN 60
+END,
+notes = CASE
+    WHEN id = 1 THEN 'Prise de sang recommandée'
+    WHEN id = 5 THEN 'Préparer IRM avec contraste'
+    ELSE NULL
+END,
+type_rdv = CASE
+    WHEN motif LIKE '%initiale%' THEN 'consultation'
+    WHEN motif LIKE '%suivi%' THEN 'suivi'
+    WHEN motif LIKE '%IRM%' OR motif LIKE '%scanner%' THEN 'urgence'
+    ELSE 'consultation'
+END;

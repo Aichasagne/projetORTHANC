@@ -1,0 +1,2047 @@
+2025-06-15 04:20:02 - Début de la requête /rendezvous
+2025-06-15 04:20:02 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+2025-06-15 04:20:03 - Erreur: Token invalide - Signature verification failed
+2025-06-15 04:20:05 - Début de la requête /rendezvous
+2025-06-15 04:20:05 - Token reçu: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+2025-06-15 04:20:05 - Erreur: Token invalide - Signature verification failed
+[2025-06-15 04:26:38] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 04:26:38] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 04:26:38] Utilisateur authentifié: userId=1
+[2025-06-15 04:26:38] Rôle de l'utilisateur: role=medecin
+[2025-06-15 04:26:39] Médecin identifié: medecinId=1
+[2025-06-15 04:26:39] Requête GET pour la liste des rendez-vous
+[2025-06-15 04:26:39] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    }
+]
+[2025-06-15 04:26:39] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 04:26:39] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 04:26:39] Utilisateur authentifié: userId=1
+[2025-06-15 04:26:39] Rôle de l'utilisateur: role=medecin
+[2025-06-15 04:26:39] Médecin identifié: medecinId=1
+[2025-06-15 04:26:39] Requête GET pour la liste des rendez-vous
+[2025-06-15 04:26:39] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    }
+]
+[2025-06-15 12:56:02] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 12:56:02] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 12:56:03] Utilisateur authentifié: userId=1
+[2025-06-15 12:56:05] Rôle de l'utilisateur: role=medecin
+[2025-06-15 12:56:06] Médecin identifié: medecinId=1
+[2025-06-15 12:56:06] Requête GET pour la liste des rendez-vous
+[2025-06-15 12:56:06] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    }
+]
+[2025-06-15 12:56:19] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 12:56:19] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 12:56:19] Utilisateur authentifié: userId=1
+[2025-06-15 12:56:19] Rôle de l'utilisateur: role=medecin
+[2025-06-15 12:56:19] Médecin identifié: medecinId=1
+[2025-06-15 12:56:19] Requête GET pour la liste des rendez-vous
+[2025-06-15 12:56:19] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    }
+]
+[2025-06-15 12:57:00] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 12:57:00] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 12:57:00] Utilisateur authentifié: userId=1
+[2025-06-15 12:57:00] Rôle de l'utilisateur: role=medecin
+[2025-06-15 12:57:00] Médecin identifié: medecinId=1
+[2025-06-15 12:57:00] Requête POST pour planifier un rendez-vous
+[2025-06-15 12:57:01] Rendez-vous planifié avec ID: 8
+[2025-06-15 12:57:03] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 12:57:03] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 12:57:03] Utilisateur authentifié: userId=1
+[2025-06-15 12:57:03] Rôle de l'utilisateur: role=medecin
+[2025-06-15 12:57:03] Médecin identifié: medecinId=1
+[2025-06-15 12:57:03] Requête GET pour la liste des rendez-vous
+[2025-06-15 12:57:03] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-15 12:57:26] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 12:57:26] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 12:57:26] Utilisateur authentifié: userId=1
+[2025-06-15 12:57:26] Rôle de l'utilisateur: role=medecin
+[2025-06-15 12:57:26] Médecin identifié: medecinId=1
+[2025-06-15 12:57:26] Requête GET pour la liste des rendez-vous
+[2025-06-15 12:57:26] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-15 12:57:28] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 12:57:28] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 12:57:28] Utilisateur authentifié: userId=1
+[2025-06-15 12:57:28] Rôle de l'utilisateur: role=medecin
+[2025-06-15 12:57:28] Médecin identifié: medecinId=1
+[2025-06-15 12:57:28] Requête GET pour la liste des rendez-vous
+[2025-06-15 12:57:28] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-15 12:58:37] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 12:58:37] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 12:58:37] Utilisateur authentifié: userId=1
+[2025-06-15 12:58:37] Rôle de l'utilisateur: role=medecin
+[2025-06-15 12:58:37] Médecin identifié: medecinId=1
+[2025-06-15 12:58:37] Requête GET pour la liste des rendez-vous
+[2025-06-15 12:58:37] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-15 12:58:38] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 12:58:38] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 12:58:38] Utilisateur authentifié: userId=1
+[2025-06-15 12:58:38] Rôle de l'utilisateur: role=medecin
+[2025-06-15 12:58:38] Médecin identifié: medecinId=1
+[2025-06-15 12:58:38] Requête GET pour la liste des rendez-vous
+[2025-06-15 12:58:38] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-15 13:05:19] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 13:05:20] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 13:05:20] Utilisateur authentifié: userId=1
+[2025-06-15 13:05:20] Rôle de l'utilisateur: role=medecin
+[2025-06-15 13:05:20] Médecin identifié: medecinId=1
+[2025-06-15 13:05:20] Requête GET pour la liste des rendez-vous
+[2025-06-15 13:05:20] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-15 13:05:21] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 13:05:21] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 13:05:21] Utilisateur authentifié: userId=1
+[2025-06-15 13:05:21] Rôle de l'utilisateur: role=medecin
+[2025-06-15 13:05:21] Médecin identifié: medecinId=1
+[2025-06-15 13:05:21] Requête GET pour la liste des rendez-vous
+[2025-06-15 13:05:21] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-15 16:03:49] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 16:03:49] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 16:03:51] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-15 16:03:51] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 16:03:58] JWT validation failed: Expired token - Token (partial): eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-15 16:03:58] JWT validation failed: Expired token - Token (partial): eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:09:27] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-16 12:09:27] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:09:28] JWT validation failed: Expired token - Token (partial): eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:09:31] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-16 12:09:31] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:09:31] JWT validation failed: Expired token - Token (partial): eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:09:35] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDk4OTk3NDAsImV4cCI6MTc0OTk4NjE0MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.4VqRmfOOdu0j2OHLyCzTZ55IJjpWIOdNZSGKQSx8ia4
+[2025-06-16 12:09:35] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:09:35] JWT validation failed: Expired token - Token (partial): eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:09:45] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNjg1ODMsImV4cCI6MTc1MDE1NDk4MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.hWafsXnjFQmJ8_lsuuKVw-TG2t2MNrgEVVdNIcO43sM
+[2025-06-16 12:09:45] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:09:45] Utilisateur authentifié: userId=1
+[2025-06-16 12:09:45] Rôle de l'utilisateur: role=medecin
+[2025-06-16 12:09:45] Médecin identifié: medecinId=1
+[2025-06-16 12:09:45] Requête GET pour la liste des rendez-vous
+[2025-06-16 12:09:45] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-16 12:09:48] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNjg1ODMsImV4cCI6MTc1MDE1NDk4MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.hWafsXnjFQmJ8_lsuuKVw-TG2t2MNrgEVVdNIcO43sM
+[2025-06-16 12:09:48] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:09:48] Utilisateur authentifié: userId=1
+[2025-06-16 12:09:48] Rôle de l'utilisateur: role=medecin
+[2025-06-16 12:09:48] Médecin identifié: medecinId=1
+[2025-06-16 12:09:48] Requête GET pour la liste des rendez-vous
+[2025-06-16 12:09:48] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-16 12:12:20] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNjg1ODMsImV4cCI6MTc1MDE1NDk4MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.hWafsXnjFQmJ8_lsuuKVw-TG2t2MNrgEVVdNIcO43sM
+[2025-06-16 12:12:20] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:12:20] Utilisateur authentifié: userId=1
+[2025-06-16 12:12:20] Rôle de l'utilisateur: role=medecin
+[2025-06-16 12:12:20] Médecin identifié: medecinId=1
+[2025-06-16 12:12:20] Requête GET pour la liste des rendez-vous
+[2025-06-16 12:12:20] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-16 12:12:29] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNjg1ODMsImV4cCI6MTc1MDE1NDk4MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.hWafsXnjFQmJ8_lsuuKVw-TG2t2MNrgEVVdNIcO43sM
+[2025-06-16 12:12:29] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:12:29] Utilisateur authentifié: userId=1
+[2025-06-16 12:12:29] Rôle de l'utilisateur: role=medecin
+[2025-06-16 12:12:29] Médecin identifié: medecinId=1
+[2025-06-16 12:12:29] Requête GET pour la liste des rendez-vous
+[2025-06-16 12:12:29] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-16 12:17:52] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNjg1ODMsImV4cCI6MTc1MDE1NDk4MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.hWafsXnjFQmJ8_lsuuKVw-TG2t2MNrgEVVdNIcO43sM
+[2025-06-16 12:17:52] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:17:52] Utilisateur authentifié: userId=1
+[2025-06-16 12:17:52] Rôle de l'utilisateur: role=medecin
+[2025-06-16 12:17:52] Médecin identifié: medecinId=1
+[2025-06-16 12:17:52] Requête POST pour planifier un rendez-vous
+[2025-06-16 12:17:53] Rendez-vous planifié avec ID: 9
+[2025-06-16 12:17:55] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNjg1ODMsImV4cCI6MTc1MDE1NDk4MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.hWafsXnjFQmJ8_lsuuKVw-TG2t2MNrgEVVdNIcO43sM
+[2025-06-16 12:17:55] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:17:55] Utilisateur authentifié: userId=1
+[2025-06-16 12:17:55] Rôle de l'utilisateur: role=medecin
+[2025-06-16 12:17:55] Médecin identifié: medecinId=1
+[2025-06-16 12:17:55] Requête GET pour la liste des rendez-vous
+[2025-06-16 12:17:55] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 9,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-16 10:12:00",
+        "motif": "maux de tete",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "test",
+        "type_rdv": "suivi"
+    }
+]
+[2025-06-16 12:18:31] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNjg1ODMsImV4cCI6MTc1MDE1NDk4MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.hWafsXnjFQmJ8_lsuuKVw-TG2t2MNrgEVVdNIcO43sM
+[2025-06-16 12:18:32] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 12:18:32] Utilisateur authentifié: userId=1
+[2025-06-16 12:18:32] Rôle de l'utilisateur: role=medecin
+[2025-06-16 12:18:32] Médecin identifié: medecinId=1
+[2025-06-16 12:18:32] Requête GET pour la liste des rendez-vous
+[2025-06-16 12:18:32] Rendez-vous trouvés: [
+    {
+        "id": 1,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-06-15 10:00:00",
+        "motif": "Consultation initiale",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 45,
+        "notes": "Prise de sang recommand?e",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 2,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-07-01 09:30:00",
+        "motif": "Suivi traitement",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 3,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2024-08-10 11:00:00",
+        "motif": "Contr?le g?n?ral",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 4,
+        "patient_id": 2,
+        "medecin_id": 1,
+        "nom": "dell",
+        "prenom": "modou",
+        "date_rdv": "2024-07-05 14:00:00",
+        "motif": "Consultation p?diatrique",
+        "statut": "termine",
+        "lieu": "Salle 3",
+        "duree": 45,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 5,
+        "patient_id": 3,
+        "medecin_id": 1,
+        "nom": "ayshu",
+        "prenom": "queen",
+        "date_rdv": "2024-08-12 15:00:00",
+        "motif": "IRM neurologique",
+        "statut": "termine",
+        "lieu": "Salle 4",
+        "duree": 90,
+        "notes": "Pr?parer IRM avec contraste",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 6,
+        "patient_id": 4,
+        "medecin_id": 1,
+        "nom": "mbacke",
+        "prenom": "amsatou",
+        "date_rdv": "2024-09-01 13:00:00",
+        "motif": "Consultation de routine",
+        "statut": "termine",
+        "lieu": "Salle 1",
+        "duree": 30,
+        "notes": "N\/A",
+        "type_rdv": "consultation"
+    },
+    {
+        "id": 7,
+        "patient_id": 5,
+        "medecin_id": 1,
+        "nom": "lam",
+        "prenom": "souleymane",
+        "date_rdv": "2024-09-10 09:00:00",
+        "motif": "Analyse scanner",
+        "statut": "termine",
+        "lieu": "Salle 2",
+        "duree": 60,
+        "notes": "N\/A",
+        "type_rdv": "urgence"
+    },
+    {
+        "id": 8,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-15 10:56:00",
+        "motif": "nause",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "urgent",
+        "type_rdv": "suivi"
+    },
+    {
+        "id": 9,
+        "patient_id": 1,
+        "medecin_id": 1,
+        "nom": "ndiaye",
+        "prenom": "kabyra",
+        "date_rdv": "2025-06-16 10:12:00",
+        "motif": "maux de tete",
+        "statut": "planifie",
+        "lieu": "salle 1",
+        "duree": 30,
+        "notes": "test",
+        "type_rdv": "suivi"
+    }
+]

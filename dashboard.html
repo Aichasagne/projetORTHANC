@@ -1074,6 +1074,48 @@
     </div>
 </div>
 
+<!-- gestion rendez vous -->
+<div id="schedule-appointment-modal" class="modal">
+    <div class="modal-content">
+        <h3 class="text-2xl font-semibold mb-6 text-white">Planifier un rendez-vous</h3>
+        <form id="schedule-appointment-form" class="space-y-5">
+            <input type="hidden" id="schedule-patient-id" name="patient_id">
+            <div class="input-group">
+                <input type="datetime-local" id="schedule-date-rdv" name="date_rdv" class="input-field" required>
+                <label for="schedule-date-rdv" class="input-label">Date et heure</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="schedule-motif" name="motif" class="input-field" required>
+                <label for="schedule-motif" class="input-label">Motif</label>
+            </div>
+            <div class="input-group">
+                <select id="schedule-type-rdv" name="type_rdv" class="input-field" required>
+                    <option value="consultation">Consultation</option>
+                    <option value="suivi">Suivi</option>
+                    <option value="urgence">Urgence</option>
+                </select>
+                <label for="schedule-type-rdv" class="input-label">Type</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="schedule-lieu" name="lieu" class="input-field">
+                <label for="schedule-lieu" class="input-label">Lieu (optionnel)</label>
+            </div>
+            <div class="input-group">
+                <input type="number" id="schedule-duree" name="duree" class="input-field" value="30" min="15" max="120">
+                <label for="schedule-duree" class="input-label">Durée (min)</label>
+            </div>
+            <div class="input-group">
+                <textarea id="schedule-notes" name="notes" class="input-field"></textarea>
+                <label for="schedule-notes" class="input-label">Notes (optionnel)</label>
+            </div>
+            <div class="flex justify-end space-x-4">
+                <button type="button" class="px-5 py-2.5 text-gray-300 hover:text-white" onclick="closeScheduleAppointmentModal()">Annuler</button>
+                <button type="submit" class="btn-primary"><i class="fas fa-calendar-plus mr-2"></i> Planifier</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 
    <!-- Updated JavaScript section -->
 <!-- Updated JavaScript section -->
@@ -1364,27 +1406,188 @@
         } catch (error) { console.error('Erreur tableau de bord:', error); document.getElementById('dashboard-content').innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`; }
     }
 
-    async function loadAppointments() {
-        document.getElementById('dashboard-title').textContent = 'Mes rendez-vous';
-        document.getElementById('action-buttons').innerHTML = '<button class="btn-primary" onclick="openScheduleAppointmentModal()">Planifier un rendez-vous</button>';
-        document.getElementById('dashboard-content').innerHTML = '<div id="appointments-content"></div>';
-        try {
-            const response = await fetch('http://localhost/projet-medical/api/rendezvous.php', { headers: { 'Authorization': `Bearer ${token}` } });
-            const appointments = await response.json();
-            const content = document.getElementById('appointments-content');
-            if (appointments.length === 0) { content.innerHTML = '<p class="p-4 text-center text-gray-400">Aucun rendez-vous trouvé.</p>'; return; }
-            const table = document.createElement('table');
-            table.className = 'w-full text-left table-auto';
-            table.innerHTML = `<thead><tr><th class="p-4">ID</th><th class="p-4">Patient</th><th class="p-4">Date</th><th class="p-4">Motif</th><th class="p-4">Statut</th></tr></thead><tbody></tbody>`;
-            appointments.forEach(appt => {
-                const fullName = `${appt.prenom} ${appt.nom}`;
-                const row = document.createElement('tr');
-                row.innerHTML = `<td class="p-4 w-12">${appt.id}</td><td class="p-4 truncate max-w-xs">${fullName}</td><td class="p-4 w-32">${new Date(appt.date_rdv).toLocaleString('fr-FR')}</td><td class="p-4 truncate max-w-xs">${appt.motif}</td><td class="p-4 w-16">${appt.statut}</td>`;
-                table.querySelector('tbody').appendChild(row);
-            });
-            content.appendChild(table);
-        } catch (error) { console.error('Erreur rendez-vous:', error); document.getElementById('appointments-content').innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`; }
+    <!-- appointement -->
+
+    function openScheduleAppointmentModal(patientId) {
+    document.getElementById('schedule-patient-id').value = patientId || '';
+    document.getElementById('schedule-date-rdv').value = new Date().toISOString().slice(0, 16);
+    document.getElementById('schedule-motif').value = '';
+    document.getElementById('schedule-type-rdv').value = 'consultation';
+    document.getElementById('schedule-lieu').value = '';
+    document.getElementById('schedule-duree').value = 30;
+    document.getElementById('schedule-notes').value = '';
+    openModal('schedule-appointment-modal');
+}
+
+function closeScheduleAppointmentModal() { closeModal('schedule-appointment-modal'); }
+
+function loadAppointments() {
+       const dashboardTitle = document.getElementById('dashboard-title');
+       const actionButtons = document.getElementById('action-buttons');
+       const dashboardContent = document.getElementById('dashboard-content');
+       if (!dashboardTitle || !actionButtons || !dashboardContent) {
+           console.error('Un des éléments DOM est manquant:', { dashboardTitle, actionButtons, dashboardContent });
+           return;
+       }
+
+       dashboardTitle.textContent = 'Mes rendez-vous';
+       actionButtons.innerHTML = '<button class="btn-primary" onclick="openScheduleAppointmentModal()">Planifier un rendez-vous</button>';
+       dashboardContent.innerHTML = `
+           <div class="filters mb-4 flex items-center gap-4">
+               <select id="filter-status" class="bg-gray-800 border border-gray-600 text-white rounded-lg px-4 py-2">
+                   <option value="">Tous les statuts</option>
+                   <option value="termine">Terminé</option>
+                   <option value="en_attente">En attente</option>
+                   <option value="annule">Annulé</option>
+                   <option value="planifie">Planifié</option>
+               </select>
+               <input type="date" id="filter-date" class="bg-gray-800 border border-gray-600 text-white rounded-lg px-4 py-2">
+               <input type="text" id="filter-patient" placeholder="Nom/Prénom" class="bg-gray-800 border border-gray-600 text-white rounded-lg px-4 py-2">
+           </div>
+           <div id="appointments-content"></div>
+       `;
+
+       fetch('http://localhost/projet-medical/api/rendezvous.php', {
+           headers: { 'Authorization': `Bearer ${token}` }
+       })
+       .then(response => {
+           if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+           return response.text();
+       })
+       .then(text => {
+           console.log('Réponse brute du serveur:', text);
+           try {
+               const appointments = JSON.parse(text);
+               const content = document.getElementById('appointments-content');
+               if (!content) {
+                   console.error('appointments-content est null');
+                   return;
+               }
+               if (appointments.length === 0) {
+                   content.innerHTML = '<p class="p-4 text-center text-gray-400">Aucun rendez-vous trouvé.</p>';
+                   return;
+               }
+               const table = document.createElement('table');
+               table.className = 'w-full text-left table-auto';
+               table.innerHTML = `<thead><tr><th class="p-4">ID</th><th class="p-4">Patient</th><th class="p-4">Date</th><th class="p-4">Motif</th><th class="p-4">Statut</th><th class="p-4">Actions</th></tr></thead><tbody></tbody>`;
+               const tbody = table.querySelector('tbody');
+               appointments.forEach(appt => {
+                   const fullName = `${appt.prenom} ${appt.nom}`;
+                   const statusColor = {
+                       'termine': 'bg-green-500',
+                       'en_attente': 'bg-yellow-500',
+                       'annule': 'bg-red-500',
+                       'planifie': 'bg-blue-500'
+                   }[appt.statut] || 'bg-gray-500';
+                   const row = document.createElement('tr');
+                   row.innerHTML = `
+                       <td class="p-4 w-12">${appt.id}</td>
+                       <td class="p-4 truncate max-w-xs">${fullName}</td>
+                       <td class="p-4 w-32">${new Date(appt.date_rdv).toLocaleString('fr-FR')}</td>
+                       <td class="p-4 truncate max-w-xs">${appt.motif}</td>
+                       <td class="p-4 w-16"><span class="px-2 py-1 rounded-full text-white ${statusColor}">${appt.statut}</span></td>
+                       <td class="p-4"><button class="btn-primary action-btn" onclick="openScheduleAppointmentModal(${appt.patient_id})"><i class="fas fa-edit"></i></button></td>
+                   `;
+                   tbody.appendChild(row);
+               });
+               content.appendChild(table);
+
+               document.getElementById('filter-status').addEventListener('change', filterAppointments);
+               document.getElementById('filter-date').addEventListener('change', filterAppointments);
+               document.getElementById('filter-patient').addEventListener('input', filterAppointments);
+
+               function filterAppointments() {
+                   const status = document.getElementById('filter-status').value;
+                   const date = document.getElementById('filter-date').value;
+                   const patient = document.getElementById('filter-patient').value.toLowerCase();
+                   tbody.innerHTML = '';
+                   appointments.forEach(appt => {
+                       const matchStatus = !status || appt.statut === status;
+                       const matchDate = !date || new Date(appt.date_rdv).toISOString().split('T')[0] === date;
+                       const matchPatient = !patient || `${appt.prenom} ${appt.nom}`.toLowerCase().includes(patient);
+                       if (matchStatus && matchDate && matchPatient) {
+                           const row = document.createElement('tr');
+                           const statusColor = {
+                               'termine': 'bg-green-500',
+                               'en_attente': 'bg-yellow-500',
+                               'annule': 'bg-red-500',
+                               'planifie': 'bg-blue-500'
+                           }[appt.statut] || 'bg-gray-500';
+                           row.innerHTML = `
+                               <td class="p-4 w-12">${appt.id}</td>
+                               <td class="p-4 truncate max-w-xs">${appt.prenom} ${appt.nom}</td>
+                               <td class="p-4 w-32">${new Date(appt.date_rdv).toLocaleString('fr-FR')}</td>
+                               <td class="p-4 truncate max-w-xs">${appt.motif}</td>
+                               <td class="p-4 w-16"><span class="px-2 py-1 rounded-full text-white ${statusColor}">${appt.statut}</span></td>
+                               <td class="p-4"><button class="btn-primary action-btn" onclick="openScheduleAppointmentModal(${appt.patient_id})"><i class="fas fa-edit"></i></button></td>
+                           `;
+                           tbody.appendChild(row);
+                       }
+                   });
+               }
+           } catch (e) {
+               console.error('Erreur JSON:', e);
+               const content = document.getElementById('appointments-content');
+               if (content) {
+                   content.innerHTML = `<p class="text-red-400">Erreur: Données invalides reçues du serveur. Voir la console pour détails.</p>`;
+               } else {
+                   console.error('appointments-content est null lors de l\'erreur');
+               }
+           }
+       })
+       .catch(error => {
+           console.error('Erreur rendez-vous:', error);
+           const content = document.getElementById('appointments-content');
+           if (content) {
+               content.innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
+           } else {
+               console.error('appointments-content est null lors de l\'erreur catch');
+           }
+       });
+   }
+
+   // Définition de openScheduleAppointmentModal si elle n'existe pas
+   function openScheduleAppointmentModal(patientId) {
+       const modal = document.getElementById('schedule-appointment-modal');
+       if (modal) {
+           document.getElementById('schedule-patient-id').value = patientId || '';
+           document.getElementById('schedule-date-rdv').value = new Date().toISOString().slice(0, 16);
+           document.getElementById('schedule-motif').value = '';
+           document.getElementById('schedule-type-rdv').value = 'consultation';
+           document.getElementById('schedule-lieu').value = '';
+           document.getElementById('schedule-duree').value = 30;
+           document.getElementById('schedule-notes').value = '';
+           modal.style.display = 'block'; // Ou utilisez une fonction openModal si définie
+       } else {
+           console.error('Modal non trouvé');
+       }
+   }
+
+document.getElementById('schedule-appointment-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const patientId = document.getElementById('schedule-patient-id').value;
+    const dateRdv = document.getElementById('schedule-date-rdv').value;
+    const motif = document.getElementById('schedule-motif').value;
+    const typeRdv = document.getElementById('schedule-type-rdv').value;
+    const lieu = document.getElementById('schedule-lieu').value || null;
+    const duree = document.getElementById('schedule-duree').value || 30;
+    const notes = document.getElementById('schedule-notes').value || null;
+
+    try {
+        const response = await fetch('http://localhost/projet-medical/api/rendezvous.php', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ patient_id: patientId, date_rdv: dateRdv, motif, type_rdv: typeRdv, lieu, duree, notes })
+        });
+        if (!response.ok) throw new Error((await response.json()).error);
+        alert('Rendez-vous planifié avec succès !');
+        closeScheduleAppointmentModal();
+        loadAppointments();
+    } catch (error) {
+        console.error('Erreur planification:', error);
+        alert('Erreur: ' + error.message);
     }
+});
 
     async function loadPatientsList() {
         document.getElementById('dashboard-title').textContent = 'Liste des Patients';
@@ -2010,8 +2213,92 @@
 
     let isEditingMedicalRecord = false;
 
-   async function openMedicalRecordModal(patientId) {
+async function openMedicalRecordModal(patientId) {
+    console.log(`Ouverture du dossier médical pour patientId: ${patientId}`);
+    const modal = document.getElementById('medical-record-modal');
+    if (!modal) {
+        console.error('Modal non trouvé');
+        alert('Erreur: Modal non trouvé.');
+        return;
+    }
 
+    if (!token || !token.trim()) {
+        console.error('Token manquant ou vide dans openMedicalRecordModal');
+        alert('Session expirée. Veuillez vous reconnecter.');
+        logout();
+        return;
+    }
+
+    console.log('Token utilisé:', token.substring(0, 20) + '...');
+    const headers = {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    };
+
+    try {
+        const response = await fetch(`http://localhost/projet-medical/api/medical-records.php?patientId=${patientId}`, {
+            method: 'GET',
+            headers: headers
+        });
+        console.log('Requête vers:', response.url);
+        console.log('Réponse reçue, statut:', response.status);
+
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Données reçues après parsing:', data);
+
+        const modalContent = modal.querySelector('.modal-content') || modal;
+        modalContent.innerHTML = `
+            <button onclick="closeMedicalRecordModal()" class="text-white absolute top-2 right-2 z-10 bg-gray-800 p-1 rounded-full hover:bg-gray-700" style="line-height: 1;">X</button>
+            <h2 class="text-2xl text-cyan-400 mb-4">Dossier Médical - Patient ID: ${patientId}</h2>
+            <input type="hidden" id="medical-record-patient-id" value="${patientId}">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
+                    <h4 class="text-lg font-semibold text-cyan-400 mb-2">État de Santé</h4>
+                    <p class="text-gray-300">${data.etat_sante || 'Non disponible'}</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
+                    <h4 class="text-lg font-semibold text-cyan-400 mb-2">Allergies</h4>
+                    <p class="text-gray-300">${data.allergies || 'Aucune'}</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
+                    <h4 class="text-lg font-semibold text-cyan-400 mb-2">Groupe Sanguin</h4>
+                    <p class="text-gray-300">${data.groupe_sanguin || 'Non défini'}</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
+                    <h4 class="text-lg font-semibold text-cyan-400 mb-2">Antécédents Familiaux</h4>
+                    <p class="text-gray-300">${data.antecedents_familiaux || 'Aucun'}</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg shadow-inner">
+                    <h4 class="text-lg font-semibold text-cyan-400 mb-2">Dernière Mise à Jour</h4>
+                    <p class="text-gray-300">${data.last_updated ? new Date(data.last_updated).toLocaleString('fr-FR') : new Date().toLocaleString('fr-FR')}</p>
+                </div>
+            </div>
+            <div class="mt-6 flex justify-between">
+                <div>
+                    <button onclick="toggleEditMedicalRecord(${patientId})" class="btn-primary mr-2"><i class="fas fa-edit mr-2"></i> Modifier</button>
+                    <button onclick="shareMedicalRecord(${patientId})" class="btn-primary"><i class="fas fa-share mr-2"></i> Partager</button>
+                </div>
+                <button type="button" class="btn-primary" onclick="downloadMedicalRecord()"><i class="fas fa-download mr-2"></i> Télécharger</button>
+            </div>
+        `;
+
+        openModal('medical-record-modal');
+    } catch (error) {
+        console.error('Erreur lors de l\'ouverture du dossier médical:', error);
+        const modalContent = modal.querySelector('.modal-content') || modal;
+        modalContent.innerHTML = `
+            <button onclick="closeMedicalRecordModal()" class="text-white absolute top-2 right-2 z-10 bg-gray-800 p-1 rounded-full hover:bg-gray-700" style="line-height: 1;">X</button>
+            <h2 class="text-2xl text-cyan-400 mb-4">Dossier Médical - Patient ID: ${patientId}</h2>
+            <p class="text-red-400">Erreur: Impossible de charger les données. ${error.message}</p>
+        `;
+        openModal('medical-record-modal');
+    }
+}
     
 
    
