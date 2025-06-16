@@ -349,3 +349,6 @@ type_rdv = CASE
     WHEN motif LIKE '%IRM%' OR motif LIKE '%scanner%' THEN 'urgence'
     ELSE 'consultation'
 END;
+
+ALTER TABLE rendezvous
+MODIFY COLUMN statut ENUM('planifie', 'en_attente', 'termine', 'annule') NOT NULL;

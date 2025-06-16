@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json; charset=UTF-8');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
 header('Access-Control-Allow-Headers: Authorization, Content-Type, Accept');
 
 ini_set('display_errors', 0);
@@ -109,46 +109,86 @@ try {
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        debugLog("Requête GET pour la liste des rendez-vous");
+        debugLog("Requête GET pour la liste ou un rendez-vous spécifique");
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $stmt = $pdo->prepare("SELECT r.id, r.patient_id, r.medecin_id, r.date_rdv, r.motif, r.statut, r.lieu, r.duree, r.notes, r.type_rdv,
+                                  p.user_id, u.nom, u.prenom
+                                  FROM rendezvous r
+                                  INNER JOIN patients p ON r.patient_id = p.id
+                                  INNER JOIN users u ON p.user_id = u.id
+                                  WHERE r.id = ?");
+            $stmt->execute([$id]);
+            $appointment = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($appointment) {
+                $result = [
+                    'id' => (int)$appointment['id'],
+                    'patient_id' => (int)$appointment['patient_id'],
+                    'medecin_id' => (int)$appointment['medecin_id'],
+                    'nom' => $appointment['nom'] ?? 'N/A',
+                    'prenom' => $appointment['prenom'] ?? 'N/A',
+                    'date_rdv' => $appointment['date_rdv'] ?? 'N/A',
+                    'motif' => $appointment['motif'] ?? 'N/A',
+                    'statut' => $appointment['statut'] ?? 'N/A',
+                    'lieu' => $appointment['lieu'] ?? 'N/A',
+                    'duree' => (int)$appointment['duree'],
+                    'notes' => $appointment['notes'] ?? 'N/A',
+                    'type_rdv' => $appointment['type_rdv'] ?? 'N/A'
+                ];
+                debugLog("Rendez-vous trouvé avec ID: $id");
+                sendResponse(200, $result);
+            } else {
+                debugLog("Rendez-vous non trouvé avec ID: $id");
+                sendResponse(404, ['error' => 'Rendez-vous non trouvé']);
+            }
+        } elseif (isset($_GET['checkConflict']) && isset($_GET['date_rdv']) && isset($_GET['patient_id'])) {
+            $dateRdv = $_GET['date_rdv'];
+            $patientId = $_GET['patient_id'];
+            $stmt = $pdo->prepare("SELECT COUNT(*) as count FROM rendezvous WHERE date_rdv = ? AND patient_id != ? AND medecin_id = ?");
+            $stmt->execute([$dateRdv, $patientId, $medecinId]);
+            $conflict = $stmt->fetchColumn() > 0;
+            debugLog("Vérification de conflit pour date $dateRdv, patient $patientId: " . ($conflict ? 'Conflit' : 'Pas de conflit'));
+            sendResponse(200, ['conflict' => $conflict]);
+        } else {
+            $sql = "
+                SELECT r.id, r.patient_id, r.medecin_id, r.date_rdv, r.motif, r.statut, r.lieu, r.duree, r.notes, r.type_rdv,
+                       p.user_id, u.nom, u.prenom
+                FROM rendezvous r
+                INNER JOIN patients p ON r.patient_id = p.id
+                INNER JOIN users u ON p.user_id = u.id
+            ";
+            $params = [];
+            if ($role === 'medecin' && $medecinId) {
+                $sql .= " WHERE r.medecin_id = :medecin_id";
+                $params[':medecin_id'] = $medecinId;
+            }
+            $stmt = $pdo->prepare($sql);
+            foreach ($params as $key => $value) {
+                $stmt->bindValue($key, $value, PDO::PARAM_INT);
+            }
+            $stmt->execute();
 
-        $sql = "
-            SELECT r.id, r.patient_id, r.medecin_id, r.date_rdv, r.motif, r.statut, r.lieu, r.duree, r.notes, r.type_rdv,
-                   p.user_id, u.nom, u.prenom
-            FROM rendezvous r
-            INNER JOIN patients p ON r.patient_id = p.id
-            INNER JOIN users u ON p.user_id = u.id
-        ";
-        $params = [];
-        if ($role === 'medecin' && $medecinId) {
-            $sql .= " WHERE r.medecin_id = :medecin_id";
-            $params[':medecin_id'] = $medecinId;
+            $rendezvous = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = array_map(function($r) {
+                return [
+                    'id' => (int)$r['id'],
+                    'patient_id' => (int)$r['patient_id'],
+                    'medecin_id' => (int)$r['medecin_id'],
+                    'nom' => $r['nom'] ?? 'N/A',
+                    'prenom' => $r['prenom'] ?? 'N/A',
+                    'date_rdv' => $r['date_rdv'] ?? 'N/A',
+                    'motif' => $r['motif'] ?? 'N/A',
+                    'statut' => $r['statut'] ?? 'N/A',
+                    'lieu' => $r['lieu'] ?? 'N/A',
+                    'duree' => (int)$r['duree'],
+                    'notes' => $r['notes'] ?? 'N/A',
+                    'type_rdv' => $r['type_rdv'] ?? 'N/A'
+                ];
+            }, $rendezvous);
+
+            debugLog("Rendez-vous trouvés: " . json_encode($result, JSON_PRETTY_PRINT));
+            sendResponse(200, $result);
         }
-        $stmt = $pdo->prepare($sql);
-        foreach ($params as $key => $value) {
-            $stmt->bindValue($key, $value, PDO::PARAM_INT);
-        }
-        $stmt->execute();
-
-        $rendezvous = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $result = array_map(function($r) {
-            return [
-                'id' => (int)$r['id'],
-                'patient_id' => (int)$r['patient_id'],
-                'medecin_id' => (int)$r['medecin_id'],
-                'nom' => $r['nom'] ?? 'N/A',
-                'prenom' => $r['prenom'] ?? 'N/A',
-                'date_rdv' => $r['date_rdv'] ?? 'N/A',
-                'motif' => $r['motif'] ?? 'N/A',
-                'statut' => $r['statut'] ?? 'N/A',
-                'lieu' => $r['lieu'] ?? 'N/A',
-                'duree' => (int)$r['duree'],
-                'notes' => $r['notes'] ?? 'N/A',
-                'type_rdv' => $r['type_rdv'] ?? 'N/A'
-            ];
-        }, $rendezvous);
-
-        debugLog("Rendez-vous trouvés: " . json_encode($result, JSON_PRETTY_PRINT));
-        sendResponse(200, $result);
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
         debugLog("Requête POST pour planifier un rendez-vous");
         $input = json_decode(file_get_contents('php://input'), true);
@@ -175,6 +215,36 @@ try {
         $rendezvousId = $pdo->lastInsertId();
         debugLog("Rendez-vous planifié avec ID: $rendezvousId");
         sendResponse(201, ['id' => (int)$rendezvousId, 'message' => 'Rendez-vous planifié avec succès']);
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+        debugLog("Requête PUT pour mettre à jour un rendez-vous");
+        $input = json_decode(file_get_contents('php://input'), true);
+        $id = $_GET['id'];
+
+        if (!isset($input['patient_id']) || !isset($input['date_rdv']) || !isset($input['motif']) || !$id) {
+            debugLog('Données manquantes pour la mise à jour');
+            sendResponse(400, ['error' => 'Données manquantes (id, patient_id, date_rdv, motif requis)']);
+        }
+
+        $patientId = $input['patient_id'];
+        $dateRdv = $input['date_rdv'];
+        $motif = $input['motif'];
+        $medecinId = $role === 'medecin' ? $medecinId : null;
+        $statut = $input['statut'] ?? 'planifie'; // Add statut from input with default
+        $lieu = $input['lieu'] ?? null;
+        $duree = $input['duree'] ?? 30;
+        $notes = $input['notes'] ?? null;
+        $typeRdv = $input['type_rdv'] ?? 'consultation';
+
+        $stmt = $pdo->prepare("UPDATE rendezvous SET patient_id = ?, medecin_id = ?, date_rdv = ?, motif = ?, statut = ?, lieu = ?, duree = ?, notes = ?, type_rdv = ? WHERE id = ?");
+        $stmt->execute([$patientId, $medecinId, $dateRdv, $motif, $statut, $lieu, $duree, $notes, $typeRdv, $id]);
+
+        if ($stmt->rowCount() > 0) {
+            debugLog("Rendez-vous mis à jour avec ID: $id, new statut: $statut");
+            sendResponse(200, ['message' => 'Rendez-vous mis à jour avec succès']);
+        } else {
+            debugLog("Aucun rendez-vous trouvé pour mise à jour avec ID: $id");
+            sendResponse(404, ['error' => 'Rendez-vous non trouvé']);
+        }
     } else {
         debugLog('Méthode non prise en charge');
         sendResponse(405, ['error' => 'Méthode non prise en charge']);
