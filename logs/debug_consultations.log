@@ -2844,3 +2844,385 @@ Tachycardie d?tect?e lors de l'ECG du 16 juinCholest?rol ?lev? au bilan du 2 jui
 [2025-06-16 14:30:17] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
 [2025-06-16 14:30:17] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
 [2025-06-16 14:30:17] Utilisateur authentifié: userId=1
+[2025-06-16 17:18:58] Request method: GET
+[2025-06-16 17:18:58] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:18:58] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:18:58] Utilisateur authentifié: userId=1
+[2025-06-16 17:19:27] Request method: POST
+[2025-06-16 17:19:27] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:19:27] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:19:27] Utilisateur authentifié: userId=1
+[2025-06-16 17:19:27] POST data received: patient_id=1, date_consultation=2025-06-16T15:19, diagnostic=test, prescription=test
+[2025-06-16 17:19:28] Consultation ajoutée avec ID: 57
+[2025-06-16 17:19:28] Prescription ajoutée avec consultation_id: 57, details: test
+[2025-06-16 17:19:28] $_FILES content: {"file":{"name":"image-00044.dcm","full_path":"image-00044.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\php30E6.tmp","error":0,"size":100332}}
+[2025-06-16 17:19:37] Request method: POST
+[2025-06-16 17:19:37] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:19:37] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:19:37] Utilisateur authentifié: userId=1
+[2025-06-16 17:19:37] POST data received: patient_id=1, date_consultation=2025-06-16T15:19, diagnostic=test, prescription=test
+[2025-06-16 17:19:37] Consultation ajoutée avec ID: 58
+[2025-06-16 17:19:37] Prescription ajoutée avec consultation_id: 58, details: test
+[2025-06-16 17:19:37] $_FILES content: {"file":{"name":"image-00044.dcm","full_path":"image-00044.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\php5875.tmp","error":0,"size":100332}}
+[2025-06-16 17:19:41] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"95a765a0-a0e34031-cb5bfbb9-c2bd35ca-7d06892a","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/95a765a0-a0e34031-cb5bfbb9-c2bd35ca-7d06892a","Status":"Success","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"1","customInstanceId":"PATIENT-1-20250616171928"}
+[2025-06-16 17:19:41] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"95a765a0-a0e34031-cb5bfbb9-c2bd35ca-7d06892a","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/95a765a0-a0e34031-cb5bfbb9-c2bd35ca-7d06892a","Status":"AlreadyStored","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"1","customInstanceId":"PATIENT-1-20250616171937"}
+[2025-06-16 17:19:41] DICOM ajouté avec orthanc_instance_id: 95a765a0-a0e34031-cb5bfbb9-c2bd35ca-7d06892a
+[2025-06-16 17:19:41] DICOM ajouté avec orthanc_instance_id: 95a765a0-a0e34031-cb5bfbb9-c2bd35ca-7d06892a
+[2025-06-16 17:19:43] Request method: GET
+[2025-06-16 17:19:43] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:19:43] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:19:43] Utilisateur authentifié: userId=1
+[2025-06-16 17:19:45] Request method: GET
+[2025-06-16 17:19:45] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:19:45] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:19:45] Utilisateur authentifié: userId=1
+[2025-06-16 17:19:48] Request method: GET
+[2025-06-16 17:19:48] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:19:48] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwNzY3NzksImV4cCI6MTc1MDE2MzE3OSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.05jCxelBfkrjwXDkwAdsj52ZfEwT75HpdpBbVN23qZE
+[2025-06-16 17:19:48] Utilisateur authentifié: userId=1
+[2025-06-16 18:56:56] Request method: GET
+[2025-06-16 18:56:56] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTI3MzEsImV4cCI6MTc1MDE3OTEzMSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.YyI8QWvJz8TPfE6muNTKwb3fNslB9oLGwm_dK0iqAx4
+[2025-06-16 18:56:56] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTI3MzEsImV4cCI6MTc1MDE3OTEzMSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.YyI8QWvJz8TPfE6muNTKwb3fNslB9oLGwm_dK0iqAx4
+[2025-06-16 18:56:56] Utilisateur authentifié: userId=1
+[2025-06-16 18:57:18] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTI3MzEsImV4cCI6MTc1MDE3OTEzMSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.YyI8QWvJz8TPfE6muNTKwb3fNslB9oLGwm_dK0iqAx4
+[2025-06-16 18:57:18] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 18:57:18] Utilisateur authentifié: userId=1
+[2025-06-16 18:57:18] Records found for patientId: 2 - Data: Array
+(
+    [descriptions] => Inflammation d?tect?e ? la radio p?diatrique
+    [etat_sante] => ? surveille
+    [allergies] => Aucun connu
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 12:26:56
+    [groupe_sanguin] => B+
+    [nom_medecin] => 
+)
+
+[2025-06-16 19:02:32] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTI3MzEsImV4cCI6MTc1MDE3OTEzMSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.YyI8QWvJz8TPfE6muNTKwb3fNslB9oLGwm_dK0iqAx4
+[2025-06-16 19:02:32] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 19:02:32] Utilisateur authentifié: userId=1
+[2025-06-16 19:02:32] Records found for patientId: 2 - Data: Array
+(
+    [descriptions] => Inflammation d?tect?e ? la radio p?diatrique
+    [etat_sante] => ? surveille
+    [allergies] => Aucun connu
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 12:26:56
+    [groupe_sanguin] => B+
+    [nom_medecin] => 
+)
+
+[2025-06-16 19:10:24] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTI3MzEsImV4cCI6MTc1MDE3OTEzMSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.YyI8QWvJz8TPfE6muNTKwb3fNslB9oLGwm_dK0iqAx4
+[2025-06-16 19:10:24] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 19:10:24] Utilisateur authentifié: userId=1
+[2025-06-16 19:10:24] Records found for patientId: 2 - Data: Array
+(
+    [descriptions] => Inflammation d?tect?e ? la radio p?diatrique
+    [etat_sante] => ? surveille
+    [allergies] => Aucun connu
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 12:26:56
+    [groupe_sanguin] => B+
+    [nom_medecin] => 
+)
+
+[2025-06-16 19:15:46] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTI3MzEsImV4cCI6MTc1MDE3OTEzMSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.YyI8QWvJz8TPfE6muNTKwb3fNslB9oLGwm_dK0iqAx4
+[2025-06-16 19:15:46] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 19:15:46] Utilisateur authentifié: userId=1
+[2025-06-16 19:15:46] Records found for patientId: 2 - Data: Array
+(
+    [descriptions] => Inflammation d?tect?e ? la radio p?diatrique
+    [etat_sante] => ? surveille
+    [allergies] => Aucun connu
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 12:26:56
+    [groupe_sanguin] => B+
+    [nom_medecin] => 
+)
+
+[2025-06-16 19:20:45] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTI3MzEsImV4cCI6MTc1MDE3OTEzMSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.YyI8QWvJz8TPfE6muNTKwb3fNslB9oLGwm_dK0iqAx4
+[2025-06-16 19:20:45] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 19:20:45] Utilisateur authentifié: userId=1
+[2025-06-16 19:20:45] Records found for patientId: 2 - Data: Array
+(
+    [descriptions] => Inflammation d?tect?e ? la radio p?diatrique
+    [etat_sante] => ? surveille
+    [allergies] => Aucun connu
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 12:26:56
+    [groupe_sanguin] => B+
+    [nom_medecin] => 
+    [patient_full_name] => modou dell
+)
+
+[2025-06-16 19:21:22] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTI3MzEsImV4cCI6MTc1MDE3OTEzMSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.YyI8QWvJz8TPfE6muNTKwb3fNslB9oLGwm_dK0iqAx4
+[2025-06-16 19:21:22] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 19:21:22] Utilisateur authentifié: userId=1
+[2025-06-16 19:21:22] Records found for patientId: 2 - Data: Array
+(
+    [descriptions] => Inflammation d?tect?e ? la radio p?diatrique
+    [etat_sante] => ? surveille
+    [allergies] => Aucun connu
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 12:26:56
+    [groupe_sanguin] => B+
+    [nom_medecin] => 
+)
+
+[2025-06-16 20:52:46] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:52:46] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 20:52:46] Utilisateur authentifié: userId=1
+[2025-06-16 20:52:46] Records found for patientId: 3 - Data: Array
+(
+    [descriptions] => IRM c?r?brale normale
+    [etat_sante] => Stable
+    [allergies] => Aucune connue
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-13 01:59:36
+    [groupe_sanguin] => AB-
+    [nom_medecin] => 
+)
+
+[2025-06-16 20:52:56] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:52:56] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 20:52:56] Utilisateur authentifié: userId=1
+[2025-06-16 20:52:56] Records found for patientId: 3 - Data: Array
+(
+    [descriptions] => IRM c?r?brale normale
+    [etat_sante] => Stable
+    [allergies] => Aucune connue
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-13 01:59:36
+    [groupe_sanguin] => AB-
+    [nom_medecin] => 
+)
+
+[2025-06-16 20:53:04] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:53:04] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 20:53:04] Utilisateur authentifié: userId=1
+[2025-06-16 20:53:04] Received JSON data: Array
+(
+    [patientId] => 3
+    [descriptions] => IRM c?r?brale normale
+    [etat_sante] => Stablite
+    [allergies] => Aucune connue
+    [antecedents_familiaux] => Aucun connu
+    [groupe_sanguin] => AB-
+)
+
+[2025-06-16 20:53:04] Received JSON data: Array
+(
+    [patientId] => 3
+    [descriptions] => IRM c?r?brale normale
+    [etat_sante] => Stablite
+    [allergies] => Aucune connue
+    [antecedents_familiaux] => Aucun connu
+    [groupe_sanguin] => AB-
+)
+
+[2025-06-16 20:53:04] Update/Insert successful for patientId: 3 - Data: Array
+(
+    [patientId] => 3
+    [descriptions] => IRM c?r?brale normale
+    [etat_sante] => Stablite
+    [allergies] => Aucune connue
+    [antecedents_familiaux] => Aucun connu
+    [groupe_sanguin] => AB-
+)
+
+[2025-06-16 20:53:04] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:53:04] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 20:53:04] Utilisateur authentifié: userId=1
+[2025-06-16 20:53:04] Records found for patientId: 3 - Data: Array
+(
+    [descriptions] => IRM c?r?brale normale
+    [etat_sante] => Stablite
+    [allergies] => Aucune connue
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 18:53:04
+    [groupe_sanguin] => AB-
+    [nom_medecin] => 
+)
+
+[2025-06-16 20:53:11] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:53:11] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 20:53:11] Utilisateur authentifié: userId=1
+[2025-06-16 20:53:11] Records found for patientId: 3 - Data: Array
+(
+    [descriptions] => IRM c?r?brale normale
+    [etat_sante] => Stablite
+    [allergies] => Aucune connue
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 18:53:04
+    [groupe_sanguin] => AB-
+    [nom_medecin] => 
+)
+
+[2025-06-16 20:53:17] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:53:17] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 20:53:17] Utilisateur authentifié: userId=1
+[2025-06-16 20:53:17] Received JSON data: Array
+(
+    [patientId] => 3
+    [descriptions] => 
+    [etat_sante] => 
+    [allergies] => 
+    [antecedents_familiaux] => 
+    [groupe_sanguin] => 
+)
+
+[2025-06-16 20:53:17] Received JSON data: Array
+(
+    [patientId] => 3
+    [descriptions] => 
+    [etat_sante] => 
+    [allergies] => 
+    [antecedents_familiaux] => 
+    [groupe_sanguin] => 
+)
+
+[2025-06-16 20:53:17] Update/Insert successful for patientId: 3 - Data: Array
+(
+    [patientId] => 3
+    [descriptions] => 
+    [etat_sante] => 
+    [allergies] => 
+    [antecedents_familiaux] => 
+    [groupe_sanguin] => 
+)
+
+[2025-06-16 20:53:50] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:53:50] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-16 20:53:50] Utilisateur authentifié: userId=1
+[2025-06-16 20:53:50] Records found for patientId: 3 - Data: Array
+(
+    [descriptions] => IRM c?r?brale normale
+    [etat_sante] => Stablite
+    [allergies] => Aucune connue
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 18:53:04
+    [groupe_sanguin] => AB-
+    [nom_medecin] => 
+)
+
+[2025-06-16 20:54:33] Request method: GET
+[2025-06-16 20:54:33] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:54:33] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:54:33] Utilisateur authentifié: userId=1
+[2025-06-16 20:54:39] Request method: GET
+[2025-06-16 20:54:39] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:54:39] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:54:39] Utilisateur authentifié: userId=1
+[2025-06-16 20:54:41] Request method: GET
+[2025-06-16 20:54:41] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:54:41] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:54:41] Utilisateur authentifié: userId=1
+[2025-06-16 20:54:44] Request method: GET
+[2025-06-16 20:54:44] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:54:44] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:54:44] Utilisateur authentifié: userId=1
+[2025-06-16 20:55:25] Request method: POST
+[2025-06-16 20:55:25] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:55:25] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:55:25] Utilisateur authentifié: userId=1
+[2025-06-16 20:55:25] POST data received: patient_id=4, date_consultation=2025-06-16T18:55, diagnostic=test, prescription=test
+[2025-06-16 20:55:25] Consultation ajoutée avec ID: 59
+[2025-06-16 20:55:25] Prescription ajoutée avec consultation_id: 59, details: test
+[2025-06-16 20:55:25] $_FILES content: {"file":{"name":"image-00010.dcm","full_path":"image-00010.dcm","type":"application\/octet-stream","tmp_name":"C:\\xampp\\tmp\\phpE8D2.tmp","error":0,"size":91554}}
+[2025-06-16 20:55:36] Réponse de proxy-orthanc.php: HTTP 200 - {"ID":"d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf","ParentPatient":"b6589fc6-ab0dc82c-f12099d1-c2d40ab9-94e8410c","ParentSeries":"98d367a5-58eeba8b-f3c2da4b-de7d8f6f-ede53eb2","ParentStudy":"3abaec0a-ebfaaa87-f830d52b-d62df074-6a692c12","Path":"\/instances\/d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf","Status":"AlreadyStored","studyInstanceUID":"1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170","patientId":"4","customInstanceId":"PATIENT-4-20250616205525"}
+[2025-06-16 20:55:36] DICOM ajouté avec orthanc_instance_id: d68ec84d-b86ce4ac-49fcd090-361954ca-da219abf
+[2025-06-16 20:55:39] Request method: GET
+[2025-06-16 20:55:39] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:55:39] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:55:39] Utilisateur authentifié: userId=1
+[2025-06-16 20:55:42] Request method: GET
+[2025-06-16 20:55:42] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:55:42] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-16 20:55:42] Utilisateur authentifié: userId=1
+[2025-06-17 00:31:13] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-17 00:31:13] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-17 00:31:14] Utilisateur authentifié: userId=1
+[2025-06-17 00:31:14] Records found for patientId: 3 - Data: Array
+(
+    [descriptions] => IRM c?r?brale normale
+    [etat_sante] => Stablite
+    [allergies] => Aucune connue
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 18:53:04
+    [groupe_sanguin] => AB-
+    [nom_medecin] => 
+)
+
+[2025-06-17 00:31:33] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-17 00:31:33] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-17 00:31:33] Utilisateur authentifié: userId=1
+[2025-06-17 00:31:33] Records found for patientId: 3 - Data: Array
+(
+    [descriptions] => IRM c?r?brale normale
+    [etat_sante] => Stablite
+    [allergies] => Aucune connue
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 18:53:04
+    [groupe_sanguin] => AB-
+    [nom_medecin] => 
+)
+
+[2025-06-17 00:31:54] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-17 00:31:54] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-17 00:31:54] Utilisateur authentifié: userId=1
+[2025-06-17 00:31:54] Records found for patientId: 3 - Data: Array
+(
+    [descriptions] => IRM c?r?brale normale
+    [etat_sante] => Stablite
+    [allergies] => Aucune connue
+    [antecedents_familiaux] => Aucun connu
+    [last_updated] => 2025-06-16 18:53:04
+    [groupe_sanguin] => AB-
+    [nom_medecin] => 
+)
+
+[2025-06-17 00:32:00] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-17 00:32:00] Token extracted: eyJ0eXAiOiJKV1QiLCJh...
+[2025-06-17 00:32:00] Utilisateur authentifié: userId=1
+[2025-06-17 00:32:00] Received JSON data: Array
+(
+    [patientId] => 3
+    [descriptions] => 
+    [etat_sante] => 
+    [allergies] => 
+    [antecedents_familiaux] => 
+    [groupe_sanguin] => 
+)
+
+[2025-06-17 00:32:00] Received JSON data: Array
+(
+    [patientId] => 3
+    [descriptions] => 
+    [etat_sante] => 
+    [allergies] => 
+    [antecedents_familiaux] => 
+    [groupe_sanguin] => 
+)
+
+[2025-06-17 00:32:00] Update/Insert successful for patientId: 3 - Data: Array
+(
+    [patientId] => 3
+    [descriptions] => 
+    [etat_sante] => 
+    [allergies] => 
+    [antecedents_familiaux] => 
+    [groupe_sanguin] => 
+)
+
+[2025-06-17 00:32:34] Request method: GET
+[2025-06-17 00:32:34] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-17 00:32:34] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-17 00:32:34] Utilisateur authentifié: userId=1
+[2025-06-17 00:33:25] Request method: GET
+[2025-06-17 00:33:25] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-17 00:33:25] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-17 00:33:25] Utilisateur authentifié: userId=1
+[2025-06-17 00:33:29] Request method: GET
+[2025-06-17 00:33:29] Authorization header: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-17 00:33:29] Token extracted: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTAwOTk4MzMsImV4cCI6MTc1MDE4NjIzMywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhaWNoYXNhZ25lQGVzcC5zbiIsInJvbGUiOiJtZWRlY2luIn19.AHHCbjoOojT_T4NQY21BeICY3bkNpCj9ArxQx43d9WI
+[2025-06-17 00:33:29] Utilisateur authentifié: userId=1

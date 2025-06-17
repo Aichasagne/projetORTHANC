@@ -711,19 +711,16 @@
 <body>
     <canvas id="bgCanvas"></canvas>
 
-    <div class="sidebar">
-        <div>
-            <h1 class="flex items-center gap-2">
-                <i class="fas fa-clinic-medical text-cyan-400"></i> TABLEAU DE BORD MÉDECIN
-            </h1>
-            <a href="#" id="dashboard-link"><i class="fas fa-tachometer-alt text-cyan-400"></i> Tableau de bord</a>
-            <a href="#" id="inter-hospital-link"><i class="fas fa-hospital text-cyan-400"></i> Accès inter-hôpital</a>
-            <a href="#" id="dicom-link"><i class="fas fa-image text-cyan-400"></i> Gestion DICOM</a>
-            <a href="#" id="appointments-link"><i class="fas fa-calendar-alt text-cyan-400"></i> Mes rendez-vous</a>
-            <a href="#" id="patients-list-link"><i class="fas fa-users text-cyan-400"></i> Liste des Patients</a>
-        </div>
-        <a href="#" id="logout-link"><i class="fas fa-sign-out-alt text-cyan-400"></i> Se déconnecter</a>
+   <div class="sidebar">
+    <div>
+        <h1 class="flex items-center gap-2">
+            <i class="fas fa-clinic-medical text-cyan-400"></i> TABLEAU DE BORD MÉDECIN
+        </h1>
+        <a href="#" id="appointments-link"><i class="fas fa-calendar-alt text-cyan-400"></i> Mes rendez-vous</a>
+        <a href="#" id="patients-list-link"><i class="fas fa-users text-cyan-400"></i> Liste des Patients</a>
     </div>
+    <a href="#" id="logout-link"><i class="fas fa-sign-out-alt text-cyan-400"></i> Se déconnecter</a>
+</div>
 
     <div class="main-content">
         <div class="flex justify-between items-center mb-8">
@@ -1200,12 +1197,12 @@
     document.getElementById('user-role').textContent = role;
 
     document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('dashboard-link').addEventListener('click', (e) => { e.preventDefault(); loadDashboard(); });
-        document.getElementById('inter-hospital-link').addEventListener('click', (e) => { e.preventDefault(); openInterHospitalModal(); });
-        document.getElementById('dicom-link').addEventListener('click', (e) => { e.preventDefault(); loadDicomImages(); });
-        document.getElementById('appointments-link').addEventListener('click', (e) => { e.preventDefault(); loadAppointments(); });
-        document.getElementById('patients-list-link').addEventListener('click', (e) => { e.preventDefault(); loadPatientsList(); });
-        document.getElementById('logout-link').addEventListener('click', (e) => { e.preventDefault(); logout(); });
+
+        loadProfile();
+
+document.getElementById('appointments-link').addEventListener('click', (e) => { e.preventDefault(); loadAppointments(); });
+    document.getElementById('patients-list-link').addEventListener('click', (e) => { e.preventDefault(); loadPatientsList(); });
+    document.getElementById('logout-link').addEventListener('click', (e) => { e.preventDefault(); logout(); });
 
         document.getElementById('upload-dicom-form')?.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -1382,38 +1379,100 @@
         loadDashboard();
     });
 
-    async function loadDashboard() {
-        document.getElementById('dashboard-title').textContent = 'Tableau de bord';
-        document.getElementById('action-buttons').innerHTML = '';
-        document.getElementById('dashboard-content').innerHTML = `
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="card">
-                    <h3 class="text-xl font-semibold text-white mb-4">Répartition par sexe</h3>
-                    <canvas id="genderChart"></canvas>
-                </div>
-                <div class="card">
-                    <h3 class="text-xl font-semibold text-white mb-4">Rendez-vous par semaine</h3>
-                    <canvas id="appointmentsChart"></canvas>
-                </div>
+   async function loadDashboard() {
+    document.getElementById('dashboard-title').textContent = 'Tableau de bord';
+    document.getElementById('action-buttons').innerHTML = '';
+    document.getElementById('dashboard-content').innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card">
+                <h3 class="text-xl font-semibold text-white mb-4">Répartition par sexe</h3>
+                <canvas id="genderChart"></canvas>
             </div>
-        `;
-        try {
-            const [patientsData, appointmentsData] = await Promise.all([
-                fetch('http://localhost/projet-medical/api/patients', { headers: { 'Authorization': `Bearer ${token}` } }).then(r => r.json()),
-                fetch('http://localhost/projet-medical/api/rendezvous.php', { headers: { 'Authorization': `Bearer ${token}` } }).then(r => r.json())
-            ]);
-            const genderData = patientsData.reduce((acc, p) => { acc[p.sexe || 'N/A'] = (acc[p.sexe || 'N/A'] || 0) + 1; return acc; }, {});
-            new Chart(document.getElementById('genderChart'), {
-                type: 'pie', data: { labels: Object.keys(genderData), datasets: [{ data: Object.values(genderData), backgroundColor: ['#06b6d4', '#22d3ee', '#64748b'] }] },
-                options: { responsive: true, plugins: { legend: { position: 'top', labels: { color: 'white' } }, title: { display: true, text: 'Patients par sexe', color: 'white' } } }
-            });
-            const appointmentsByWeek = appointmentsData.reduce((acc, a) => { const week = new Date(a.date_rdv).toLocaleDateString('fr-FR', { week: 'numeric', year: 'numeric' }); acc[week] = (acc[week] || 0) + 1; return acc; }, {});
-            new Chart(document.getElementById('appointmentsChart'), {
-                type: 'bar', data: { labels: Object.keys(appointmentsByWeek), datasets: [{ label: 'Rendez-vous', data: Object.values(appointmentsByWeek), backgroundColor: '#06b6d4' }] },
-                options: { responsive: true, plugins: { legend: { labels: { color: 'white' } }, title: { display: true, text: 'Rendez-vous par semaine', color: 'white' } }, scales: { x: { ticks: { color: 'white' } }, y: { beginAtZero: true, ticks: { color: 'white' } } } }
-            });
-        } catch (error) { console.error('Erreur tableau de bord:', error); document.getElementById('dashboard-content').innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`; }
+            <div class="card">
+                <h3 class="text-xl font-semibold text-white mb-4">Rendez-vous par semaine</h3>
+                <canvas id="appointmentsChart"></canvas>
+            </div>
+        </div>
+    `;
+    try {
+        const [patientsResponse, appointmentsData] = await Promise.all([
+            fetch('http://localhost/projet-medical/api/patients', { headers: { 'Authorization': `Bearer ${token}` } }),
+            fetch('http://localhost/projet-medical/api/rendezvous.php', { headers: { 'Authorization': `Bearer ${token}` } })
+        ]);
+        const patientsData = await patientsResponse.json();
+        const appointmentsDataJson = await appointmentsData.json();
+
+        // Vérifier si patientsData est un objet avec une propriété 'patients'
+        const patientList = Array.isArray(patientsData) ? patientsData : (patientsData.patients || []);
+        const genderData = patientList.reduce((acc, p) => { 
+            acc[p.sexe || 'N/A'] = (acc[p.sexe || 'N/A'] || 0) + 1; 
+            return acc; 
+        }, {});
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie', data: { labels: Object.keys(genderData), datasets: [{ data: Object.values(genderData), backgroundColor: ['#06b6d4', '#22d3ee', '#64748b'] }] },
+            options: { responsive: true, plugins: { legend: { position: 'top', labels: { color: 'white' } }, title: { display: true, text: 'Patients par sexe', color: 'white' } } }
+        });
+        const appointmentsByWeek = Array.isArray(appointmentsDataJson) ? appointmentsDataJson.reduce((acc, a) => { 
+            const week = new Date(a.date_rdv).toLocaleDateString('fr-FR', { week: 'numeric', year: 'numeric' }); 
+            acc[week] = (acc[week] || 0) + 1; 
+            return acc; 
+        }, {}) : {};
+        new Chart(document.getElementById('appointmentsChart'), {
+            type: 'bar', data: { labels: Object.keys(appointmentsByWeek), datasets: [{ label: 'Rendez-vous', data: Object.values(appointmentsByWeek), backgroundColor: '#06b6d4' }] },
+            options: { responsive: true, plugins: { legend: { labels: { color: 'white' } }, title: { display: true, text: 'Rendez-vous par semaine', color: 'white' } }, scales: { x: { ticks: { color: 'white' } }, y: { beginAtZero: true, ticks: { color: 'white' } } } }
+        });
+    } catch (error) {
+        console.error('Erreur tableau de bord:', error);
+        document.getElementById('dashboard-content').innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
     }
+}
+async function loadProfile() {
+    document.getElementById('dashboard-title').textContent = 'Mon Profil';
+    document.getElementById('action-buttons').innerHTML = '';
+    document.getElementById('dashboard-content').innerHTML = '<div id="profile-content" class="card"></div>';
+
+    try {
+        // Tentative de récupération des données du profil
+        const response = await fetch('http://localhost/projet-medical/api/profile', {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        let profileData;
+        if (response.ok) {
+            profileData = await response.json();
+        } else {
+            console.warn('API /profile non trouvée, utilisation de données par défaut');
+            profileData = {
+                nom: 'Médecin',
+                prenom: 'Connecté',
+                email: 'medecin@example.com',
+                telephone: 'Non spécifié',
+                adresse: 'Non spécifiée'
+            };
+        }
+
+        const content = document.getElementById('profile-content');
+        if (content) {
+            content.innerHTML = `
+                <h3 class="text-xl font-semibold text-white mb-4">Informations du Médecin</h3>
+                <p><strong>Rôle:</strong> ${role}</p>
+                <p><strong>Nom:</strong> ${profileData.nom || 'Non spécifié'}</p>
+                <p><strong>Prénom:</strong> ${profileData.prenom || 'Non spécifié'}</p>
+                <p><strong>Email:</strong> ${profileData.email || 'Non spécifié'}</p>
+                <p><strong>Téléphone:</strong> ${profileData.telephone || 'Non spécifié'}</p>
+                <p><strong>Adresse:</strong> ${profileData.adresse || 'Non spécifié'}</p>
+                <div class="mt-4">
+                    <button class="btn-primary" onclick="openEditProfileModal()">Modifier Profil</button>
+                </div>
+            `;
+        }
+    } catch (error) {
+        console.error('Erreur chargement profil:', error);
+        const content = document.getElementById('profile-content');
+        if (content) {
+            content.innerHTML = `<p class="text-red-400">Erreur: ${error.message}</p>`;
+        }
+    }
+}
 
     <!-- appointement -->
 function openScheduleAppointmentModal(patientId) {
@@ -2612,45 +2671,59 @@ function shareMedicalRecord(patientId) {
 
 function downloadMedicalRecord() {
     const patientId = document.getElementById('medical-record-patient-id')?.value;
+    const patientName = document.getElementById('medical-record-patient-name')?.value || `Patient_${patientId}`;
     const modalContent = document.querySelector('#medical-record-modal .modal-content');
+
     if (!patientId || !modalContent || modalContent.innerHTML.includes('Chargement')) {
         alert('Veuillez attendre que les données soient chargées avant de télécharger.');
         return;
     }
 
-    // Extraire uniquement le contenu pertinent
+    // Check if the modal is in edit mode
+    if (modalContent.querySelector('#editMedicalRecordForm')) {
+        alert('Veuillez quitter le mode édition avant de télécharger.');
+        return;
+    }
+
+    // Extract content from .bg-gray-800 divs
     const contentDivs = modalContent.querySelectorAll('.bg-gray-800');
+    if (contentDivs.length === 0) {
+        alert('Aucun contenu médical disponible pour télécharger.');
+        return;
+    }
+
     let htmlContent = `
         <!DOCTYPE html>
         <html lang="fr">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Dossier Médical - Patient ID: ${patientId}</title>
+            <title>Dossier Médical - ${patientName}</title>
             <style>
                 body { font-family: Arial, sans-serif; background-color: #f9fafb; color: #1f2937; padding: 1rem; }
                 .card { background-color: #e5e7eb; padding: 1rem; margin-bottom: 1rem; border-radius: 0.5rem; }
                 h4 { font-size: 1.125rem; font-weight: 600; color: #1e40af; margin-bottom: 0.5rem; }
                 p { margin: 0; }
+                .missing { color: #dc2626; font-style: italic; }
             </style>
         </head>
         <body>
-            <h2>Dossier Médical - Patient ID: ${patientId}</h2>
+            <h2>Dossier Médical - ${patientName}</h2>
     `;
 
     contentDivs.forEach(div => {
-        const h4 = div.querySelector('h4').textContent;
-        const p = div.querySelector('p').textContent;
+        const h4 = div.querySelector('h4')?.textContent || 'Section manquante';
+        const p = div.querySelector('p')?.textContent || 'Données non disponibles';
         htmlContent += `
             <div class="card">
-                <h4>${h4}</h4>
-                <p>${p}</p>
+                <h4${h4 === 'Section manquante' ? ' class="missing"' : ''}>${h4}</h4>
+                <p${p === 'Données non disponibles' ? ' class="missing"' : ''}>${p}</p>
             </div>
         `;
     });
 
     htmlContent += `
-        <p><strong>Dernière Mise à Jour:</strong> ${new Date().toLocaleString('fr-FR')}</p>
+        <p><strong>Dernière Mise à Jour:</strong> ${new Date().toLocaleString('fr-FR', { timeZone: 'GMT' })}</p>
         </body>
         </html>
     `;
@@ -2659,7 +2732,7 @@ function downloadMedicalRecord() {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `dossier_medical_patient_${patientId}.html`;
+    a.download = `dossier_medical_${patientName.replace(/\s+/g, '_')}.html`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
